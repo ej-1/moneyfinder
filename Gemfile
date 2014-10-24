@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'haml', '4.0'
 
+gem 'heroku'
+
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
 gem 'rails_admin'
 
@@ -12,8 +14,17 @@ gem 'settingslogic'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Use sqlite3 as the database for Active Record (When deploying to heroku for first time,
+# had to change to from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)
+# t did not want to install pg. How to fit it : http://wikimatze.de/installing-postgresql-gem-under-ubuntu-and-mac/
+# When rake db.create did noto work https://teamtreehouse.com/forum/issues-trying-to-push-to-heroku
+group :development, :test do
+    gem 'sqlite3'
+end
+
+gem "pg"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
