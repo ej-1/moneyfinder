@@ -1,0 +1,45 @@
+<h2>Sparräntor</h2>
+
+<%= @rates.first.bank %>
+<%= @rates.first.min_rate %>
+<%= @rates.first.max_rate %>
+
+<span3>
+  <h4>Bank</h4>
+  <h4>Sparkonto</h4>
+  <h4>Villkor</h4>
+  <h4>Uttag</h4>
+  <h4>Ränta</h4>
+  <h4>Tidskrav</h4>
+  <h4>Insättningsgaranti</h4>
+  <h4>Ansök</h4>
+</span3>
+
+<p>Swedbank</p>
+<p>Swedbank</p>
+
+<table cellpadding="1" cellspacing="1" id="resultTable">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mannix</td>
+      <td>Bolton</td>
+    </tr>
+    <tr>
+      <td>Erik</td>
+      <td>Jonsson</td>
+    </tr>
+    <tr>
+      <td>Exo</td>
+      <td>Dar</td>
+    </tr>
+    ...
+  </tbody>
+</table>

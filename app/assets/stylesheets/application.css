@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+table {
+  background-color: white;
+  width: 100%;
+  font-size: 12.5px;
+}
+
+tbody td {
+  background-color: white;
+}
+
+tbody td.odd {
+  background-color: #E0E0E0;
+}
+
+td.hovered {
+  /* background-color: #ADD866; */
+  background-color: #CCE99D;
+
+  color: #666;
+}
+
+/* For column sorting */
+th.sortable {
+    color: #666;
+    cursor: pointer;
+    text-decoration: underline;
+}
+th.sortable:hover { color: black; }
+th.sorted-asc, th.sorted-desc  { color: black; }
+
+/* My personal design */
+
+tbody th {
+  width: 100px;
+}
+
+.column-center {
+  text-align: center;
+}
+
+.content-top {
+  margin-top: 20px;
+}
+
+.green {
+  color: rgba(69, 203, 0, 1);
+}
