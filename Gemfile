@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'haml', '4.0'
@@ -20,7 +21,7 @@ gem 'rails', '4.1.4'
 gem 'thin'
 
 # Added these lines because heroku told me to before uploading the app
-#ruby '2.0.0'
+
 gem 'rails_12factor'
 gem 'unicorn'
 
