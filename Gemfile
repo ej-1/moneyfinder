@@ -7,7 +7,7 @@ gem 'haml', '4.0'
 gem 'heroku'
 
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
-gem 'rails_admin'
+gem 'rails_admin', '~> 0.6.5'
 
 #Enables login to admin https://github.com/binarylogic/settingslogic.
 #Read this http://dev.mensfeld.pl/2014/03/ruby-on-rails-railsadmin-http-basic-authentication/
