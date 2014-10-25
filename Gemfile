@@ -19,6 +19,12 @@ gem 'rails', '4.1.4'
 # ..so I added this http://stackoverflow.com/questions/9612618/warn-could-not-determine-content-length-of-response-body-set-content-length-of
 gem 'thin'
 
+# Added these lines because heroku told me to before uploading the app
+#ruby '2.0.0'
+gem 'rails_12factor'
+gem 'unicorn'
+
+
 # Use sqlite3 as the database for Active Record (When deploying to heroku for first time,
 # had to change to from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)
 # t did not want to install pg. How to fit it : http://wikimatze.de/installing-postgresql-gem-under-ubuntu-and-mac/
