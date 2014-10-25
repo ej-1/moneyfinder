@@ -15,6 +15,10 @@ gem 'settingslogic'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 
+# I got this message in the terminal:  WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
+# ..so I added this http://stackoverflow.com/questions/9612618/warn-could-not-determine-content-length-of-response-body-set-content-length-of
+gem 'thin'
+
 # Use sqlite3 as the database for Active Record (When deploying to heroku for first time,
 # had to change to from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)
 # t did not want to install pg. How to fit it : http://wikimatze.de/installing-postgresql-gem-under-ubuntu-and-mac/
