@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 end
 
 # https://github.com/sferik/rails_admin/wiki/Troubleshoot to get rails_admin to work
-config.assets.enabled = true
+#config.assets.enabled = true
 #config.assets.initialize_on_precompile = false
 #config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
