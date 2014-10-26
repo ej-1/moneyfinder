@@ -18,23 +18,45 @@
 
 
 
-
+//TROUBLESHOOTING: If script does not load the first time, only after refreshing web page
+// Answer is to put code that calls for jquery in the views/layout/application.html.erb insidse body intead of head
+//https://forum.jquery.com/topic/script-only-works-after-a-refresh
+//https://forum.jquery.com/topic/script-not-running-unless-i-refresh-page
 
 //HOW TO ADD HOVERING, COLUMN SORTING AND ZEBRA PATTERN
 //http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351
-
-//used to apply alternating row styles
-function zebraRows(selector, className)
-{
-  $(selector).removeClass(className).addClass(className);
-}
-
 
 
 
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
+
+
+
+  //used to apply alternating row styles
+    function zebraRows(selector, className)
+  {
+    $(selector).removeClass(className).addClass(className);
+  }
+
+
+  // CODE FOR MAKING NAVPILL SWITCH COLOR WHEN SELECTED/DESELECTED - FUNKAR INTE
+  // http://jsfiddle.net/Y36FV/
+  // select first list item
+  //$("li:first").addClass("active");
+
+  // select third list item
+  var liToSelect = 3;
+  $(".nav.nav-pills li:eq("+(liToSelect-1)+")").addClass("active");
+
+  // dynamically activate list items when clicked
+  $(".nav.nav-pills li").on("click",function(){
+    $(".nav.nav-pills li").removeClass("active");
+    $(this).addClass("active");
+  });
+
+
 
   //when hovering over
   $('tbody tr').hover(function(){
@@ -91,19 +113,3 @@ $(document).ready(function() {
 });
 // THIS IS WHERE THE CODE FROM CODE.TUTSPLUS ENDS
 //http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351
-
-
-// CODE FOR MAKING NAVPIL SWITCH COLOR WHEN SELECTED/DESELECTED - FUNKAR INTEE
-// http://jsfiddle.net/Y36FV/
-// select first list item
-//$("li:first").addClass("active");
-
-// select third list item
-var liToSelect = 3;
-$(".nav.nav-pills li:eq("+(liToSelect-1)+")").addClass("active");
-
-// dynamically activate list items when clicked
-$(".nav.nav-pills li").on("click",function(){
-  $(".nav.nav-pills li").removeClass("active");
-  $(this).addClass("active");
-});

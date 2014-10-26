@@ -1,4 +1,4 @@
-
+require 'uri'
 class HelloController < ApplicationController
   def world
     @message = "<p>Hello world!</p>"
@@ -10,33 +10,13 @@ class HelloController < ApplicationController
   Strängarna hämtas, men måste sedan göras om till länkar.
   Det enkla sättet att sätta koden för att kalla på data från active record inom en länk htmlsats funkar inte.
   http://www.sitepoint.com/making-links/
+
+  Jag tog endast den delen av koden som jag behövde, det vill säga, makelink(url)
 =end
 
-  require 'uri'
-
-  def stringtolink(url)
-    def makelink(url)
-      puts '<a href="' + url + '">' + url + '</a>'
-    end
-     
-    def isURL(word)
-      if word =~ URI::regexp
-        makelink(word)
-      else
-        puts word
-      end
-    end
-     
-    def hasURL(note)
-      words = note.split
-      words.each do |word|
-        isURL(word)
-      end
-    end
-    
-    hasURL(NOTE)
+  def makelink(url)
+    puts '<a href="' + url + '">' + url + '</a>'
   end
-
 end
 
 
