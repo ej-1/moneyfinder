@@ -9,6 +9,11 @@
 // http://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
 // www.rubyfleebie.com/strip-insignificant-zeros-from-a-float-in-rails/
 = require 'uri'
+//%ruby
+//  %rt def makelink(url)
+//      puts '<a href="' + url + '">' + url + '</a>'
+//      end
+
 
 %h1 Sparräntor
 %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
@@ -37,8 +42,13 @@
         %td= rate.withdrawal
         %td= rate.account_time_length
         %td= rate.deposit_guarantee
-        %td= rate.web_link
-        //%td= makelink('http://www.swedbank.com/ruby/')
+        //%td= url = rate.web_link
+        %td= rate.web_link.html_safe
+        //%td= url = "http://www.swedbank.com/ruby/"
+        //== '<a href=' + url + '>' + url + '</a>'
+
+        //%td= 'http://www.swedbank.com/ruby/'
+        //%p http://www.swedbank.com/ruby/
 
 
 

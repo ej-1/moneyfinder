@@ -13,9 +13,10 @@ require 'uri'
  
 
 
-def makelink(url)
-  puts '<a href="' + url + '">' + url + '</a>'
-end
+#def makelink(url)
+url = "http://www.swedbank.com/ruby/"
+puts '<a href="' + url + '">' + url + '</a>'
+#end
 
 
 #makelink('http://www.swedbank.com/ruby/')
