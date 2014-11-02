@@ -11,6 +11,7 @@ gem 'rails_admin', '~> 0.6.5'
 
 #Enables login to admin https://github.com/binarylogic/settingslogic.
 #Read this http://dev.mensfeld.pl/2014/03/ruby-on-rails-railsadmin-http-basic-authentication/
+#Don't think I need this
 gem 'settingslogic'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,15 +27,15 @@ gem 'rails_12factor'
 gem 'unicorn'
 
 
-# Use sqlite3 as the database for Active Record (When deploying to heroku for first time,
-# had to change to from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)
-# t did not want to install pg. How to fit it : http://wikimatze.de/installing-postgresql-gem-under-ubuntu-and-mac/
-# When rake db.create did noto work https://teamtreehouse.com/forum/issues-trying-to-push-to-heroku
+# Used sqlite3 as the database for Active Record (when trying to deploy to heroku for first time,
+# had to change from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)
+# The terminal did not want to install pg. How to fit it : http://wikimatze.de/installing-postgresql-gem-under-ubuntu-and-mac/
+# When rake db.create did not work https://teamtreehouse.com/forum/issues-trying-to-push-to-heroku
 group :development, :test do
     gem 'sqlite3'
 end
 
-gem "pg"
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

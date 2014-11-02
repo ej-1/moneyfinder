@@ -22,5 +22,5 @@ test:
 
 production:
   adapter: postgresql
-  database: my_database_production
-  
+  database: mylocaldb
+# my_database_production
