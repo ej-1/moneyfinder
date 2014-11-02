@@ -43,7 +43,7 @@
         %td= rate.account_time_length
         %td= rate.deposit_guarantee
         //%td= url = rate.web_link
-        //%td= rate.web_link.html_safe
+        %td= rate.web_link.to_s.html_safe
         //%td= url = "http://www.swedbank.com/ruby/"
         //== '<a href=' + url + '>' + url + '</a>'
 
