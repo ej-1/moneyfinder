@@ -26,6 +26,10 @@ gem 'thin'
 gem 'rails_12factor'
 gem 'unicorn'
 
+# Added this to try and get the data from my database in development to production so it goes to heroku.
+# https://coderwall.com/p/90qymq
+gem 'yaml_db'
+
 
 # Used sqlite3 as the database for Active Record (when trying to deploy to heroku for first time,
 # had to change from gem 'sqlite3' to gem 'pg' to work. https://devcenter.heroku.com/articles/sqlite3)

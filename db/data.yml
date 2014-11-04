@@ -1,0 +1,122 @@
+
+---
+rates:
+  columns:
+  - id
+  - bank
+  - min_rate
+  - max_rate
+  - created_at
+  - updated_at
+  - country
+  - currency
+  - conditions
+  - withdrawal
+  - account_time_length
+  - deposit_guarantee
+  - web_link
+  records: 
+  - - 3
+    - Swedbank
+    - 1
+    - 2
+    - '2014-11-03 18:42:50.136809'
+    - '2014-11-03 18:42:50.136809'
+    - Sweden
+    - SEK
+    - Inga villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.swedbank.se/">Ansök här</a>
+  - - 4
+    - 4spar
+    - 5
+    - 10
+    - '2014-11-03 18:42:50.346932'
+    - '2014-11-03 18:42:50.346932'
+    - Sweden
+    - SEK
+    - Vissa villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.swedbank.se/">Ansök här</a>
+  - - 5
+    - Swedbank
+    - 1
+    - 2
+    - '2014-11-03 18:45:01.812000'
+    - '2014-11-03 18:45:01.812000'
+    - Sweden
+    - SEK
+    - Inga villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.swedbank.se/">Ansök här</a>
+  - - 6
+    - 4spar
+    - 5
+    - 10
+    - '2014-11-03 18:45:02.059383'
+    - '2014-11-03 18:45:02.059383'
+    - Sweden
+    - SEK
+    - Vissa villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.4spar.se/">Ansök här</a>
+  - - 7
+    - Ikano
+    - 3
+    - 5
+    - '2014-11-03 18:45:02.237526'
+    - '2014-11-03 18:45:02.237526'
+    - Sweden
+    - SEK
+    - Inga villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.ikano.se/">Ansök här</a>
+  - - 8
+    - Swedbank
+    - 1
+    - 2
+    - '2014-11-03 19:45:50.685188'
+    - '2014-11-03 19:45:50.685188'
+    - Sweden
+    - SEK
+    - Inga villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.swedbank.se/">Ansök här</a>
+  - - 9
+    - 4spar
+    - 5
+    - 10
+    - '2014-11-03 19:45:50.901965'
+    - '2014-11-03 19:45:50.901965'
+    - Sweden
+    - SEK
+    - Vissa villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.4spar.se/">Ansök här</a>
+  - - 10
+    - Ikano
+    - 3
+    - 5
+    - '2014-11-03 19:45:51.092026'
+    - '2014-11-03 19:45:51.092026'
+    - Sweden
+    - SEK
+    - Inga villkor
+    - Obegränsat
+    - 
+    - Ja
+    - <a class="btn btn-success btn-small" href="http://www.ikano.se/">Ansök här</a>
