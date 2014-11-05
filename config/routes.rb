@@ -12,8 +12,9 @@ Ratesfinder::Application.routes.draw do
   # Ändra på första 'om' för att ändra webadressen
   get "om" => 'hello#om'
   get "kontakt" => 'hello#kontakt'
+  get "sparrantor" => 'rates#index'
   # Den här raden hämtar view-filen 'home' i mappen hello. app/views/hello/home
-  root :to => 'hello#home'
+  root :to => 'rates#index'
 end
 
 

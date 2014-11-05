@@ -50,6 +50,8 @@ table {
 
 tbody td {
   background-color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 tbody td.odd {
@@ -59,7 +61,6 @@ tbody td.odd {
 td.hovered {
   /* background-color: #ADD866; */
   background-color: #CCE99D;
-
   color: #666;
 }
 
@@ -87,5 +88,6 @@ tbody th {
 }
 
 .green {
-  color: rgba(69, 203, 0, 1);
+ /* color: rgba(69, 203, 0, 1);*/
+ color: #08C;
 }

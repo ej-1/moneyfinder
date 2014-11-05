@@ -1,0 +1,75 @@
+
+// HOW TO GET A DATA FILTER AND ZEBRA PATTERN
+// http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351
+
+// HOW TO GET ACTIVERECORD TO WORK WITHIN HTML TABLE
+// http://edgeguides.rubyonrails.org/layouts_and_rendering.html
+
+// HOW TO TRANSFORM DECIMALS INTO PERCENTAGES AND REMOVE THE INSIGNIFICANT ZEROES
+// http://api.rubyonrails.org/classes/ActionView/Helpers/NumberHelper.html
+// www.rubyfleebie.com/strip-insignificant-zeros-from-a-float-in-rails/
+= require 'uri'
+//%ruby
+//  %rt def makelink(url)
+//      puts '<a href="' + url + '">' + url + '</a>'
+//      end
+
+
+%h1 Sparräntor
+%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+  %thead
+    %tr
+      %th Bank
+      %th Lägsta räntan
+      %th Högsta räntan
+      // %th Land
+      // %th Valuta
+      %th Villkor
+      %th Uttag
+      %th Tidsvillkor
+      %th Insättningsgaranti
+      %th Ansök   
+      // %th Uppdaterad
+  %tbody
+    - @rates.each do |rate|
+      %tr
+        %td= rate.bank
+        %td.column-center= number_to_percentage(rate.min_rate, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(rate.max_rate, strip_insignificant_zeros: true)
+        // %td= rate.country
+        // %td= rate.currency
+        %td= rate.conditions
+        %td= rate.withdrawal
+        %td= rate.account_time_length
+        %td= rate.deposit_guarantee
+        //%td= url = rate.web_link
+        %td= rate.web_link.to_s.html_safe
+        //%td= url = "http://www.swedbank.com/ruby/"
+        //== '<a href=' + url + '>' + url + '</a>'
+
+        //%td= 'http://www.swedbank.com/ruby/'
+        //%p http://www.swedbank.com/ruby/
+
+
+
+
+// %td= rate.updated_at
+//= rate.web_link
+
+
+
+// = @rates.first.country
+// = @rates.first.currency
+// = @rates.first.conditions
+// = @rates.first.withdrawal
+// = @rates.first.account_time_length
+// = @rates.first.deposit_guarantee
+// = @rates.first.updated_at
+
+// google = rails view get active record sort
+// http://stackoverflow.com/questions/742700/rails-active-record-findall-order-issue
+
+// list of methods http://ruby-doc.org/core-2.1.3/Enumerable.html
+
+//= @rates = Rate.find(:all, :order => "min_rate DESC")
+//= @rates.sort_by &:min_rate
