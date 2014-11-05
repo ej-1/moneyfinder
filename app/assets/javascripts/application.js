@@ -28,6 +28,7 @@
 
 
 
+
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
@@ -47,14 +48,18 @@ $(document).ready(function() {
   //$("li:first").addClass("active");
 
   // select third list item
-  var liToSelect = 3;
-  $(".nav.nav-pills li:eq("+(liToSelect-1)+")").addClass("active");
+  //var liToSelect = 3;
+  //$(".nav.nav-pills li:eq("+(liToSelect-1)+")").addClass("active");
 
   // dynamically activate list items when clicked
-  $(".nav.nav-pills li").on("click",function(){
-    $(".nav.nav-pills li").removeClass("active");
-    $(this).addClass("active");
-  });
+ // $(".nav.nav-pills li").on("click",function(){
+ //     $(".nav.nav-pills li").removeClass("active");
+ //     $(this).addClass("active");
+ //   });
+
+
+
+
 
 
 

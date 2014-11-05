@@ -60,7 +60,8 @@ tbody td.odd {
 
 td.hovered {
   /* background-color: #ADD866; */
-  background-color: #CCE99D;
+  /* background-color: #CCE99D; */
+  background-color: lightblue;
   color: #666;
 }
 
@@ -87,7 +88,7 @@ tbody th {
   margin-top: 20px;
 }
 
-.green {
- /* color: rgba(69, 203, 0, 1);*/
- color: #08C;
+.grey-title {
+ color: rgba(174, 174, 174, 1);
+ /* color: #08C;*/
 }
