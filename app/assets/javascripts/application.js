@@ -76,6 +76,8 @@ $(document).ready(function() {
     $(this).addClass('sortable').click(function(){
       var findSortKey = function($cell) {
         return $cell.find('.sort-key').text().toUpperCase() + ' ' + $cell.text().toUpperCase();
+      if(! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) )
+        return (parseFloat(a.sortKey) - parseFloat(b.sortKey))*sortDirection;
       };
       var sortDirection = $(this).is('.sorted-asc') ? -1 : 1;
    
