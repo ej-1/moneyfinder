@@ -3,21 +3,31 @@
   %thead
     %tr
       %th Bank
-      %th Lägsta räntan
-      %th Högsta räntan
+      %th
+        Lägsta
+        %br>/
+        räntan
+      %th
+        Högsta
+        %br>/
+        räntan
       %th Villkor
       %th Uttag
       %th Tidsvillkor
-      %th Insättningsgaranti
+      %th 
+        Insättnings-
+        %br>/
+        garanti
+
       %th Ansök   
   %tbody
     - @rates.each do |rate|
       %tr
-        %td= rate.bank
+        %td.bank-padding= rate.bank
         %td.column-center= number_to_percentage(rate.min_rate, strip_insignificant_zeros: true)
         %td.column-center= number_to_percentage(rate.max_rate, strip_insignificant_zeros: true)
         %td= rate.conditions
         %td= rate.withdrawal
         %td= rate.account_time_length
-        %td= rate.deposit_guarantee
+        %td.column-center= rate.deposit_guarantee
         %td= rate.web_link.to_s.html_safe

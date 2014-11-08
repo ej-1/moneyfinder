@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023170042) do
+ActiveRecord::Schema.define(version: 20141108003949) do
 
   create_table "rates", force: true do |t|
     t.string   "bank"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20141023170042) do
     t.integer  "account_time_length"
     t.string   "deposit_guarantee"
     t.string   "web_link"
+    t.string   "amount_limit"
   end
 
 end

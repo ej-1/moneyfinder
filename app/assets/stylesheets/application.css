@@ -82,6 +82,7 @@ tbody th {
 
 .column-center {
   text-align: center;
+  padding-left: 10px;  
 }
 
 .content-top {
@@ -91,4 +92,16 @@ tbody th {
 .grey-title {
  color: rgba(174, 174, 174, 1);
  /* color: #08C;*/
+}
+
+.rates-padding{
+  width: 0px;
+}
+
+.rates-padding2{
+  padding-right: 5px;
+}
+
+.bank-padding{
+  padding-right: 5px;
 }
