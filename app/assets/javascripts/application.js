@@ -93,7 +93,7 @@ $(document).ready(function() {
 
       //compare and sort the rows alphabetically
       $rows.sort(function(a, b) {
-          if (! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) )
+          if(! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) ); 
           return (parseFloat(a.sortKey) - parseFloat(b.sortKey))*sortDirection;
           if (a.sortKey < b.sortKey) return -sortDirection;
           if (a.sortKey > b.sortKey) return sortDirection;
