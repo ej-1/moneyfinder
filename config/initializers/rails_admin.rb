@@ -17,21 +17,13 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   # Erik: I put in this code to create a log-in page for rails_admin.
-#  config.authenticate_with do
-#    authenticate_or_request_with_http_basic do |username, password|
-#      username == 'admin' &&
-#      password == 'rx0001'
-#    end
-#  end
-
-
-RailsAdmin.config do |config|
   config.authenticate_with do
-    redircet_to root_path unless warden.user.role.eql?(3)
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'admin' &&
+      password == 'rx0001'
+    end
   end
-end 
-
-
+  
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
