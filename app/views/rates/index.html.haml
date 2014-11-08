@@ -11,9 +11,12 @@
         Högsta
         %br>/
         räntan
-      %th Villkor
-      %th Uttag
       %th Tidsvillkor
+      %th Uttag
+      %th 
+        Insättnings
+        %br>/
+        belopp
       %th 
         Insättnings-
         %br>/
@@ -28,6 +31,6 @@
         %td.column-center= number_to_percentage(rate.max_rate, strip_insignificant_zeros: true)
         %td= rate.conditions
         %td= rate.withdrawal
-        %td= rate.account_time_length
+        %td= rate.amount_limit
         %td.column-center= rate.deposit_guarantee
         %td= rate.web_link.to_s.html_safe
