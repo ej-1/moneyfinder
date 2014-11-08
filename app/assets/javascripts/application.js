@@ -76,8 +76,6 @@ $(document).ready(function() {
     $(this).addClass('sortable').click(function(){
       var findSortKey = function($cell) {
         return $cell.find('.sort-key').text().toUpperCase() + ' ' + $cell.text().toUpperCase();
-      if(! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) )
-        return (parseFloat(a.sortKey) - parseFloat(b.sortKey))*sortDirection;
       };
       var sortDirection = $(this).is('.sorted-asc') ? -1 : 1;
    
@@ -90,8 +88,13 @@ $(document).ready(function() {
         row.sortKey = findSortKey($(row).children('td').eq(column));
       });
    
+
+
+
       //compare and sort the rows alphabetically
       $rows.sort(function(a, b) {
+          if (! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) )
+          return (parseFloat(a.sortKey) - parseFloat(b.sortKey))*sortDirection;
           if (a.sortKey < b.sortKey) return -sortDirection;
           if (a.sortKey > b.sortKey) return sortDirection;
           return 0;
