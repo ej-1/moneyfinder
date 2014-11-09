@@ -13,14 +13,14 @@
         räntan
       %th Bindningstid
       %th Fria uttag
-      %th
-        Insättnings
-        %br>/
-        belopp
       %th 
         Insättnings-
         %br>/
         garanti
+      %th
+        Insättnings
+        %br>/
+        belopp
       %th
   %tbody
     - @rates.each do |rate|
@@ -28,8 +28,8 @@
         %td.bank-padding= rate.bank
         %td.column-center= number_to_percentage(rate.min_rate, strip_insignificant_zeros: true)
         %td.column-center= number_to_percentage(rate.max_rate, strip_insignificant_zeros: true)
-        %td= rate.conditions
+        %td.column-center= rate.conditions
         %td= rate.withdrawal
-        %td= rate.amount_limit
         %td.column-center= rate.deposit_guarantee
+        %td= rate.amount_limit
         %td= rate.web_link.to_s.html_safe
