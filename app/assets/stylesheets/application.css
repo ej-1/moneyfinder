@@ -105,3 +105,7 @@ tbody th {
 .bank-padding{
   padding-right: 5px;
 }
+
+.top-buffer{
+  padding-top: 30px;
+}
