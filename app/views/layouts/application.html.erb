@@ -23,16 +23,33 @@
 
     </script>
 
+    <!-- Facebook plugin -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'sv'}
+</script>
+
 
   </head>
 
   <body>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turb<olinks-track' => true %>
     <div class="container-narrow">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="sparrantor">Sparräntor</a></li>
+          <!--<li><a href="landets_rantor">Landets räntor</a></li>-->
+          <!--<li><a href="sparguide">Sparguide</a></li>-->
           <li><a href="om">Om Bästasparräntor.se</a></li>
         </ul>
         <h3 class="grey-title">Bästasparräntor.se</h3>

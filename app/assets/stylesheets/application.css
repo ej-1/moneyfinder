@@ -109,3 +109,17 @@ tbody th {
 .top-buffer{
   padding-top: 30px;
 }
+
+.list-font{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.facebook-likes{
+  padding-right: 300px;
+}
+
+.google-likes{
+  padding-top: 20px;
+  padding-left: 10px;
+}
