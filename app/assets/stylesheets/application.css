@@ -123,3 +123,11 @@ tbody th {
   padding-top: 20px;
   padding-left: 10px;
 }
+
+.paragraph-break{
+  padding-top: 15px;
+}
+
+.list-space{
+  padding-right: 50px;
+}
