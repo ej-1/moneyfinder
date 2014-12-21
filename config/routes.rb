@@ -17,8 +17,7 @@ Ratesfinder::Application.routes.draw do
   get "sparrantor" => 'rates#index'
   get "sparguide" => 'rates#sparguide'
   get "landets_rantor" => 'rates#landets_rantor'
-  get "lanerantor" => 'loan#lanerantor'
-  get "index" => 'loans#index'  
+  get "lanerantor" => 'loans#lanerantor'  
   # Den här raden hämtar view-filen 'home' i mappen hello. app/views/hello/home
   root :to => 'rates#index'
 end

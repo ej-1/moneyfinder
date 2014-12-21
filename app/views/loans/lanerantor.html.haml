@@ -1,0 +1,14 @@
+%h1 Låneräntor
+%p Söker du ett lån med bra villkor? Nedan listas banker och finansiella institut som erbjuder olika former av lån. Du kan klicka på rubrikerna i listan för att sortera.
+
+%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+  %thead
+    %tr
+      %th Bank
+  %tbody
+    - @loans.each do |loan|
+      %tr
+        %td.bank-padding= loan.bank
+
+
+%p.top-buffer Bästasparräntor.se garanterar inte att information gällande räntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
