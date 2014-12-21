@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Loan.create(bank: 'SBAB')
+
+
 Rate.create(bank: '4spar', min_rate: 5, max_rate: 10, country: 'Sweden', currency: 'SEK', conditions: 'Vissa villkor', withdrawal: 'Obegränsat', deposit_guarantee: 'Ja', web_link: '<a class="btn btn-success btn-small" href="http://www.4spar.se/">Ansök här</a>')
 Rate.create(bank: 'Akelius', min_rate: 3, max_rate: 5, country: 'Sweden', currency: 'SEK', conditions: 'Inga villkor', withdrawal: 'Obegränsat', deposit_guarantee: 'Ja', web_link: '<a class="btn btn-success btn-small" href="http://www.ikano.se/">Ansök här</a>')
 Rate.create(bank: 'Ikano Bank', min_rate: 3, max_rate: 5, country: 'Sweden', currency: 'SEK', conditions: 'Inga villkor', withdrawal: 'Obegränsat', deposit_guarantee: 'Ja', web_link: '<a class="btn btn-success btn-small" href="http://www.ikano.se/">Ansök här</a>')
