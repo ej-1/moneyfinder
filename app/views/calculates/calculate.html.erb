@@ -1,0 +1,13 @@
+<h1> Calculator </h1>
+
+
+<%= form_tag("/calculate", method: "get") do %>
+  <%= label_tag(:number, "Number") %>
+  <%= text_field_tag(:number) %>
+  <%= label_tag(:number2, "Number2") %>
+  <%= text_field_tag(:number2) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+<%=@result3%>

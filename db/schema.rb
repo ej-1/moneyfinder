@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220212847) do
+ActiveRecord::Schema.define(version: 20141222140429) do
 
   create_table "loans", force: true do |t|
     t.string   "bank"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "fixation_rate_3months"
+    t.decimal  "fixation_rate_1year"
+    t.decimal  "fixation_rate_2years"
+    t.decimal  "fixation_rate_3years"
+    t.decimal  "fixation_rate_5years"
+    t.decimal  "fixation_rate_7years"
+    t.decimal  "fixation_rate_10years"
+    t.string   "web_link"
   end
 
   create_table "rates", force: true do |t|

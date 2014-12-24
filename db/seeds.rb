@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Loan.create(bank: 'SBAB')
+Loan.create(bank: 'Ikano Bank', fixation_rate_3months: '3.2', fixation_rate_1year: '3.1', fixation_rate_2years: '2.9', fixation_rate_3years: '2.5', fixation_rate_5years: '3.2', fixation_rate_7years: '3.2', fixation_rate_10years: '3.2', web_link: '<a class="btn btn-success btn-small" href="http://www.ikanobank.se/L%C3%A5na">Ansök här</a>')
+Loan.create(bank: '4Spar', fixation_rate_3months: '3.2', fixation_rate_1year: '3.1', fixation_rate_2years: '2.9', fixation_rate_3years: '2.5', fixation_rate_5years: '3.2', fixation_rate_7years: '3.2', fixation_rate_10years: '3.2')
+Loan.create(bank: 'SBAB', fixation_rate_3months: '3.2', fixation_rate_1year: '3.1', fixation_rate_2years: '2.9', fixation_rate_3years: '2.5', fixation_rate_5years: '3.2', fixation_rate_7years: '3.2', fixation_rate_10years: '3.2')
+Loan.create(bank: 'Akelius', fixation_rate_3months: '2.2', fixation_rate_1year: '2.1', fixation_rate_2years: '2.9', fixation_rate_3years: '2.5', fixation_rate_5years: '3.2', fixation_rate_7years: '3.2', fixation_rate_10years: '3.2')
 
 
 Rate.create(bank: '4spar', min_rate: 5, max_rate: 10, country: 'Sweden', currency: 'SEK', conditions: 'Vissa villkor', withdrawal: 'Obegränsat', deposit_guarantee: 'Ja', web_link: '<a class="btn btn-success btn-small" href="http://www.4spar.se/">Ansök här</a>')

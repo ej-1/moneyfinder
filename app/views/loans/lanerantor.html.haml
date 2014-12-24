@@ -5,10 +5,24 @@
   %thead
     %tr
       %th Bank
+      %th 3 månader
+      %th 1 år
+      %th 2 år
+      %th 3 år
+      %th 5 år
+      %th 7 år
+      %th 10 år
+      %th Ansök
   %tbody
     - @loans.each do |loan|
       %tr
         %td.bank-padding= loan.bank
+        %td.column-center= number_to_percentage(loan.fixation_rate_1year, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(loan.fixation_rate_2years, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(loan.fixation_rate_3years, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(loan.fixation_rate_5years, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(loan.fixation_rate_7years, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(loan.fixation_rate_10years, strip_insignificant_zeros: true)
+        %td.column-center= loan.web_link.to_s.html_safe
 
 
-%p.top-buffer Bästasparräntor.se garanterar inte att information gällande räntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.

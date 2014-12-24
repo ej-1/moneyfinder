@@ -1,0 +1,205 @@
+<form name="calculator" >
+Solution<input type="textfield" name="ans" value="">
+<br>
+<input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+<input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+<input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+<input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+<br>
+<input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+<input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+<input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+<input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+<br>
+<input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+<input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+<input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+<input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+<br>
+<input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+<input type="reset" value="Reset">
+<input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+</form>
+
+
+
+   <script>
+        $(document).ready ( function () {
+            $("#btn1").click ( function () {
+              var resultVal = 0.0;
+               $(".test").each ( function() {
+                   resultVal += parseFloat ( $(this).val().replace(/\s/g,'').replace(',','.'));
+                });
+                alert ( resultVal );  
+            });
+        });
+    </script>
+
+        <input type="text" value="10" class="test" />
+        <input type="text" value="20" class="test" />
+        <input type="text" value="30.50" class="test" />
+        <input type="text" value="1" class="test" />
+        <input type="text" value="1" class="test" />
+        <br />
+        <button id="btn1">click</button>
+
+
+
+<form onsubmit="return false" oninput="amount.value = (((hours.valueAsNumber - rate.valueAsNumber) * vat.valueAsNumber)/12)">
+  <legend>Invoice</legend>
+
+  <p><label for="hours">Number of hours</label>
+  <input type="number" min="0" id="hours" name="hours"></p>
+
+  <p><label for="rate">Rate</label>
+  <span>£</span><input type="number" min="0" id="rate" name="rate"></p>
+
+  <p><label for="vat">VAT</label>
+  <input type="number" min="0" id="vat" value="0.20" name="vat"></p>
+
+  <p>Total: <strong>£<output name="amount" for="hours rate vat">0</output></strong></p>
+</form>
+
+
+
+<h4> http://html5doctor.com/the-output-element/ </h4>
+
+
+
+<form onsubmit="return false" oninput="level.value = flevel.valueAsNumber">
+  <label for="flying">Flying Skill Level</label>
+  <input name="flevel" id="flying" type="range" min="0" max="100" value="0"> 
+  <output for="flying" name="level">0</output>/100
+</form>
+
+
+<h4> http://forum.codecall.net/topic/45833-multiplying-two-textbox-values/ </h4>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function calculate(length, width, ränta)
+{
+     alert(length.value * width.value * ränta.value);
+}
+</script>
+
+<form name="frm">
+<table>
+<tr>
+<td>Belopp</td>
+<td><input type="text" name="len" /></td>
+</tr>
+
+<tr>
+<td>Insats</td>
+<td><input type="text" name="wid" /></td>
+</tr>
+
+<tr>
+<td>Ränta</td>
+<td><input type="text" name="tre" /></td>
+</tr>
+
+
+
+<tr>
+<td><input type="button" name="Submit" value="Submit" onClick="calculate(document.frm.len, document.frm.wid, document.frm.tre)" 
+
+/></td>
+</tr>
+</table>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+// byt ut demo_form.asp mot namnet på controller filen kanske. search for input type html
+%form.top-buffer{:action => "demo_form.asp"}
+  .box Önskat lånebelopp
+  %input{:name => "belopp", :type => "integer"}/
+  %br/
+  .box Kontantinsats
+  %input{:name => "insats", :type => "integer"}/
+  %br/
+  %input{:type => "submit", :value => "Submit"}/
+
+// puts #{(2+19)/3}
+// #{(2+19)/3}
+// #{(:belopp)}
+
+// search for output type html
+%output{:name => "belopp"+"insats"}
+
+
+
+
+%h4 http://html5doctor.com/the-output-element/
+%form{:oninput => "amount.value = (((hours.valueAsNumber - rate.valueAsNumber) * vat.valueAsNumber)/12)", :onsubmit => "return false"}
+  %legend Invoice
+  %p
+    %label{:for => "hours"} Number of hours
+    %input#hours{:min => "0", :name => "hours", :type => "number"}/
+  %p
+    %label{:for => "rate"} Rate
+    %span £
+    %input#rate{:min => "0", :name => "rate", :type => "number"}/
+  %p
+    %label{:for => "vat"} VAT
+    %input#vat{:min => "0", :name => "vat", :type => "number", :value => "0.20"}/
+  %p
+    Total:
+    %strong
+      £
+      %output{:for => "hours rate vat", :name => "amount"} 0
+
+
+%p= @loans.third.fixation_rate_1year
+
+
+%p.top-buffer Bästasparräntor.se garanterar inte att information gällande räntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
+
+
+:javascript
+  function calculate(length, width)
+  {
+       alert(length.value - width.value);
+  }
+%form{:name => "frm"}
+  %table
+    %tr
+      %td Belopp
+      %td
+        %input{:name => "len", :type => "text"}/
+    %tr
+      %td Insats
+      %td
+        %input{:name => "wid", :type => "text"}/
+    %tr
+      %td Ränta
+      %td= @loans.third.fixation_rate_1year
+
+
+
+    %tr
+      %td
+        %input{:name => "Submit", :onclick => "calculate(document.frm.len, document.frm.wid, document.frm.tre)", :type => "button", :value => "Submit"}/
