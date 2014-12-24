@@ -1,7 +1,7 @@
 %h1 Lånkalkylator
 %p Söker du ett lån med bra villkor? Nedan listas banker och finansiella institut som erbjuder olika former av lån. Du kan klicka på rubrikerna i listan för att sortera.
 
-= form_tag("calculate", method: "get") do
+= form_tag("lankalkylator", method: "get") do
   = label_tag(:number, "Önskat lånebelopp")
   = text_field_tag(:number)
   = label_tag(:number2, "Kontantinsats")
