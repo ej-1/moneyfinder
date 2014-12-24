@@ -9,7 +9,6 @@ class CalculatesController < ApplicationController
   end
   def calculate
     @result3 = (params[:number].to_i - params[:number2].to_i)*Loan.third.fixation_rate_1year
-
   end
 end
 

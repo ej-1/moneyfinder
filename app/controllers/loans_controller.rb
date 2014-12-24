@@ -2,6 +2,15 @@ class LoansController < ApplicationController
   def lanerantor
     @loans = Loan.all
   end
+  def lankalkylator
+    @loans = Loan.all
+  end
+  def calculate
+    @result = ''
+  end
+  def calculate
+    @result = (params[:number].to_i - params[:number2].to_i)*Loan.third.fixation_rate_1year
+  end
 end
 
 # Be sure to use plural when naming controller. LoansController, not LoanController

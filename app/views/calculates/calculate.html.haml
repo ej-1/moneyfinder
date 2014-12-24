@@ -1,0 +1,10 @@
+%h1 Calculator
+
+= form_tag("/loans", method: "get") do
+  = label_tag(:number, "Önskat lånebelopp")
+  = text_field_tag(:number)
+  = label_tag(:number2, "Kontantinsats")
+  = text_field_tag(:number2)
+  = submit_tag("Submit")
+  
+= @result3

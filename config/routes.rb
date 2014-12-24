@@ -18,6 +18,7 @@ Ratesfinder::Application.routes.draw do
   get "sparguide" => 'rates#sparguide'
   get "landets_rantor" => 'rates#landets_rantor'
   get "lanerantor" => 'loans#lanerantor'
+  get "lankalkylator" => 'loans#lankalkylator'
   get "calculate" => 'calculates#calculate'
 # `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
 
