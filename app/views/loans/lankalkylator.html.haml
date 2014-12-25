@@ -8,34 +8,6 @@
   = text_field_tag(:number2)
   = submit_tag("Submit")
 
-= radio_button_tag(:age, "child")
-= label_tag(:age_child, "3 månader")
-= radio_button_tag(:age, "adult")
-= label_tag(:age_adult, "1 år")
-
-%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
-  %thead
-    %tr
-      %th Bank
-      %th 3 månader
-      %th 1 år
-      %th 2 år
-      %th 3 år
-      %th 5 år
-      %th 7 år
-      %th 10 år
-      %th Ansök
-  %tbody
-    - @loans.each do |loan|
-      %tr
-        %td.bank-padding= loan.bank
-        %td.column-center= number_to_currency(((loan.fixation_rate_3months*@result)/12).round)
-        %td.column-center= ((loan.fixation_rate_1year*@result)/12).round
-        %td.column-center= ((loan.fixation_rate_2years*@result)/12).round
-        %td.column-center= ((loan.fixation_rate_3years*@result)/12).round
-        %td.column-center= ((loan.fixation_rate_5years*@result)/12).round
-        %td.column-center= ((loan.fixation_rate_7years*@result)/12).round
-        %td.column-center= ((loan.fixation_rate_10years*@result)/12).round
 
 // http://www.rubydoc.info/docs/rails/3.0.0/ActionView/Helpers/NumberHelper:number_to_currency
 // %p= number_to_currency(1234567890.506, :locale => :fr)
@@ -45,3 +17,136 @@
 // Get radiobox to hide or activate relevant part of table
 // Get inut into fields to remain after clicking submit
 // Get it to work without submit button. Automatcally
+
+
+//http://www.w3schools.com/jsref/event_onload.asp
+
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Show Hide Elements Using Radio Buttons
+
+
+
+
+    :css
+      .box{
+          padding: 20px;
+          //display: none;
+          //margin-top: 20px;
+          //border: 1px solid #000;
+      }
+
+      .red
+
+      .green
+
+      .blue
+
+
+
+    %script{:src => "http://code.jquery.com/jquery.js", :type => "text/javascript"}
+    :javascript
+      $(document).ready(function(){
+
+        $(function() {
+            var $radios = $('input:radio[name=colorRadio]');
+            if($radios.is(':checked') === false) {
+                $radios.filter('[value=3months]').prop('checked', true);
+                $(".box").hide();
+                $(".3months").show();
+            }
+        });
+
+          $('input[type="radio"]').click(function(){
+              if($(this).attr("value")=="3months"){
+                  $(".box").hide();
+                  $(".3months").show();
+              }
+
+              if($(this).attr("value")=="1year"){
+                  $(".box").hide();
+                  $(".1year").show();
+              }
+
+              if($(this).attr("value")=="2years"){
+                  $(".box").hide();
+                  $(".2years").show();
+              }
+              if($(this).attr("value")=="3years"){
+                  $(".box").hide();
+                  $(".3years").show();
+              }
+              if($(this).attr("value")=="5years"){
+                  $(".box").hide();
+                  $(".5years").show();
+              }
+              if($(this).attr("value")=="7years"){
+                  $(".box").hide();
+                  $(".7years").show();
+              }
+              if($(this).attr("value")=="10years"){
+                  $(".box").hide();
+                  $(".10years").show();
+              }
+
+          });
+      });
+  %body
+    %div
+      %label
+        %input{:name => "colorRadio", :class => "RadioButton", :type => "radio", :value => "3months"}/
+        3months
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "1year"}/
+        1year
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "2years"}/
+        2years
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "3years"}/
+        3years
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "5years"}/
+        5years
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "7years"}/
+        7years
+      %label
+        %input{:name => "colorRadio", :type => "radio", :value => "10years"}/
+        10years
+//    .3months.box
+//      You have selected
+//      %strong red radio button
+//      so i am here
+//    .1year.box
+//      You have selected
+//      %strong green radio button
+//      so i am here
+
+%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+  %thead
+    %tr
+      %th.box Bank
+      %th.3months.box 3 månader
+      %th.1year.box 1 år
+      %th.2years.box 2 år
+      %th.3years.box 3 år
+      %th.5years.box 5 år
+      %th.7years.box 7 år
+      %th.10years.box 10 år
+      %th.box Ansök
+  %tbody
+    - @loans.each do |loan|
+      %tr
+        %td.bank-padding.box= loan.bank
+        %td.column-center.3months.box= number_to_currency(((loan.fixation_rate_3months*@result)/12).round)
+        %td.column-center.1year.box= ((loan.fixation_rate_1year*@result)/12).round
+        %td.column-center.2years.box= ((loan.fixation_rate_2years*@result)/12).round
+        %td.column-center.3years.box= ((loan.fixation_rate_3years*@result)/12).round
+        %td.column-center.5years.box= ((loan.fixation_rate_5years*@result)/12).round
+        %td.column-center.7years.box= ((loan.fixation_rate_7years*@result)/12).round
+        %td.column-center.10years.box= ((loan.fixation_rate_10years*@result)/12).round
+
+// http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-radio-button-selection-in-jquery.php

@@ -203,3 +203,39 @@ function calculate(length, width, ränta)
     %tr
       %td
         %input{:name => "Submit", :onclick => "calculate(document.frm.len, document.frm.wid, document.frm.tre)", :type => "button", :value => "Submit"}/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// lägg in i Loanscontroller
+  def lankalkylator
+    @data = params[:radios1] # @data applies to radio checkboxes
+  end
+
+
+// file view adress /loans/lankalkylator
+%form{:action => "lankalkylator"}
+  Select your new car's color.
+  %br/
+  = succeed "red" do
+    %input{:name => "radios1", :type => "radio", :value => "red"}/
+  = succeed "green" do
+    %input{:name => "radios1", :type => "radio", :value => "green"}/
+  = succeed "blue" do
+    %input{:name => "radios1", :type => "radio", :value => "blue"}/
+  %br/
+  %br/
+  %input{:type => "submit"}/
+
+= @data
