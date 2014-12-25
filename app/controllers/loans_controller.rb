@@ -9,7 +9,8 @@ class LoansController < ApplicationController
     @result = ''
   end
   def lankalkylator
-    @result = (params[:number].to_i - params[:number2].to_i)*Loan.third.fixation_rate_1year
+    @result = params[:number].to_i - params[:number2].to_i
+    #*Loan.third.fixation_rate_1year
     @loans = Loan.all
   end
 end

@@ -7,11 +7,11 @@
   = label_tag(:number2, "Kontantinsats")
   = text_field_tag(:number2)
   = submit_tag("Submit")
-  
 
-= @result
-
-
+= radio_button_tag(:age, "child")
+= label_tag(:age_child, "3 månader")
+= radio_button_tag(:age, "adult")
+= label_tag(:age_adult, "1 år")
 
 %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
   %thead
@@ -29,11 +29,19 @@
     - @loans.each do |loan|
       %tr
         %td.bank-padding= loan.bank
-        %td.column-center= number_to_percentage(loan.fixation_rate_3months, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_1year, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_2years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_3years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_5years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_7years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_10years, strip_insignificant_zeros: true)
-        %td.column-center= loan.web_link.to_s.html_safe
+        %td.column-center= number_to_currency(((loan.fixation_rate_3months*@result)/12).round)
+        %td.column-center= ((loan.fixation_rate_1year*@result)/12).round
+        %td.column-center= ((loan.fixation_rate_2years*@result)/12).round
+        %td.column-center= ((loan.fixation_rate_3years*@result)/12).round
+        %td.column-center= ((loan.fixation_rate_5years*@result)/12).round
+        %td.column-center= ((loan.fixation_rate_7years*@result)/12).round
+        %td.column-center= ((loan.fixation_rate_10years*@result)/12).round
+
+// http://www.rubydoc.info/docs/rails/3.0.0/ActionView/Helpers/NumberHelper:number_to_currency
+// %p= number_to_currency(1234567890.506, :locale => :fr)
+
+// Get SEK currency
+// Get rid of decimals when using currency
+// Get radiobox to hide or activate relevant part of table
+// Get inut into fields to remain after clicking submit
+// Get it to work without submit button. Automatcally
