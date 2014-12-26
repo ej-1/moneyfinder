@@ -138,6 +138,33 @@ img  {
     padding-right: 10px;
 } 
 
+/* For the loancalculator page */
+
 .box{
   padding-right: 50px;
+}
+
+.radiobutton{
+  float: left;
+  padding-left: 20px;
+}
+
+.radiobuttonfield{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.warning-number{
+  padding-bottom: 10px;
+  color: grey;
+}
+
+.loancalculator{
+  text-align: center
+}
+
+.submitloanbutton{
+  padding-top: 1px;
 }

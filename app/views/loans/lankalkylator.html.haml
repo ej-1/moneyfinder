@@ -1,12 +1,16 @@
-%h1 Lånkalkylator
-%p Söker du ett lån med bra villkor? Nedan listas banker och finansiella institut som erbjuder olika former av lån. Du kan klicka på rubrikerna i listan för att sortera.
 
-= form_tag("lankalkylator", method: "get") do
-  = label_tag(:number, "Önskat lånebelopp")
-  = text_field_tag(:number, params[:number])
-  = label_tag(:number2, "Kontantinsats")
-  = text_field_tag(:number2, params[:number2])
-  = submit_tag("Submit")
+%div.loancalculator
+  %h1 Lånkalkylator
+  %p Nedan kan du räkna ut vad du får betala för lånet per månad.
+  %div.top-buffer
+    %p.warning-number Fyll i både lånebelopp och kontantinsats
+
+    = form_tag("lankalkylator", method: "get") do
+      = label_tag(:number, "Önskat lånebelopp")
+      = text_field_tag(:number, params[:number])
+      = label_tag(:number2, "Kontantinsats")
+      = text_field_tag(:number2, params[:number2])
+      = submit_tag "Submit", :class => "submitloanbutton"
 
 
 //Synatx for text_form http://stackoverflow.com/questions/20805576/rails-how-to-add-an-attribute-to-a-text-field-tag
@@ -50,91 +54,33 @@
 
       .blue
 
-    %script{:src => "http://code.jquery.com/jquery.js", :type => "text/javascript"}
-    :javascript
-      $(document).ready(function(){
-
-         // checks if both text fields are filled in by user
-        if( !$('#number2').val() || !$('#number').val() ) {
-            $(".content-top").hide()
-        } 
-        else
-        {
-            $(".content-top").show()
-        }
 
 
-        // preselects 3months
-        $(function() {
-            var $radios = $('input:radio[name=colorRadio]');
-            if($radios.is(':checked') === false) {
-                $radios.filter('[value=3months]').prop('checked', true);
-                $(".box").hide();
-                $(".3months").show();
-            }
-        });
 
 
-          // Functions for each radio button
-          $('input[type="radio"]').click(function(){
-              if($(this).attr("value")=="3months"){
-                  $(".box").hide();
-                  $(".3months").show();
-              }
 
-              if($(this).attr("value")=="1year"){
-                  $(".box").hide();
-                  $(".1year").show();
-              }
-
-              if($(this).attr("value")=="2years"){
-                  $(".box").hide();
-                  $(".2years").show();
-              }
-              if($(this).attr("value")=="3years"){
-                  $(".box").hide();
-                  $(".3years").show();
-              }
-              if($(this).attr("value")=="5years"){
-                  $(".box").hide();
-                  $(".5years").show();
-              }
-              if($(this).attr("value")=="7years"){
-                  $(".box").hide();
-                  $(".7years").show();
-              }
-              if($(this).attr("value")=="10years"){
-                  $(".box").hide();
-                  $(".10years").show();
-              }
-
-          });
-      });
-
-
-  %body
-    %div
-      %label
-        %input{:name => "colorRadio", :class => "RadioButton", :type => "radio", :value => "3months"}/
-        3months
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "1year"}/
-        1year
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "2years"}/
-        2years
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "3years"}/
-        3years
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "5years"}/
-        5years
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "7years"}/
-        7years
-      %label
-        %input{:name => "colorRadio", :type => "radio", :value => "10years"}/
-        10years
+%div.radiobuttonfield
+  %label.radiobutton
+    %input{:name => "colorRadio", :class => "RadioButton", :type => "radio", :value => "3months"}/
+    3 mån
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "1year"}/
+    1 år
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "2years"}/
+    2 år
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "3years"}/
+    3 år
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "5years"}/
+    5 år
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "7years"}/
+    7 år
+  %label.radiobutton
+    %input{:name => "colorRadio", :type => "radio", :value => "10years"}/
+    10 år
 //    .3months.box
 //      You have selected
 //      %strong red radio button
@@ -148,28 +94,47 @@
   %thead
     %tr
       %th Bank
-      %th.3months.box 3 månader
-      %th.1year.box 1 år
-      %th.2years.box 2 år
-      %th.3years.box 3 år
-      %th.5years.box 5 år
-      %th.7years.box 7 år
-      %th.10years.box 10 år
-      %th.box Ansök
+      %th.3months.box Räntekostnad
+      %th.1year.box Räntekostnad
+      %th.2years.box Räntekostnad
+      %th.3years.box Räntekostnad
+      %th.5years.box Räntekostnad
+      %th.7years.box Räntekostnad
+      %th.10years.box Räntekostnad
+      %th.3months.box Ränta
+      %th.1year.box Ränta
+      %th.2years.box Ränta
+      %th.3years.box Ränta
+      %th.5years.box Ränta
+      %th.7years.box Ränta
+      %th.10years.box Ränta
+      %th Ansök
+
   %tbody
     - @loans.each do |loan|
       %tr
         %td.bank-padding= loan.bank
-        %td.column-center.3months.box= number_to_currency(((loan.fixation_rate_3months*@result)/12).round)
+        %td.column-center.3months.box= number_to_currency(((loan.fixation_rate_3months*@result)/12).round, locale: :fr)
         %td.column-center.1year.box= ((loan.fixation_rate_1year*@result)/12).round
         %td.column-center.2years.box= ((loan.fixation_rate_2years*@result)/12).round
         %td.column-center.3years.box= ((loan.fixation_rate_3years*@result)/12).round
         %td.column-center.5years.box= ((loan.fixation_rate_5years*@result)/12).round
         %td.column-center.7years.box= ((loan.fixation_rate_7years*@result)/12).round
         %td.column-center.10years.box= ((loan.fixation_rate_10years*@result)/12).round
+        %td.column-center.3months.box= number_to_percentage(loan.fixation_rate_3months*100, strip_insignificant_zeros: true)
+        %td.column-center.1year.box= number_to_percentage(loan.fixation_rate_1year*100, strip_insignificant_zeros: true)
+        %td.column-center.2years.box= number_to_percentage(loan.fixation_rate_2years*100, strip_insignificant_zeros: true)
+        %td.column-center.3years.box= number_to_percentage(loan.fixation_rate_3years*100, strip_insignificant_zeros: true)
+        %td.column-center.5years.box= number_to_percentage(loan.fixation_rate_5years*100, strip_insignificant_zeros: true)
+        %td.column-center.7years.box= number_to_percentage(loan.fixation_rate_7years*100, strip_insignificant_zeros: true)
+        %td.column-center.10years.box= number_to_percentage(loan.fixation_rate_10years*100, strip_insignificant_zeros: true)
+        %td.column-center= loan.web_link.to_s.html_safe
 
+// Code for the radiobuttons
 // http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-radio-button-selection-in-jquery.php
 
 
-
-
+// How to get :locale to work
+// http://stackoverflow.com/questions/7237592/number-to-currency-locale-converting
+// Example of a :locale file.
+// https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
