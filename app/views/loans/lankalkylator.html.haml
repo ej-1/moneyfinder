@@ -3,11 +3,17 @@
 
 = form_tag("lankalkylator", method: "get") do
   = label_tag(:number, "Önskat lånebelopp")
-  = text_field_tag(:number)
+  = text_field_tag(:number, params[:number])
   = label_tag(:number2, "Kontantinsats")
-  = text_field_tag(:number2)
+  = text_field_tag(:number2, params[:number2])
   = submit_tag("Submit")
 
+
+//Synatx for text_form http://stackoverflow.com/questions/20805576/rails-how-to-add-an-attribute-to-a-text-field-tag
+
+// How to get text fields to retain user input. http://stackoverflow.com/questions/16711906/rails-form-fields-empty-after-submitting-form
+
+//= text_field_tag 'kontant'
 
 // http://www.rubydoc.info/docs/rails/3.0.0/ActionView/Helpers/NumberHelper:number_to_currency
 // %p= number_to_currency(1234567890.506, :locale => :fr)
@@ -44,12 +50,21 @@
 
       .blue
 
-
-
     %script{:src => "http://code.jquery.com/jquery.js", :type => "text/javascript"}
     :javascript
       $(document).ready(function(){
 
+         // checks if both text fields are filled in by user
+        if( !$('#number2').val() || !$('#number').val() ) {
+            $(".content-top").hide()
+        } 
+        else
+        {
+            $(".content-top").show()
+        }
+
+
+        // preselects 3months
         $(function() {
             var $radios = $('input:radio[name=colorRadio]');
             if($radios.is(':checked') === false) {
@@ -59,6 +74,8 @@
             }
         });
 
+
+          // Functions for each radio button
           $('input[type="radio"]').click(function(){
               if($(this).attr("value")=="3months"){
                   $(".box").hide();
@@ -93,6 +110,8 @@
 
           });
       });
+
+
   %body
     %div
       %label
@@ -128,7 +147,7 @@
 %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
   %thead
     %tr
-      %th.box Bank
+      %th Bank
       %th.3months.box 3 månader
       %th.1year.box 1 år
       %th.2years.box 2 år
@@ -140,7 +159,7 @@
   %tbody
     - @loans.each do |loan|
       %tr
-        %td.bank-padding.box= loan.bank
+        %td.bank-padding= loan.bank
         %td.column-center.3months.box= number_to_currency(((loan.fixation_rate_3months*@result)/12).round)
         %td.column-center.1year.box= ((loan.fixation_rate_1year*@result)/12).round
         %td.column-center.2years.box= ((loan.fixation_rate_2years*@result)/12).round
@@ -150,3 +169,7 @@
         %td.column-center.10years.box= ((loan.fixation_rate_10years*@result)/12).round
 
 // http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-radio-button-selection-in-jquery.php
+
+
+
+

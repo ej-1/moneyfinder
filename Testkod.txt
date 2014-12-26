@@ -239,3 +239,76 @@ function calculate(length, width, ränta)
   %input{:type => "submit"}/
 
 = @data
+
+
+
+
+
+
+
+
+
+
+
+
+
+// preselects 3months
+        $(function() {
+            var $radios = $('input:radio[name=colorRadio]');
+            if($radios.is(':checked') === false) {
+                $radios.filter('[value=3months]').prop('checked', true);
+                $(".box").hide();
+                $(".3months").show();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          $('input[type="radio"]').click(function(){
+              if($(this).attr("value")=="3months"){
+                  $(".box").hide();
+                  $(".3months").show();
+              }
+
+              if($(this).attr("value")=="1year"){
+                  $(".box").hide();
+                  $(".1year").show();
+              }
+
+              if($(this).attr("value")=="2years"){
+                  $(".box").hide();
+                  $(".2years").show();
+              }
+              if($(this).attr("value")=="3years"){
+                  $(".box").hide();
+                  $(".3years").show();
+              }
+              if($(this).attr("value")=="5years"){
+                  $(".box").hide();
+                  $(".5years").show();
+              }
+              if($(this).attr("value")=="7years"){
+                  $(".box").hide();
+                  $(".7years").show();
+              }
+              if($(this).attr("value")=="10years"){
+                  $(".box").hide();
+                  $(".10years").show();
+              }
+
+          });
+
+// http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-radio-button-selection-in-jquery.php
