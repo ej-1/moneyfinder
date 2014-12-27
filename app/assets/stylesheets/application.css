@@ -149,16 +149,16 @@ img  {
 }
 
 .radiobutton{
-  float: left;
-  padding-left: 20px;
-  display: inline;
+  padding-left: 15px;
+  display: inline-block
 }
 
 .radiobuttonfield{
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  display: inline;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .warning-number{
