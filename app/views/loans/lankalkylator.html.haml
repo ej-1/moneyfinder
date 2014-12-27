@@ -13,6 +13,8 @@
       = submit_tag "Submit", :class => "submitloanbutton"
 
 
+    %p.realestatevalue Bostadens värde
+    %p.realestatevalue= number_to_currency(@realestatevalue, locale: :fr)
 //Synatx for text_form http://stackoverflow.com/questions/20805576/rails-how-to-add-an-attribute-to-a-text-field-tag
 
 // How to get text fields to retain user input. http://stackoverflow.com/questions/16711906/rails-form-fields-empty-after-submitting-form
@@ -83,13 +85,14 @@
       %tr
         %td.bank-padding= loan.bank
         %td.column-center.3months.box= number_to_currency(((loan.fixation_rate_3months*@result)/12).round, locale: :fr)
-        %td.column-center.1year.box= ((loan.fixation_rate_1year*@result)/12).round
-        %td.column-center.2years.box= ((loan.fixation_rate_2years*@result)/12).round
-        %td.column-center.3years.box= ((loan.fixation_rate_3years*@result)/12).round
-        %td.column-center.5years.box= ((loan.fixation_rate_5years*@result)/12).round
-        %td.column-center.7years.box= ((loan.fixation_rate_7years*@result)/12).round
-        %td.column-center.10years.box= ((loan.fixation_rate_10years*@result)/12).round
+        %td.column-center.1year.box= number_to_currency(((loan.fixation_rate_1year*@result)/12).round, locale: :fr)
+        %td.column-center.2years.box= number_to_currency(((loan.fixation_rate_2years*@result)/12).round, locale: :fr)
+        %td.column-center.3years.box= number_to_currency(((loan.fixation_rate_3years*@result)/12).round, locale: :fr)
+        %td.column-center.5years.box= number_to_currency(((loan.fixation_rate_5years*@result)/12).round, locale: :fr)
+        %td.column-center.7years.box= number_to_currency(((loan.fixation_rate_7years*@result)/12).round, locale: :fr)
+        %td.column-center.10years.box= number_to_currency(((loan.fixation_rate_10years*@result)/12).round, locale: :fr)
         %td.column-center.3months.box= number_to_percentage(loan.fixation_rate_3months*100, strip_insignificant_zeros: true)
+
         %td.column-center.1year.box= number_to_percentage(loan.fixation_rate_1year*100, strip_insignificant_zeros: true)
         %td.column-center.2years.box= number_to_percentage(loan.fixation_rate_2years*100, strip_insignificant_zeros: true)
         %td.column-center.3years.box= number_to_percentage(loan.fixation_rate_3years*100, strip_insignificant_zeros: true)

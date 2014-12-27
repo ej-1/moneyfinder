@@ -153,6 +153,12 @@ img  {
   display: inline-block
 }
 
+.realestatevalue{
+  padding-left: 15px;
+  display: inline-block;
+  font-weight: bold;
+}
+
 .radiobuttonfield{
   padding-top: 30px;
   padding-bottom: 30px;
@@ -172,4 +178,13 @@ img  {
 
 .submitloanbutton{
   padding-top: 1px;
+}
+
+.submit input {
+  width:100px;
+}
+
+/* Centers input in text fields. Maybe other forms also */
+input{
+   text-align:center;
 }
