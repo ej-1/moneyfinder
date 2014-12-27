@@ -43,6 +43,7 @@ $(document).ready(function() {
          // checks if both text fields are filled in by user
         if( !$('#number2').val() || !$('#number').val() ) {
           // nested if statement checks if class number2, which is a text_field in loancalculator.html.haml exist.
+          // READ HERE: http://aaronrussell.co.uk/legacy/check-if-an-element-exists-using-jquery/
           if ($("#number2").length > 0){
             $(".content-top").hide()
             }

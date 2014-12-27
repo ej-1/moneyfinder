@@ -17,11 +17,11 @@
     - @loans.each do |loan|
       %tr
         %td.bank-padding= loan.bank
-        %td.column-center= number_to_percentage(loan.fixation_rate_3months, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_1year, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_2years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_3years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_5years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_7years, strip_insignificant_zeros: true)
-        %td.column-center= number_to_percentage(loan.fixation_rate_10years, strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_3months)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_1year)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_2years)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_3years)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_5years)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_7years)*100), strip_insignificant_zeros: true)
+        %td.column-center= number_to_percentage(((loan.fixation_rate_10years)*100), strip_insignificant_zeros: true)
         %td.column-center= loan.web_link.to_s.html_safe

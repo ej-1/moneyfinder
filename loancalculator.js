@@ -1,3 +1,8 @@
+//!!!!!!!!!!!!--------- THIS IS JUST A FILE I CREATED FIRST TO MAKE LOANCALCUALTOR WORK, BUT IS NOT NEEDED NOW 
+
+
+
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

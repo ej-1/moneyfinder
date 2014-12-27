@@ -142,18 +142,23 @@ img  {
 
 .box{
   padding-right: 50px;
+  padding: 10px;
+  display: none;
+  margin-top: 20px;
+/*  border: 1px solid #000; */
 }
 
 .radiobutton{
   float: left;
   padding-left: 20px;
+  display: inline;
 }
 
 .radiobuttonfield{
   padding-top: 30px;
   padding-bottom: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
+  text-align: center;
+  display: inline;
 }
 
 .warning-number{
@@ -162,7 +167,7 @@ img  {
 }
 
 .loancalculator{
-  text-align: center
+  text-align: center;
 }
 
 .submitloanbutton{
