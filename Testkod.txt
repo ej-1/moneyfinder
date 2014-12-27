@@ -1,3 +1,5 @@
+DET HÄR ÄR KOD SOM JAG ANVÄNDE FÖR ATT EXPERIMENTERA MED LOANCALCULATOR. DET ÄR HTML OCH JAVASCRIPT BLAND ANNAT.
+
 <form name="calculator" >
 Solution<input type="textfield" name="ans" value="">
 <br>
