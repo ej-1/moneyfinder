@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @smsloan.bank %>
+</p>
+
+<p>
+  <strong>Min loanamoun:</strong>
+  <%= @smsloan.min_loanamoun %>
+</p>
+
+<p>
+  <strong>Max loanamoun:</strong>
+  <%= @smsloan.max_loanamoun %>
+</p>
+
+<p>
+  <strong>Mobile friendly site:</strong>
+  <%= @smsloan.mobile_friendly_site %>
+</p>
+
+<p>
+  <strong>Smsloan payment note:</strong>
+  <%= @smsloan.smsloan_payment_note %>
+</p>
+
+<p>
+  <strong>Smsloan min age:</strong>
+  <%= @smsloan.smsloan_min_age %>
+</p>
+
+<p>
+  <strong>Cost free loan:</strong>
+  <%= @smsloan.cost_free_loan %>
+</p>
+
+<p>
+  <strong>New borrower 5k:</strong>
+  <%= @smsloan.new_borrower_5K %>
+</p>
+
+<p>
+  <strong>New borrower 10k:</strong>
+  <%= @smsloan.new_borrower_10K %>
+</p>
+
+<p>
+  <strong>No uc:</strong>
+  <%= @smsloan.no_uc %>
+</p>
+
+<p>
+  <strong>Skef member:</strong>
+  <%= @smsloan.skef_member %>
+</p>
+
+<p>
+  <strong>Bankid:</strong>
+  <%= @smsloan.bankid %>
+</p>
+
+<p>
+  <strong>Open on saturdays:</strong>
+  <%= @smsloan.open_on_saturdays %>
+</p>
+
+<p>
+  <strong>Weblink:</strong>
+  <%= @smsloan.weblink %>
+</p>
+
+<%= link_to 'Edit', edit_smsloan_path(@smsloan) %> |
+<%= link_to 'Back', smsloans_path %>

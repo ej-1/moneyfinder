@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @mortgageloan.bank %>
+</p>
+
+<p>
+  <strong>Fixation rate 3months:</strong>
+  <%= @mortgageloan.fixation_rate_3months %>
+</p>
+
+<p>
+  <strong>Fixation rate 1years:</strong>
+  <%= @mortgageloan.fixation_rate_1years %>
+</p>
+
+<p>
+  <strong>Fixation rate 2years:</strong>
+  <%= @mortgageloan.fixation_rate_2years %>
+</p>
+
+<p>
+  <strong>Fixation rate 3years:</strong>
+  <%= @mortgageloan.fixation_rate_3years %>
+</p>
+
+<p>
+  <strong>Fixation rate 5years:</strong>
+  <%= @mortgageloan.fixation_rate_5years %>
+</p>
+
+<p>
+  <strong>Fixation rate 7years:</strong>
+  <%= @mortgageloan.fixation_rate_7years %>
+</p>
+
+<p>
+  <strong>Fixation rate 10years:</strong>
+  <%= @mortgageloan.fixation_rate_10years %>
+</p>
+
+<p>
+  <strong>Weblink:</strong>
+  <%= @mortgageloan.weblink %>
+</p>
+
+<%= link_to 'Edit', edit_mortgageloan_path(@mortgageloan) %> |
+<%= link_to 'Back', mortgageloans_path %>

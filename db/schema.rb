@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228140801) do
+ActiveRecord::Schema.define(version: 20141228192410) do
 
   create_table "loans", force: true do |t|
     t.string   "bank"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20141228140801) do
     t.decimal  "fixation_rate_7years"
     t.decimal  "fixation_rate_10years"
     t.string   "web_link"
+  end
+
+  create_table "mortgageloans", force: true do |t|
+    t.string   "bank"
+    t.decimal  "fixation_rate_3months"
+    t.decimal  "fixation_rate_1years"
+    t.decimal  "fixation_rate_2years"
+    t.decimal  "fixation_rate_3years"
+    t.decimal  "fixation_rate_5years"
+    t.decimal  "fixation_rate_7years"
+    t.decimal  "fixation_rate_10years"
+    t.string   "weblink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rates", force: true do |t|
@@ -43,21 +57,36 @@ ActiveRecord::Schema.define(version: 20141228140801) do
     t.string   "amount_limit"
   end
 
+  create_table "savingrates", force: true do |t|
+    t.string   "bank"
+    t.decimal  "min_rate"
+    t.decimal  "max_rate"
+    t.string   "country"
+    t.string   "currency"
+    t.string   "conditions"
+    t.string   "withdrawal"
+    t.integer  "account_time_length"
+    t.string   "deposit_guarantee"
+    t.string   "amount_limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "smsloans", force: true do |t|
-    t.string   "smsloan_loancompany"
-    t.integer  "smsloan_min_loanamount"
-    t.integer  "smsloan_max_loanamount"
-    t.integer  "smsloan_mobile_friendly_site"
+    t.string   "bank"
+    t.integer  "min_loanamoun"
+    t.integer  "max_loanamoun"
+    t.string   "mobile_friendly_site"
     t.string   "smsloan_payment_note"
     t.integer  "smsloan_min_age"
-    t.string   "smsloan_cost_free_loan"
-    t.string   "smsloan_5K_new_borrower"
-    t.string   "smsloan_10K_new_borrower"
-    t.string   "smsloan_no_UC"
-    t.string   "smsloan_SKEF_member"
-    t.string   "smsloan_BANKID"
-    t.string   "smsloan_open_on_saturdays"
-    t.string   "smsloan_web_link"
+    t.string   "cost_free_loan"
+    t.string   "new_borrower_5K"
+    t.string   "new_borrower_10K"
+    t.string   "no_uc"
+    t.string   "skef_member"
+    t.string   "bankid"
+    t.string   "open_on_saturdays"
+    t.string   "weblink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,43 @@
+<h1>Listing savingrates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bank</th>
+      <th>Min rate</th>
+      <th>Max rate</th>
+      <th>Country</th>
+      <th>Currency</th>
+      <th>Conditions</th>
+      <th>Withdrawal</th>
+      <th>Account time length</th>
+      <th>Deposit guarantee</th>
+      <th>Amount limit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @savingrates.each do |savingrate| %>
+      <tr>
+        <td><%= savingrate.bank %></td>
+        <td><%= savingrate.min_rate %></td>
+        <td><%= savingrate.max_rate %></td>
+        <td><%= savingrate.country %></td>
+        <td><%= savingrate.currency %></td>
+        <td><%= savingrate.conditions %></td>
+        <td><%= savingrate.withdrawal %></td>
+        <td><%= savingrate.account_time_length %></td>
+        <td><%= savingrate.deposit_guarantee %></td>
+        <td><%= savingrate.amount_limit %></td>
+        <td><%= link_to 'Show', savingrate %></td>
+        <td><%= link_to 'Edit', edit_savingrate_path(savingrate) %></td>
+        <td><%= link_to 'Destroy', savingrate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Savingrate', new_savingrate_path %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @savingrate.bank %>
+</p>
+
+<p>
+  <strong>Min rate:</strong>
+  <%= @savingrate.min_rate %>
+</p>
+
+<p>
+  <strong>Max rate:</strong>
+  <%= @savingrate.max_rate %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @savingrate.country %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @savingrate.currency %>
+</p>
+
+<p>
+  <strong>Conditions:</strong>
+  <%= @savingrate.conditions %>
+</p>
+
+<p>
+  <strong>Withdrawal:</strong>
+  <%= @savingrate.withdrawal %>
+</p>
+
+<p>
+  <strong>Account time length:</strong>
+  <%= @savingrate.account_time_length %>
+</p>
+
+<p>
+  <strong>Deposit guarantee:</strong>
+  <%= @savingrate.deposit_guarantee %>
+</p>
+
+<p>
+  <strong>Amount limit:</strong>
+  <%= @savingrate.amount_limit %>
+</p>
+
+<%= link_to 'Edit', edit_savingrate_path(@savingrate) %> |
+<%= link_to 'Back', savingrates_path %>

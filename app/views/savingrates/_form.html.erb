@@ -1,0 +1,57 @@
+<%= form_for(@savingrate) do |f| %>
+  <% if @savingrate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@savingrate.errors.count, "error") %> prohibited this savingrate from being saved:</h2>
+
+      <ul>
+      <% @savingrate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bank %><br>
+    <%= f.text_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :min_rate %><br>
+    <%= f.text_field :min_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :max_rate %><br>
+    <%= f.text_field :max_rate %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :currency %><br>
+    <%= f.text_field :currency %>
+  </div>
+  <div class="field">
+    <%= f.label :conditions %><br>
+    <%= f.text_field :conditions %>
+  </div>
+  <div class="field">
+    <%= f.label :withdrawal %><br>
+    <%= f.text_field :withdrawal %>
+  </div>
+  <div class="field">
+    <%= f.label :account_time_length %><br>
+    <%= f.number_field :account_time_length %>
+  </div>
+  <div class="field">
+    <%= f.label :deposit_guarantee %><br>
+    <%= f.text_field :deposit_guarantee %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_limit %><br>
+    <%= f.text_field :amount_limit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,10 @@
 Ratesfinder::Application.routes.draw do
+  resources :smsloans
+
+  resources :savingrates
+
+  resources :mortgageloans
+
   get 'loans/new'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

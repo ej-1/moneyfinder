@@ -1,35 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  smsloan_loancompany: MyString
-  smsloan_min_loanamount: 1
-  smsloan_max_loanamount: 1
-  smsloan_mobile_friendly_site: 1
+  bank: MyString
+  min_loanamoun: 1
+  max_loanamoun: 1
+  mobile_friendly_site: MyString
   smsloan_payment_note: MyString
   smsloan_min_age: 1
-  smsloan_cost_free_loan: MyString
-  smsloan_5K_new_borrower: MyString
-  smsloan_10K_new_borrower: MyString
-  smsloan_no_UC: MyString
-  smsloan_SKEF_member: MyString
-  smsloan_BANKID: MyString
-  smsloan_open_on_saturdays: MyString
-  smsloan_open_on_saturdays: MyString
-  smsloan_web_link: MyString
+  cost_free_loan: MyString
+  new_borrower_5K: MyString
+  new_borrower_10K: MyString
+  no_uc: MyString
+  skef_member: MyString
+  bankid: MyString
+  open_on_saturdays: MyString
+  weblink: MyString
 
 two:
-  smsloan_loancompany: MyString
-  smsloan_min_loanamount: 1
-  smsloan_max_loanamount: 1
-  smsloan_mobile_friendly_site: 1
+  bank: MyString
+  min_loanamoun: 1
+  max_loanamoun: 1
+  mobile_friendly_site: MyString
   smsloan_payment_note: MyString
   smsloan_min_age: 1
-  smsloan_cost_free_loan: MyString
-  smsloan_5K_new_borrower: MyString
-  smsloan_10K_new_borrower: MyString
-  smsloan_no_UC: MyString
-  smsloan_SKEF_member: MyString
-  smsloan_BANKID: MyString
-  smsloan_open_on_saturdays: MyString
-  smsloan_open_on_saturdays: MyString
-  smsloan_web_link: MyString
+  cost_free_loan: MyString
+  new_borrower_5K: MyString
+  new_borrower_10K: MyString
+  no_uc: MyString
+  skef_member: MyString
+  bankid: MyString
+  open_on_saturdays: MyString
+  weblink: MyString

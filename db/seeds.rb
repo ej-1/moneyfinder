@@ -9,25 +9,6 @@
 
 Smsloans.create(smsloan_loancompany: 'SMSlånia')
 
-
-      t.string :smsloan_loancompany
-      t.integer :smsloan_min_loanamount
-      t.integer :smsloan_max_loanamount
-      t.integer :smsloan_mobile_friendly_site
-      t.string :smsloan_payment_note
-      t.integer :smsloan_min_age
-      t.string :smsloan_cost_free_loan
-      t.string :smsloan_5K_new_borrower
-      t.string :smsloan_10K_new_borrower
-      t.string :smsloan_no_UC
-      t.string :smsloan_SKEF_member
-      t.string :smsloan_BANKID
-      t.string :smsloan_open_on_saturdays
-      t.string :smsloan_open_on_saturdays
-      t.string :smsloan_web_link
-
-
-
 Loan.create(bank: 'Ikano Bank', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.ikanobank.se/L%C3%A5na">Ansök här</a>')
 Loan.create(bank: '4Spar', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.4spar.se/L%C3%A5na">Ansök här</a>')
 Loan.create(bank: 'SBAB', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.SBAB.se/L%C3%A5na">Ansök här</a>')

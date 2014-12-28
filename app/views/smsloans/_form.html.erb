@@ -1,0 +1,73 @@
+<%= form_for(@smsloan) do |f| %>
+  <% if @smsloan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smsloan.errors.count, "error") %> prohibited this smsloan from being saved:</h2>
+
+      <ul>
+      <% @smsloan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bank %><br>
+    <%= f.text_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :min_loanamoun %><br>
+    <%= f.number_field :min_loanamoun %>
+  </div>
+  <div class="field">
+    <%= f.label :max_loanamoun %><br>
+    <%= f.number_field :max_loanamoun %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_friendly_site %><br>
+    <%= f.text_field :mobile_friendly_site %>
+  </div>
+  <div class="field">
+    <%= f.label :smsloan_payment_note %><br>
+    <%= f.text_field :smsloan_payment_note %>
+  </div>
+  <div class="field">
+    <%= f.label :smsloan_min_age %><br>
+    <%= f.number_field :smsloan_min_age %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_free_loan %><br>
+    <%= f.text_field :cost_free_loan %>
+  </div>
+  <div class="field">
+    <%= f.label :new_borrower_5K %><br>
+    <%= f.text_field :new_borrower_5K %>
+  </div>
+  <div class="field">
+    <%= f.label :new_borrower_10K %><br>
+    <%= f.text_field :new_borrower_10K %>
+  </div>
+  <div class="field">
+    <%= f.label :no_uc %><br>
+    <%= f.text_field :no_uc %>
+  </div>
+  <div class="field">
+    <%= f.label :skef_member %><br>
+    <%= f.text_field :skef_member %>
+  </div>
+  <div class="field">
+    <%= f.label :bankid %><br>
+    <%= f.text_field :bankid %>
+  </div>
+  <div class="field">
+    <%= f.label :open_on_saturdays %><br>
+    <%= f.text_field :open_on_saturdays %>
+  </div>
+  <div class="field">
+    <%= f.label :weblink %><br>
+    <%= f.text_field :weblink %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

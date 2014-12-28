@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bank: MyString
+  fixation_rate_3months: 9.99
+  fixation_rate_1years: 9.99
+  fixation_rate_2years: 9.99
+  fixation_rate_3years: 9.99
+  fixation_rate_5years: 9.99
+  fixation_rate_7years: 9.99
+  fixation_rate_10years: 9.99
+  weblink: MyString
+
+two:
+  bank: MyString
+  fixation_rate_3months: 9.99
+  fixation_rate_1years: 9.99
+  fixation_rate_2years: 9.99
+  fixation_rate_3years: 9.99
+  fixation_rate_5years: 9.99
+  fixation_rate_7years: 9.99
+  fixation_rate_10years: 9.99
+  weblink: MyString

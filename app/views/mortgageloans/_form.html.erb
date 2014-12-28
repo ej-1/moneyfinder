@@ -1,0 +1,53 @@
+<%= form_for(@mortgageloan) do |f| %>
+  <% if @mortgageloan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mortgageloan.errors.count, "error") %> prohibited this mortgageloan from being saved:</h2>
+
+      <ul>
+      <% @mortgageloan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bank %><br>
+    <%= f.text_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_3months %><br>
+    <%= f.text_field :fixation_rate_3months %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_1years %><br>
+    <%= f.text_field :fixation_rate_1years %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_2years %><br>
+    <%= f.text_field :fixation_rate_2years %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_3years %><br>
+    <%= f.text_field :fixation_rate_3years %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_5years %><br>
+    <%= f.text_field :fixation_rate_5years %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_7years %><br>
+    <%= f.text_field :fixation_rate_7years %>
+  </div>
+  <div class="field">
+    <%= f.label :fixation_rate_10years %><br>
+    <%= f.text_field :fixation_rate_10years %>
+  </div>
+  <div class="field">
+    <%= f.label :weblink %><br>
+    <%= f.text_field :weblink %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
