@@ -188,3 +188,72 @@ img  {
 input{
    text-align:center;
 }
+
+
+/* Forked code from here. Original name "emerald-flat-button". http://cssdeck.com/labs/nmxt98xv */
+
+
+.big-loanbutton {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
+}
+.big-loanbutton:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.buttons { 
+  width: 200px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.buttons button { 
+  width: 200%;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
+}
+
+.buttons button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+ul /* Make as lists, especelly the one with buttons on loanlanding page without bullets. */
+
+{
+    list-style-type: none;
+    color: white;
+}

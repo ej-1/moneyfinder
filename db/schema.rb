@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222140429) do
+ActiveRecord::Schema.define(version: 20141228140801) do
 
   create_table "loans", force: true do |t|
     t.string   "bank"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(version: 20141222140429) do
     t.string   "deposit_guarantee"
     t.string   "web_link"
     t.string   "amount_limit"
+  end
+
+  create_table "smsloans", force: true do |t|
+    t.string   "smsloan_loancompany"
+    t.integer  "smsloan_min_loanamount"
+    t.integer  "smsloan_max_loanamount"
+    t.integer  "smsloan_mobile_friendly_site"
+    t.string   "smsloan_payment_note"
+    t.integer  "smsloan_min_age"
+    t.string   "smsloan_cost_free_loan"
+    t.string   "smsloan_5K_new_borrower"
+    t.string   "smsloan_10K_new_borrower"
+    t.string   "smsloan_no_UC"
+    t.string   "smsloan_SKEF_member"
+    t.string   "smsloan_BANKID"
+    t.string   "smsloan_open_on_saturdays"
+    t.string   "smsloan_web_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

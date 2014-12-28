@@ -35,6 +35,13 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
+  #config.model Competition do
+  #end
+  #Added config.model to get rails_admin to stop saying Could not find table 'sm_sloans'
+  #What it does is list the error in terminal
+  #View full instructions here : https://github.com/sferik/rails_admin/issues/289
+  #config.model Competition do
+  #end
 
 
 

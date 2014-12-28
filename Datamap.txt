@@ -1,0 +1,68 @@
+Klickbara alternativ
+Hur mycket vill du låna?
+Återbetalningstid   30, 45, 60, 90 dagar
+
+Låneföretag       Norwegian
+Total kostnad     ?
+Max/min belopp    5000-400000 kr
+Effektiv ränta    10,2%
+Mobilvänlig sajt? Ja
+Gratislån         Nej
+Betal-anmärkn     Nej
+Minsta Ålder      18 (år)
+Ansök             
+
+- Klickbara alternativ
+Högsta betyg i popularitet
+Kostnadsfria smslån
+Låna 10000:- eller mer som ny kund.
+Låna 5000:- eller mer som ny kund.
+Smslån utan UC
+Betalningsanmärkning OK
+SKEF-medlem
+18-årsgräns
+Högsta betyg på ordinarie priser.
+BankID
+Lördagsöppet
+Söndagsöppet
+
+Antal månader
+*
+FOLKIA
+Belopp
+Lånets längd (valbart kanske)
+Uppl. avg
+Fakt. avg (per månad)
+Fakt. avg (totalt under lånets lopp)    =Fakt. avg (per månad) * Lånets längd
+Ränta
+Total Eff. ränta (Vet inte riktigt hur det räknas ut)
+Nom. ränta
+
+
+
+
+MITT TABLE - SMSloans
+
+Låneföretag       Norwegian         string
+Total kostnad     ?                 formel i view
+Min lånebelopp    5000 kr           integer
+Max lånebelopp    400 000 kr        integer
+Effektiv ränta    10,2%             formel i view
+Mobilvänlig sajt? Ja                string (eller boolean som konvertas i view)
+Gratislån         Nej               string (eller boolean som konvertas i view)
+Betal-anmärkn     Nej               string (eller boolean som konvertas i view)
+Minsta Ålder      18 (år)           integer
+Ansök             www.no.se         string
+
+
+Låna 10000:- eller mer som ny kund. string (eller boolean som konvertas i view)
+Låna 5000:- eller mer som ny kund.  string (eller boolean som konvertas i view)
+Smslån utan UC                      string (eller boolean som konvertas i view)
+SKEF-medlem                         string (eller boolean som konvertas i view)
+BankID                              string (eller boolean som konvertas i view)
+Lördagsöppet                        string (eller boolean som konvertas i view)
+Söndagsöppet                        string (eller boolean som konvertas i view)
+
+VALT BORT I MITT TABLE - SMSloans
+Högsta betyg i popularitet
+Högsta betyg på ordinarie priser.

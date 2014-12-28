@@ -19,7 +19,10 @@ Ratesfinder::Application.routes.draw do
   get "landets_rantor" => 'rates#landets_rantor'
   get "lanerantor" => 'loans#lanerantor'
   get "lankalkylator" => 'loans#lankalkylator'
-  get "calculate" => 'calculates#calculate'
+  # Behövs inte längre get "calculate" => 'calculates#calculate'
+  get "loanslanding" => 'loans#loanslanding'
+  get "smsloans" => 'smsloans#smsloans'
+
 # `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
 
   # Den här raden hämtar view-filen 'home' i mappen hello. app/views/hello/home

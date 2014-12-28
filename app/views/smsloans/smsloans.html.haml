@@ -1,0 +1,10 @@
+%h1 SMS Lån
+
+%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+  %thead
+    %tr
+      %th Bank
+  %tbody
+    - @smsloans.each do |smsloan|
+      %tr
+        %td.column-center= smsloan.smsloan_loancompany
