@@ -28,8 +28,12 @@ Ratesfinder::Application.routes.draw do
   # Behövs inte längre get "calculate" => 'calculates#calculate'
   get "loanslanding" => 'loans#loanslanding'
   get "smsloans" => 'smsloans#smsloans'
+  # THE NEW THING
+  get "sparrantor2" => 'savingrates#sparrantor2'
+#   get "sparrantor2" => 'controller#url'
 
 # `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
+# `match 'calculate' => 'your_controller_name#action_in_controller' in config/routes.rb.
 
   # Den här raden hämtar view-filen 'home' i mappen hello. app/views/hello/home
   root :to => 'rates#index'

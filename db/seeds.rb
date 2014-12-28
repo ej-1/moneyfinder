@@ -9,6 +9,7 @@
 
 Smsloans.create(smsloan_loancompany: 'SMSlånia')
 
+
 Loan.create(bank: 'Ikano Bank', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.ikanobank.se/L%C3%A5na">Ansök här</a>')
 Loan.create(bank: '4Spar', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.4spar.se/L%C3%A5na">Ansök här</a>')
 Loan.create(bank: 'SBAB', fixation_rate_3months: '0.032', fixation_rate_1year: '0.031', fixation_rate_2years: '0.029', fixation_rate_3years: '0.025', fixation_rate_5years: '0.032', fixation_rate_7years: '0.032', fixation_rate_10years: '0.032', web_link: '<a class="btn btn-success btn-small" href="http://www.SBAB.se/L%C3%A5na">Ansök här</a>')

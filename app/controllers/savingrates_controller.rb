@@ -7,6 +7,10 @@ class SavingratesController < ApplicationController
     @savingrates = Savingrate.all
   end
 
+  def sparrantor2
+    @savingrates = Savingrate.all
+  end
+
   # GET /savingrates/1
   # GET /savingrates/1.json
   def show
