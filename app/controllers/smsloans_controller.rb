@@ -7,6 +7,10 @@ class SmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
+  def smslan2
+    @smsloans = Smsloan.all
+  end
+
   # GET /smsloans/1
   # GET /smsloans/1.json
   def show

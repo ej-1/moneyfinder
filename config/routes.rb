@@ -30,7 +30,9 @@ Ratesfinder::Application.routes.draw do
   get "smsloans" => 'smsloans#smsloans'
   # THE NEW THING
   get "sparrantor2" => 'savingrates#sparrantor2'
-#   get "sparrantor2" => 'controller#url'
+  get "mortgageloans2" => 'mortgageloans#mortgageloans2'
+  get "smslan2" => 'smsloans#smslan2'
+#   get "url" => 'controller#url'
 
 # `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
 # `match 'calculate' => 'your_controller_name#action_in_controller' in config/routes.rb.

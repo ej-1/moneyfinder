@@ -7,6 +7,10 @@ class MortgageloansController < ApplicationController
     @mortgageloans = Mortgageloan.all
   end
 
+  def mortgageloans2
+    @mortgageloans = Mortgageloan.all
+  end
+
   # GET /mortgageloans/1
   # GET /mortgageloans/1.json
   def show

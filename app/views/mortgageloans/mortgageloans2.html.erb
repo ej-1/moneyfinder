@@ -1,0 +1,36 @@
+<h1>Listing mortgageloans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bank</th>
+      <th>Fixation rate 3months</th>
+      <th>Fixation rate 1years</th>
+      <th>Fixation rate 2years</th>
+      <th>Fixation rate 3years</th>
+      <th>Fixation rate 5years</th>
+      <th>Fixation rate 7years</th>
+      <th>Fixation rate 10years</th>
+      <th>Weblink</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mortgageloans.each do |mortgageloan| %>
+      <tr>
+        <td><%= mortgageloan.bank %></td>
+        <td><%= mortgageloan.fixation_rate_3months %></td>
+        <td><%= mortgageloan.fixation_rate_1years %></td>
+        <td><%= mortgageloan.fixation_rate_2years %></td>
+        <td><%= mortgageloan.fixation_rate_3years %></td>
+        <td><%= mortgageloan.fixation_rate_5years %></td>
+        <td><%= mortgageloan.fixation_rate_7years %></td>
+        <td><%= mortgageloan.fixation_rate_10years %></td>
+        <td><%= mortgageloan.weblink %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
