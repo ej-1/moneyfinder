@@ -1,13 +1,9 @@
 class SavingratesController < ApplicationController
   before_action :set_savingrate, only: [:show, :edit, :update, :destroy]
-
+  # before_action :authenticate_admin!
   # GET /savingrates
   # GET /savingrates.json
   def index
-    @savingrates = Savingrate.all
-  end
-
-  def sparrantor2
     @savingrates = Savingrate.all
   end
 
