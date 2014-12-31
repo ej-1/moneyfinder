@@ -6,6 +6,8 @@ gem 'haml', '4.0'
 
 gem 'heroku'
 
+gem 'devise'
+
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
 gem 'rails_admin', '~> 0.6.5'
 

@@ -1,4 +1,5 @@
 Ratesfinder::Application.routes.draw do
+  devise_for :admins
   resources :smsloans
 
   resources :savingrates
@@ -29,10 +30,12 @@ Ratesfinder::Application.routes.draw do
   get "loanslanding" => 'loans#loanslanding'
   get "smsloans" => 'smsloans#smsloans'
   # THE NEW THING
-  get "sparrantor2" => 'savingrates#sparrantor2'
+  get "sparrantor2" => 'adminsavingrates#sparrantor2'
   get "mortgageloans2" => 'mortgageloans#mortgageloans2'
   get "smslan2" => 'smsloans#smslan2'
-#   get "url" => 'controller#url'
+#   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
+#   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
+
 
 # `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
 # `match 'calculate' => 'your_controller_name#action_in_controller' in config/routes.rb.
