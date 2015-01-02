@@ -1,6 +1,6 @@
-class MortgageloansController < ApplicationController
+class AdminmortgageloansController < ApplicationController
   before_action :set_mortgageloan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  # before_action :authenticate_admin!
   # GET /mortgageloans
   # GET /mortgageloans.json
   def index
