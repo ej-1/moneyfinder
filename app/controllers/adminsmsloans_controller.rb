@@ -1,6 +1,6 @@
-class SmsloansController < ApplicationController
+class AdminsmsloansController < ApplicationController
   before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  # before_action :authenticate_admin!
   # GET /smsloans
   # GET /smsloans.json
   def index

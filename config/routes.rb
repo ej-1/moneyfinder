@@ -33,7 +33,8 @@ Ratesfinder::Application.routes.draw do
   get "sparrantor2" => 'adminsavingrates#sparrantor2'
   # get "mortgageloans2" => 'mortgageloans#mortgageloans2'
   get "mortgageloans2" => 'adminmortgageloans#mortgageloans2'
-  get "smslan2" => 'smsloans#smslan2'
+  # get "smslan2" => 'smsloans#smslan2'
+  get "smslan2" => 'adminsmsloans#smslan2'
 #   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
 #   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
 
