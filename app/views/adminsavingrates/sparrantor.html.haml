@@ -14,11 +14,6 @@
 %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
   %thead
     %tr
-
-      %th
-        Lägsta
-        %br>/
-        räntan
       %th Bank
       %th
         Lägsta
@@ -30,7 +25,7 @@
         räntan
       %th Bindningstid
       %th Fria uttag
-      %th
+      %th 
         Insättnings-
         %br>/
         garanti
@@ -44,9 +39,9 @@
     - @savingrates.each do |savingrate|
       %tr
         %td.bank-padding= savingrate.bank
-        %td=  number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
-        %td=  number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
-        %td= savingrate.conditions
+        %td= number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
+        %td= number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
+        %td.column-center= savingrate.conditions
         %td= savingrate.withdrawal
         %td.column-center= savingrate.deposit_guarantee
         %td= savingrate.amount_limit
