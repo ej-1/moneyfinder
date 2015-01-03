@@ -1,4 +1,15 @@
-%h1 Sparräntor
+.row
+  .span1
+    / Facebook
+    %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FB%25C3%25A4stasparr%25C3%25A4ntorse%2F496715273803875&width&layout=button&action=like&show_faces=false&share=true&height=35", :style => "border:none; overflow:hidden; height:35px;"}
+
+  / Google+
+  .span1
+    %a{:href => "//plus.google.com/u/0/102393660669382846167?prsrc=3", :rel => "publisher", :style => "text-decoration:none;", :target => "_top"}
+      %img{:alt => "Google+", :src => "//ssl.gstatic.com/images/icons/gplus-32.png", :style => "border:0;width:32px;height:32px;"}/
+
+
+%h1.top-buffer Sparräntor
 %p Söker du ett sparkonto som ger en bra sparränta? Nedan listas banker och finansiella institut som erbjuder sparkonton där du kan få möjlighet till en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
 %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
   %thead
@@ -25,7 +36,7 @@
         %td.column-center= savingrate.weblink.to_s.html_safe
 %br/
 
-%p.top-buffer Bästasparräntor.se garanterar inte att information gällande sparräntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
+%p.top-buffer.bottom-buffer Bästasparräntor.se garanterar inte att information gällande sparräntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
 
 %a{:href => "http://www.1000lankar.com", :target => "_blank"}
   %img{:alt => "1000lankar.com - gratis länkkatalog", :border => "0", :height => "31", :src => "http://www.1000lankar.com/images/88x31x1.gif", :width => "88"}/

@@ -86,7 +86,7 @@ tbody th {
 }
 
 .content-top {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .grey-title {
@@ -108,6 +108,14 @@ tbody th {
 
 .top-buffer{
   padding-top: 30px;
+}
+
+.bottom-buffer{
+  padding-bottom: 30px;
+}
+
+.black-text{
+  color: #333;
 }
 
 .list-font{
