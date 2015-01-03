@@ -13,19 +13,13 @@ Ratesfinder::Application.routes.draw do
 
 # THE WAY IT WORKS
 # get "url" => 'controller and the name of the catalogue#file in the view catalogue'
+# get "url" => 'controller and the name of the catalogue#file in the view catalogue and the name of action in controller'
 
- # GÖR OM
-  get "sparrantor" => 'rates#index'
-
-
-  get "lanerantor" => 'loans#lanerantor'
-
-  get "loanslanding" => 'loans#loanslanding'
 
   # THE NEW THING
-  get "sparrantor2" => 'adminsavingrates#sparrantor2'
-  get "mortgageloans2" => 'adminmortgageloans#mortgageloans2'
-  get "smslan2" => 'adminsmsloans#smslan2'
+  get "sparrantor" => 'adminsavingrates#sparrantor'
+  get "bolan" => 'adminmortgageloans#mortgageloans'
+  get "smslan" => 'adminsmsloans#smslan'
 
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'

@@ -26,7 +26,7 @@ class AdminmortgageloansController < ApplicationController
     @mortgageloans = Mortgageloan.all
   end
 
-  def mortgageloans2
+  def mortgageloans
     @mortgageloans = Mortgageloan.all
   end
 

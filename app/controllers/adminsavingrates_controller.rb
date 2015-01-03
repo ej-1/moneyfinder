@@ -11,7 +11,7 @@ class AdminsavingratesController < ApplicationController
     @savingrates = Savingrate.all
   end
 
-  def sparrantor2
+  def sparrantor
     @savingrates = Savingrate.all
   end
 

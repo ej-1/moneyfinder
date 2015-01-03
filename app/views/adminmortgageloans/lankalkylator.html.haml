@@ -1,8 +1,8 @@
 %ul.nav.nav-tabs{"data-tabs" => "tabs"}
   %li
-    %a{:href => "mortgageloans2"} Jämför Bolåneräntor
+    %a{:href => "bolan"} Jämför Bolåneräntor
   %li.active
-    %a{:href => "#Bolånekalkylator"} Bolånekalkylator
+    %a{:href => "bolanekalkylator"} Bolånekalkylator
 
 %div.loancalculator
   %h1 Bolånekalkylator
@@ -10,7 +10,7 @@
   %div.top-buffer
     %p.warning-number Fyll i både lånebelopp och kontantinsats
 
-    = form_tag("lankalkylator", method: "get") do
+    = form_tag("bolanekalkylator", method: "get") do
       = label_tag(:number, "Önskat lånebelopp")
       = text_field_tag(:number, params[:number])
       = label_tag(:number2, "Kontantinsats")

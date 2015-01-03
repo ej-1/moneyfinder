@@ -7,7 +7,7 @@ class AdminsmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
-  def smslan2
+  def smslan
     @smsloans = Smsloan.all
   end
 
