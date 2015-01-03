@@ -27,12 +27,12 @@
     - @savingrates.each do |savingrate|
       %tr
         %td.bank-padding= savingrate.bank
-        %td.column-center=  number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
-        %td.column-center=  number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
-        %td.column-center= savingrate.conditions
-        %td.column-center= savingrate.withdrawal
+        %td=  number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
+        %td=  number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
+        %td= savingrate.conditions
+        %td= savingrate.withdrawal
         %td.column-center= savingrate.deposit_guarantee
-        %td.column-center= savingrate.amount_limit
+        %td= savingrate.amount_limit
         %td.column-center= savingrate.weblink.to_s.html_safe
 %br/
 
