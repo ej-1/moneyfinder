@@ -28,8 +28,11 @@ Ratesfinder::Application.routes.draw do
   get "bolanekalkylator" => 'adminmortgageloans#lankalkylator'
 
   # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
-  root :to => 'public#mainlanding'
+  root :to => 'adminsavingrates#sparrantor'
 end
+
+#  root :to => 'public#mainlanding'
+# end
 
 # OLD ROUTES
 # get "mortgageloans2" => 'mortgageloans#mortgageloans2'
