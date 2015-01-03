@@ -11,41 +11,40 @@ Ratesfinder::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :rates
 
-  # Erik. jag tror denna rad hämtar view-filen world i mappen hello. app/views/hello/world
+# THE WAY IT WORKS
+# get "url" => 'controller and the name of the catalogue#file in the view catalogue'
 
-  
-  # We'll add this line to tell Rails about the new action.
-
-  # This line was added when the controller was generated
-  get 'hello/world'
-  # Ändra på första 'om' för att ändra webadressen
-  get "om" => 'hello#om'
-  get "kontakt" => 'hello#kontakt'
+ # GÖR OM
   get "sparrantor" => 'rates#index'
-  get "sparguide" => 'rates#sparguide'
-  get "landets_rantor" => 'rates#landets_rantor'
+
+
   get "lanerantor" => 'loans#lanerantor'
-  get "lankalkylator" => 'loans#lankalkylator'
-  # Behövs inte längre get "calculate" => 'calculates#calculate'
+
   get "loanslanding" => 'loans#loanslanding'
-  get "smsloans" => 'smsloans#smsloans'
+
   # THE NEW THING
   get "sparrantor2" => 'adminsavingrates#sparrantor2'
-  # get "mortgageloans2" => 'mortgageloans#mortgageloans2'
   get "mortgageloans2" => 'adminmortgageloans#mortgageloans2'
-  # get "smslan2" => 'smsloans#smslan2'
   get "smslan2" => 'adminsmsloans#smslan2'
-#   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
-#   get "url" => 'controller and the name of the catalogue#file in the view catalogue'
 
+  get "sparguide" => 'public#sparguide'
+  get "landets_rantor" => 'public#landets_rantor'
+  get "om" => 'public#om'
 
-# `match 'calculate' => 'your_controller_name#calculate' in config/routes.rb.
-# `match 'calculate' => 'your_controller_name#action_in_controller' in config/routes.rb.
+  get "bolanekalkylator" => 'adminmortgageloans#lankalkylator'
 
-  # Den här raden hämtar view-filen 'home' i mappen hello. app/views/hello/home
-  root :to => 'rates#index'
+  # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
+  root :to => 'public#mainlanding'
 end
 
+# OLD ROUTES
+# get "mortgageloans2" => 'mortgageloans#mortgageloans2'
+# get "smslan2" => 'smsloans#smslan2'
+# get "smsloans" => 'smsloans#smsloans'
+
+
+
+  # ------------------------------------------------------------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

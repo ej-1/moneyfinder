@@ -77,6 +77,6 @@ class SavingratesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def savingrate_params
-      params.require(:savingrate).permit(:bank, :min_rate, :max_rate, :country, :currency, :conditions, :withdrawal, :account_time_length, :deposit_guarantee, :amount_limit)
+      params.require(:savingrate).permit(:bank, :min_rate, :max_rate, :country, :currency, :conditions, :withdrawal, :account_time_length, :deposit_guarantee, :amount_limit, :weblink)
     end
 end

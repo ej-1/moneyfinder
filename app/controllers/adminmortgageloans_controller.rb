@@ -3,6 +3,25 @@ class AdminmortgageloansController < ApplicationController
   # before_action :authenticate_admin!
   # GET /mortgageloans
   # GET /mortgageloans.json
+
+
+  def lanerantor
+    @loans = Loan.all
+  end
+  def lankalkylator
+    @result = ''
+  end
+  def lankalkylator
+    # @results s used to calculte how much customers have to pay monthly for their loan
+    @result = params[:number].to_i - params[:number2].to_i.to_i
+    #*Loan.third.fixation_rate_1year
+    @mortgageloans = Mortgageloan.all
+    @realestatevalue = params[:number].to_i + params[:number2].to_i
+  end
+
+
+
+
   def index
     @mortgageloans = Mortgageloan.all
   end

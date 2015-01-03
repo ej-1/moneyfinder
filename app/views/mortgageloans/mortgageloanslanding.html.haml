@@ -1,0 +1,30 @@
+%ul.nav.nav-tabs{"data-tabs" => "tabs"}
+  %li.active
+    %a{:href => "#Bolån"} Bolån
+  %li
+    %a{:href => "#Privatlån"} Privatlån
+  %li
+    %a{:href => "#SMSlån"} SMS lån
+
+%ul.nav.nav-pills
+  %li.active
+    %a{:href => "lanerantor"} Jämför bolåneräntor
+  %li
+    %a{:href => "lankalkylator"} Lånkalkylator
+  %li
+    %a{:href => "#"} Fast vs rörlig ränta
+
+
+%h1 Låneräntor
+%p Söker du ett lån med bra villkor? Nedan listas banker och finansiella institut som erbjuder olika former av lån. Du kan klicka på rubrikerna i listan för att sortera.
+
+%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+  %thead
+    %tr
+      %th Bank
+      %th 3 månader
+  %tbody
+    - @mortgageloans.each do |mortgageloan|
+      %tr
+        %td.bank-padding= mortgageloan.bank
+        %td.column-center= number_to_percentage(((mortgageloan.fixation_rate_3months)*100), strip_insignificant_zeros: true)

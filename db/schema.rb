@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229234648) do
+ActiveRecord::Schema.define(version: 20150102220417) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20141229234648) do
     t.datetime "updated_at"
   end
 
+  create_table "publics", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rates", force: true do |t|
     t.string   "bank"
     t.decimal  "min_rate"
@@ -88,6 +93,7 @@ ActiveRecord::Schema.define(version: 20141229234648) do
     t.string   "amount_limit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "weblink"
   end
 
   create_table "smsloans", force: true do |t|

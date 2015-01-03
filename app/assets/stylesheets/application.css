@@ -251,9 +251,15 @@ input{
   box-shadow: none;
 }
 
-ul /* Make as lists, especelly the one with buttons on loanlanding page without bullets. */
-
+ul /* Make as lists, especially the one with buttons on loanlanding page without bullets. */
 {
     list-style-type: none;
     color: white;
+}
+
+/* MAINLANDING */
+
+.big-buttons-positon {
+  margin-right: auto;
+  margin-left: auto;
 }
