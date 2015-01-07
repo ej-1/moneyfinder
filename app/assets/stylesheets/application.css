@@ -271,3 +271,8 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
   margin-right: auto;
   margin-left: auto;
 }
+
+.stealth {
+  width: 1px;
+  height: 1px;
+}
