@@ -6,8 +6,8 @@
     <meta name="google-site-verification" content="VtdEH7zhYHz6CaihcENT2lRMqI0BR8wq5uX55UWYMl8" />
     <meta name="google-site-verification" content="bzqmsweAUZ_e6buU4OGRM6m6c9LjeFGqjTCn2QWITtk" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bästa sparräntor - Jämför och hitta högst sparränta och inlåningsränta hos bl.a. 4spar, Swedbank, Nordea.</title>
-    <meta name="description=Bästa sparräntor [site:bästasparräntor.se/sparrantor/]" content="Jämför och hitta högst sparränta och inlåningsränta hos bl.a. 4spar, Swedbank, Nordea">
+    <title><%= yield(:title) %></title>
+
     <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -24,13 +24,26 @@
 
     </script>
 
+    <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0027/5391.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script> 
+
+<!-- Google + Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'sv'}
+</script>
+
   <!-- TradeDoubler site verification 2460789 -->
     
   </head>
 
   <body>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <div class="container-narrow">
+    <!-- <div class="container-narrow"> -->
+    <div class="application-field">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -41,17 +54,17 @@
         <img src="Bank-icon.png" alt="Smiley face" height="50" width="50">
         <h3 class="grey-title">Bästasparräntor.se</h3>
       </div>
-
+    </div>
       <hr>
       <div class="content">
         <%= yield %>
       </div>
       <hr>
-
+    <div class="application-field">
       <div class="footer">
         <p>&copy; Bästasparräntor.se 2014-2015 All rights reserved</p>
       </div>
-
+     </div>
     </div> <!-- /container -->
 
  

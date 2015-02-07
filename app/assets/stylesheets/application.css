@@ -14,7 +14,7 @@ body {
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -125,12 +125,6 @@ tbody th {
 
 .facebook-likes{
   padding-right: 300px;
-}
-
-.google-likes{
-  padding-top: 20px;
-  padding-left: 10px;
-  margin-bottom: 50px;
 }
 
 .paragraph-break{
@@ -271,8 +265,191 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
   margin-right: auto;
   margin-left: auto;
 }
-
+/* Hides link-images to link libraries */
 .stealth {
   width: 1px;
   height: 1px;
+}
+
+.checkbox-buffer {
+  margin-top: -17px;
+}
+
+.green-field {
+  background-color: rgba(138, 252, 79, 0.34);
+  border-radius: 5px;
+  width: 90%;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-right: 25px;
+  padding-bottom: 12.5px;
+  padding-left: 25px;
+}
+
+/* for the top-menu */
+.application-field {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+/* for the content on page */
+
+
+
+
+
+
+
+.primarch-buffer {
+  margin-top: 50px;
+}
+
+.primarch-buffer2 {
+  margin-top: 100px;
+}
+
+.ad-buffer {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ad-buffer2 {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.pagefield h1  {
+  font-size: 35.5;
+}
+
+
+/*
+==============
+Media queries
+==============
+*/
+
+@media (min-width: 1200px) {
+  .pagefield-superior {
+    /* max-width: 60%; */
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-right: 2%;
+  width: 90%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+  margin-left: 13%;
+  margin-right: 13%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-right: 2%;
+  width: 90%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 979px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+  margin-left: 13%;
+  margin-right: 13%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-right: 2%;
+  width: 90%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-left: 10%;
+  }
+
+  .pagefield-right {
+  /* max-width: 60%; */
+  padding-left: 130px;
+  }
+
+  .g-follow{
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-right: 50px;
+  width: 90%;
+  }
+
+  .pagefield-right {
+  /* max-width: 60%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+
+  .pagefield-left {
+  /* max-width: 60%; */
+  padding-right: 2%;
+  width: 90%;
+  }
+
+  .pagefield-right {
+  /* max-width: 60%; */
+  margin-left: 2%;
+  margin-right: 2%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
 }

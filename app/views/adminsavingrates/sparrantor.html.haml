@@ -1,61 +1,78 @@
-.row
-  .span1
-    / Facebook
-    %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FB%25C3%25A4stasparr%25C3%25A4ntorse%2F496715273803875&width&layout=button&action=like&show_faces=false&share=true&height=35", :style => "border:none; overflow:hidden; height:35px;"}
+- content_for :title, "Bästa sparräntor - Jämför och hitta högst sparränta och inlåningsränta"
+%meta{:content => "Bästasparräntor.se hjälper dig jämföra och hitta de högsta sparräntorna och inlåningsräntorna", :name => "description=Bästa sparräntor [site:bästasparräntor.se/sparrantor/]"}/
 
-  / Google+
-  .span1
-    %a{:href => "//plus.google.com/u/0/102393660669382846167?prsrc=3", :rel => "publisher", :style => "text-decoration:none;", :target => "_top"}
-      %img{:alt => "Google+", :src => "//ssl.gstatic.com/images/icons/gplus-32.png", :style => "border:0;width:32px;height:32px;"}/
+.pagefield-superior
+  .row
+    .span7
+      .pagefield-left
+        %h1.primarch-buffer Sparräntor
+        %p Söker du ett sparkonto som ger en bra sparränta? Nedan listas banker och finansiella institut som erbjuder sparkonton där du kan få möjlighet till en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
 
+        // SE TESTKOD FIL FÖR KODEN FÖR FILTERISNTÄLLINGAR
 
-%h1.top-buffer Sparräntor
-%p Söker du ett sparkonto som ger en bra sparränta? Nedan listas banker och finansiella institut som erbjuder sparkonton där du kan få möjlighet till en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
-%table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
-  %thead
-    %tr
-      %th Bank
-      %th
-        Lägsta
-        %br>/
-        räntan
-      %th
-        Högsta
-        %br>/
-        räntan
-      %th Bindningstid
-      %th Fria uttag
-      %th 
-        Insättnings-
-        %br>/
-        garanti
-      %th
-        Insättnings-
-        %br>/
-        belopp
-      %th Ansök här
-      %th{:colspan => "3"}
-  %tbody
-    - @savingrates.each do |savingrate|
-      %tr
-        %td.bank-padding= savingrate.bank
-        %td= number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
-        %td= number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
-        %td.column-center= savingrate.conditions
-        %td= savingrate.withdrawal
-        %td.column-center= savingrate.deposit_guarantee
-        %td= savingrate.amount_limit
-        %td.column-center= savingrate.weblink.to_s.html_safe
-%br/
+        %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+          %thead
+            %tr
+              %th Bank
+              %th
+                Lägsta
+                %br>/
+                räntan
+              %th
+                Högsta
+                %br>/
+                räntan
+              %th Bindningstid
+              %th Fria uttag
+              %th 
+                Insättnings-
+                %br>/
+                garanti
+              %th
+                Insättnings-
+                %br>/
+                belopp
+              %th Ansök här
+              %th{:colspan => "3"}
+          %tbody
+            - @savingrates.each do |savingrate|
+              %tr.className
+                %td.bank-padding= savingrate.bank
+                %td= number_to_percentage(savingrate.min_rate, strip_insignificant_zeros: true)
+                %td= number_to_percentage(savingrate.max_rate, strip_insignificant_zeros: true)
+                %td.column-center= savingrate.conditions
+                %td= savingrate.withdrawal
+                %td.column-center= savingrate.deposit_guarantee
+                %td= savingrate.amount_limit
+                %td.column-center= savingrate.weblink.to_s.html_safe
+        %br/
 
-%p.top-buffer.bottom-buffer Bästasparräntor.se garanterar inte att information gällande sparräntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
+        %p.top-buffer.bottom-buffer Bästasparräntor.se garanterar inte att information gällande sparräntor samt övrig information är korrekt. För att säkerställa att informationen är korrekt vänligen besök bankernas hemsidor.
 
-%div.stealth
-  %a{:href => "http://www.1000lankar.com", :target => "_blank"}
-  %img{:alt => "1000lankar.com - gratis länkkatalog", :border => "0", :height => "31", :src => "http://www.1000lankar.com/images/88x31x1.gif", :width => "88"}/
-%div.stealth
-  %a{:href => "http://www.svenskasajter.com"}
-    %img{:alt => "SvenskaSajter.com - gratis länkkatalog för hemsida  blogg", :border => "0", :src => "http://www.svenskasajter.com/images/banners/80x15.gif"}/
-%div.stealth
-  %a{:href => "http://xn--svenskalnkar-ncb.com", :target => "_blank"}
-    %img{:alt => "SvenskaLänkar.com", :border => "0", :height => "15", :src => "http://xn--svenskalnkar-ncb.com/images/80x15.png", :width => "80"}/
+        %div.stealth
+          %a{:href => "http://www.1000lankar.com", :target => "_blank"}
+          %img{:alt => "1000lankar.com - gratis länkkatalog", :border => "0", :height => "31", :src => "http://www.1000lankar.com/images/88x31x1.gif", :width => "88"}/
+        %div.stealth
+          %a{:href => "http://www.svenskasajter.com"}
+            %img{:alt => "SvenskaSajter.com - gratis länkkatalog för hemsida  blogg", :border => "0", :src => "http://www.svenskasajter.com/images/banners/80x15.gif"}/
+        %div.stealth
+          %a{:href => "http://xn--svenskalnkar-ncb.com", :target => "_blank"}
+            %img{:alt => "SvenskaLänkar.com", :border => "0", :height => "15", :src => "http://xn--svenskalnkar-ncb.com/images/80x15.png", :width => "80"}/
+    .span2.primarch-buffer2
+      .pagefield-right
+        .row
+          .span1
+            / Facebook
+            %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FB%25C3%25A4stasparr%25C3%25A4ntorse%2F496715273803875&width&layout=button&action=like&show_faces=false&share=true&height=35", :style => "border:none; overflow:hidden; height:35px;"}
+
+          / Google+
+          .span2
+            .g-follow{"data-annotation" => "none", "data-height" => "20", "data-href" => "//plus.google.com/u/0/102393660669382846167", "data-rel" => "publisher"}
+        .ad-buffer
+          <script type="text/javascript" src="http://track.adtraction.com/t/t?a=1037946372&as=1076396908&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
+        .ad-buffer
+          <script type="text/javascript">
+          var uri = 'http://impse.tradedoubler.com/imp?type(js)g(16789640)a(2460789)' + new String (Math.random()).substring (2, 11);
+          document.write('<sc'+'ript type="text/javascript" src="'+uri+'" charset="ISO-8859-1"></sc'+'ript>');
+          </script>
+
