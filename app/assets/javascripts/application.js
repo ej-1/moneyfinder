@@ -13,9 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
-//= require_tree .
 
+//= require_tree .
+//IF YOU NEED TO REFRESH PAGE FOR IT TO LOAD THEN REMOVE = require turbolinks
+// http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application
 
 
 //TROUBLESHOOTING: If script does not load the first time, only after refreshing web page
