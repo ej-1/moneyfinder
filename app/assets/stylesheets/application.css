@@ -379,6 +379,11 @@ Media queries
   width: 90%;
   }
 
+  .pagefield-right {
+  /* max-width: 60%; */
+  padding-left: 150px;
+  }
+
   .g-follow{
     padding-left: 20px;
   }
@@ -398,7 +403,7 @@ Media queries
 
   .pagefield-right {
   /* max-width: 60%; */
-  padding-left: 130px;
+  padding-left: 150px;
   }
 
   .g-follow{
