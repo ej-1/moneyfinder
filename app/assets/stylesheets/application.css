@@ -323,6 +323,7 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
 }
 
 
+
 /*
 ==============
 Media queries
@@ -332,14 +333,9 @@ Media queries
 @media (min-width: 1200px) {
   .pagefield-superior {
     /* max-width: 60%; */
-    margin-left: 13%;
     margin-right: 13%;
-  }
+    margin-left: 13%;
 
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-right: 2%;
-  width: 90%;
   }
 
   .g-follow{
@@ -351,14 +347,13 @@ Media queries
 @media (max-width: 1200px) {
   .pagefield-superior {
   /* max-width: 60%; */
-  margin-left: 13%;
-  margin-right: 13%;
+    margin-right: 5%;
+    margin-left: 5%;
   }
 
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-right: 2%;
-  width: 90%;
+  .pagefield-right {
+    margin-left: 20%;
+
   }
 
   .g-follow{
@@ -369,19 +364,13 @@ Media queries
 @media (max-width: 979px) {
   .pagefield-superior {
   /* max-width: 60%; */
-  margin-left: 13%;
-  margin-right: 13%;
-  }
-
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-right: 2%;
-  width: 90%;
+    margin-right: 13%;
+    margin-left: 13%;
   }
 
   .pagefield-right {
-  /* max-width: 60%; */
-  padding-left: 150px;
+    margin-left: 20%;
+
   }
 
   .g-follow{
@@ -392,18 +381,12 @@ Media queries
 @media (min-width: 768px) and (max-width: 979px) {
   .pagefield-superior {
   /* max-width: 60%; */
-  margin-left: 2%;
-  margin-right: 2%;
-  }
-
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-left: 10%;
+    margin-right: 13%;
+    margin-left: 13%;
   }
 
   .pagefield-right {
-  /* max-width: 60%; */
-  padding-left: 150px;
+    margin-left: 95%;
   }
 
   .g-follow{
@@ -414,20 +397,8 @@ Media queries
 @media (max-width: 767px) {
   .pagefield-superior {
   /* max-width: 60%; */
-  margin-left: 2%;
-  margin-right: 2%;
-  }
-
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-right: 50px;
-  width: 90%;
-  }
-
-  .pagefield-right {
-  /* max-width: 60%; */
-  margin-left: 2%;
-  margin-right: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
   }
 
   .g-follow{
@@ -438,20 +409,8 @@ Media queries
 @media (max-width: 480px) {
   .pagefield-superior {
   /* max-width: 60%; */
-  margin-left: 2%;
-  margin-right: 2%;
-  }
-
-  .pagefield-left {
-  /* max-width: 60%; */
-  padding-right: 2%;
-  width: 90%;
-  }
-
-  .pagefield-right {
-  /* max-width: 60%; */
-  margin-left: 2%;
-  margin-right: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
   }
 
   .g-follow{
