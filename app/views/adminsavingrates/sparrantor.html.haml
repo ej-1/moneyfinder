@@ -5,6 +5,22 @@
   .row
     .span7
       .pagefield-left
+        - if user_signed_in?
+          Logged in as
+          = succeed "." do
+            %strong= current_user.email
+          = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+          |
+          \#{link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'}
+        - else
+          = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+          |
+          \#{link_to "Login", new_user_session_path, :class => 'navbar-link'}
+
+        - if notice
+          %p.alert.alert-success= notice
+        - if alert
+          %p.alert.alert-danger= alert
         %h1.primarch-buffer Sparräntor
         %p Vill du hitta den bästa räntan för dina sparpengar? Här kan du hitta ett sparkonto som ger en hög ränta genom att jämföra sparräntor hos olika banker och finansiella institut som erbjuder sparkonton med en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
         // SE TESTKOD FIL FÖR KODEN FÖR FILTERISNTÄLLINGAR
