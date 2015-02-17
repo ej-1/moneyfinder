@@ -8,6 +8,9 @@ gem 'heroku'
 
 gem 'devise'
 
+# Added cause in savingrates.scss.css I added some stuff to make fonts nicer
+gem 'bootstrap-sass', '3.2.0.2'
+
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
 gem 'rails_admin', '~> 0.6.5'
 

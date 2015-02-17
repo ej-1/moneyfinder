@@ -9,6 +9,10 @@ Ratesfinder::Application.routes.draw do
 
   get 'loans/new'
 
+  
+  get "/users/sparrantor" => 'adminsavingrates#sparrantor', :as => "/sparrantor"
+  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :rates
 
