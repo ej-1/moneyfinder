@@ -23,7 +23,7 @@ Ratesfinder::Application.routes.draw do
 
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'
-  get "om" => 'public#om'
+  get "/om" => 'public#om'
 
   get "bolanekalkylator" => 'adminmortgageloans#lankalkylator'
 
