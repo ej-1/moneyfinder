@@ -1,6 +1,21 @@
 - content_for :title, "Om Bästasparräntor.se"
 %meta{:content => "Bästasparräntor.se är en tjänst som hjälper dig jämföra och hitta de bästa sparräntorna", :name => "description=Bästa sparräntor [site:bästasparräntor.se/om/]"}/
 
+:javascript
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('om', 'om_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
+         $(this).attr('href', newUrl);
+  });
+
+
 .pagefield-superior
   .row
     .span6
@@ -28,17 +43,3 @@
           var uri = 'http://impse.tradedoubler.com/imp?type(js)g(16789640)a(2460789)' + new String (Math.random()).substring (2, 11);
           document.write('<sc'+'ript type="text/javascript" src="'+uri+'" charset="ISO-8859-1"></sc'+'ript>');
           </script>
-
-:javascript
-    $("a.change-nav-link").each(function(){
-           var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
-           $(this).attr('href', newUrl);
-    });
-    $("a.change-nav-link").each(function(){
-           var newUrl = $(this).attr('href').replace('om', 'om_fb');
-           $(this).attr('href', newUrl);
-    });
-    $("a.change-nav-link").each(function(){
-           var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
-           $(this).attr('href', newUrl);
-    });
