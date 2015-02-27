@@ -37,6 +37,7 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
       // Changes link for Akelius for the landing page for facebook ads
+      // http://stackoverflow.com/questions/8471892/using-jquery-how-can-i-change-an-href-value-of-an-element-with-a-certain-css-cla
       $("a.change-link").each(function(){
         var newUrl = $(this).attr('href').replace('http://www.akeliusspar.se/', 'http://track.adtraction.com/t/t?a=42001056&as=1076396908&t=2&tk=1');
         $(this).attr('href', newUrl);
