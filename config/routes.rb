@@ -18,7 +18,6 @@ Ratesfinder::Application.routes.draw do
 
   # THE NEW THING
   get "sparrantor" => 'adminsavingrates#sparrantor'
-  get "sparrantor_fb" => 'adminsavingrates#sparrantor_fb'
   get "bolan" => 'adminmortgageloans#mortgageloans'
   get "smslan" => 'adminsmsloans#smslan'
 
@@ -27,6 +26,11 @@ Ratesfinder::Application.routes.draw do
   get "om" => 'public#om'
 
   get "bolanekalkylator" => 'adminmortgageloans#lankalkylator'
+
+  # FOR USER WHO ENTER FROM FACEBOOK
+  get "sparrantor_fb" => 'adminsavingrates#sparrantor_fb'
+  get "om_fb" => 'public#om_fb'
+  get "sparguide_fb" => 'public#sparguide_fb'
 
   # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
   root :to => 'adminsavingrates#sparrantor'

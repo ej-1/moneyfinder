@@ -1,0 +1,44 @@
+- content_for :title, "Om Bästasparräntor.se"
+%meta{:content => "Bästasparräntor.se är en tjänst som hjälper dig jämföra och hitta de bästa sparräntorna", :name => "description=Bästa sparräntor [site:bästasparräntor.se/om/]"}/
+
+.pagefield-superior
+  .row
+    .span6
+      .pagefield-left
+        %h1 Om Bästasparräntor.se
+
+        %p.content-top Bästasparräntor.se driver en tjänst som hjälper dig jämföra och hitta en förmånlig sparränta.
+        %p Om du har frågor, önskar att synas som annonsör på vår webbplats eller bara allmänna funderingar kring vår tjänst välkomnar vi dig att kontakta oss genom att skicka ett mejl till info@bästasparräntor.se
+    
+
+    .span2.primarch-buffer2
+      .pagefield-right
+        .row
+          .span1
+            / Facebook
+            %iframe{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FB%25C3%25A4stasparr%25C3%25A4ntorse%2F496715273803875&width&layout=button&action=like&show_faces=false&share=true&height=35", :style => "border:none; overflow:hidden; height:35px;"}
+
+          / Google+
+          .span2
+            .g-follow{"data-annotation" => "none", "data-height" => "20", "data-href" => "//plus.google.com/u/0/102393660669382846167", "data-rel" => "publisher"}
+        .ad-buffer
+          <script type="text/javascript" src="http://track.adtraction.com/t/t?a=1037946372&as=1076396908&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
+        .ad-buffer
+          <script type="text/javascript">
+          var uri = 'http://impse.tradedoubler.com/imp?type(js)g(16789640)a(2460789)' + new String (Math.random()).substring (2, 11);
+          document.write('<sc'+'ript type="text/javascript" src="'+uri+'" charset="ISO-8859-1"></sc'+'ript>');
+          </script>
+
+:javascript
+    $("a.change-nav-link").each(function(){
+           var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
+           $(this).attr('href', newUrl);
+    });
+    $("a.change-nav-link").each(function(){
+           var newUrl = $(this).attr('href').replace('om', 'om_fb');
+           $(this).attr('href', newUrl);
+    });
+    $("a.change-nav-link").each(function(){
+           var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
+           $(this).attr('href', newUrl);
+    });
