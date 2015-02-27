@@ -15,6 +15,11 @@ class AdminsavingratesController < ApplicationController
     @savingrates = Savingrate.all
   end
 
+  def sparrantor_fb
+    @savingrates = Savingrate.all
+  end
+
+
   # GET /savingrates/1
   # GET /savingrates/1.json
   def show

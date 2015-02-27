@@ -36,6 +36,11 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      // Changes link for Akelius for the landing page for facebook ads
+      $("a.change-link").each(function(){
+        var newUrl = $(this).attr('href').replace('http://www.akeliusspar.se/', 'http://track.adtraction.com/t/t?a=42001056&as=1076396908&t=2&tk=1');
+        $(this).attr('href', newUrl);
+      });
 
 
 
