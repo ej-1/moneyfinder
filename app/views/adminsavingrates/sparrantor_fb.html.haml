@@ -1,21 +1,6 @@
 - content_for :title, "Bästa sparräntor - Jämför och hitta högst sparränta och inlåningsränta"
 %meta{:content => "Bästasparräntor.se hjälper dig jämföra och hitta de högsta sparräntorna och inlåningsräntorna", :name => "description=Bästa sparräntor [site:bästasparräntor.se/sparrantor/]"}/
 
-:javascript
-  $("a.change-nav-link").each(function(){
-         var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
-         $(this).attr('href', newUrl);
-  });
-  $("a.change-nav-link").each(function(){
-         var newUrl = $(this).attr('href').replace('om', 'om_fb');
-         $(this).attr('href', newUrl);
-  });
-  $("a.change-nav-link").each(function(){
-         var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
-         $(this).attr('href', newUrl);
-  });
-
-
 .pagefield-superior
   .row
     .span7
@@ -91,3 +76,20 @@
           </script>
 
 
+:javascript
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('http://www.akeliusspar.se/', 'http://track.adtraction.com/t/t?a=42001056&as=1076396908&t=2&tk=1');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('om', 'om_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
+         $(this).attr('href', newUrl);
+  });
