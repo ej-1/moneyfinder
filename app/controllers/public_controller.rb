@@ -3,4 +3,6 @@ class PublicController < ApplicationController
   end
   def sparguide_fb
   end
+  def redirect
+  end
 end

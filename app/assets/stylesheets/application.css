@@ -114,6 +114,10 @@ tbody th {
   padding-bottom: 30px;
 }
 
+.bottom-buffer2{
+  padding-bottom: 400px;
+}
+
 .black-text{
   color: #333;
 }
