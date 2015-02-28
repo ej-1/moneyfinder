@@ -4,5 +4,7 @@ class PublicController < ApplicationController
   def sparguide_fb
   end
   def redirect
+    render :layout => false
   end
+
 end
