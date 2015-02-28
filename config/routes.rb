@@ -31,7 +31,7 @@ Ratesfinder::Application.routes.draw do
   get "sparrantor_fb" => 'adminsavingrates#sparrantor_fb'
   get "om_fb" => 'public#om_fb'
   get "sparguide_fb" => 'public#sparguide_fb'
-  get "redirect" => 'public#redirect'
+  get "redirect_akeliusspar" => 'public#redirect_akeliusspar'
 
   # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
   root :to => 'adminsavingrates#sparrantor'

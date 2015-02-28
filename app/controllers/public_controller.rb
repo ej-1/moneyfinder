@@ -3,7 +3,7 @@ class PublicController < ApplicationController
   end
   def sparguide_fb
   end
-  def redirect
+  def redirect_akeliusspar
     render :layout => false
   end
 
