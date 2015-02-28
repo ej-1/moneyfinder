@@ -70,6 +70,11 @@
 
 :javascript
   $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('http://www.akeliusspar.se', '/redirect_akeliusspar');
+         $(this).attr('href', newUrl);
+  });
+:javascript
+  $("a.change-nav-link").each(function(){
          var newUrl = $(this).attr('href').replace('/om', 'om_fb');
          $(this).attr('href', newUrl);
   });
