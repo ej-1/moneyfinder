@@ -1,0 +1,44 @@
+- content_for :title, "Om Bästasparräntor.se"
+%meta{:content => "Bästasparräntor.se är en tjänst som hjälper dig jämföra och hitta de bästa sparräntorna", :name => "description=Bästa sparräntor [site:bästasparräntor.se/om/]"}/
+
+%meta{:content => "0;url=http://track.adtraction.com/t/t?a=42001056&as=1076396908&t=2&tk=1", "http-equiv" => "Refresh"}/
+
+//Facebook tracking pixel. There is more code in head.
+%img{:alt => "", :height => "1", :src => "https://www.facebook.com/tr?ev=6024877935844&cd[value]=0.01&cd[currency]=SEK&noscript=1", :style => "display:none", :width => "1"}/
+
+/ Facebook Conversion Code for Leads - Akelius
+:javascript
+  (function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+    }
+  })();
+  window._fbq = window._fbq || [];
+  window._fbq.push(['track', '6024904103444', {'value':'0.00','currency':'SEK'}]);
+%noscript
+  %img{:alt => "", :height => "1", :src => "https://www.facebook.com/tr?ev=6024904103444&cd[value]=0.00&cd[currency]=SEK&noscript=1", :style => "display:none", :width => "1"}/
+
+:javascript
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparrantor', 'sparrantor_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('/om', 'om_fb');
+         $(this).attr('href', newUrl);
+  });
+  $("a.change-nav-link").each(function(){
+         var newUrl = $(this).attr('href').replace('sparguide', 'sparguide_fb');
+         $(this).attr('href', newUrl);
+  });
+
+
+
+%h1.column-center.primarch-buffer2 Tack för att du använder Bästasparräntor.se
+%h2.column-center.bottom-buffer2 Du skickas strax till Akelius Spar...
