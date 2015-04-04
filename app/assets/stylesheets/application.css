@@ -421,3 +421,11 @@ Media queries
     padding-left: 20px;
   }
 }
+
+
+.product {}
+
+.hidden-smslan {
+  color: white;
+  font-size: 1px;
+}

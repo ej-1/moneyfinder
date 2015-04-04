@@ -1,0 +1,80 @@
+.pagefield-superior
+  .row
+    .span12
+      .pagefield-left
+        .row
+          .span4
+            %form{:action => "bankid"}
+              %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}>/
+              BankID
+              %br/
+            %form{:action => "mobilefriendly"}
+              %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendly"}>/
+              Mobilvänlig site
+              %br/
+            %form{:action => "payment_note"}
+              %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nopaymentnote"}>/
+              Kreditnotering
+              %br/
+            %form{:action => ""}
+              %input{:name => "smslanchkbx", :type => "checkbox", :value => "5Kfirsttime"}>/
+              5000 kr lån första gången
+              %br/
+        .row
+          .span4
+            %form{:action => ""}
+              %input{:name => "smslanchkbx", :type => "checkbox", :value => "10Kfirsttime"}>/
+              10 000 kr lån första gången
+              %br/
+            %form{:action => ""}
+              %input{:name => "smslanchkbx", :type => "checkbox", :value => "NoUC"}>/
+              Ingen UC
+              %br/
+            %form{:action => ""}
+              %input{:name => "smslanchkbx", :type => "checkbox", :value => "SKEFmember"}>/
+              SKEF Medlem
+              %br/
+            %form{:action => ""}
+              %input{:name => "smslanchkbx", :type => "checkbox", :value => "Saturdayopen"}>/
+              Lördagsöppet
+              %br/
+
+        %h1 SMS lån
+        %table
+          %thead
+            %tr
+              %th Låneföretag
+              %th Minsta lånesumma
+              %th Högsta lånesumma
+              %th Ansök här
+              %th.hidden-smslan Mobilvänlig site
+              %th.hidden-smslan Kreditnotering
+              %th.hidden-smslan Minsta ålder
+              %th.hidden-smslan Kostnadsfria lån
+              %th.hidden-smslan 5000 kr lån första gången
+              %th.hidden-smslan 10 000 kr lån första gången
+              %th.hidden-smslan Ingen UC
+              %th.hidden-smslan SKEF medlem
+              %th.hidden-smslan.column1 BankID
+              %th.hidden-smslan Lördagsöppet
+
+              %th{:colspan => "3"}
+          %tbody
+            - @smsloans.each do |smsloan|
+              %tr
+                %td.product= smsloan.bank
+                %td.product= smsloan.min_loanamoun
+                %td.product= smsloan.max_loanamoun
+                %td= smsloan.weblink
+                %td.product.hidden-smslan= smsloan.mobile_friendly_site
+                %td.product.hidden-smslan= smsloan.smsloan_payment_note
+                %td.product.hidden-smslan= smsloan.smsloan_min_age
+                %td.product.hidden-smslan= smsloan.cost_free_loan
+                %td.product.hidden-smslan= smsloan.new_borrower_5K
+                %td.product.hidden-smslan= smsloan.new_borrower_10K
+                %td.product.hidden-smslan= smsloan.no_uc
+                %td.product.hidden-smslan= smsloan.skef_member
+                %td.product.hidden-smslan= smsloan.bankid
+                %td.product.hidden-smslan= smsloan.open_on_saturdays
+
+        %br/
