@@ -56,6 +56,10 @@ $(document).ready(function() {
         }
 
 
+        //CALCULATION OF SMSLOANS
+        // The radio button filled in. Show on
+
+
 
       $(document).ready(function(){
 

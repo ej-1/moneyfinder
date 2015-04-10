@@ -1,0 +1,5 @@
+class AddLoantime90d10kToSmsloans < ActiveRecord::Migration
+  def change
+    add_column :smsloans, :loantime_90d_10k, :decimal
+  end
+end
