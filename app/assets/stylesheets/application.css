@@ -4,7 +4,11 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree .
+
+ * needed for slider bars
+ *= require jquery-ui
 */
+
 
 body {
   padding-top: 20px;
@@ -429,4 +433,19 @@ Media queries
 .hidden-smslan {
   color: white;
   font-size: 1px;
+}
+
+
+/* http://jsfiddle.net/BxY99/ did not get it to work*/
+body{font:62.5% Verdana,Arial,sans-serif}
+.ui-slider {
+    height: 0.3em;
+    border-radius: 10px;
+}
+.ui-slider-handle {
+    height: 1em;
+    top: -0.45em;
+    border-radius: 0.5em;
+    width: 1em;
+    margin-left: -0.5em;
 }
