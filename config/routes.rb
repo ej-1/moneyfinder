@@ -1,7 +1,9 @@
 Ratesfinder::Application.routes.draw do
-  devise_for :admins
   resources :smsloans
 
+  resources :adminsmsloans
+
+  devise_for :admins
   resources :savingrates
 
   resources :mortgageloans

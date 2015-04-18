@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.range
+
 //= require jquery-ui
 
 //= require_tree .
@@ -59,11 +59,11 @@ $(document).ready(function() {
 
       // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
       // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
-      var labelArr2 = new Array("", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
+      var labelArr2 = new Array("", "1000 kr", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
       $( "#smsamount-slider" ).slider({
         value:1,
         min: 1,
-        max: 13,
+        max: 14,
         step: 1,
         slide: function( event, ui ) {
           $("#smsamount-value").html(labelArr2[ui.value]);

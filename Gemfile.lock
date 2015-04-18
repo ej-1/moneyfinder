@@ -54,8 +54,6 @@ GEM
     execjs (2.2.2)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
-    formtastic (2.3.1)
-      actionpack (>= 3.0)
     haml (4.0.0)
       tilt
     heroku (3.15.2)
@@ -211,11 +209,11 @@ DEPENDENCIES
   bootstrap-sass (= 3.2.0.2)
   coffee-rails (~> 4.0.0)
   devise
-  formtastic
   haml (= 4.0)
   heroku
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   pg
   rails (= 4.1.4)
   rails_12factor

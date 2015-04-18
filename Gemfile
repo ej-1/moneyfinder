@@ -10,8 +10,6 @@ gem 'devise'
 
 gem 'bootstrap-sass', '3.2.0.2'
 
-# Forms for scaffold
- gem 'formtastic', '~> 3.0'
 
 # Jquery UI is necessary for nice slider bars https://github.com/joliss/jquery-ui-rails
 gem 'jquery-ui-rails'
