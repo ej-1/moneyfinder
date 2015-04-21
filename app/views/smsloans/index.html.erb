@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Bank</th>
-      <th>Min loanamoun</th>
-      <th>Max loanamoun</th>
+      <th>Min loanamount</th>
+      <th>Max loanamount</th>
       <th>Mobile friendly site</th>
       <th>Smsloan payment note</th>
       <th>Smsloan min age</th>
@@ -16,6 +16,7 @@
       <th>Skef member</th>
       <th>Bankid</th>
       <th>Open on saturdays</th>
+      <th>Open on sundays</th>
       <th>Weblink</th>
       <th>Loantime 14d 1k</th>
       <th>Loantime 14d 2k</th>
@@ -179,8 +180,8 @@
     <% @smsloans.each do |smsloan| %>
       <tr>
         <td><%= smsloan.bank %></td>
-        <td><%= smsloan.min_loanamoun %></td>
-        <td><%= smsloan.max_loanamoun %></td>
+        <td><%= smsloan.min_loanamount %></td>
+        <td><%= smsloan.max_loanamount %></td>
         <td><%= smsloan.mobile_friendly_site %></td>
         <td><%= smsloan.smsloan_payment_note %></td>
         <td><%= smsloan.smsloan_min_age %></td>
@@ -191,6 +192,7 @@
         <td><%= smsloan.skef_member %></td>
         <td><%= smsloan.bankid %></td>
         <td><%= smsloan.open_on_saturdays %></td>
+        <td><%= smsloan.open_on_sundays %></td>
         <td><%= smsloan.weblink %></td>
         <td><%= smsloan.loantime_14d_1k %></td>
         <td><%= smsloan.loantime_14d_2k %></td>

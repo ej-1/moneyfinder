@@ -34,6 +34,11 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      //Hide certain columns on SMSloan page
+      $(".hidden-smslan").hide();
+      //Hide columns with cost for amount and time on SMSloan page
+      $(".box2").hide();
+
       // Documentation for UI sliders https://api.jqueryui.com/slider/#method-values
       // slider bar control
       // http://www.jqueryscript.net/form/Smooth-Customizable-Range-Slider-Plugin-with-jQuery-jRange.html
@@ -91,7 +96,7 @@ $(document).ready(function() {
               //var smstitle2 = smstime2 + smsamount2;
 
               // TEST - Use to show what smstitle becomes
-              document.getElementById("demo").innerHTML = smstitle;
+              //document.getElementById("demo").innerHTML = smstitle;
               //document.getElementById("demo2").innerHTML = smstitle2;
 
               // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
@@ -100,7 +105,7 @@ $(document).ready(function() {
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
               $(".box2").hide();
               $('.' + smstitle).show();
-
+              $('.' + smstitle).css({"font-weight": "bold"});
               // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
               //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
 
