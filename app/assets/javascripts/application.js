@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 
+//= require jquery-ui
+
 //= require_tree .
 //IF YOU NEED TO REFRESH PAGE FOR IT TO LOAD THEN REMOVE = require turbolinks
 // http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application
@@ -28,17 +30,140 @@
 //http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351
 
 
-
-
-
-
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      //Hide certain columns on SMSloan page
+      $(".hidden-smslan").hide();
+      //Hide columns with cost for amount and time on SMSloan page
+      $(".box2").hide();
+
+      // Documentation for UI sliders https://api.jqueryui.com/slider/#method-values
+      // slider bar control
+      // http://www.jqueryscript.net/form/Smooth-Customizable-Range-Slider-Plugin-with-jQuery-jRange.html
+      // http://www.jqueryscript.net/tags.php?/Range%20Slider/
+      // FINALLY GOT IT THE SLIDER TO TAKE AND PRESENT THE VALUE http://jsfiddle.net/mericson/5TTm4/6/
+
+      // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
+      // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
+      var labelArr = new Array("", "14 dagar", "21 dagar", "30 dagar", "45 dagar","60 dagar","90 dagar","1 år","2 år","3 år","4 år","5 år");
+      $( "#smstime-slider" ).slider({
+        value:1,
+        min: 1,
+        max: 11,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#smstime-value").html(labelArr[ui.value]);
+        }
+      });
+      //Get value and show value
+      $("#smstime-value").html(labelArr[$( "#smstime-slider" ).slider( "value" )]);
+        
+
+
+      // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
+      // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
+      var labelArr2 = new Array("", "500 kr", "1000 kr", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
+      $( "#smsamount-slider" ).slider({
+        value:1,
+        min: 1,
+        max: 15,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#smsamount-value").html(labelArr2[ui.value]);
+        }
+      });
+      //Get value and show value
+      $("#smsamount-value").html(labelArr2[$( "#smsamount-slider" ).slider( "value" )]);
+        
+
+
+
+      // THIS PIECE SHOWS THE COLUMN WITH THE LOANTIME AND AMOUNT THAT THE USER
+      // SELECTS IN THE SLIDERS AND HIDES ALL OTHER SIMILAR COLUMNS.
+      // Take the values from the sliders via the display span ids, put them together to filter away columns
+      $("#smsbutton").click(function(){
+
+              // How to turn html element to variable (var) http://stackoverflow.com/questions/13845313/store-generated-html-in-variable
+              var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
+              var smstime2 = $("#smstime-value").html().replace(" dagar","d ").replace(" år", "year ");
+              var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
+              //var smstime2 = $("#smstime-value").html().replace(" dagar", "d_").replace(" år", "year_");
+              //var smsamount2 = $("#smsamount-value").html().replace("000 kr", "k");
+
+              // How to remove characters from variable, not needed anymore. (remove '000' from '2000') http://stackoverflow.com/questions/4308934/how-to-delete-last-character-from-a-string-using-jquery
+              var smstitle = smstime + smsamount;
+              var smstitle2 = smstime2 + smsamount;
+              //var smstitle2 = smstime2 + smsamount2;
+
+              // TEST - Use to show what smstitle becomes
+              //document.getElementById("demo").innerHTML = smstitle;
+              //document.getElementById("demo2").innerHTML = smstitle2;
+
+              // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
+
+              // Finally solved how to hide a variable as a class selector.
+              // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
+              $(".box2").hide();
+              $('.' + smstitle).show(); // cost old debtors
+              $('.n' + smstitle).show(); // cost new debtors
+              $('.' + smstitle).css({"font-weight": "bold"});
+              //$("#test").replace("Loantime", "hej");
+              //http://wowmotty.blogspot.se/2011/05/jquery-findreplace-text-without.html
+              $('th').html(function(i, v) {
+                  return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
+              });
+              $('th').html(function(i, v) {
+                  return v.replace('Newdebtorloantime ' + smstitle2, 'Kostnad - Redan kund');
+              });
+              // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
+              //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
+
+      });
+
+
+      //http://stackoverflow.com/questions/4323848/how-to-handle-button-click-events-in-jquery
+
+          //    button click
+
+
+
+      //Get value from slider bar control
+      //http://stackoverflow.com/questions/14457106/how-to-get-current-slider-values-from-jquery-slider
+
+    
+
+      // Test to print value slidervalue
+      // http://stackoverflow.com/questions/6916300/jquery-print-value-of-variable
+
+
       // Changes link for Akelius for the landing page for facebook ads
       // http://stackoverflow.com/questions/8471892/using-jquery-how-can-i-change-an-href-value-of-an-element-with-a-certain-css-cla
 
+
+      // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
+      //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
+      //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE
+      //"jquery hide contains several values checkbox"
+      //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
+      //http://jsfiddle.net/WssNb/
+        $('input:checkbox').change(showHideProducts);
+        function showHideProducts()
+        {
+            $('.product').parent().show();
+            $('input:checked').each
+            (
+                function()
+                {
+                    $('td:contains("' + $(this).val() + '")').parent().hide();
+                }            
+            );
+        }
+
+
+        //CALCULATION OF SMSLOANS
+        // The radio button filled in. Show on
 
 
 
@@ -204,3 +329,14 @@ $(document).ready(function() {
 });
 // THIS IS WHERE THE CODE FROM CODE.TUTSPLUS ENDS
 //http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351
+
+
+
+
+
+
+
+
+
+
+

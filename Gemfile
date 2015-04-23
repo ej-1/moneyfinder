@@ -10,6 +10,10 @@ gem 'devise'
 
 gem 'bootstrap-sass', '3.2.0.2'
 
+
+# Jquery UI is necessary for nice slider bars https://github.com/joliss/jquery-ui-rails
+gem 'jquery-ui-rails'
+
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
 gem 'rails_admin', '~> 0.6.5'
 

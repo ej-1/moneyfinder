@@ -1,78 +1,47 @@
 class SmsloansController < ApplicationController
   before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
-  # GET /smsloans
-  # GET /smsloans.json
+
+  respond_to :html
+
   def index
     @smsloans = Smsloan.all
+    respond_with(@smsloans)
   end
 
-  def smslan2
-    @smsloans = Smsloan.all
-  end
-
-  # GET /smsloans/1
-  # GET /smsloans/1.json
   def show
+    respond_with(@smsloan)
   end
 
-  # GET /smsloans/new
   def new
     @smsloan = Smsloan.new
+    respond_with(@smsloan)
   end
 
-  # GET /smsloans/1/edit
   def edit
   end
 
-  # POST /smsloans
-  # POST /smsloans.json
   def create
     @smsloan = Smsloan.new(smsloan_params)
-
-    respond_to do |format|
-      if @smsloan.save
-        format.html { redirect_to @smsloan, notice: 'Smsloan was successfully created.' }
-        format.json { render :show, status: :created, location: @smsloan }
-      else
-        format.html { render :new }
-        format.json { render json: @smsloan.errors, status: :unprocessable_entity }
-      end
-    end
+    @smsloan.save
+    respond_with(@smsloan)
   end
 
-  # PATCH/PUT /smsloans/1
-  # PATCH/PUT /smsloans/1.json
   def update
-    respond_to do |format|
-      if @smsloan.update(smsloan_params)
-        format.html { redirect_to @smsloan, notice: 'Smsloan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @smsloan }
-      else
-        format.html { render :edit }
-        format.json { render json: @smsloan.errors, status: :unprocessable_entity }
-      end
-    end
+    @smsloan.update(smsloan_params)
+    respond_with(@smsloan)
   end
 
-  # DELETE /smsloans/1
-  # DELETE /smsloans/1.json
   def destroy
     @smsloan.destroy
-    respond_to do |format|
-      format.html { redirect_to smsloans_url, notice: 'Smsloan was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@smsloan)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_smsloan
       @smsloan = Smsloan.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def smsloan_params
-      params.require(:smsloan).permit(:bank, :min_loanamoun, :max_loanamoun, :mobile_friendly_site, :smsloan_payment_note, :smsloan_min_age, :cost_free_loan, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :weblink)
+      params.require(:smsloan).permit(:bank, :min_loanamount, :max_loanamount, :invoice_fee, :application_fee, :effective_interest_rate, :mobile_friendly_site, :low_credit_score, :min_age, :cost_free_loan, :new_borrower_5K, :new_borrower_10K, :max_amount_new_borrower, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink, :debtor_loantime_14d_5h, :debtor_loantime_14d_1k, :debtor_loantime_14d_2k, :debtor_loantime_14d_3k, :debtor_loantime_14d_4k, :debtor_loantime_14d_5k, :debtor_loantime_14d_6k, :debtor_loantime_14d_7k, :debtor_loantime_14d_8k, :debtor_loantime_14d_9k, :debtor_loantime_14d_10k, :debtor_loantime_14d_15k, :debtor_loantime_14d_20k, :debtor_loantime_14d_25k, :debtor_loantime_14d_30k, :debtor_loantime_21d_5h, :debtor_loantime_21d_1k, :debtor_loantime_21d_2k, :debtor_loantime_21d_3k, :debtor_loantime_21d_4k, :debtor_loantime_21d_5k, :debtor_loantime_21d_6k, :debtor_loantime_21d_7k, :debtor_loantime_21d_8k, :debtor_loantime_21d_9k, :debtor_loantime_21d_10k, :debtor_loantime_21d_15k, :debtor_loantime_21d_20k, :debtor_loantime_21d_25k, :debtor_loantime_21d_30k, :debtor_loantime_30d_5h, :debtor_loantime_30d_1h, :debtor_loantime_30d_1k, :debtor_loantime_30d_2k, :debtor_loantime_30d_3k, :debtor_loantime_30d_4k, :debtor_loantime_30d_5k, :debtor_loantime_30d_6k, :debtor_loantime_30d_7k, :debtor_loantime_30d_8k, :debtor_loantime_30d_9k, :debtor_loantime_30d_10k, :debtor_loantime_30d_15k, :debtor_loantime_30d_20k, :debtor_loantime_30d_25k, :debtor_loantime_30d_30k, :debtor_loantime_45d_5h, :debtor_loantime_45d_1k, :debtor_loantime_45d_2k, :debtor_loantime_45d_3k, :debtor_loantime_45d_4k, :debtor_loantime_45d_5k, :debtor_loantime_45d_6k, :debtor_loantime_45d_7k, :debtor_loantime_45d_8k, :debtor_loantime_45d_9k, :debtor_loantime_45d_10k, :debtor_loantime_45d_15k, :debtor_loantime_45d_20k, :debtor_loantime_45d_25k, :debtor_loantime_45d_30k, :debtor_loantime_60d_5h, :debtor_loantime_60d_1k, :debtor_loantime_60d_2k, :debtor_loantime_60d_3k, :debtor_loantime_60d_4k, :debtor_loantime_60d_5k, :debtor_loantime_60d_6k, :debtor_loantime_60d_7k, :debtor_loantime_60d_8k, :debtor_loantime_60d_9k, :debtor_loantime_60d_10k, :debtor_loantime_60d_15k, :debtor_loantime_60d_20k, :debtor_loantime_60d_25k, :debtor_loantime_60d_30k, :debtor_loantime_90d_5h, :debtor_loantime_90d_1k, :debtor_loantime_90d_2k, :debtor_loantime_90d_3k, :debtor_loantime_90d_4k, :debtor_loantime_90d_5k, :debtor_loantime_90d_6k, :debtor_loantime_90d_7k, :debtor_loantime_90d_8k, :debtor_loantime_90d_9k, :debtor_loantime_90d_10k, :debtor_loantime_90d_15k, :debtor_loantime_90d_20k, :debtor_loantime_90d_25k, :debtor_loantime_90d_30k, :debtor_loantime_1year_5h, :debtor_loantime_1year_1k, :debtor_loantime_1year_2k, :debtor_loantime_1year_3k, :debtor_loantime_1year_4k, :debtor_loantime_1year_5k, :debtor_loantime_1year_6k, :debtor_loantime_1year_7k, :debtor_loantime_1year_8k, :debtor_loantime_1year_9k, :debtor_loantime_1year_10k, :debtor_loantime_1year_15k, :debtor_loantime_1year_20k, :debtor_loantime_1year_25k, :debtor_loantime_1year_30k, :debtor_loantime_2year_5h, :debtor_loantime_2year_1k, :debtor_loantime_2year_2k, :debtor_loantime_2year_3k, :debtor_loantime_2year_4k, :debtor_loantime_2year_5k, :debtor_loantime_2year_6k, :debtor_loantime_2year_7k, :debtor_loantime_2year_8k, :debtor_loantime_2year_9k, :debtor_loantime_2year_10k, :debtor_loantime_2year_15k, :debtor_loantime_2year_20k, :debtor_loantime_2year_25k, :debtor_loantime_2year_30k, :debtor_loantime_3year_5h, :debtor_loantime_3year_1k, :debtor_loantime_3year_2k, :debtor_loantime_3year_3k, :debtor_loantime_3year_4k, :debtor_loantime_3year_5k, :debtor_loantime_3year_6k, :debtor_loantime_3year_7k, :debtor_loantime_3year_8k, :debtor_loantime_3year_9k, :debtor_loantime_3year_10k, :debtor_loantime_3year_15k, :debtor_loantime_3year_20k, :debtor_loantime_3year_25k, :debtor_loantime_3year_30k, :debtor_loantime_4year_5h, :debtor_loantime_4year_1k, :debtor_loantime_4year_2k, :debtor_loantime_4year_3k, :debtor_loantime_4year_4k, :debtor_loantime_4year_5k, :debtor_loantime_4year_6k, :debtor_loantime_4year_7k, :debtor_loantime_4year_8k, :debtor_loantime_4year_9k, :debtor_loantime_4year_10k, :debtor_loantime_4year_15k, :debtor_loantime_4year_20k, :debtor_loantime_4year_25k, :debtor_loantime_4year_30k, :debtor_loantime_5year_5h, :debtor_loantime_5year_1k, :debtor_loantime_5year_2k, :debtor_loantime_5year_3k, :debtor_loantime_5year_4k, :debtor_loantime_5year_5k, :debtor_loantime_5year_6k, :debtor_loantime_5year_7k, :debtor_loantime_5year_8k, :debtor_loantime_5year_9k, :debtor_loantime_5year_10k, :debtor_loantime_5year_15k, :debtor_loantime_5year_20k, :debtor_loantime_5year_25k, :debtor_loantime_5year_30k, :newdebtor_loantime_14d_5h, :newdebtor_loantime_14d_1k, :newdebtor_loantime_14d_2k, :newdebtor_loantime_14d_3k, :newdebtor_loantime_14d_4k, :newdebtor_loantime_14d_5k, :newdebtor_loantime_14d_6k, :newdebtor_loantime_14d_7k, :newdebtor_loantime_14d_8k, :newdebtor_loantime_14d_9k, :newdebtor_loantime_14d_10k, :newdebtor_loantime_14d_15k, :newdebtor_loantime_14d_20k, :newdebtor_loantime_14d_25k, :newdebtor_loantime_14d_30k, :newdebtor_loantime_21d_5h, :newdebtor_loantime_21d_1k, :newdebtor_loantime_21d_2k, :newdebtor_loantime_21d_3k, :newdebtor_loantime_21d_4k, :newdebtor_loantime_21d_5k, :newdebtor_loantime_21d_6k, :newdebtor_loantime_21d_7k, :newdebtor_loantime_21d_8k, :newdebtor_loantime_21d_9k, :newdebtor_loantime_21d_10k, :newdebtor_loantime_21d_15k, :newdebtor_loantime_21d_20k, :newdebtor_loantime_21d_25k, :newdebtor_loantime_21d_30k, :newdebtor_loantime_30d_5h, :newdebtor_loantime_30d_1h, :newdebtor_loantime_30d_1k, :newdebtor_loantime_30d_2k, :newdebtor_loantime_30d_3k, :newdebtor_loantime_30d_4k, :newdebtor_loantime_30d_5k, :newdebtor_loantime_30d_6k, :newdebtor_loantime_30d_7k, :newdebtor_loantime_30d_8k, :newdebtor_loantime_30d_9k, :newdebtor_loantime_30d_10k, :newdebtor_loantime_30d_15k, :newdebtor_loantime_30d_20k, :newdebtor_loantime_30d_25k, :newdebtor_loantime_30d_30k, :newdebtor_loantime_45d_5h, :newdebtor_loantime_45d_1k, :newdebtor_loantime_45d_2k, :newdebtor_loantime_45d_3k, :newdebtor_loantime_45d_4k, :newdebtor_loantime_45d_5k, :newdebtor_loantime_45d_6k, :newdebtor_loantime_45d_7k, :newdebtor_loantime_45d_8k, :newdebtor_loantime_45d_9k, :newdebtor_loantime_45d_10k, :newdebtor_loantime_45d_15k, :newdebtor_loantime_45d_20k, :newdebtor_loantime_45d_25k, :newdebtor_loantime_45d_30k, :newdebtor_loantime_60d_5h, :newdebtor_loantime_60d_1k, :newdebtor_loantime_60d_2k, :newdebtor_loantime_60d_3k, :newdebtor_loantime_60d_4k, :newdebtor_loantime_60d_5k, :newdebtor_loantime_60d_6k, :newdebtor_loantime_60d_7k, :newdebtor_loantime_60d_8k, :newdebtor_loantime_60d_9k, :newdebtor_loantime_60d_10k, :newdebtor_loantime_60d_15k, :newdebtor_loantime_60d_20k, :newdebtor_loantime_60d_25k, :newdebtor_loantime_60d_30k, :newdebtor_loantime_90d_5h, :newdebtor_loantime_90d_1k, :newdebtor_loantime_90d_2k, :newdebtor_loantime_90d_3k, :newdebtor_loantime_90d_4k, :newdebtor_loantime_90d_5k, :newdebtor_loantime_90d_6k, :newdebtor_loantime_90d_7k, :newdebtor_loantime_90d_8k, :newdebtor_loantime_90d_9k, :newdebtor_loantime_90d_10k, :newdebtor_loantime_90d_15k, :newdebtor_loantime_90d_20k, :newdebtor_loantime_90d_25k, :newdebtor_loantime_90d_30k, :newdebtor_loantime_1year_5h, :newdebtor_loantime_1year_1k, :newdebtor_loantime_1year_2k, :newdebtor_loantime_1year_3k, :newdebtor_loantime_1year_4k, :newdebtor_loantime_1year_5k, :newdebtor_loantime_1year_6k, :newdebtor_loantime_1year_7k, :newdebtor_loantime_1year_8k, :newdebtor_loantime_1year_9k, :newdebtor_loantime_1year_10k, :newdebtor_loantime_1year_15k, :newdebtor_loantime_1year_20k, :newdebtor_loantime_1year_25k, :newdebtor_loantime_1year_30k, :newdebtor_loantime_2year_5h, :newdebtor_loantime_2year_1k, :newdebtor_loantime_2year_2k, :newdebtor_loantime_2year_3k, :newdebtor_loantime_2year_4k, :newdebtor_loantime_2year_5k, :newdebtor_loantime_2year_6k, :newdebtor_loantime_2year_7k, :newdebtor_loantime_2year_8k, :newdebtor_loantime_2year_9k, :newdebtor_loantime_2year_10k, :newdebtor_loantime_2year_15k, :newdebtor_loantime_2year_20k, :newdebtor_loantime_2year_25k, :newdebtor_loantime_2year_30k, :newdebtor_loantime_3year_5h, :newdebtor_loantime_3year_1k, :newdebtor_loantime_3year_2k, :newdebtor_loantime_3year_3k, :newdebtor_loantime_3year_4k, :newdebtor_loantime_3year_5k, :newdebtor_loantime_3year_6k, :newdebtor_loantime_3year_7k, :newdebtor_loantime_3year_8k, :newdebtor_loantime_3year_9k, :newdebtor_loantime_3year_10k, :newdebtor_loantime_3year_15k, :newdebtor_loantime_3year_20k, :newdebtor_loantime_3year_25k, :newdebtor_loantime_3year_30k, :newdebtor_loantime_4year_5h, :newdebtor_loantime_4year_1k, :newdebtor_loantime_4year_2k, :newdebtor_loantime_4year_3k, :newdebtor_loantime_4year_4k, :newdebtor_loantime_4year_5k, :newdebtor_loantime_4year_6k, :newdebtor_loantime_4year_7k, :newdebtor_loantime_4year_8k, :newdebtor_loantime_4year_9k, :newdebtor_loantime_4year_10k, :newdebtor_loantime_4year_15k, :newdebtor_loantime_4year_20k, :newdebtor_loantime_4year_25k, :newdebtor_loantime_4year_30k, :newdebtor_loantime_5year_5h, :newdebtor_loantime_5year_1k, :newdebtor_loantime_5year_2k, :newdebtor_loantime_5year_3k, :newdebtor_loantime_5year_4k, :newdebtor_loantime_5year_5k, :newdebtor_loantime_5year_6k, :newdebtor_loantime_5year_7k, :newdebtor_loantime_5year_8k, :newdebtor_loantime_5year_9k, :newdebtor_loantime_5year_10k, :newdebtor_loantime_5year_15k, :newdebtor_loantime_5year_20k, :newdebtor_loantime_5year_25k, :newdebtor_loantime_5year_30k)
     end
 end
