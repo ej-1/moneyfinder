@@ -64,11 +64,11 @@ $(document).ready(function() {
 
       // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
       // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
-      var labelArr2 = new Array("", "1000 kr", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
+      var labelArr2 = new Array("", "500 kr", "1000 kr", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
       $( "#smsamount-slider" ).slider({
         value:1,
         min: 1,
-        max: 14,
+        max: 15,
         step: 1,
         slide: function( event, ui ) {
           $("#smsamount-value").html(labelArr2[ui.value]);
@@ -87,12 +87,14 @@ $(document).ready(function() {
 
               // How to turn html element to variable (var) http://stackoverflow.com/questions/13845313/store-generated-html-in-variable
               var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
-              var smsamount = $("#smsamount-value").html().replace("000 kr", "k");
+              var smstime2 = $("#smstime-value").html().replace(" dagar","d ").replace(" år", "year ");
+              var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
               //var smstime2 = $("#smstime-value").html().replace(" dagar", "d_").replace(" år", "year_");
               //var smsamount2 = $("#smsamount-value").html().replace("000 kr", "k");
 
               // How to remove characters from variable, not needed anymore. (remove '000' from '2000') http://stackoverflow.com/questions/4308934/how-to-delete-last-character-from-a-string-using-jquery
               var smstitle = smstime + smsamount;
+              var smstitle2 = smstime2 + smsamount;
               //var smstitle2 = smstime2 + smsamount2;
 
               // TEST - Use to show what smstitle becomes
@@ -104,8 +106,17 @@ $(document).ready(function() {
               // Finally solved how to hide a variable as a class selector.
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
               $(".box2").hide();
-              $('.' + smstitle).show();
+              $('.' + smstitle).show(); // cost old debtors
+              $('.n' + smstitle).show(); // cost new debtors
               $('.' + smstitle).css({"font-weight": "bold"});
+              //$("#test").replace("Loantime", "hej");
+              //http://wowmotty.blogspot.se/2011/05/jquery-findreplace-text-without.html
+              $('th').html(function(i, v) {
+                  return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
+              });
+              $('th').html(function(i, v) {
+                  return v.replace('Newdebtorloantime ' + smstitle2, 'Kostnad - Redan kund');
+              });
               // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
               //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
 

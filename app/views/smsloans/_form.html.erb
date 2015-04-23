@@ -24,16 +24,28 @@
     <%= f.text_field :max_loanamount %>
   </div>
   <div class="field">
+    <%= f.label :invoice_fee %><br>
+    <%= f.number_field :invoice_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :application_fee %><br>
+    <%= f.number_field :application_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :effective_interest_rate %><br>
+    <%= f.text_field :effective_interest_rate %>
+  </div>
+  <div class="field">
     <%= f.label :mobile_friendly_site %><br>
     <%= f.text_field :mobile_friendly_site %>
   </div>
   <div class="field">
-    <%= f.label :smsloan_payment_note %><br>
-    <%= f.text_field :smsloan_payment_note %>
+    <%= f.label :low_credit_score %><br>
+    <%= f.text_field :low_credit_score %>
   </div>
   <div class="field">
-    <%= f.label :smsloan_min_age %><br>
-    <%= f.text_field :smsloan_min_age %>
+    <%= f.label :min_age %><br>
+    <%= f.text_field :min_age %>
   </div>
   <div class="field">
     <%= f.label :cost_free_loan %><br>
@@ -46,6 +58,10 @@
   <div class="field">
     <%= f.label :new_borrower_10K %><br>
     <%= f.text_field :new_borrower_10K %>
+  </div>
+  <div class="field">
+    <%= f.label :max_amount_new_borrower %><br>
+    <%= f.text_field :max_amount_new_borrower %>
   </div>
   <div class="field">
     <%= f.label :no_uc %><br>
@@ -72,620 +88,1332 @@
     <%= f.text_field :weblink %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_1k %><br>
-    <%= f.text_field :loantime_14d_1k %>
+    <%= f.label :debtor_loantime_14d_5h %><br>
+    <%= f.text_field :debtor_loantime_14d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_2k %><br>
-    <%= f.text_field :loantime_14d_2k %>
+    <%= f.label :debtor_loantime_14d_1k %><br>
+    <%= f.text_field :debtor_loantime_14d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_3k %><br>
-    <%= f.text_field :loantime_14d_3k %>
+    <%= f.label :debtor_loantime_14d_2k %><br>
+    <%= f.text_field :debtor_loantime_14d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_4k %><br>
-    <%= f.text_field :loantime_14d_4k %>
+    <%= f.label :debtor_loantime_14d_3k %><br>
+    <%= f.text_field :debtor_loantime_14d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_5k %><br>
-    <%= f.text_field :loantime_14d_5k %>
+    <%= f.label :debtor_loantime_14d_4k %><br>
+    <%= f.text_field :debtor_loantime_14d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_6k %><br>
-    <%= f.text_field :loantime_14d_6k %>
+    <%= f.label :debtor_loantime_14d_5k %><br>
+    <%= f.text_field :debtor_loantime_14d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_7k %><br>
-    <%= f.text_field :loantime_14d_7k %>
+    <%= f.label :debtor_loantime_14d_6k %><br>
+    <%= f.text_field :debtor_loantime_14d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_8k %><br>
-    <%= f.text_field :loantime_14d_8k %>
+    <%= f.label :debtor_loantime_14d_7k %><br>
+    <%= f.text_field :debtor_loantime_14d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_9k %><br>
-    <%= f.text_field :loantime_14d_9k %>
+    <%= f.label :debtor_loantime_14d_8k %><br>
+    <%= f.text_field :debtor_loantime_14d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_10k %><br>
-    <%= f.text_field :loantime_14d_10k %>
+    <%= f.label :debtor_loantime_14d_9k %><br>
+    <%= f.text_field :debtor_loantime_14d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_15k %><br>
-    <%= f.text_field :loantime_14d_15k %>
+    <%= f.label :debtor_loantime_14d_10k %><br>
+    <%= f.text_field :debtor_loantime_14d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_20k %><br>
-    <%= f.text_field :loantime_14d_20k %>
+    <%= f.label :debtor_loantime_14d_15k %><br>
+    <%= f.text_field :debtor_loantime_14d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_25k %><br>
-    <%= f.text_field :loantime_14d_25k %>
+    <%= f.label :debtor_loantime_14d_20k %><br>
+    <%= f.text_field :debtor_loantime_14d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_14d_30k %><br>
-    <%= f.text_field :loantime_14d_30k %>
+    <%= f.label :debtor_loantime_14d_25k %><br>
+    <%= f.text_field :debtor_loantime_14d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_1k %><br>
-    <%= f.text_field :loantime_21d_1k %>
+    <%= f.label :debtor_loantime_14d_30k %><br>
+    <%= f.text_field :debtor_loantime_14d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_2k %><br>
-    <%= f.text_field :loantime_21d_2k %>
+    <%= f.label :debtor_loantime_21d_5h %><br>
+    <%= f.text_field :debtor_loantime_21d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_3k %><br>
-    <%= f.text_field :loantime_21d_3k %>
+    <%= f.label :debtor_loantime_21d_1k %><br>
+    <%= f.text_field :debtor_loantime_21d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_4k %><br>
-    <%= f.text_field :loantime_21d_4k %>
+    <%= f.label :debtor_loantime_21d_2k %><br>
+    <%= f.text_field :debtor_loantime_21d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_5k %><br>
-    <%= f.text_field :loantime_21d_5k %>
+    <%= f.label :debtor_loantime_21d_3k %><br>
+    <%= f.text_field :debtor_loantime_21d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_6k %><br>
-    <%= f.text_field :loantime_21d_6k %>
+    <%= f.label :debtor_loantime_21d_4k %><br>
+    <%= f.text_field :debtor_loantime_21d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_7k %><br>
-    <%= f.text_field :loantime_21d_7k %>
+    <%= f.label :debtor_loantime_21d_5k %><br>
+    <%= f.text_field :debtor_loantime_21d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_8k %><br>
-    <%= f.text_field :loantime_21d_8k %>
+    <%= f.label :debtor_loantime_21d_6k %><br>
+    <%= f.text_field :debtor_loantime_21d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_9k %><br>
-    <%= f.text_field :loantime_21d_9k %>
+    <%= f.label :debtor_loantime_21d_7k %><br>
+    <%= f.text_field :debtor_loantime_21d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_10k %><br>
-    <%= f.text_field :loantime_21d_10k %>
+    <%= f.label :debtor_loantime_21d_8k %><br>
+    <%= f.text_field :debtor_loantime_21d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_15k %><br>
-    <%= f.text_field :loantime_21d_15k %>
+    <%= f.label :debtor_loantime_21d_9k %><br>
+    <%= f.text_field :debtor_loantime_21d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_20k %><br>
-    <%= f.text_field :loantime_21d_20k %>
+    <%= f.label :debtor_loantime_21d_10k %><br>
+    <%= f.text_field :debtor_loantime_21d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_25k %><br>
-    <%= f.text_field :loantime_21d_25k %>
+    <%= f.label :debtor_loantime_21d_15k %><br>
+    <%= f.text_field :debtor_loantime_21d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_21d_30k %><br>
-    <%= f.text_field :loantime_21d_30k %>
+    <%= f.label :debtor_loantime_21d_20k %><br>
+    <%= f.text_field :debtor_loantime_21d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_1k %><br>
-    <%= f.text_field :loantime_30d_1k %>
+    <%= f.label :debtor_loantime_21d_25k %><br>
+    <%= f.text_field :debtor_loantime_21d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_2k %><br>
-    <%= f.text_field :loantime_30d_2k %>
+    <%= f.label :debtor_loantime_21d_30k %><br>
+    <%= f.text_field :debtor_loantime_21d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_3k %><br>
-    <%= f.text_field :loantime_30d_3k %>
+    <%= f.label :debtor_loantime_30d_5h %><br>
+    <%= f.text_field :debtor_loantime_30d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_4k %><br>
-    <%= f.text_field :loantime_30d_4k %>
+    <%= f.label :debtor_loantime_30d_1h %><br>
+    <%= f.text_field :debtor_loantime_30d_1h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_5k %><br>
-    <%= f.text_field :loantime_30d_5k %>
+    <%= f.label :debtor_loantime_30d_1k %><br>
+    <%= f.text_field :debtor_loantime_30d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_6k %><br>
-    <%= f.text_field :loantime_30d_6k %>
+    <%= f.label :debtor_loantime_30d_2k %><br>
+    <%= f.text_field :debtor_loantime_30d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_7k %><br>
-    <%= f.text_field :loantime_30d_7k %>
+    <%= f.label :debtor_loantime_30d_3k %><br>
+    <%= f.text_field :debtor_loantime_30d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_8k %><br>
-    <%= f.text_field :loantime_30d_8k %>
+    <%= f.label :debtor_loantime_30d_4k %><br>
+    <%= f.text_field :debtor_loantime_30d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_9k %><br>
-    <%= f.text_field :loantime_30d_9k %>
+    <%= f.label :debtor_loantime_30d_5k %><br>
+    <%= f.text_field :debtor_loantime_30d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_10k %><br>
-    <%= f.text_field :loantime_30d_10k %>
+    <%= f.label :debtor_loantime_30d_6k %><br>
+    <%= f.text_field :debtor_loantime_30d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_15k %><br>
-    <%= f.text_field :loantime_30d_15k %>
+    <%= f.label :debtor_loantime_30d_7k %><br>
+    <%= f.text_field :debtor_loantime_30d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_20k %><br>
-    <%= f.text_field :loantime_30d_20k %>
+    <%= f.label :debtor_loantime_30d_8k %><br>
+    <%= f.text_field :debtor_loantime_30d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_25k %><br>
-    <%= f.text_field :loantime_30d_25k %>
+    <%= f.label :debtor_loantime_30d_9k %><br>
+    <%= f.text_field :debtor_loantime_30d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_30d_30k %><br>
-    <%= f.text_field :loantime_30d_30k %>
+    <%= f.label :debtor_loantime_30d_10k %><br>
+    <%= f.text_field :debtor_loantime_30d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_1k %><br>
-    <%= f.text_field :loantime_45d_1k %>
+    <%= f.label :debtor_loantime_30d_15k %><br>
+    <%= f.text_field :debtor_loantime_30d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_2k %><br>
-    <%= f.text_field :loantime_45d_2k %>
+    <%= f.label :debtor_loantime_30d_20k %><br>
+    <%= f.text_field :debtor_loantime_30d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_3k %><br>
-    <%= f.text_field :loantime_45d_3k %>
+    <%= f.label :debtor_loantime_30d_25k %><br>
+    <%= f.text_field :debtor_loantime_30d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_4k %><br>
-    <%= f.text_field :loantime_45d_4k %>
+    <%= f.label :debtor_loantime_30d_30k %><br>
+    <%= f.text_field :debtor_loantime_30d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_5k %><br>
-    <%= f.text_field :loantime_45d_5k %>
+    <%= f.label :debtor_loantime_45d_5h %><br>
+    <%= f.text_field :debtor_loantime_45d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_6k %><br>
-    <%= f.text_field :loantime_45d_6k %>
+    <%= f.label :debtor_loantime_45d_1k %><br>
+    <%= f.text_field :debtor_loantime_45d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_7k %><br>
-    <%= f.text_field :loantime_45d_7k %>
+    <%= f.label :debtor_loantime_45d_2k %><br>
+    <%= f.text_field :debtor_loantime_45d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_8k %><br>
-    <%= f.text_field :loantime_45d_8k %>
+    <%= f.label :debtor_loantime_45d_3k %><br>
+    <%= f.text_field :debtor_loantime_45d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_9k %><br>
-    <%= f.text_field :loantime_45d_9k %>
+    <%= f.label :debtor_loantime_45d_4k %><br>
+    <%= f.text_field :debtor_loantime_45d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_10k %><br>
-    <%= f.text_field :loantime_45d_10k %>
+    <%= f.label :debtor_loantime_45d_5k %><br>
+    <%= f.text_field :debtor_loantime_45d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_15k %><br>
-    <%= f.text_field :loantime_45d_15k %>
+    <%= f.label :debtor_loantime_45d_6k %><br>
+    <%= f.text_field :debtor_loantime_45d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_20k %><br>
-    <%= f.text_field :loantime_45d_20k %>
+    <%= f.label :debtor_loantime_45d_7k %><br>
+    <%= f.text_field :debtor_loantime_45d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_25k %><br>
-    <%= f.text_field :loantime_45d_25k %>
+    <%= f.label :debtor_loantime_45d_8k %><br>
+    <%= f.text_field :debtor_loantime_45d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_45d_30k %><br>
-    <%= f.text_field :loantime_45d_30k %>
+    <%= f.label :debtor_loantime_45d_9k %><br>
+    <%= f.text_field :debtor_loantime_45d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_1k %><br>
-    <%= f.text_field :loantime_60d_1k %>
+    <%= f.label :debtor_loantime_45d_10k %><br>
+    <%= f.text_field :debtor_loantime_45d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_2k %><br>
-    <%= f.text_field :loantime_60d_2k %>
+    <%= f.label :debtor_loantime_45d_15k %><br>
+    <%= f.text_field :debtor_loantime_45d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_3k %><br>
-    <%= f.text_field :loantime_60d_3k %>
+    <%= f.label :debtor_loantime_45d_20k %><br>
+    <%= f.text_field :debtor_loantime_45d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_4k %><br>
-    <%= f.text_field :loantime_60d_4k %>
+    <%= f.label :debtor_loantime_45d_25k %><br>
+    <%= f.text_field :debtor_loantime_45d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_5k %><br>
-    <%= f.text_field :loantime_60d_5k %>
+    <%= f.label :debtor_loantime_45d_30k %><br>
+    <%= f.text_field :debtor_loantime_45d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_6k %><br>
-    <%= f.text_field :loantime_60d_6k %>
+    <%= f.label :debtor_loantime_60d_5h %><br>
+    <%= f.text_field :debtor_loantime_60d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_7k %><br>
-    <%= f.text_field :loantime_60d_7k %>
+    <%= f.label :debtor_loantime_60d_1k %><br>
+    <%= f.text_field :debtor_loantime_60d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_8k %><br>
-    <%= f.text_field :loantime_60d_8k %>
+    <%= f.label :debtor_loantime_60d_2k %><br>
+    <%= f.text_field :debtor_loantime_60d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_9k %><br>
-    <%= f.text_field :loantime_60d_9k %>
+    <%= f.label :debtor_loantime_60d_3k %><br>
+    <%= f.text_field :debtor_loantime_60d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_10k %><br>
-    <%= f.text_field :loantime_60d_10k %>
+    <%= f.label :debtor_loantime_60d_4k %><br>
+    <%= f.text_field :debtor_loantime_60d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_15k %><br>
-    <%= f.text_field :loantime_60d_15k %>
+    <%= f.label :debtor_loantime_60d_5k %><br>
+    <%= f.text_field :debtor_loantime_60d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_20k %><br>
-    <%= f.text_field :loantime_60d_20k %>
+    <%= f.label :debtor_loantime_60d_6k %><br>
+    <%= f.text_field :debtor_loantime_60d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_25k %><br>
-    <%= f.text_field :loantime_60d_25k %>
+    <%= f.label :debtor_loantime_60d_7k %><br>
+    <%= f.text_field :debtor_loantime_60d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_60d_30k %><br>
-    <%= f.text_field :loantime_60d_30k %>
+    <%= f.label :debtor_loantime_60d_8k %><br>
+    <%= f.text_field :debtor_loantime_60d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_1k %><br>
-    <%= f.text_field :loantime_90d_1k %>
+    <%= f.label :debtor_loantime_60d_9k %><br>
+    <%= f.text_field :debtor_loantime_60d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_2k %><br>
-    <%= f.text_field :loantime_90d_2k %>
+    <%= f.label :debtor_loantime_60d_10k %><br>
+    <%= f.text_field :debtor_loantime_60d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_3k %><br>
-    <%= f.text_field :loantime_90d_3k %>
+    <%= f.label :debtor_loantime_60d_15k %><br>
+    <%= f.text_field :debtor_loantime_60d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_4k %><br>
-    <%= f.text_field :loantime_90d_4k %>
+    <%= f.label :debtor_loantime_60d_20k %><br>
+    <%= f.text_field :debtor_loantime_60d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_5k %><br>
-    <%= f.text_field :loantime_90d_5k %>
+    <%= f.label :debtor_loantime_60d_25k %><br>
+    <%= f.text_field :debtor_loantime_60d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_6k %><br>
-    <%= f.text_field :loantime_90d_6k %>
+    <%= f.label :debtor_loantime_60d_30k %><br>
+    <%= f.text_field :debtor_loantime_60d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_7k %><br>
-    <%= f.text_field :loantime_90d_7k %>
+    <%= f.label :debtor_loantime_90d_5h %><br>
+    <%= f.text_field :debtor_loantime_90d_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_8k %><br>
-    <%= f.text_field :loantime_90d_8k %>
+    <%= f.label :debtor_loantime_90d_1k %><br>
+    <%= f.text_field :debtor_loantime_90d_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_9k %><br>
-    <%= f.text_field :loantime_90d_9k %>
+    <%= f.label :debtor_loantime_90d_2k %><br>
+    <%= f.text_field :debtor_loantime_90d_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_10k %><br>
-    <%= f.text_field :loantime_90d_10k %>
+    <%= f.label :debtor_loantime_90d_3k %><br>
+    <%= f.text_field :debtor_loantime_90d_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_15k %><br>
-    <%= f.text_field :loantime_90d_15k %>
+    <%= f.label :debtor_loantime_90d_4k %><br>
+    <%= f.text_field :debtor_loantime_90d_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_20k %><br>
-    <%= f.text_field :loantime_90d_20k %>
+    <%= f.label :debtor_loantime_90d_5k %><br>
+    <%= f.text_field :debtor_loantime_90d_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_25k %><br>
-    <%= f.text_field :loantime_90d_25k %>
+    <%= f.label :debtor_loantime_90d_6k %><br>
+    <%= f.text_field :debtor_loantime_90d_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_90d_30k %><br>
-    <%= f.text_field :loantime_90d_30k %>
+    <%= f.label :debtor_loantime_90d_7k %><br>
+    <%= f.text_field :debtor_loantime_90d_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_1k %><br>
-    <%= f.text_field :loantime_1year_1k %>
+    <%= f.label :debtor_loantime_90d_8k %><br>
+    <%= f.text_field :debtor_loantime_90d_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_2k %><br>
-    <%= f.text_field :loantime_1year_2k %>
+    <%= f.label :debtor_loantime_90d_9k %><br>
+    <%= f.text_field :debtor_loantime_90d_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_3k %><br>
-    <%= f.text_field :loantime_1year_3k %>
+    <%= f.label :debtor_loantime_90d_10k %><br>
+    <%= f.text_field :debtor_loantime_90d_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_4k %><br>
-    <%= f.text_field :loantime_1year_4k %>
+    <%= f.label :debtor_loantime_90d_15k %><br>
+    <%= f.text_field :debtor_loantime_90d_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_5k %><br>
-    <%= f.text_field :loantime_1year_5k %>
+    <%= f.label :debtor_loantime_90d_20k %><br>
+    <%= f.text_field :debtor_loantime_90d_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_6k %><br>
-    <%= f.text_field :loantime_1year_6k %>
+    <%= f.label :debtor_loantime_90d_25k %><br>
+    <%= f.text_field :debtor_loantime_90d_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_7k %><br>
-    <%= f.text_field :loantime_1year_7k %>
+    <%= f.label :debtor_loantime_90d_30k %><br>
+    <%= f.text_field :debtor_loantime_90d_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_8k %><br>
-    <%= f.text_field :loantime_1year_8k %>
+    <%= f.label :debtor_loantime_1year_5h %><br>
+    <%= f.text_field :debtor_loantime_1year_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_9k %><br>
-    <%= f.text_field :loantime_1year_9k %>
+    <%= f.label :debtor_loantime_1year_1k %><br>
+    <%= f.text_field :debtor_loantime_1year_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_10k %><br>
-    <%= f.text_field :loantime_1year_10k %>
+    <%= f.label :debtor_loantime_1year_2k %><br>
+    <%= f.text_field :debtor_loantime_1year_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_15k %><br>
-    <%= f.text_field :loantime_1year_15k %>
+    <%= f.label :debtor_loantime_1year_3k %><br>
+    <%= f.text_field :debtor_loantime_1year_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_20k %><br>
-    <%= f.text_field :loantime_1year_20k %>
+    <%= f.label :debtor_loantime_1year_4k %><br>
+    <%= f.text_field :debtor_loantime_1year_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_25k %><br>
-    <%= f.text_field :loantime_1year_25k %>
+    <%= f.label :debtor_loantime_1year_5k %><br>
+    <%= f.text_field :debtor_loantime_1year_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_1year_30k %><br>
-    <%= f.text_field :loantime_1year_30k %>
+    <%= f.label :debtor_loantime_1year_6k %><br>
+    <%= f.text_field :debtor_loantime_1year_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_1k %><br>
-    <%= f.text_field :loantime_2year_1k %>
+    <%= f.label :debtor_loantime_1year_7k %><br>
+    <%= f.text_field :debtor_loantime_1year_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_2k %><br>
-    <%= f.text_field :loantime_2year_2k %>
+    <%= f.label :debtor_loantime_1year_8k %><br>
+    <%= f.text_field :debtor_loantime_1year_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_3k %><br>
-    <%= f.text_field :loantime_2year_3k %>
+    <%= f.label :debtor_loantime_1year_9k %><br>
+    <%= f.text_field :debtor_loantime_1year_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_4k %><br>
-    <%= f.text_field :loantime_2year_4k %>
+    <%= f.label :debtor_loantime_1year_10k %><br>
+    <%= f.text_field :debtor_loantime_1year_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_5k %><br>
-    <%= f.text_field :loantime_2year_5k %>
+    <%= f.label :debtor_loantime_1year_15k %><br>
+    <%= f.text_field :debtor_loantime_1year_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_6k %><br>
-    <%= f.text_field :loantime_2year_6k %>
+    <%= f.label :debtor_loantime_1year_20k %><br>
+    <%= f.text_field :debtor_loantime_1year_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_7k %><br>
-    <%= f.text_field :loantime_2year_7k %>
+    <%= f.label :debtor_loantime_1year_25k %><br>
+    <%= f.text_field :debtor_loantime_1year_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_8k %><br>
-    <%= f.text_field :loantime_2year_8k %>
+    <%= f.label :debtor_loantime_1year_30k %><br>
+    <%= f.text_field :debtor_loantime_1year_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_9k %><br>
-    <%= f.text_field :loantime_2year_9k %>
+    <%= f.label :debtor_loantime_2year_5h %><br>
+    <%= f.text_field :debtor_loantime_2year_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_10k %><br>
-    <%= f.text_field :loantime_2year_10k %>
+    <%= f.label :debtor_loantime_2year_1k %><br>
+    <%= f.text_field :debtor_loantime_2year_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_15k %><br>
-    <%= f.text_field :loantime_2year_15k %>
+    <%= f.label :debtor_loantime_2year_2k %><br>
+    <%= f.text_field :debtor_loantime_2year_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_20k %><br>
-    <%= f.text_field :loantime_2year_20k %>
+    <%= f.label :debtor_loantime_2year_3k %><br>
+    <%= f.text_field :debtor_loantime_2year_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_25k %><br>
-    <%= f.text_field :loantime_2year_25k %>
+    <%= f.label :debtor_loantime_2year_4k %><br>
+    <%= f.text_field :debtor_loantime_2year_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_2year_30k %><br>
-    <%= f.text_field :loantime_2year_30k %>
+    <%= f.label :debtor_loantime_2year_5k %><br>
+    <%= f.text_field :debtor_loantime_2year_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_1k %><br>
-    <%= f.text_field :loantime_3year_1k %>
+    <%= f.label :debtor_loantime_2year_6k %><br>
+    <%= f.text_field :debtor_loantime_2year_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_2k %><br>
-    <%= f.text_field :loantime_3year_2k %>
+    <%= f.label :debtor_loantime_2year_7k %><br>
+    <%= f.text_field :debtor_loantime_2year_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_3k %><br>
-    <%= f.text_field :loantime_3year_3k %>
+    <%= f.label :debtor_loantime_2year_8k %><br>
+    <%= f.text_field :debtor_loantime_2year_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_4k %><br>
-    <%= f.text_field :loantime_3year_4k %>
+    <%= f.label :debtor_loantime_2year_9k %><br>
+    <%= f.text_field :debtor_loantime_2year_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_5k %><br>
-    <%= f.text_field :loantime_3year_5k %>
+    <%= f.label :debtor_loantime_2year_10k %><br>
+    <%= f.text_field :debtor_loantime_2year_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_6k %><br>
-    <%= f.text_field :loantime_3year_6k %>
+    <%= f.label :debtor_loantime_2year_15k %><br>
+    <%= f.text_field :debtor_loantime_2year_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_7k %><br>
-    <%= f.text_field :loantime_3year_7k %>
+    <%= f.label :debtor_loantime_2year_20k %><br>
+    <%= f.text_field :debtor_loantime_2year_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_8k %><br>
-    <%= f.text_field :loantime_3year_8k %>
+    <%= f.label :debtor_loantime_2year_25k %><br>
+    <%= f.text_field :debtor_loantime_2year_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_9k %><br>
-    <%= f.text_field :loantime_3year_9k %>
+    <%= f.label :debtor_loantime_2year_30k %><br>
+    <%= f.text_field :debtor_loantime_2year_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_10k %><br>
-    <%= f.text_field :loantime_3year_10k %>
+    <%= f.label :debtor_loantime_3year_5h %><br>
+    <%= f.text_field :debtor_loantime_3year_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_15k %><br>
-    <%= f.text_field :loantime_3year_15k %>
+    <%= f.label :debtor_loantime_3year_1k %><br>
+    <%= f.text_field :debtor_loantime_3year_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_20k %><br>
-    <%= f.text_field :loantime_3year_20k %>
+    <%= f.label :debtor_loantime_3year_2k %><br>
+    <%= f.text_field :debtor_loantime_3year_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_25k %><br>
-    <%= f.text_field :loantime_3year_25k %>
+    <%= f.label :debtor_loantime_3year_3k %><br>
+    <%= f.text_field :debtor_loantime_3year_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_3year_30k %><br>
-    <%= f.text_field :loantime_3year_30k %>
+    <%= f.label :debtor_loantime_3year_4k %><br>
+    <%= f.text_field :debtor_loantime_3year_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_1k %><br>
-    <%= f.text_field :loantime_4year_1k %>
+    <%= f.label :debtor_loantime_3year_5k %><br>
+    <%= f.text_field :debtor_loantime_3year_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_2k %><br>
-    <%= f.text_field :loantime_4year_2k %>
+    <%= f.label :debtor_loantime_3year_6k %><br>
+    <%= f.text_field :debtor_loantime_3year_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_3k %><br>
-    <%= f.text_field :loantime_4year_3k %>
+    <%= f.label :debtor_loantime_3year_7k %><br>
+    <%= f.text_field :debtor_loantime_3year_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_4k %><br>
-    <%= f.text_field :loantime_4year_4k %>
+    <%= f.label :debtor_loantime_3year_8k %><br>
+    <%= f.text_field :debtor_loantime_3year_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_5k %><br>
-    <%= f.text_field :loantime_4year_5k %>
+    <%= f.label :debtor_loantime_3year_9k %><br>
+    <%= f.text_field :debtor_loantime_3year_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_6k %><br>
-    <%= f.text_field :loantime_4year_6k %>
+    <%= f.label :debtor_loantime_3year_10k %><br>
+    <%= f.text_field :debtor_loantime_3year_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_7k %><br>
-    <%= f.text_field :loantime_4year_7k %>
+    <%= f.label :debtor_loantime_3year_15k %><br>
+    <%= f.text_field :debtor_loantime_3year_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_8k %><br>
-    <%= f.text_field :loantime_4year_8k %>
+    <%= f.label :debtor_loantime_3year_20k %><br>
+    <%= f.text_field :debtor_loantime_3year_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_9k %><br>
-    <%= f.text_field :loantime_4year_9k %>
+    <%= f.label :debtor_loantime_3year_25k %><br>
+    <%= f.text_field :debtor_loantime_3year_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_10k %><br>
-    <%= f.text_field :loantime_4year_10k %>
+    <%= f.label :debtor_loantime_3year_30k %><br>
+    <%= f.text_field :debtor_loantime_3year_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_15k %><br>
-    <%= f.text_field :loantime_4year_15k %>
+    <%= f.label :debtor_loantime_4year_5h %><br>
+    <%= f.text_field :debtor_loantime_4year_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_20k %><br>
-    <%= f.text_field :loantime_4year_20k %>
+    <%= f.label :debtor_loantime_4year_1k %><br>
+    <%= f.text_field :debtor_loantime_4year_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_25k %><br>
-    <%= f.text_field :loantime_4year_25k %>
+    <%= f.label :debtor_loantime_4year_2k %><br>
+    <%= f.text_field :debtor_loantime_4year_2k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_4year_30k %><br>
-    <%= f.text_field :loantime_4year_30k %>
+    <%= f.label :debtor_loantime_4year_3k %><br>
+    <%= f.text_field :debtor_loantime_4year_3k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_1k %><br>
-    <%= f.text_field :loantime_5year_1k %>
+    <%= f.label :debtor_loantime_4year_4k %><br>
+    <%= f.text_field :debtor_loantime_4year_4k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_2k %><br>
-    <%= f.text_field :loantime_5year_2k %>
+    <%= f.label :debtor_loantime_4year_5k %><br>
+    <%= f.text_field :debtor_loantime_4year_5k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_3k %><br>
-    <%= f.text_field :loantime_5year_3k %>
+    <%= f.label :debtor_loantime_4year_6k %><br>
+    <%= f.text_field :debtor_loantime_4year_6k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_4k %><br>
-    <%= f.text_field :loantime_5year_4k %>
+    <%= f.label :debtor_loantime_4year_7k %><br>
+    <%= f.text_field :debtor_loantime_4year_7k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_5k %><br>
-    <%= f.text_field :loantime_5year_5k %>
+    <%= f.label :debtor_loantime_4year_8k %><br>
+    <%= f.text_field :debtor_loantime_4year_8k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_6k %><br>
-    <%= f.text_field :loantime_5year_6k %>
+    <%= f.label :debtor_loantime_4year_9k %><br>
+    <%= f.text_field :debtor_loantime_4year_9k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_7k %><br>
-    <%= f.text_field :loantime_5year_7k %>
+    <%= f.label :debtor_loantime_4year_10k %><br>
+    <%= f.text_field :debtor_loantime_4year_10k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_8k %><br>
-    <%= f.text_field :loantime_5year_8k %>
+    <%= f.label :debtor_loantime_4year_15k %><br>
+    <%= f.text_field :debtor_loantime_4year_15k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_9k %><br>
-    <%= f.text_field :loantime_5year_9k %>
+    <%= f.label :debtor_loantime_4year_20k %><br>
+    <%= f.text_field :debtor_loantime_4year_20k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_10k %><br>
-    <%= f.text_field :loantime_5year_10k %>
+    <%= f.label :debtor_loantime_4year_25k %><br>
+    <%= f.text_field :debtor_loantime_4year_25k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_15k %><br>
-    <%= f.text_field :loantime_5year_15k %>
+    <%= f.label :debtor_loantime_4year_30k %><br>
+    <%= f.text_field :debtor_loantime_4year_30k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_20k %><br>
-    <%= f.text_field :loantime_5year_20k %>
+    <%= f.label :debtor_loantime_5year_5h %><br>
+    <%= f.text_field :debtor_loantime_5year_5h %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_25k %><br>
-    <%= f.text_field :loantime_5year_25k %>
+    <%= f.label :debtor_loantime_5year_1k %><br>
+    <%= f.text_field :debtor_loantime_5year_1k %>
   </div>
   <div class="field">
-    <%= f.label :loantime_5year_30k %><br>
-    <%= f.text_field :loantime_5year_30k %>
+    <%= f.label :debtor_loantime_5year_2k %><br>
+    <%= f.text_field :debtor_loantime_5year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_3k %><br>
+    <%= f.text_field :debtor_loantime_5year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_4k %><br>
+    <%= f.text_field :debtor_loantime_5year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_5k %><br>
+    <%= f.text_field :debtor_loantime_5year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_6k %><br>
+    <%= f.text_field :debtor_loantime_5year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_7k %><br>
+    <%= f.text_field :debtor_loantime_5year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_8k %><br>
+    <%= f.text_field :debtor_loantime_5year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_9k %><br>
+    <%= f.text_field :debtor_loantime_5year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_10k %><br>
+    <%= f.text_field :debtor_loantime_5year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_15k %><br>
+    <%= f.text_field :debtor_loantime_5year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_20k %><br>
+    <%= f.text_field :debtor_loantime_5year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_25k %><br>
+    <%= f.text_field :debtor_loantime_5year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_loantime_5year_30k %><br>
+    <%= f.text_field :debtor_loantime_5year_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_14d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_14d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_14d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_21d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_21d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_21d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_30d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_1h %><br>
+    <%= f.text_field :newdebtor_loantime_30d_1h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_30d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_30d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_45d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_45d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_45d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_60d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_60d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_60d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_5h %><br>
+    <%= f.text_field :newdebtor_loantime_90d_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_1k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_2k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_3k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_4k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_5k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_6k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_7k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_8k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_9k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_10k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_15k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_20k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_25k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_90d_30k %><br>
+    <%= f.text_field :newdebtor_loantime_90d_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_5h %><br>
+    <%= f.text_field :newdebtor_loantime_1year_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_1k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_2k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_3k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_4k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_5k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_6k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_7k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_8k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_9k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_10k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_15k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_20k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_25k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_1year_30k %><br>
+    <%= f.text_field :newdebtor_loantime_1year_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_5h %><br>
+    <%= f.text_field :newdebtor_loantime_2year_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_1k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_2k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_3k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_4k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_5k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_6k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_7k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_8k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_9k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_10k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_15k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_20k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_25k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_2year_30k %><br>
+    <%= f.text_field :newdebtor_loantime_2year_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_5h %><br>
+    <%= f.text_field :newdebtor_loantime_3year_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_1k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_2k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_3k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_4k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_5k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_6k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_7k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_8k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_9k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_10k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_15k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_20k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_25k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_3year_30k %><br>
+    <%= f.text_field :newdebtor_loantime_3year_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_5h %><br>
+    <%= f.text_field :newdebtor_loantime_4year_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_1k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_2k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_3k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_4k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_5k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_6k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_7k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_8k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_9k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_10k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_15k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_20k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_25k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_4year_30k %><br>
+    <%= f.text_field :newdebtor_loantime_4year_30k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_5h %><br>
+    <%= f.text_field :newdebtor_loantime_5year_5h %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_1k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_1k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_2k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_2k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_3k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_3k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_4k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_4k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_5k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_5k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_6k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_6k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_7k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_7k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_8k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_8k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_9k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_9k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_10k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_10k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_15k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_15k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_20k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_20k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_25k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_25k %>
+  </div>
+  <div class="field">
+    <%= f.label :newdebtor_loantime_5year_30k %><br>
+    <%= f.text_field :newdebtor_loantime_5year_30k %>
   </div>
   <div class="actions">
     <%= f.submit %>
