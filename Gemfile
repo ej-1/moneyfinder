@@ -50,7 +50,7 @@ end
 gem 'pg'
 
 group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
+#  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 

@@ -169,7 +169,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
-    therubyracer-heroku (0.8.1.pre3)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -223,7 +222,6 @@ DEPENDENCIES
   settingslogic
   spring
   sqlite3
-  therubyracer-heroku (= 0.8.1.pre3)
   thin
   turbolinks
   twitter-bootstrap-rails (~> 2.2.8)
