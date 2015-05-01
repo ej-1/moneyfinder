@@ -4,16 +4,17 @@ one:
   bank: MyString
   min_loanamount: 9.99
   max_loanamount: 9.99
+  max_amount_new_borrower: 9.99
+  new_borrower_5K: MyString
+  new_borrower_10K: MyString
+  cost_free_loan: MyString
+  cost_free_loan_amount: 9.99
   invoice_fee: 1
   application_fee: 1
   effective_interest_rate: 9.99
   mobile_friendly_site: MyString
   low_credit_score: MyString
   min_age: MyString
-  cost_free_loan: MyString
-  new_borrower_5K: MyString
-  new_borrower_10K: MyString
-  max_amount_new_borrower: 9.99
   no_uc: MyString
   skef_member: MyString
   bankid: MyString
@@ -51,7 +52,6 @@ one:
   debtor_loantime_21d_25k: 9.99
   debtor_loantime_21d_30k: 9.99
   debtor_loantime_30d_5h: 9.99
-  debtor_loantime_30d_1h: 9.99
   debtor_loantime_30d_1k: 9.99
   debtor_loantime_30d_2k: 9.99
   debtor_loantime_30d_3k: 9.99
@@ -217,7 +217,6 @@ one:
   newdebtor_loantime_21d_25k: 9.99
   newdebtor_loantime_21d_30k: 9.99
   newdebtor_loantime_30d_5h: 9.99
-  newdebtor_loantime_30d_1h: 9.99
   newdebtor_loantime_30d_1k: 9.99
   newdebtor_loantime_30d_2k: 9.99
   newdebtor_loantime_30d_3k: 9.99
@@ -357,16 +356,17 @@ two:
   bank: MyString
   min_loanamount: 9.99
   max_loanamount: 9.99
+  max_amount_new_borrower: 9.99
+  new_borrower_5K: MyString
+  new_borrower_10K: MyString
+  cost_free_loan: MyString
+  cost_free_loan_amount: 9.99
   invoice_fee: 1
   application_fee: 1
   effective_interest_rate: 9.99
   mobile_friendly_site: MyString
   low_credit_score: MyString
   min_age: MyString
-  cost_free_loan: MyString
-  new_borrower_5K: MyString
-  new_borrower_10K: MyString
-  max_amount_new_borrower: 9.99
   no_uc: MyString
   skef_member: MyString
   bankid: MyString
@@ -404,7 +404,6 @@ two:
   debtor_loantime_21d_25k: 9.99
   debtor_loantime_21d_30k: 9.99
   debtor_loantime_30d_5h: 9.99
-  debtor_loantime_30d_1h: 9.99
   debtor_loantime_30d_1k: 9.99
   debtor_loantime_30d_2k: 9.99
   debtor_loantime_30d_3k: 9.99
@@ -570,7 +569,6 @@ two:
   newdebtor_loantime_21d_25k: 9.99
   newdebtor_loantime_21d_30k: 9.99
   newdebtor_loantime_30d_5h: 9.99
-  newdebtor_loantime_30d_1h: 9.99
   newdebtor_loantime_30d_1k: 9.99
   newdebtor_loantime_30d_2k: 9.99
   newdebtor_loantime_30d_3k: 9.99

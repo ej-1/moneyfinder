@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422114835) do
+ActiveRecord::Schema.define(version: 20150501113640) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -100,16 +100,17 @@ ActiveRecord::Schema.define(version: 20150422114835) do
     t.string   "bank"
     t.decimal  "min_loanamount"
     t.decimal  "max_loanamount"
+    t.decimal  "max_amount_new_borrower"
+    t.string   "new_borrower_5K"
+    t.string   "new_borrower_10K"
+    t.string   "cost_free_loan"
+    t.decimal  "cost_free_loan_amount"
     t.integer  "invoice_fee"
     t.integer  "application_fee"
     t.decimal  "effective_interest_rate"
     t.string   "mobile_friendly_site"
     t.string   "low_credit_score"
     t.string   "min_age"
-    t.string   "cost_free_loan"
-    t.string   "new_borrower_5K"
-    t.string   "new_borrower_10K"
-    t.decimal  "max_amount_new_borrower"
     t.string   "no_uc"
     t.string   "skef_member"
     t.string   "bankid"
@@ -147,7 +148,6 @@ ActiveRecord::Schema.define(version: 20150422114835) do
     t.decimal  "debtor_loantime_21d_25k"
     t.decimal  "debtor_loantime_21d_30k"
     t.decimal  "debtor_loantime_30d_5h"
-    t.decimal  "debtor_loantime_30d_1h"
     t.decimal  "debtor_loantime_30d_1k"
     t.decimal  "debtor_loantime_30d_2k"
     t.decimal  "debtor_loantime_30d_3k"
@@ -313,7 +313,6 @@ ActiveRecord::Schema.define(version: 20150422114835) do
     t.decimal  "newdebtor_loantime_21d_25k"
     t.decimal  "newdebtor_loantime_21d_30k"
     t.decimal  "newdebtor_loantime_30d_5h"
-    t.decimal  "newdebtor_loantime_30d_1h"
     t.decimal  "newdebtor_loantime_30d_1k"
     t.decimal  "newdebtor_loantime_30d_2k"
     t.decimal  "newdebtor_loantime_30d_3k"

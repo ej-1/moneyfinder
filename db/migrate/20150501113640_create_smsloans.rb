@@ -4,16 +4,17 @@ class CreateSmsloans < ActiveRecord::Migration
       t.string :bank
       t.decimal :min_loanamount
       t.decimal :max_loanamount
+      t.decimal :max_amount_new_borrower
+      t.string :new_borrower_5K
+      t.string :new_borrower_10K
+      t.string :cost_free_loan
+      t.decimal :cost_free_loan_amount
       t.integer :invoice_fee
       t.integer :application_fee
       t.decimal :effective_interest_rate
       t.string :mobile_friendly_site
       t.string :low_credit_score
       t.string :min_age
-      t.string :cost_free_loan
-      t.string :new_borrower_5K
-      t.string :new_borrower_10K
-      t.decimal :max_amount_new_borrower
       t.string :no_uc
       t.string :skef_member
       t.string :bankid
@@ -51,7 +52,6 @@ class CreateSmsloans < ActiveRecord::Migration
       t.decimal :debtor_loantime_21d_25k
       t.decimal :debtor_loantime_21d_30k
       t.decimal :debtor_loantime_30d_5h
-      t.decimal :debtor_loantime_30d_1h
       t.decimal :debtor_loantime_30d_1k
       t.decimal :debtor_loantime_30d_2k
       t.decimal :debtor_loantime_30d_3k
@@ -217,7 +217,6 @@ class CreateSmsloans < ActiveRecord::Migration
       t.decimal :newdebtor_loantime_21d_25k
       t.decimal :newdebtor_loantime_21d_30k
       t.decimal :newdebtor_loantime_30d_5h
-      t.decimal :newdebtor_loantime_30d_1h
       t.decimal :newdebtor_loantime_30d_1k
       t.decimal :newdebtor_loantime_30d_2k
       t.decimal :newdebtor_loantime_30d_3k
