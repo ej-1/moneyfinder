@@ -11,7 +11,7 @@ gem 'devise'
 gem 'bootstrap-sass', '3.2.0.2'
 
 # Paperclip helps to upload logo images for banks in migrations
-gem "paperclip", "~> 4.2"
+#gem "paperclip", "~> 4.2"
 
 # Jquery UI is necessary for nice slider bars https://github.com/joliss/jquery-ui-rails
 gem 'jquery-ui-rails'
@@ -52,7 +52,7 @@ end
 gem 'pg'
 
 group :production do
-#  gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
 
 
