@@ -439,10 +439,8 @@
 
                   %td.product= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.product= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
-                  %td.product.hidden-smslan= smsloan.bank
-                  %td.product.hidden-smslan= smsloan.min_loanamount
-                  %td.product.hidden-smslan= smsloan.max_loanamount
                   %td.product.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.product.hidden-smslan= smsloan.bank
                   %td.product.hidden-smslan= smsloan.invoice_fee
                   %td.product.hidden-smslan= smsloan.application_fee
                   %td.product.hidden-smslan= smsloan.mobile_friendly_site
