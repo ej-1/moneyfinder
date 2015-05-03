@@ -82,12 +82,14 @@
                 %th Långivare
                 %th Minsta lånebelopp
                 %th Högsta lånebelopp
+                %th.hidden-smslan Högsta lånebelopp ny låntagare
                 %th.hidden-smslan Aviavgift
                 %th.hidden-smslan Ansökningsavgift
                 %th.hidden-smslan Mobilvänlig hemsida  
                 %th.hidden-smslan Låna med betalningsanmärkelse
                 %th.hidden-smslan Minimum ålder
                 %th.hidden-smslan Kostnadsfria lån
+                %th.hidden-smslan Kostnadsfria lån maxbelopp
                 %th.hidden-smslan Låna 5000 kr första gången
                 %th.hidden-smslan Låna 10 000 kr första gången
                 %th.hidden-smslan Högsta lånebelopp för ny låntagare
@@ -440,12 +442,14 @@
                   %td.product.hidden-smslan= smsloan.bank
                   %td.product.hidden-smslan= smsloan.min_loanamount
                   %td.product.hidden-smslan= smsloan.max_loanamount
+                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
                   %td.product.hidden-smslan= smsloan.invoice_fee
                   %td.product.hidden-smslan= smsloan.application_fee
                   %td.product.hidden-smslan= smsloan.mobile_friendly_site
                   %td.product.hidden-smslan= smsloan.low_credit_score
                   %td.product.hidden-smslan= smsloan.min_age
                   %td.product.hidden-smslan= smsloan.cost_free_loan
+                  %td.product.hidden-smslan= smsloan.cost_free_loan_amount
                   %td.product.hidden-smslan= smsloan.new_borrower_5K
                   %td.product.hidden-smslan= smsloan.new_borrower_10K
                   %td.product.hidden-smslan= smsloan.max_amount_new_borrower
