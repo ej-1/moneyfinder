@@ -75,6 +75,7 @@ th.sortable {
     color: #666;
     cursor: pointer;
     text-decoration: underline;
+    font-family: 'Open Sans', sans-serif;
 }
 th.sortable:hover { color: black; }
 th.sorted-asc, th.sorted-desc  { color: black; }
@@ -454,13 +455,14 @@ body{font:62.5% Verdana,Arial,sans-serif}
 
 th.sortable {
     /* background-color: #31BC86; */
-    background-color: #9BCC5F;
+    background-color: #90C255;
     height: 60px;
     color: rgba(255, 255, 255, 0.97);
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
+
 }
 th.sortable:hover { color: rgba(62, 161, 32, 0.97); }
 
@@ -476,10 +478,12 @@ table td {
 
 
 .smsloaninterface {
-    border-radius: 5px;
+    border-radius: 3px;
+    /* color: rgba(150, 201, 88, 1); */
+    color: rgba(144, 194, 85, 1);
     background-color: #9BCC5F;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -495,6 +499,7 @@ table td {
 .center-element {
   margin-left: auto;
   margin-right: auto;
+  display: block;
 }
 
 .sms-button {
@@ -513,7 +518,7 @@ table td {
 
 
 .smscheckboxes {
-  font-weight: bold;
+  font-weight: normal;
   color: #fff;
   font-size: 13.5px;
   display: block;
@@ -539,11 +544,28 @@ table td {
 .pagetitle {
   font-weight: bold;
   font-size: 36px;
-  margin-left: 3%;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(53, 53, 53, 0.87);
 }
 
+.fonts {
+  font-family: 'Open Sans', sans-serif;
+}
 
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(86, 86, 86, 0.87);
+}
 
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(86, 86, 86, 0.87);
+}
+
+.glyph {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
 

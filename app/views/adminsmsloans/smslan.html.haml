@@ -2,52 +2,59 @@
   .row
     .span12
       .pagefield-left
-        %h1.pagetitle SMS lån
+        .span8
+          %h1.pagetitle Jämför SMSlån
+          %p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det lån som passar just dig. Vill du hitta den bästa räntan för dina sparpengar? Här kan du hitta ett sparkonto som ger en hög ränta genom att jämföra sparräntor hos olika banker och finansiella institut som erbjuder sparkonton med en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
         .span8.smsloaninterface
           .span8
             .span4.float-left
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}/
-                %span.lbl.padding-8 BankID
+                %span.lbl.padding-8.fonts BankID
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
-                %span.lbl.padding-8 Mobilvänlig site
+                %span.lbl.padding-8.fonts Mobilvänlig site
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
-                %span.lbl.padding-8 Låna trots betalningsanmärkning
+                %span.lbl.padding-8.fonts Låna trots betalningsanmärkning
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower5k"}/
-                %span.lbl.padding-8 Låna 5000 kr eller mer första gången
+                %span.lbl.padding-8.fonts Låna 5000 kr eller mer första gången
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower10k"}/
-                %span.lbl.padding-8 Låna 10 000 kr eller mer första gången
+                %span.lbl.padding-8.fonts Låna 10 000 kr eller mer första gången
 
 
 
-            .span3.float-right
+            .span2.float-right
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonouc"}/
-                %span.lbl.padding-8 Smslån utan UC
+                %span.lbl.padding-8.fonts Smslån utan UC
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
-                %span.lbl.padding-8 SKEF Medlem
+                %span.lbl.padding-8.fonts SKEF Medlem
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noopenonsaturdays"}/
-                %span.lbl.padding-8 Lördagsöppet
+                %span.lbl.padding-8.fonts Lördagsöppet
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noopenonsundays"}/
-                %span.lbl.padding-8 Söndagsöppet
+                %span.lbl.padding-8.fonts Söndagsöppet
 
               %label.smscheckboxes
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
-                %span.lbl.padding-8 18 årsgräns
+                %span.lbl.padding-8.fonts 18 årsgräns
+
+            .span1.float-right
+              %p.glyph
+                Hjälp 
+                %span.glyphicon.glyphicon-question-sign.glyph
 
           .span8
             .span5
@@ -55,22 +62,22 @@
 
               %p
               //Show value
-              %p#smstime-value
+              %p#smstime-value.fonts
               //Slider
               #smstime-slider
 
               %p
               //Show value
-              %p#smsamount-value
+              %p#smsamount-value.fonts
               //Slider
               #smsamount-slider
 
               //TEST - Shows the variable that is concenated to show the right column
               //%p#demo
             .span2
-              %label.smsfreeloancheckbox
+              %label.smscheckboxes.top-buffer
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
-                %span.lbl.padding-8 Långivare med kostnadsfria lån första gången
+                %span.lbl.padding-8 Kostnadsfria lån
 
               %button.btn.btn-success.btn-large.sms-button{:type => "button", :id => "smsbutton"} Jämför Lån
 
