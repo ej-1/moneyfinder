@@ -1,3 +1,14 @@
+%link{:href => "//cdn.datatables.net/1.10.7/css/jquery.dataTables.css", :rel => "stylesheet", :type => "text/css"}/
+/ jQuery
+%script{:charset => "utf8", :src => "//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js", :type => "text/javascript"}
+/ DataTables
+%script{:charset => "utf8", :src => "//cdn.datatables.net/1.10.7/js/jquery.dataTables.js", :type => "text/javascript"}
+
+:javascript
+  $(document).ready( function() {
+     $('#table_id').dataTable();
+  });
+
 .pagefield-superior
   .row
     .span12
@@ -83,7 +94,7 @@
 
 
         .span8.top-buffer
-          %table
+          %table#table_id
             %thead
               %tr
                 %th Långivare
