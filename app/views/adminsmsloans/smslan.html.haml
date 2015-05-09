@@ -1,4 +1,4 @@
-%link{:href => "//cdn.datatables.net/1.10.7/css/jquery.dataTables.css", :rel => "stylesheet", :type => "text/css"}/
+
 / jQuery
 %script{:charset => "utf8", :src => "//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js", :type => "text/javascript"}
 / DataTables
@@ -7,6 +7,40 @@
 :javascript
   $(document).ready( function() {
      $('#table_id').dataTable();
+        // https://www.datatables.net/plug-ins/sorting/currency
+        jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+          "currency-pre": function ( a ) {        
+            a = (a==="-") ? 0 : a.replace( /[^\d\-\.]/g, "" );        
+            return parseFloat( a );    
+          },     
+          "currency-asc": function ( a, b ) {        
+              return a - b;    
+          },     
+          "currency-desc": function ( a, b ) {        
+                return b - a;    
+          }
+        } );
+
+        // https://www.datatables.net/plug-ins/type-detection/currency
+        (function () {
+            // Change this list to the valid characters you want
+            var validChars = "kr" + "0123456789" + ".-,'";
+            // Init the regex just once for speed - it is "closure locked"
+            var
+            str = jQuery.fn.dataTableExt.oApi._fnEscapeRegex(validChars),
+                re = new RegExp('[^' + str + ']');
+
+            jQuery.fn.dataTableExt.aTypes.unshift(
+
+            function (data) {
+                if (typeof data !== 'string' || re.test(data)) {
+                    return null;
+                }
+                return 'currency';
+            });
+        }());
+
+
   });
 
 .pagefield-superior
