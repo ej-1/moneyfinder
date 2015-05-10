@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 
+//= require jquery-ui
 //= require jquery.dataTables.min.js
 //= require jquery.dataTables.js
-//= require jquery-ui
+
 
 
 //= require_tree .
