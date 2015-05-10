@@ -275,7 +275,7 @@ $(document).ready(function() {
   }, function(){
     $(this).find('td').removeClass('hovered');
   });
-
+  /*
   //column sorting
   //grab all header rows
   $('thead th').each(function(column) {
@@ -296,7 +296,7 @@ $(document).ready(function() {
    
 
 
-
+      
       //compare and sort the rows alphabetically
       $rows.sort(function(a, b) {
           if(! isNaN (a.sortKey - 0) && ! isNaN (b.sortKey - 0) ); 
@@ -324,8 +324,11 @@ $(document).ready(function() {
    
       $('.visible td').removeClass('odd');
       zebraRows('.visible:even td', 'odd');
+      
     });
+
   });
+  */
 });
 // THIS IS WHERE THE CODE FROM CODE.TUTSPLUS ENDS
 //http://code.tutsplus.com/tutorials/using-jquery-to-manipulate-and-filter-data--net-5351

@@ -25,7 +25,7 @@ fr:
     currency:
       format:
         unit: 'kr'
-        delimiter: ','
+        delimiter: ''
         separator: '.'
         precision: 0
         format: "%n %u" # This line puts the 'kr' at the end instead of at the beginning of a number.

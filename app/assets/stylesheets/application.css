@@ -453,7 +453,7 @@ body{font:62.5% Verdana,Arial,sans-serif}
 
 /* Table inspired by this tympanus.net/codrops/2014/01/09/sticky-table-headers-columns/  */
 
-th.sortable {
+th {
     /* background-color: #31BC86; */
     background-color: #90C255;
     height: 60px;
@@ -683,9 +683,12 @@ input[type=radio]:checked+.lbl::before {
   content: "\2022";
 }
 
-
-
+/* Navbar that sticks and shrinks */
+.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_info { display: none; }
+#table_id_paginate { display: none; }
 
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
+
+
