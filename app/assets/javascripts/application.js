@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 
+//= require jquery.dataTables.min.js
+//= require jquery.dataTables.js
 //= require jquery-ui
+
 
 //= require_tree .
 //IF YOU NEED TO REFRESH PAGE FOR IT TO LOAD THEN REMOVE = require turbolinks
@@ -33,6 +36,44 @@
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
+
+    // Tablesorting is done with requiring dataTables, but this is to make currency sorting work
+   $('#table_id').dataTable( {  "orderClasses": false} );
+      // https://www.datatables.net/plug-ins/sorting/currency
+      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+        "currency-pre": function ( a ) {        
+          a = (a==="-") ? 0 : a.replace( /[^\d\-\.]/g, "" );        
+          return parseFloat( a );    
+        },     
+        "currency-asc": function ( a, b ) {        
+            return a - b;    
+        },     
+        "currency-desc": function ( a, b ) {        
+              return b - a;    
+        }
+      } );
+
+      // https://www.datatables.net/plug-ins/type-detection/currency
+      (function () {
+          // Change this list to the valid characters you want
+          var validChars = "kr" + "0123456789" + ".-,'";
+          // Init the regex just once for speed - it is "closure locked"
+          var
+          str = jQuery.fn.dataTableExt.oApi._fnEscapeRegex(validChars),
+              re = new RegExp('[^' + str + ']');
+
+          jQuery.fn.dataTableExt.aTypes.unshift(
+
+          function (data) {
+              if (typeof data !== 'string' || re.test(data)) {
+                  return null;
+              }
+              return 'currency';
+          });
+      }());
+
+
+
 
       //Hide certain columns on SMSloan page
       $(".hidden-smslan").hide();
