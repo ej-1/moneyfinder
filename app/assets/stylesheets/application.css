@@ -689,9 +689,7 @@ input[type=radio]:checked+.lbl::before {
 
 #table_id_paginate { display: none; }
 
-.box2 {
-  visibility: hidden;
-}
+
 
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
