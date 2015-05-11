@@ -436,6 +436,11 @@ Media queries
   font-size: 1px;
 }
 
+.hidden-smslan2 {
+  visibility: none;
+}
+
+
 
 /* http://jsfiddle.net/BxY99/ did not get it to work*/
 body{font:62.5% Verdana,Arial,sans-serif}
