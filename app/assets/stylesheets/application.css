@@ -683,11 +683,15 @@ input[type=radio]:checked+.lbl::before {
   content: "\2022";
 }
 
-/* Navbar that sticks and shrinks */
+/* Hides search fields and pagination fo Datatables */
 .dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_info { display: none; }
 #table_id_paginate { display: none; }
 
 #table_id_paginate { display: none; }
+
+.box2 {
+  visibility: hidden;
+}
 
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
