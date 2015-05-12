@@ -165,7 +165,7 @@ $(document).ready(function() {
                   return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
               });
               $('th').html(function(i, v) {
-                  return v.replace('Newdebtorloantime ' + smstitle2, 'Kostnad - Redan kund');
+                  return v.replace('Newdebtor loantime ' + smstitle2, 'Kostnad - Redan kund');
               });
 
               //hide rows that have empty elements that become visible using smsloaninterface
@@ -213,11 +213,25 @@ $(document).ready(function() {
         function showHideProducts()
         {
             $('.product').parent().show();
+
+            // had to put this code in from smsloanbutton to make it work together
+            $('tr').filter(function() {
+                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                  return ! $.trim($(this).text());  
+                }).length;
+            }).hide();
+
             $('input:checked').each
             (
                 function()
                 {
+                    // had to put this code in from smsloanbutton to make it work together
                     $('td:contains("' + $(this).val() + '")').parent().hide();
+                    $('tr').filter(function() {
+                        return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                          return ! $.trim($(this).text());  
+                        }).length;
+                    }).hide();
                 }            
             );
         }
