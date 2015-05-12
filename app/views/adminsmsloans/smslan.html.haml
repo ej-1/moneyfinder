@@ -440,7 +440,7 @@
             %tbody
               - @smsloans.each do |smsloan|
                 %tr
-                  %td.product= smsloan.bank.to_s.html_safe
+                  %td.product.smsloangiver= smsloan.bank.to_s.html_safe
                   %td.product= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.product= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.product.hidden-smslan= smsloan.max_amount_new_borrower

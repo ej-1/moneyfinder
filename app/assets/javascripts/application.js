@@ -164,7 +164,7 @@ $(document).ready(function() {
               //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
               //http://stackoverflow.com/questions/8981179/hide-table-row-if-one-of-its-columns-is-empty-using-css
               $('tr').filter(function() {
-                  return $(this).find('td:visible').filter(function() {
+                  return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                     return ! $.trim($(this).text());  
                   }).length;
               }).hide();
