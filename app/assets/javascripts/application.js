@@ -145,6 +145,14 @@ $(document).ready(function() {
 
               // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
 
+
+              // This undoes/resets the actions done in the last block connected to #smsbutton. This "unhides" the rows hidden which have one cell empty when making new searches with smsloaninterface
+              $('tr').filter(function() {
+                  return $(this).find('td').filter(function() {
+                    return ! $.trim($(this).text());  
+                  }).length;
+              }).show();
+
               // Finally solved how to hide a variable as a class selector.
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
               $(".box2").hide();
@@ -160,7 +168,7 @@ $(document).ready(function() {
                   return v.replace('Newdebtorloantime ' + smstitle2, 'Kostnad - Redan kund');
               });
 
-              //hide rows that have empty elements which are not hidden
+              //hide rows that have empty elements that become visible using smsloaninterface
               //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
               //http://stackoverflow.com/questions/8981179/hide-table-row-if-one-of-its-columns-is-empty-using-css
               $('tr').filter(function() {
@@ -168,6 +176,7 @@ $(document).ready(function() {
                     return ! $.trim($(this).text());  
                   }).length;
               }).hide();
+
 
               // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
               //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
