@@ -74,37 +74,21 @@
 
               //TEST - Shows the variable that is concenated to show the right column
               //%p#demo
+              //%p.results
             .span2
               %label.smscheckboxes.top-buffer
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
                 %span.lbl.padding-8 Kostnadsfria lån
 
-              %button.btn.btn-success.btn-large.sms-button{:type => "button", :id => "smsbutton"} Jämför Lån
-
+              %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "smsbutton"} Jämför Lån
 
         .span8.top-buffer
           %table#table_id
             %thead
               %tr
                 %th Långivare
-                %th Minsta lånebelopp
+                %th.minsta Minsta lånebelopp
                 %th Högsta lånebelopp
-                %th.hidden-smslan Högsta lånebelopp ny låntagare
-                %th.hidden-smslan.hidden-smslan2 Aviavgift
-                %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
-                %th.hidden-smslan Mobilvänlig hemsida  
-                %th.hidden-smslan Låna med betalningsanmärkelse
-                %th.hidden-smslan Minimum ålder
-                %th.hidden-smslan Kostnadsfria lån
-                %th.hidden-smslan Kostnadsfria lån maxbelopp
-                %th.hidden-smslan Låna 5000 kr första gången
-                %th.hidden-smslan Låna 10 000 kr första gången
-                %th.hidden-smslan Högsta lånebelopp för ny låntagare
-                %th.hidden-smslan Ingen UC
-                %th.hidden-smslan SKEF medlem
-                %th.hidden-smslan BankID
-                %th.hidden-smslan Lördagsöppet
-                %th.hidden-smslan Söndagsöppet
                 %th.box2.14d5h Loantime 14d 5h
                 %th.box2.14d1k Loantime 14d 1k
                 %th.box2.14d2k Loantime 14d 2k
@@ -136,7 +120,7 @@
                 %th.box2.21d25k Loantime 21d 25k
                 %th.box2.21d30k Loantime 21d 30k
                 %th.box2.30d5h Loantime 30d 5h
-                %th.box2.30d1k Loantime 30d 1k
+                %th.box2.30d1k.od Loantime 30d 1k
                 %th.box2.30d2k Loantime 30d 2k
                 %th.box2.30d3k Loantime 30d 3k
                 %th.box2.30d4k Loantime 30d 4k
@@ -435,6 +419,23 @@
                 %th.box2.5year20k Newdebtor loantime 5year 20k
                 %th.box2.5year25k Newdebtor loantime 5year 25k
                 %th.box2.5year30k Newdebtor loantime 5year 30k
+
+                %th.hidden-smslan Högsta lånebelopp ny låntagare
+                %th.hidden-smslan.hidden-smslan2 Aviavgift
+                %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
+                %th.hidden-smslan Mobilvänlig hemsida  
+                %th.hidden-smslan Låna med betalningsanmärkelse
+                %th.hidden-smslan Minimum ålder
+                %th.hidden-smslan Kostnadsfria lån
+                %th.hidden-smslan Kostnadsfria lån maxbelopp
+                %th.hidden-smslan Låna 5000 kr första gången
+                %th.hidden-smslan Låna 10 000 kr första gången
+                %th.hidden-smslan Högsta lånebelopp för ny låntagare
+                %th.hidden-smslan Ingen UC
+                %th.hidden-smslan SKEF medlem
+                %th.hidden-smslan BankID
+                %th.hidden-smslan Lördagsöppet
+                %th.hidden-smslan Söndagsöppet
                 %th Ansök här
                 //%th{:colspan => "3"}
             %tbody
@@ -443,22 +444,6 @@
                   %td.product.smsloangiver= smsloan.bank.to_s.html_safe
                   %td.product= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.product= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
-                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
-                  %td.product.hidden-smslan= smsloan.invoice_fee
-                  %td.product.hidden-smslan= smsloan.application_fee
-                  %td.product.hidden-smslan= smsloan.mobile_friendly_site
-                  %td.product.hidden-smslan= smsloan.low_credit_score
-                  %td.product.hidden-smslan= smsloan.min_age
-                  %td.product.hidden-smslan= smsloan.cost_free_loan
-                  %td.product.hidden-smslan= smsloan.cost_free_loan_amount
-                  %td.product.hidden-smslan= smsloan.new_borrower_5K
-                  %td.product.hidden-smslan= smsloan.new_borrower_10K
-                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
-                  %td.product.hidden-smslan= smsloan.no_uc
-                  %td.product.hidden-smslan= smsloan.skef_member
-                  %td.product.hidden-smslan= smsloan.bankid
-                  %td.product.hidden-smslan= smsloan.open_on_saturdays
-                  %td.product.hidden-smslan= smsloan.open_on_sundays
                   %td.box2.14d5h= number_to_currency(smsloan.debtor_loantime_14d_5h, locale: :fr)
                   %td.box2.14d1k= number_to_currency(smsloan.debtor_loantime_14d_1k, locale: :fr)
                   %td.box2.14d2k= number_to_currency(smsloan.debtor_loantime_14d_2k, locale: :fr)
@@ -490,7 +475,7 @@
                   %td.box2.21d25k= number_to_currency(smsloan.debtor_loantime_21d_25k, locale: :fr)
                   %td.box2.21d30k= number_to_currency(smsloan.debtor_loantime_21d_30k, locale: :fr)
                   %td.box2.30d5h= number_to_currency(smsloan.debtor_loantime_30d_5h, locale: :fr)
-                  %td.box2.30d1k= number_to_currency(smsloan.debtor_loantime_30d_1k, locale: :fr)
+                  %td.box2.30d1k.od= number_to_currency(smsloan.debtor_loantime_30d_1k, locale: :fr)
                   %td.box2.30d2k= number_to_currency(smsloan.debtor_loantime_30d_2k, locale: :fr)
                   %td.box2.30d3k= number_to_currency(smsloan.debtor_loantime_30d_3k, locale: :fr)
                   %td.box2.30d4k= number_to_currency(smsloan.debtor_loantime_30d_4k, locale: :fr)
@@ -625,7 +610,7 @@
                   %td.box2.5year25k= number_to_currency(smsloan.debtor_loantime_5year_25k, locale: :fr)
                   %td.box2.5year30k= number_to_currency(smsloan.debtor_loantime_5year_30k, locale: :fr)
                   %td.box2.n14d5h= number_to_currency(smsloan.newdebtor_loantime_14d_5h, locale: :fr)
-                  %td.box2.14d1k= number_to_currency(smsloan.newdebtor_loantime_14d_1k, locale: :fr)
+                  %td.box2.14d1k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_1k, locale: :fr)
                   %td.box2.14d2k= number_to_currency(smsloan.newdebtor_loantime_14d_2k, locale: :fr)
                   %td.box2.14d3k= number_to_currency(smsloan.newdebtor_loantime_14d_3k, locale: :fr)
                   %td.box2.14d4k= number_to_currency(smsloan.newdebtor_loantime_14d_4k, locale: :fr)
@@ -655,7 +640,7 @@
                   %td.box2.21d25k= number_to_currency(smsloan.newdebtor_loantime_21d_25k, locale: :fr)
                   %td.box2.21d30k= number_to_currency(smsloan.newdebtor_loantime_21d_30k, locale: :fr)
                   %td.box2.30d5h= number_to_currency(smsloan.newdebtor_loantime_30d_5h, locale: :fr)
-                  %td.box2.30d1k= number_to_currency(smsloan.newdebtor_loantime_30d_1k, locale: :fr)
+                  %td.box2.30d1k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_1k, locale: :fr)
                   %td.box2.30d2k= number_to_currency(smsloan.newdebtor_loantime_30d_2k, locale: :fr)
                   %td.box2.30d3k= number_to_currency(smsloan.newdebtor_loantime_30d_3k, locale: :fr)
                   %td.box2.30d4k= number_to_currency(smsloan.newdebtor_loantime_30d_4k, locale: :fr)
@@ -789,4 +774,20 @@
                   %td.box2.5year20k= number_to_currency(smsloan.newdebtor_loantime_5year_20k, locale: :fr)
                   %td.box2.5year25k= number_to_currency(smsloan.newdebtor_loantime_5year_25k, locale: :fr)
                   %td.box2.5year30k= number_to_currency(smsloan.newdebtor_loantime_5year_30k, locale: :fr)
+                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.product.hidden-smslan= smsloan.invoice_fee
+                  %td.product.hidden-smslan= smsloan.application_fee
+                  %td.product.hidden-smslan= smsloan.mobile_friendly_site
+                  %td.product.hidden-smslan= smsloan.low_credit_score
+                  %td.product.hidden-smslan= smsloan.min_age
+                  %td.product.hidden-smslan= smsloan.cost_free_loan
+                  %td.product.hidden-smslan= smsloan.cost_free_loan_amount
+                  %td.product.hidden-smslan= smsloan.new_borrower_5K
+                  %td.product.hidden-smslan= smsloan.new_borrower_10K
+                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.product.hidden-smslan= smsloan.no_uc
+                  %td.product.hidden-smslan= smsloan.skef_member
+                  %td.product.hidden-smslan= smsloan.bankid
+                  %td.product.hidden-smslan= smsloan.open_on_saturdays
+                  %td.product.hidden-smslan= smsloan.open_on_sundays
                   %td= smsloan.weblink.to_s.html_safe

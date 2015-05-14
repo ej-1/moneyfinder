@@ -38,44 +38,11 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
-    // Tablesorting is done with requiring dataTables, but this is to make currency sorting work
-   $('#table_id').dataTable( {  "orderClasses": false} );
-      // https://www.datatables.net/plug-ins/sorting/currency
-      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-        "currency-pre": function ( a ) {        
-          a = (a==="-") ? 0 : a.replace( /[^\d\-\.]/g, "" );        
-          return parseFloat( a );    
-        },     
-        "currency-asc": function ( a, b ) {        
-            return a - b;    
-        },     
-        "currency-desc": function ( a, b ) {        
-              return b - a;    
-        }
-      } );
-
-      // https://www.datatables.net/plug-ins/type-detection/currency
-      (function () {
-          // Change this list to the valid characters you want
-          var validChars = "kr" + "0123456789" + ".-,'";
-          // Init the regex just once for speed - it is "closure locked"
-          var
-          str = jQuery.fn.dataTableExt.oApi._fnEscapeRegex(validChars),
-              re = new RegExp('[^' + str + ']');
-
-          jQuery.fn.dataTableExt.aTypes.unshift(
-
-          function (data) {
-              if (typeof data !== 'string' || re.test(data)) {
-                  return null;
-              }
-              return 'currency';
-          });
-      }());
 
 
+      //var indexnumber = "";
 
-
+      
       //Hide certain columns on SMSloan page
       $(".hidden-smslan").hide();
       //Hide columns with cost for amount and time on SMSloan page
@@ -145,6 +112,8 @@ $(document).ready(function() {
 
               // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
 
+              
+              
 
               // This undoes/resets the actions done in the last block connected to #smsbutton. This "unhides" the rows hidden which have one cell empty when making new searches with smsloaninterface
               $('tr').filter(function() {
@@ -177,11 +146,65 @@ $(document).ready(function() {
                   }).length;
               }).hide();
 
+              //Get number of visible column, but not used https://datatables.net/reference/api/column().index()#Example
+              //indexnumber = 1;
+              // if toggl button is on indexnumber is or else...
+              indexnumber = $('th.box2.' + smstitle + '.od').index();
+              
+              // Have to destroy table before it is reloaded and sorts according to indexnumber
+              // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
+              $("#table_id").dataTable().fnDestroy();
+
+              $('.results').html('number is ' +indexnumber);
+              $('#table_id').dataTable({
+                "order": [ indexnumber, 'asc' ]
+              });
+
 
               // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
               //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
-
       });
+
+        //READ THIS : HOW CAN I GET INDEXNUMBER OUT OF CLICKFUNCTION
+        //http://www.webdevelopersnotes.com/tutorials/javascript/global_local_variables_scope_javascript.php3
+
+
+
+
+      //$(".blo").click(function () {
+      //    $('.results').html('number is ' +indexnumber);
+      //    $('#table_id').dataTable({
+      //      "order": [ indexnumber, 'asc' ]
+      //    });
+
+      //});
+
+
+
+
+      //$( ".blo" ).click(function() {
+      //var table = $('#table_id').DataTable();
+      ////table.column(0).visible(false);
+      //var indexnumber = table.column(3).index('visible');
+      //alert(indexnumber); // will show 0
+      //});
+
+
+        
+      $('#table_id').dataTable({
+        "order": [ 2, 'asc' ]
+      });
+
+
+
+
+
+
+
+
+
+
+
 
 
       //http://stackoverflow.com/questions/4323848/how-to-handle-button-click-events-in-jquery
