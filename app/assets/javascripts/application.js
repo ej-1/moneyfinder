@@ -39,38 +39,7 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
-      // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
-      //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
-      //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE
-      //"jquery hide contains several values checkbox"
-      //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
-      //http://jsfiddle.net/WssNb/
-      $('input:checkbox').change(showHideProducts);
-      function showHideProducts()
-      {
-          $('.product').parent().show();
 
-          // had to put this code in from smsloanbutton to make it work together
-          $('tr').filter(function() {
-              return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                return ! $.trim($(this).text());  
-              }).length;
-          }).hide();
-
-          $('input:checked').each
-          (
-              function()
-              {
-                  // had to put this code in from smsloanbutton to make it work together
-                  $('td:contains("' + $(this).val() + '")').parent().hide();
-                  $('tr').filter(function() {
-                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                        return ! $.trim($(this).text());  
-                      }).length;
-                  }).hide();
-              }            
-          );
-      }
 
       //Toggle switch remains hidden until clicking on smsbutton to search.
       $(".switch-candy").hide();
@@ -81,6 +50,10 @@ $(document).ready(function() {
       $(":radio[name=state-d]").change(function () {
         var button1 = document.getElementById("on");
         var button2 = document.getElementById("off");
+
+        var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
+        var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
+        var smstitle = smstime + smsamount;
 
         if (button1.checked){
             //alert("radio1 selected");
@@ -206,7 +179,7 @@ $(document).ready(function() {
               // Finally solved how to hide a variable as a class selector.
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
               $(".box2").hide();
-              $('.' + smstitle).show(); // cost old debtors
+              //$('.' + smstitle).show(); // cost old debtors
               //$('.' + smstitle).show(); // cost new debtors
               $('.' + smstitle).css({"font-weight": "bold"});
               //$("#test").replace("Loantime", "hej");
@@ -241,15 +214,17 @@ $(document).ready(function() {
               if (button1.checked){
                   //USE FOR TEST alert("radio1 selected");
                   $(".nd").hide();
-                  $(".od").show();
+                  //$(".od").show();
+                  $('.' + smstitle + ".od").show();
                   indexnumber = $('th.box2.' + smstitle + '.od').index();
                   $('.results').text(indexnumber);
 
 
               }else if (button2.checked) {
                   //USE FOR TEST alert("radio2 selected");
-                  $(".nd").show();
+                  //$(".nd").show();
                   $(".od").hide();
+                  $('.' + smstitle + ".nd").show();
                   indexnumber = $('th.box2.' + smstitle + '.nd').index();
                   $('.results').text(indexnumber);
               }
@@ -298,7 +273,38 @@ $(document).ready(function() {
 
 
 
+      // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
+      //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
+      //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE
+      //"jquery hide contains several values checkbox"
+      //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
+      //http://jsfiddle.net/WssNb/
+      $('input:checkbox').change(showHideProducts);
+      function showHideProducts()
+      {
+          $('.product').parent().show();
 
+          // had to put this code in from smsloanbutton to make it work together
+          $('tr').filter(function() {
+              return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                return ! $.trim($(this).text());  
+              }).length;
+          }).hide();
+
+          $('input:checked').each
+          (
+              function()
+              {
+                  // had to put this code in from smsloanbutton to make it work together
+                  $('td:contains("' + $(this).val() + '")').parent().hide();
+                  $('tr').filter(function() {
+                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                        return ! $.trim($(this).text());  
+                      }).length;
+                  }).hide();
+              }            
+          );
+      }
 
 
       //http://stackoverflow.com/questions/4323848/how-to-handle-button-click-events-in-jquery
