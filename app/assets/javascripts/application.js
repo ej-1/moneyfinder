@@ -17,6 +17,7 @@
 //= require jquery-ui
 //= require jquery.dataTables.min.js
 //= require jquery.dataTables.js
+//= jquery.switchButton.js
 
 
 
@@ -38,10 +39,90 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
+      //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
+      //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE
+      //"jquery hide contains several values checkbox"
+      //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
+      //http://jsfiddle.net/WssNb/
+      $('input:checkbox').change(showHideProducts);
+      function showHideProducts()
+      {
+          $('.product').parent().show();
+
+          // had to put this code in from smsloanbutton to make it work together
+          $('tr').filter(function() {
+              return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                return ! $.trim($(this).text());  
+              }).length;
+          }).hide();
+
+          $('input:checked').each
+          (
+              function()
+              {
+                  // had to put this code in from smsloanbutton to make it work together
+                  $('td:contains("' + $(this).val() + '")').parent().hide();
+                  $('tr').filter(function() {
+                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                        return ! $.trim($(this).text());  
+                      }).length;
+                  }).hide();
+              }            
+          );
+      }
+
+      //Toggle switch remains hidden until clicking on smsbutton to search.
+      $(".switch-candy").hide();
+      //Toggle switch button
+      // http://stackoverflow.com/questions/23661970/3-state-css-toggle-switch
+      // https://ghinda.net/css-toggle-switch/
+      // http://stackoverflow.com/questions/13958147/javascript-checking-radio-buttons
+      $(":radio[name=state-d]").change(function () {
+        var button1 = document.getElementById("on");
+        var button2 = document.getElementById("off");
+
+        if (button1.checked){
+            //alert("radio1 selected");
+            $(".od").show();
+            $(".nd").hide();
+            indexnumber = $('th.box2.' + smstitle + '.od').index();
+            $('.results').text(indexnumber);
+            // Have to destroy table before it is reloaded and sorts according to indexnumber
+            // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
+            $("#table_id").dataTable().fnDestroy();
+
+            // Reloads the table each time smsbutton is pushed and sorts relevant cost column
+            $('.results').html('number is ' +indexnumber);
+              $('#table_id').dataTable({
+                "order": [ indexnumber, 'asc' ]
+            });
+
+        }else if (button2.checked) {
+            //alert("radio2 selected");
+            $(".od").hide();
+            $(".nd").show();
+            indexnumber = $('th.box2.' + smstitle + '.nd').index();
+            $('.results').text(indexnumber);
+            // Have to destroy table before it is reloaded and sorts according to indexnumber
+            // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
+            $("#table_id").dataTable().fnDestroy();
+
+            // Reloads the table each time smsbutton is pushed and sorts relevant cost column
+            $('.results').html('number is ' +indexnumber);
+              $('#table_id').dataTable({
+                "order": [ indexnumber, 'asc' ]
+            });
+
+        }
 
 
+      });
+
+
+
+      //Needed if a variable is declared in a function and used outside
       //var indexnumber = "";
-
       
       //Hide certain columns on SMSloan page
       $(".hidden-smslan").hide();
@@ -126,16 +207,16 @@ $(document).ready(function() {
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
               $(".box2").hide();
               $('.' + smstitle).show(); // cost old debtors
-              $('.n' + smstitle).show(); // cost new debtors
+              //$('.' + smstitle).show(); // cost new debtors
               $('.' + smstitle).css({"font-weight": "bold"});
               //$("#test").replace("Loantime", "hej");
               //http://wowmotty.blogspot.se/2011/05/jquery-findreplace-text-without.html
-              $('th').html(function(i, v) {
-                  return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
-              });
-              $('th').html(function(i, v) {
-                  return v.replace('Newdebtor loantime ' + smstitle2, 'Kostnad - Redan kund');
-              });
+              //$('th').html(function(i, v) {
+              //    return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
+              //});
+              //$('th').html(function(i, v) {
+              //    return v.replace('Newdebtor loantime ' + smstitle2, 'Kostnad - Redan kund');
+              //});
 
               //hide rows that have empty elements that become visible using smsloaninterface
               //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
@@ -147,14 +228,39 @@ $(document).ready(function() {
               }).hide();
 
               //Get number of visible column, but not used https://datatables.net/reference/api/column().index()#Example
-              //indexnumber = 1;
-              // if toggl button is on indexnumber is or else...
-              indexnumber = $('th.box2.' + smstitle + '.od').index();
-              
+
+
+              //Toggle switch remains hidden until clicking on smsbutton to search.
+              $(".switch-candy").show();
+
+
+
+              //Makes sure not to show both columns for old and new debtor. Only one is shown and after cliking more times, only shows according to what is set in toggle switch.
+              var button1 = document.getElementById("on");
+              var button2 = document.getElementById("off");
+              if (button1.checked){
+                  //USE FOR TEST alert("radio1 selected");
+                  $(".nd").hide();
+                  $(".od").show();
+                  indexnumber = $('th.box2.' + smstitle + '.od').index();
+                  $('.results').text(indexnumber);
+
+
+              }else if (button2.checked) {
+                  //USE FOR TEST alert("radio2 selected");
+                  $(".nd").show();
+                  $(".od").hide();
+                  indexnumber = $('th.box2.' + smstitle + '.nd').index();
+                  $('.results').text(indexnumber);
+              }
+   
+
+
               // Have to destroy table before it is reloaded and sorts according to indexnumber
               // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
               $("#table_id").dataTable().fnDestroy();
 
+              // Reloads the table each time smsbutton is pushed and sorts relevant cost column
               $('.results').html('number is ' +indexnumber);
               $('#table_id').dataTable({
                 "order": [ indexnumber, 'asc' ]
@@ -165,11 +271,8 @@ $(document).ready(function() {
               //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
       });
 
-        //READ THIS : HOW CAN I GET INDEXNUMBER OUT OF CLICKFUNCTION
-        //http://www.webdevelopersnotes.com/tutorials/javascript/global_local_variables_scope_javascript.php3
-
-
-
+        // HOW CAN I GET INDEXNUMBER OUT OF CLICKFUNCTION
+        // http://www.webdevelopersnotes.com/tutorials/javascript/global_local_variables_scope_javascript.php3
 
       //$(".blo").click(function () {
       //    $('.results').html('number is ' +indexnumber);
@@ -180,8 +283,6 @@ $(document).ready(function() {
       //});
 
 
-
-
       //$( ".blo" ).click(function() {
       //var table = $('#table_id').DataTable();
       ////table.column(0).visible(false);
@@ -189,18 +290,11 @@ $(document).ready(function() {
       //alert(indexnumber); // will show 0
       //});
 
-
         
       $('#table_id').dataTable({
         "order": [ 2, 'asc' ]
       });
-
-
-
-
-
-
-
+      $('.results').text(indexnumber);
 
 
 
@@ -226,38 +320,7 @@ $(document).ready(function() {
       // http://stackoverflow.com/questions/8471892/using-jquery-how-can-i-change-an-href-value-of-an-element-with-a-certain-css-cla
 
 
-      // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
-      //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
-      //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE
-      //"jquery hide contains several values checkbox"
-      //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
-      //http://jsfiddle.net/WssNb/
-        $('input:checkbox').change(showHideProducts);
-        function showHideProducts()
-        {
-            $('.product').parent().show();
 
-            // had to put this code in from smsloanbutton to make it work together
-            $('tr').filter(function() {
-                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                  return ! $.trim($(this).text());  
-                }).length;
-            }).hide();
-
-            $('input:checked').each
-            (
-                function()
-                {
-                    // had to put this code in from smsloanbutton to make it work together
-                    $('td:contains("' + $(this).val() + '")').parent().hide();
-                    $('tr').filter(function() {
-                        return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                          return ! $.trim($(this).text());  
-                        }).length;
-                    }).hide();
-                }            
-            );
-        }
 
 
         //CALCULATION OF SMSLOANS

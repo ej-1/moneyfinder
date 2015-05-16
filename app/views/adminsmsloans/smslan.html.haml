@@ -74,13 +74,22 @@
 
               //TEST - Shows the variable that is concenated to show the right column
               //%p#demo
-              //%p.results
+              %p.results
             .span2
               %label.smscheckboxes.top-buffer
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
                 %span.lbl.padding-8 Kostnadsfria lån
 
+              .switch-toggle.switch-candy
+                %input#on{:name => "state-d", :type => "radio"}/
+                %label{:id => "on", :for => "on", :onclick => ""} Redan kund
+                %input#off{ :name => "state-d", :type => "radio"}/
+                %label{:id => "off", :for => "off", :onclick => ""} Ny kund
+                %a
+
               %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "smsbutton"} Jämför Lån
+
+
 
         .span8.top-buffer
           %table#table_id
@@ -285,7 +294,7 @@
                 %th.box2.21d25k Newdebtor loantime 21d 25k
                 %th.box2.21d30k Newdebtor loantime 21d 30k
                 %th.box2.30d5h Newdebtor loantime 30d 5h
-                %th.box2.30d1k Newdebtor loantime 30d 1k
+                %th.box2.30d1k.nd Newdebtor loantime 30d 1k
                 %th.box2.30d2k Newdebtor loantime 30d 2k
                 %th.box2.30d3k Newdebtor loantime 30d 3k
                 %th.box2.30d4k Newdebtor loantime 30d 4k
@@ -609,8 +618,8 @@
                   %td.box2.5year20k= number_to_currency(smsloan.debtor_loantime_5year_20k, locale: :fr)
                   %td.box2.5year25k= number_to_currency(smsloan.debtor_loantime_5year_25k, locale: :fr)
                   %td.box2.5year30k= number_to_currency(smsloan.debtor_loantime_5year_30k, locale: :fr)
-                  %td.box2.n14d5h= number_to_currency(smsloan.newdebtor_loantime_14d_5h, locale: :fr)
-                  %td.box2.14d1k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_1k, locale: :fr)
+                  %td.box2.14d5h= number_to_currency(smsloan.newdebtor_loantime_14d_5h, locale: :fr)
+                  %td.box2.14d1k= number_to_currency(smsloan.newdebtor_loantime_14d_1k, locale: :fr)
                   %td.box2.14d2k= number_to_currency(smsloan.newdebtor_loantime_14d_2k, locale: :fr)
                   %td.box2.14d3k= number_to_currency(smsloan.newdebtor_loantime_14d_3k, locale: :fr)
                   %td.box2.14d4k= number_to_currency(smsloan.newdebtor_loantime_14d_4k, locale: :fr)
