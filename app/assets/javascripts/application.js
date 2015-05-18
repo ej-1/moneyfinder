@@ -89,16 +89,16 @@ $(document).ready(function() {
 
         if (button1.checked){
             //alert("radio1 selected");
-            $(".od").show();
-            $(".nd").hide();
+            $('.' + smstitle + '.od').show();
+            $('.' + smstitle + '.nd').hide();
             indexnumber = $('th.box2.' + smstitle + '.od').index();
-            $('.results').text(indexnumber);
+
             // Have to destroy table before it is reloaded and sorts according to indexnumber
             // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
             $("#table_id").dataTable().fnDestroy();
 
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-            $('.results').html('number is ' +indexnumber);
+            //TEST $('.results').html('number is ' +smstitle);
               $('#table_id').dataTable({
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
@@ -114,16 +114,16 @@ $(document).ready(function() {
 
         }else if (button2.checked) {
             //alert("radio2 selected");
-            $(".od").hide();
-            $(".nd").show();
+            $('.' + smstitle + '.od').hide();
+            $('.' + smstitle + '.nd').show();
             indexnumber = $('th.box2.' + smstitle + '.nd').index();
-            $('.results').text(indexnumber);
+
             // Have to destroy table before it is reloaded and sorts according to indexnumber
             // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
             $("#table_id").dataTable().fnDestroy();
 
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-            $('.results').html('number is ' +indexnumber);
+            //TEST $('.results').html('number is ' +smstitle);
               $('#table_id').dataTable({
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
@@ -217,12 +217,6 @@ $(document).ready(function() {
               
               
 
-              // This undoes/resets the actions done in the last block connected to #smsbutton. This "unhides" the rows hidden which have one cell empty when making new searches with smsloaninterface
-              $('tr').filter(function() {
-                  return $(this).find('td').filter(function() {
-                    return ! $.trim($(this).text());  
-                  }).length;
-              }).show();
 
               // Finally solved how to hide a variable as a class selector.
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
@@ -267,6 +261,11 @@ $(document).ready(function() {
                   indexnumber = $('th.box2.' + smstitle + '.od').index();
                   $('.results').text(indexnumber);
 
+                  $('tr').filter(function() {
+                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                        return ! $.trim($(this).text());  
+                      }).length;
+                  }).hide();
 
               }else if (button2.checked) {
                   //USE FOR TEST alert("radio2 selected");
@@ -275,6 +274,12 @@ $(document).ready(function() {
                   $('.' + smstitle + ".nd").show();
                   indexnumber = $('th.box2.' + smstitle + '.nd').index();
                   $('.results').text(indexnumber);
+
+                  $('tr').filter(function() {
+                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                        return ! $.trim($(this).text());  
+                      }).length;
+                  }).hide();
               }
    
 
