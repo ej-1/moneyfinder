@@ -100,6 +100,7 @@ $(document).ready(function() {
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
             $('.results').html('number is ' +indexnumber);
               $('#table_id').dataTable({
+                "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
 
@@ -116,6 +117,7 @@ $(document).ready(function() {
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
             $('.results').html('number is ' +indexnumber);
               $('#table_id').dataTable({
+                "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
 
@@ -270,6 +272,7 @@ $(document).ready(function() {
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
               $('.results').html('number is ' +indexnumber);
               $('#table_id').dataTable({
+                "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
               });
 
@@ -299,6 +302,7 @@ $(document).ready(function() {
 
         
       $('#table_id').dataTable({
+        "orderClasses": false,
         "order": [ 2, 'asc' ]
       });
       $('.results').text(indexnumber);
