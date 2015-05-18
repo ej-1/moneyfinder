@@ -103,6 +103,14 @@ $(document).ready(function() {
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
+            // Hides rows with empty cells
+            $('tr').filter(function() {
+                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                  return ! $.trim($(this).text());  
+                }).length;
+            }).hide();
+
+
 
         }else if (button2.checked) {
             //alert("radio2 selected");
@@ -120,6 +128,12 @@ $(document).ready(function() {
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
+            // Hides rows with empty cells
+            $('tr').filter(function() {
+                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                  return ! $.trim($(this).text());  
+                }).length;
+            }).hide();
 
         }
 
