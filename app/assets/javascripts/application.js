@@ -100,6 +100,7 @@ $(document).ready(function() {
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
             //TEST $('.results').html('number is ' +smstitle);
               $('#table_id').dataTable({
+                "bDeferRender" : true,
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
@@ -125,6 +126,7 @@ $(document).ready(function() {
             // Reloads the table each time smsbutton is pushed and sorts relevant cost column
             //TEST $('.results').html('number is ' +smstitle);
               $('#table_id').dataTable({
+                "bDeferRender" : true,
                 "orderClasses": false,
                 "order": [ indexnumber, 'asc' ]
             });
@@ -146,9 +148,9 @@ $(document).ready(function() {
       //var indexnumber = "";
       
       //Hide certain columns on SMSloan page
-      $(".hidden-smslan").hide();
+
       //Hide columns with cost for amount and time on SMSloan page
-      $(".box2").hide();
+
 
       // Documentation for UI sliders https://api.jqueryui.com/slider/#method-values
       // slider bar control
@@ -213,10 +215,14 @@ $(document).ready(function() {
               //document.getElementById("demo2").innerHTML = smstitle2;
 
               // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
-
               
+              //Undoes the hiding of rows of empty cells att the end of this block.
+              $('tr').filter(function() {
+                  return $(this).find('td:not(".smsloangiver")').filter(function() {
+                    return ! $.trim($(this).text());  
+                  }).length;
+              }).show();
               
-
 
               // Finally solved how to hide a variable as a class selector.
               // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
@@ -233,14 +239,6 @@ $(document).ready(function() {
               //    return v.replace('Newdebtor loantime ' + smstitle2, 'Kostnad - Redan kund');
               //});
 
-              //hide rows that have empty elements that become visible using smsloaninterface
-              //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
-              //http://stackoverflow.com/questions/8981179/hide-table-row-if-one-of-its-columns-is-empty-using-css
-              $('tr').filter(function() {
-                  return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                    return ! $.trim($(this).text());  
-                  }).length;
-              }).hide();
 
               //Get number of visible column, but not used https://datatables.net/reference/api/column().index()#Example
 
@@ -261,6 +259,9 @@ $(document).ready(function() {
                   indexnumber = $('th.box2.' + smstitle + '.od').index();
                   $('.results').text(indexnumber);
 
+                  //hide rows that have empty elements that become visible using smsloaninterface
+                  //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
+                  //http://stackoverflow.com/questions/8981179/hide-table-row-if-one-of-its-columns-is-empty-using-css
                   $('tr').filter(function() {
                       return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                         return ! $.trim($(this).text());  
@@ -322,7 +323,8 @@ $(document).ready(function() {
         
       $('#table_id').dataTable({
         "orderClasses": false,
-        "order": [ 2, 'asc' ]
+        "order": [ 2, 'asc' ],
+        "bDeferRender" : true,
       });
       $('.results').text(indexnumber);
 
