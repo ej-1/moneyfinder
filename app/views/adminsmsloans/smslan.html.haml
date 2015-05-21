@@ -80,15 +80,16 @@
                 %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
                 %span.lbl.padding-8 Kostnadsfria lån
 
-              .switch-toggle.switch-candy
-                %input#on{:name => "state-d", :type => "radio"}/
-                %label{:id => "on", :for => "on", :onclick => ""} Redan kund
-                %input#off{ :name => "state-d", :type => "radio"}/
-                %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
-                %a
+              //.switch-toggle.switch-candy
+              //  %input#on{:name => "state-d", :type => "radio"}/
+              //  %label{:id => "on", :for => "on", :onclick => ""} Redan kund
+              //  %input#off{ :name => "state-d", :type => "radio"}/
+              //  %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
+              //  %a
 
               %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "smsbutton"} Jämför Lån
 
+              %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "destroybutton"} DESTROY
 
 
         .span8.top-buffer
@@ -98,7 +99,7 @@
                 %th Långivare
                 %th.minsta Minsta lånebelopp
                 %th Högsta lånebelopp
-                %th.box2.14d5h.od Loantime 14d 5h
+                %th.me.box2.14d5h.od Loantime 14d 5h
                 %th.box2.14d1k.od Loantime 14d 1k
                 %th.box2.14d2k.od Loantime 14d 2k
                 %th.box2.14d3k.od Loantime 14d 3k

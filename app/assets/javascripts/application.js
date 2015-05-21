@@ -72,7 +72,7 @@ $(document).ready(function() {
               }            
           );
       }
-
+/*
       //Toggle switch remains hidden until clicking on smsbutton to search.
       $(".switch-candy").hide();
       //Toggle switch button
@@ -141,7 +141,7 @@ $(document).ready(function() {
 
 
       });
-
+*/
 
 
       //Needed if a variable is declared in a function and used outside
@@ -193,112 +193,55 @@ $(document).ready(function() {
 
 
 
+
+
+
       // THIS PIECE SHOWS THE COLUMN WITH THE LOANTIME AND AMOUNT THAT THE USER
       // SELECTS IN THE SLIDERS AND HIDES ALL OTHER SIMILAR COLUMNS.
       // Take the values from the sliders via the display span ids, put them together to filter away columns
       $("#smsbutton").click(function(){
 
+
+
               // How to turn html element to variable (var) http://stackoverflow.com/questions/13845313/store-generated-html-in-variable
               var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
               var smstime2 = $("#smstime-value").html().replace(" dagar","d ").replace(" år", "year ");
               var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
-              //var smstime2 = $("#smstime-value").html().replace(" dagar", "d_").replace(" år", "year_");
-              //var smsamount2 = $("#smsamount-value").html().replace("000 kr", "k");
+          var smstitle = smstime + smsamount;
 
-              // How to remove characters from variable, not needed anymore. (remove '000' from '2000') http://stackoverflow.com/questions/4308934/how-to-delete-last-character-from-a-string-using-jquery
-              var smstitle = smstime + smsamount;
-              var smstitle2 = smstime2 + smsamount;
-              //var smstitle2 = smstime2 + smsamount2;
-
-              // TEST - Use to show what smstitle becomes
-              //document.getElementById("demo").innerHTML = smstitle;
-              //document.getElementById("demo2").innerHTML = smstitle2;
-
-              // not used. Contains variable http://stackoverflow.com/questions/2191419/jquery-contains-with-a-variable-syntax
-              
+              $(".box2").hide();
               //Undoes the hiding of rows of empty cells att the end of this block.
-              $('tr').filter(function() {
-                  return $(this).find('td:not(".smsloangiver")').filter(function() {
+             $('tr').filter(function() {
+                  return $(this).find('td').filter(function() {
                     return ! $.trim($(this).text());  
                   }).length;
               }).show();
-              
 
-              // Finally solved how to hide a variable as a class selector.
-              // http://stackoverflow.com/questions/12293587/jquery-select-elements-by-class-using-name-from-variable
-              $(".box2").hide();
-              //$('.' + smstitle).show(); // cost old debtors
-              //$('.' + smstitle).show(); // cost new debtors
               $('.' + smstitle).css({"font-weight": "bold"});
-              //$("#test").replace("Loantime", "hej");
-              //http://wowmotty.blogspot.se/2011/05/jquery-findreplace-text-without.html
-              //$('th').html(function(i, v) {
-              //    return v.replace('Loantime ' + smstitle2, 'Kostnad - Ny kund');
-              //});
-              //$('th').html(function(i, v) {
-              //    return v.replace('Newdebtor loantime ' + smstitle2, 'Kostnad - Redan kund');
-              //});
+
+              $('.' + smstitle).show();
+              $('tr').filter(function() {
+                  return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                    return ! $.trim($(this).text());  
+                  }).length;
+              }).hide();
 
 
-              //Get number of visible column, but not used https://datatables.net/reference/api/column().index()#Example
+              indexnumber = $('th.box2.' + smstitle + '.nd').index();
+              //table1.row(td).invalidate();
 
-
-              //Toggle switch remains hidden until clicking on smsbutton to search.
-              $(".switch-candy").show();
-
-
-
-              //Makes sure not to show both columns for old and new debtor. Only one is shown and after cliking more times, only shows according to what is set in toggle switch.
-              var button1 = document.getElementById("on");
-              var button2 = document.getElementById("off");
-              if (button1.checked){
-                  //USE FOR TEST alert("radio1 selected");
-                  $(".nd").hide();
-                  //$(".od").show();
-                  $('.' + smstitle + ".od").show();
-                  indexnumber = $('th.box2.' + smstitle + '.od').index();
-                  $('.results').text(indexnumber);
-
-                  //hide rows that have empty elements that become visible using smsloaninterface
-                  //http://www.jquerybyexample.net/2012/11/jquery-code-to-hide-table-rows-based-on-td-value.html
-                  //http://stackoverflow.com/questions/8981179/hide-table-row-if-one-of-its-columns-is-empty-using-css
-                  $('tr').filter(function() {
-                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                        return ! $.trim($(this).text());  
-                      }).length;
-                  }).hide();
-
-              }else if (button2.checked) {
-                  //USE FOR TEST alert("radio2 selected");
-                  //$(".nd").show();
-                  $(".od").hide();
-                  $('.' + smstitle + ".nd").show();
-                  indexnumber = $('th.box2.' + smstitle + '.nd').index();
-                  $('.results').text(indexnumber);
-
-                  $('tr').filter(function() {
-                      return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                        return ! $.trim($(this).text());  
-                      }).length;
-                  }).hide();
-              }
-   
-
-
-              // Have to destroy table before it is reloaded and sorts according to indexnumber
-              // http://stackoverflow.com/questions/13708781/datatables-warningtable-id-example-cannot-reinitialise-data-table
-              $("#table_id").dataTable().fnDestroy();
+              //table1.destroy();
+              //$("#table_id").dataTable().fnDestroy();
 
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
               $('.results').html('number is ' +indexnumber);
-              $('#table_id').dataTable({
-                "orderClasses": false,
-                "order": [ indexnumber, 'asc' ]
-              });
 
+              // https://datatables.net/api needs to be var table1 = $('#table_id').dataTable({
+                // not var table1 = $('#table_id').DataTable({
+              table1.fnSort([indexnumber, 'asc']);
 
-              // TRIED TO JUST GET THE TIME AND AMOUNT VALUE FROM THE DATABASE, BUT DID NOT GET IT TO WORK. WORTH TRYING AGAIN
-              //$("td:contains('= smsloan.loantime_14d_2k')").text().replace('= smsloan.loantime_14d_2k', '= smsloan.loantime_14d_3k.html_safe');
+              
+              
       });
 
         // HOW CAN I GET INDEXNUMBER OUT OF CLICKFUNCTION
@@ -320,17 +263,31 @@ $(document).ready(function() {
       //alert(indexnumber); // will show 0
       //});
 
-        
-      $('#table_id').dataTable({
+      var table1 = $('#table_id').dataTable({
         "orderClasses": false,
         "order": [ 2, 'asc' ],
         "bDeferRender" : true,
+        //"columnDefs": [
+        //    {
+        //        // How to hide column classes https://datatables.net/reference/option/columnDefs
+        //        "targets": "box2",
+        //        "visible": false,
+        //    },
+        //]
       });
-      $('.results').text(indexnumber);
 
 
 
+      //$('.results').text(indexnumber);        
 
+      //worked when removed content of table_id. for example columndefs  order etc.
+      //https://datatables.net/reference/api/destroy%28%29
+      //https://datatables.net/reference/event/destroy
+      //$('#destroybutton').on( 'click', function () {    table1.destroy();} );
+
+
+      //$('#destroybutton').on( 'click', function () {      table1.clear();
+  //table1.destroy();} );
 
 
 
