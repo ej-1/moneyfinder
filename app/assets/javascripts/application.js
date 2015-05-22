@@ -220,11 +220,7 @@ $(document).ready(function() {
               $('.' + smstitle).css({"font-weight": "bold"});
 
               $('.' + smstitle).show();
-              $('tr').filter(function() {
-                  return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
-                    return ! $.trim($(this).text());  
-                  }).length;
-              }).hide();
+
 
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
@@ -240,9 +236,31 @@ $(document).ready(function() {
                 // not var table1 = $('#table_id').DataTable({
               table1.fnSort([indexnumber, 'asc']);
 
+              //http://stackoverflow.com/questions/12432675/jquery-for-html-table-to-change-cell-contents-base-on-other-cell-values
+              //check that first td is not empty
+              if ($('td.box2.' + smstitle + '.od').html() === "") {
+                  checkvalue = 1;
+              } else {
+                  checkvalue = 2;
+              }
               
               
+              $('tr').each(function () {
+                  
+                  if ($(checkvalue == 2) && $('td.box2.' + smstitle + '.nd').html() === "") {
+                      $(this).find('td.box2.' + smstitle + '.nd').html();
+                  }
+              });
+              
+              //Hide rows with empty cells
+              $('tr').filter(function() {
+                  return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                    return ! $.trim($(this).text());  
+                  }).length;
+              }).hide();
+
       });
+
 
         // HOW CAN I GET INDEXNUMBER OUT OF CLICKFUNCTION
         // http://www.webdevelopersnotes.com/tutorials/javascript/global_local_variables_scope_javascript.php3
