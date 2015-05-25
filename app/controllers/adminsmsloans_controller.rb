@@ -11,6 +11,10 @@ class AdminsmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
+  def gratislan
+    @smsloans = Smsloan.all
+  end
+
   # GET /smsloans/1
   # GET /smsloans/1.json
   def show

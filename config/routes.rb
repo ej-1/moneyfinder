@@ -22,6 +22,7 @@ Ratesfinder::Application.routes.draw do
   get "sparrantor" => 'adminsavingrates#sparrantor'
   get "bolan" => 'adminmortgageloans#mortgageloans'
   get "smslan" => 'adminsmsloans#smslan'
+  get "gratislan" => 'adminsmsloans#gratislan'
 
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'

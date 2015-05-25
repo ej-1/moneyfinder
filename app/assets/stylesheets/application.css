@@ -48,6 +48,21 @@ body {
   margin-top: 28px;
 }
 
+
+
+.navbar-default .navbar-toggle { /* Overriding bootstrap */
+  margin-right: 31px;
+}
+
+.logo { /* Overriding bootstrap */
+  margin-left: 20px;
+  margin-top: 4px;
+}
+/*
+.dropdown:hover .dropdown-menu {  Overriding bootstrap - menu appears on hover instead of onclick
+    display: block;
+ }*/
+
 table {
   background-color: white;
   width: 100%;
@@ -416,6 +431,10 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
+
+  .pagetitle {
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -425,9 +444,33 @@ Media queries
     margin-left: 2%;
   }
 
+  .pagetitle {
+    margin-top: 60px;
+  }
+
   .g-follow{
     padding-left: 20px;
   }
+
+  .th-title {
+    font-size: 8px;
+    font-weight: none;
+  }
+
+  .box2{
+    font-size: 8px;
+    font-weight: none;
+  }
+  .product{
+    font-size: 8px;
+    font-weight: none;
+  }
+
+  .img{
+    font-size: 8px;
+    font-weight: none;
+  }
+
 }
 
 
@@ -482,15 +525,25 @@ table td {
 
 
 .smsloaninterface {
+  margin-top: 20px;
     border-radius: 3px;
     /* color: rgba(150, 201, 88, 1); */
     color: rgba(144, 194, 85, 1);
-    background-color: #9BCC5F;
+    /* original background-color: #9BCC5F; */
+    background-color: rgb(144, 194, 85);
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
+    box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
+    border: 1px solid #91C056;
 }
+
+.btn.btn-success.btn-large {
+    background-color: #50AD50;
+    border-color: #4BAB4B;
+}
+
 
 .float-right {
     float: right;
@@ -703,10 +756,59 @@ input[type=radio]:checked+.lbl::before {
 
 #table_id_paginate { display: none; }
 
-
+#table_id_gratislan_paginate { display: none; }
 
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
 
 
+.linkclass { 
+  color: green; 
+}
+
+.linkclass:hover{ 
+  color: darkgreen; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.linkclass2 { 
+  color: #777;
+  margin-top: 10px;
+}
+
+.linkclass2:hover{ 
+  color: green; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.linkclass2:focus{ 
+  color: darkgreen; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.th-title { 
+  text-align: center;
+}
+
+.box2 { 
+  text-align: center;
+}
+
+th { 
+  border-style: 1px solid #777;
+}
+
+.navbar-brand { 
+  margin-top: 0px;
+  margin-right: 35px;
+}
+
+
+.navbar-brand:hover { 
+  color: grey;
+  background-color: #fff;
+}

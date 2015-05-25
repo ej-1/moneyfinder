@@ -50,6 +50,17 @@ $(document).ready(function() {
       function showHideProducts()
       {
           $('td').parent().show();
+          
+          //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
+          if ( $('#smsbutton').data('clicked', true)) {
+            //Hide rows with empty cells
+            $('tr').filter(function() {
+                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+                  return ! $.trim($(this).text());  
+                }).length;
+            }).hide();
+          };
+
 
           // had to put this code in from smsloanbutton to make it work together
           //$('tr').filter(function() {
@@ -207,7 +218,7 @@ $(document).ready(function() {
               var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
               var smstime2 = $("#smstime-value").html().replace(" dagar","d ").replace(" år", "year ");
               var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
-          var smstitle = smstime + smsamount;
+              var smstitle = smstime + smsamount;
 
               $(".box2").hide();
               //Undoes the hiding of rows of empty cells att the end of this block.
@@ -230,7 +241,7 @@ $(document).ready(function() {
               //$("#table_id").dataTable().fnDestroy();
 
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-              $('.results').html('number is ' +indexnumber);
+              //$('.results').html('number is ' +indexnumber);
 
               // https://datatables.net/api needs to be var table1 = $('#table_id').dataTable({
                 // not var table1 = $('#table_id').DataTable({
@@ -282,6 +293,7 @@ $(document).ready(function() {
       //});
 
       var table1 = $('#table_id').dataTable({
+        "aLengthMenu": [200], // sets the default row number to 200.
         "orderClasses": false,
         "order": [ 2, 'asc' ],
         "bDeferRender" : true,
@@ -294,7 +306,19 @@ $(document).ready(function() {
         //]
       });
 
-
+      $('#table_id_gratislan').dataTable({
+        "aLengthMenu": [200], // sets the default row number to 200.
+        "orderClasses": false,
+        "order": [ 0, 'asc' ],
+        "bDeferRender" : true,
+        //"columnDefs": [
+        //    {
+        //        // How to hide column classes https://datatables.net/reference/option/columnDefs
+        //        "targets": "box2",
+        //        "visible": false,
+        //    },
+        //]
+      });
 
       //$('.results').text(indexnumber);        
 
