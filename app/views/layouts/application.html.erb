@@ -103,17 +103,23 @@ var trackOutboundLink = function(url) {
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!-- <div class="container-narrow"> -->
     <div class="application-field">
-
       <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="sparrantor" class="change-nav-link">Sparräntor</a></li>
-          <li><a href="sparguide" class="change-nav-link">Sparguide</a></li>
-          <li><a href="/om" class="change-nav-link">Om</a></li>
-        </ul>
-        <img src="Bank-icon.png" alt="Smiley face" height="50" width="50">
-        <h3 class="grey-title">Bästasparräntor.se</h3>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+
+            <img class="logo" src="Bank-icon.png" alt="Moneyfinder.se" height="50" width="50">
+            <a class="navbar-brand fonts" href="sparrantor">Moneyfinder.se</a>
+            <ul class="nav nav-pills fonts">
+                <li><a href="smslan">Jämför SMSlån</a></li>
+                <li><a href="gratislan">Hitta Gratislån</a></li>
+                <li><a href="om">Om</a></li>
+            </ul>
+
+        </nav>
       </div>
     </div>
+
+
       <hr>
       <div class="content">
         <%= yield %>
@@ -121,7 +127,7 @@ var trackOutboundLink = function(url) {
       <hr>
     <div class="application-field">
       <div class="footer">
-        <p>&copy; Bästasparräntor.se 2014-2015 All rights reserved</p>
+        <p>&copy; Moneyfinder.se 2014-2015 All rights reserved</p>
       </div>
      </div>
     </div> <!-- /container -->

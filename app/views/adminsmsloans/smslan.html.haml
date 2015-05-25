@@ -4,7 +4,9 @@
       .pagefield-left
         .span8
           %h1.pagetitle Jämför SMSlån
-          %p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det lån som passar just dig. Vill du hitta den bästa räntan för dina sparpengar? Här kan du hitta ett sparkonto som ger en hög ränta genom att jämföra sparräntor hos olika banker och finansiella institut som erbjuder sparkonton med en förmånlig sparränta. Du kan klicka på rubrikerna i listan för att sortera.
+          %p.fonts SMSlån är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot.
+          %p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
+        %p#demo2
         .span8.smsloaninterface
           .span8
             .span4.float-left
@@ -89,17 +91,14 @@
 
               %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "smsbutton"} Jämför Lån
 
-              %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "destroybutton"} DESTROY
-
-
         .span8.top-buffer
           %table#table_id
             %thead
               %tr
-                %th Långivare
-                %th.minsta Minsta lånebelopp
-                %th Högsta lånebelopp
-                %th.me.box2.14d5h.od Loantime 14d 5h
+                %th.th-title Långivare
+                %th.th-title Minsta lånebelopp
+                %th.th-title Högsta lånebelopp
+                %th.box2.14d5h.od Loantime 14d 5h
                 %th.box2.14d1k.od Loantime 14d 1k
                 %th.box2.14d2k.od Loantime 14d 2k
                 %th.box2.14d3k.od Loantime 14d 3k
@@ -446,7 +445,7 @@
                 %th.hidden-smslan BankID
                 %th.hidden-smslan Lördagsöppet
                 %th.hidden-smslan Söndagsöppet
-                %th Ansök här
+                %th.th-title Ansök här
                 //%th{:colspan => "3"}
             %tbody
               - @smsloans.each do |smsloan|
