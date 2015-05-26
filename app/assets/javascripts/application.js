@@ -270,6 +270,12 @@ $(document).ready(function() {
                   }).length;
               }).hide();
 
+
+              //Code copied from showHideProducts. If one checks a checkbox after a filter search then does another, then the checkbox is still in effect.
+              $('input:checked').each(function() {
+                $('td:contains("' + $(this).val() + '")').parent().hide();
+              });        
+      
       });
 
 
