@@ -47,7 +47,7 @@ $(document).ready(function() {
       //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
       //http://jsfiddle.net/WssNb/
 
-      //Code copied from showHideProducts. If one checks a checkbox after a filter search then does another, then the checkbox is still in effect.
+      //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       $('input:checked').each(function() {
         $('td:contains("' + $(this).val() + '")').parent().hide();
       });       
@@ -89,6 +89,7 @@ $(document).ready(function() {
               }            
           );
       }
+
 /*
       //Toggle switch remains hidden until clicking on smsbutton to search.
       $(".switch-candy").hide();
@@ -269,6 +270,24 @@ $(document).ready(function() {
                   }
               });
               
+              //When the cell (td) in a row for newdebtor is empty, this code replaces the empty content of the cell
+              // with 'N/A'. Otherwise if 'oldebtor' is filled and newdebtor cell remain is empty, then the whole row is
+              // hidden by the next block of code
+              $('td:visible:empty').each(function () { // loop through all (td:s) find each (td) that is empty.
+
+                // following three lines of code gets the title (th) of the empty cell.
+                var $This = $(this);
+                var col = $This.parent().children().index($($This));
+                var title = $This.closest("table").find("th").eq(col).text();
+
+                if (title.indexOf("Newdebtor") >= 0) {
+                //http://stackoverflow.com/questions/8146648/jquery-find-text-and-replace
+                var text = $(this).text();
+                $(this).text(text.replace('', '-'));
+                }            
+            
+              });
+
               //Hide rows with empty cells
               $('tr').filter(function() {
                   return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
