@@ -46,6 +46,12 @@ $(document).ready(function() {
       //"jquery hide contains several values checkbox"
       //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
       //http://jsfiddle.net/WssNb/
+
+      //Code copied from showHideProducts. If one checks a checkbox after a filter search then does another, then the checkbox is still in effect.
+      $('input:checked').each(function() {
+        $('td:contains("' + $(this).val() + '")').parent().hide();
+      });       
+
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
       {

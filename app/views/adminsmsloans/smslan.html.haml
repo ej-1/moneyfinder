@@ -450,9 +450,9 @@
             %tbody
               - @smsloans.each do |smsloan|
                 %tr
-                  %td.product.smsloangiver= smsloan.bank.to_s.html_safe
-                  %td.product= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
-                  %td.product= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
+                  %td.smsloangiver= smsloan.bank.to_s.html_safe
+                  %td= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
+                  %td= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.box2.14d5h.od= number_to_currency(smsloan.debtor_loantime_14d_5h, locale: :fr)
                   %td.box2.14d1k.od= number_to_currency(smsloan.debtor_loantime_14d_1k, locale: :fr)
                   %td.box2.14d2k.od= number_to_currency(smsloan.debtor_loantime_14d_2k, locale: :fr)
@@ -783,20 +783,20 @@
                   %td.box2.5year20k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_20k, locale: :fr)
                   %td.box2.5year25k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_25k, locale: :fr)
                   %td.box2.5year30k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_30k, locale: :fr)
-                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
-                  %td.product.hidden-smslan= smsloan.invoice_fee
-                  %td.product.hidden-smslan= smsloan.application_fee
-                  %td.product.hidden-smslan= smsloan.mobile_friendly_site
-                  %td.product.hidden-smslan= smsloan.low_credit_score
-                  %td.product.hidden-smslan= smsloan.min_age
-                  %td.product.hidden-smslan= smsloan.cost_free_loan
-                  %td.product.hidden-smslan= smsloan.cost_free_loan_amount
-                  %td.product.hidden-smslan= smsloan.new_borrower_5K
-                  %td.product.hidden-smslan= smsloan.new_borrower_10K
-                  %td.product.hidden-smslan= smsloan.max_amount_new_borrower
-                  %td.product.hidden-smslan= smsloan.no_uc
-                  %td.product.hidden-smslan= smsloan.skef_member
-                  %td.product.hidden-smslan= smsloan.bankid
-                  %td.product.hidden-smslan= smsloan.open_on_saturdays
-                  %td.product.hidden-smslan= smsloan.open_on_sundays
+                  %td.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.hidden-smslan= smsloan.invoice_fee
+                  %td.hidden-smslan= smsloan.application_fee
+                  %td.hidden-smslan= smsloan.mobile_friendly_site
+                  %td.hidden-smslan= smsloan.low_credit_score
+                  %td.hidden-smslan= smsloan.min_age
+                  %td.hidden-smslan= smsloan.cost_free_loan
+                  %td.hidden-smslan= smsloan.cost_free_loan_amount
+                  %td.hidden-smslan= smsloan.new_borrower_5K
+                  %td.hidden-smslan= smsloan.new_borrower_10K
+                  %td.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.hidden-smslan= smsloan.no_uc
+                  %td.hidden-smslan= smsloan.skef_member
+                  %td.hidden-smslan= smsloan.bankid
+                  %td.hidden-smslan= smsloan.open_on_saturdays
+                  %td.hidden-smslan= smsloan.open_on_sundays
                   %td= smsloan.weblink.to_s.html_safe
