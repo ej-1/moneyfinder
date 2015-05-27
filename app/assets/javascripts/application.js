@@ -268,49 +268,10 @@ $(document).ready(function() {
               //    }
               //});
               
+              //Sort order of columns
+              table1.fnSort([indexnumber, 'asc']);
 
 
-              //This block of code handles cells belonging to Newdebtors. If e.g. loangiver gives loans of 5000 to olddebtors, but does not grant this much to newdebtors, then I manually put a '1' in the cell of the admin page. If a '1' is detected in cells belonging to Newdebtors, this block of code replaces it with 'Erbjuds ej', which represents to the user that this loan is not available to new debtors. If the newdebtor cell has '0', nothing is done. This is then a cost free loan.
-              $('td:visible:contains("1")').each(function () { // find each class .box2.nd (td) that contains 1.
-
-                  // following three lines of code gets the title (th) of a cell with 1.
-                  var $This2 = $(this);
-                  var col2 = $This2.parent().children().index($($This2));
-                  var title2 = $This2.closest("table").find("th").eq(col2).text();
-
-
-                  if (title2.indexOf("Newdebtor") >= 0) { //if the cells title contains "Newdebtor"...
-                      //Replace the '1' with 'Erbjuds ej'
-                      var text2 = $(this).text();
-                      $(this).text(text2.replace('1', '2'));
-                  }
-              });
-
-
-              //This block of code handles cells belonging to Newdebtors. If the price for a loan is the same for a newebtor as a olddebtor, then I insert nothing in the corresponding cells. If the cell belonging to olddebtor corresponding to a searched loan is filled in then it copies that value. It only looks for the visible cell, so if cells in the table occur before they are not considered. If the olddebtor cell is empty it gets the first td:visible still which would be cells belonging to Högsta belopp. This is a sloppy thing, but the row will not show up in a search fortunantely, because the olddebtor cell is empty and if one visible cell in a row is empty then the whole row is hidden. If the newdebtor cell has '0', nothing is done. This is then a cost free loan.
-              $('td:visible:empty').each(function () { // find each class .box2.nd (td) that contains 0.
-
-                  // following three lines of code gets the title (th) of a cell with 0.
-                  var $This = $(this);
-                  var col = $This.parent().children().index($($This));
-                  var title = $This.closest("table").find("th").eq(col).text();
-
-                  if (title.indexOf("Newdebtor") >= 0) { //if title contains "Newdebtor"
-                      //http://stackoverflow.com/questions/8146648/jquery-find-text-and-replace
-                      //http://stackoverflow.com/questions/3915325/in-jquery-how-can-i-get-the-adjacent-table-cell
-                      var nextTD = $(this).closest("td").prevAll("td:visible:first").text();
-                      var text = $(this).text();
-                      $(this).text(nextTD);
-
-                      //Unused code. Supposed to get and replace empty td with previous td.
-                      //var nextTD = $(this).closest("td").prev().text();
-
-                      //Unused code. Would replace specific text.
-                      //var text = $(this).text();
-                      //$(this).text(text.replace('', 'XXX'));
-
-                  }
-              });
 
 
               //Hide rows with empty cells
@@ -325,15 +286,8 @@ $(document).ready(function() {
               $('input:checked').each(function() {
                 $('td:contains("' + $(this).val() + '")').parent().hide();
               });
-              
-              //Added indexnumber2 to fix a bug. Only sorting on newdebtor column does not work. Reason seems to be that 
-              indexnumber2 = indexnumber = $('th.box2.' + smstitle + '.od').index();
-              //Sort order of columns
-              //destroying the table and reinitialising it fixes the bug
-              $("#table_id").dataTable().fnDestroy();
-              $('#table_id').dataTable({});
-
-              table1.fnSort([[indexnumber, 'asc'], [indexnumber2,'asc']]);
+      
+             
 
       });
 
