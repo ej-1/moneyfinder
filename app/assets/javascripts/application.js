@@ -40,6 +40,12 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
 
+      $(".vanliga-fragor").click(function() {
+          $('html,body').animate({
+              scrollTop: $(".scrollhere").offset().top},
+              'slow');
+      });
+
       // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
       //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes
       //TRY THIS - IT MAKES THE CHECKBOXES ON SMSLAN PAGE HIE THE CORRECT ROWS IN THE TABLE

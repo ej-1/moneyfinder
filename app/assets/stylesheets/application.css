@@ -68,6 +68,8 @@ table {
   width: 100%;
   max-width: 200%;
   font-size: 12.5px;
+  /*border: 1px solid #ECECEC;*/
+  box-shadow: 0.1px 1px 2px rgba(136, 136, 136, 0.66);
 }
 
 tbody td {
@@ -77,7 +79,7 @@ tbody td {
 }
 
 tbody td.odd {
-  background-color: #E0E0E0;
+  /* background-color: #E0E0E0; THIS WAS FOR ZEBRAROWS*/
 }
 
 td.hovered {
@@ -112,6 +114,10 @@ tbody th {
   margin-top: 60px;
 }
 
+.content-top2 {
+  margin-top: 20px;
+}
+
 .grey-title {
  color: rgba(174, 174, 174, 1);
  /* color: #08C;*/
@@ -131,6 +137,10 @@ tbody th {
 
 .top-buffer{
   padding-top: 30px;
+}
+
+.top-buffer2{
+  padding-top: 50px;
 }
 
 .bottom-buffer{
@@ -369,6 +379,16 @@ Media queries
     padding-left: 20px;
   }
 
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
 }
 
 @media (max-width: 1200px) {
@@ -386,6 +406,17 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
 }
 
 @media (max-width: 979px) {
@@ -403,6 +434,16 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -419,6 +460,16 @@ Media queries
   .g-follow{
     padding-left: 40px;
   }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -434,6 +485,16 @@ Media queries
 
   .pagetitle {
     margin-top: 50px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
   }
 }
 
@@ -453,16 +514,36 @@ Media queries
   }
 
   .th-title {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: none;
   }
 
+  table th {
+    font-size: 10px;
+  }
+
+  table td {
+    font-size: 12px;
+  }
+
+  .img-loangiver
+  {
+    width: 110px
+  }
+
+  .btn {
+    font-size: 12px;
+    }
+
+  .btn-large {
+    font-size: 12px;
+    }
+
   .box2{
-    font-size: 8px;
     font-weight: none;
   }
   .product{
-    font-size: 8px;
+    font-size: 12px;
     font-weight: none;
   }
 
@@ -470,6 +551,11 @@ Media queries
     font-size: 8px;
     font-weight: none;
   }
+
+  .pagetitle {
+    margin-top: 110px;
+  }
+
 
 }
 
@@ -509,13 +595,11 @@ th {
 }
 th.sortable:hover { color: rgba(62, 161, 32, 0.97); }
 
-table td {
-    color:#7C8D87;
+
+
+table th {
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
-    font-size: 15px;
-    height: 30px;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 
@@ -581,7 +665,7 @@ table td {
   font-size: 11px;
   font-weight: normal;
   color: rgba(43, 117, 5, 1);
-  font-style: oblique;
+  font-family: oblique;
   display: block;
   margin-bottom: 0px;
   margin-top: 34px;
@@ -590,7 +674,7 @@ table td {
 .smsfreeloantext {
   font-size: 11px;
   color: rgba(43, 117, 5, 1);
-  font-style: oblique;
+  font-family: oblique;
 }
 
 
@@ -613,6 +697,11 @@ p {
 h1 {
   font-family: 'Open Sans', sans-serif;
   color: rgba(86, 86, 86, 0.87);
+}
+
+.h2-hulk {
+  font-family: 'Open Sans', sans-serif;
+  color: #86B64D;
 }
 
 .glyph {
@@ -759,8 +848,18 @@ input[type=radio]:checked+.lbl::before {
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
 
 
-.linkclass { 
-  color: green; 
+p a .linkclass{ 
+  color: #50AD50;
+}
+
+p a .linkclass:hover{ 
+  color: darkgreen; 
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.linkclass{ 
+  color: #50AD50;
 }
 
 .linkclass:hover{ 
@@ -807,4 +906,12 @@ th {
 .navbar-brand:hover { 
   color: grey;
   background-color: #fff;
+}
+
+.center-text{ 
+  text-align: center;
+}
+
+.padhack{ 
+  padding: 10px;
 }

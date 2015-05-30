@@ -27,6 +27,7 @@ Ratesfinder::Application.routes.draw do
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'
   get "/om" => 'public#om'
+  get "vanliga_fragor" => 'public#vanliga_fragor'
 
   get "bolanekalkylator" => 'adminmortgageloans#lankalkylator'
 
