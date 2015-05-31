@@ -50,7 +50,7 @@ $(document).ready(function() {
 
       } else if ($(".scrollhere").length === 0) {
             $(".vanliga-fragor").click(function() {
-              window.location.replace("http://localhost:3000/smslan#scrollhere");
+              window.location.replace("https://infinite-spire-4571.herokuapp.com/smslan#scrollhere");
 
               });
             }
