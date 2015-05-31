@@ -40,11 +40,29 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
 
-      $(".vanliga-fragor").click(function() {
+      if ($(".scrollhere").length) { 
+        $(".vanliga-fragor").click(function() {
+                $('html,body').animate({
+                    scrollTop: $(".scrollhere").offset().top},
+                    'slow');
+            });
+      
+
+      } else if ($(".scrollhere").length === 0) {
+            $(".vanliga-fragor").click(function() {
+              window.location.replace("http://localhost:3000/smslan#scrollhere");
+
+              });
+            }
+
+      //http://stackoverflow.com/questions/21718282/check-if-url-contains-string-with-jquery
+      if (window.location.href.indexOf("smslan#scrollhere") > -1) {
           $('html,body').animate({
-              scrollTop: $(".scrollhere").offset().top},
+              scrollTop: $(".scrollhere").offset().top
+          },
               'slow');
-      });
+      }
+
 
       // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
       //http://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-get-values-of-selected-checboxes

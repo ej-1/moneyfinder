@@ -717,6 +717,9 @@ h1 {
   display: none;
 }
 
+ tr {
+  height: 10px;
+}
 
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
