@@ -10,6 +10,8 @@ gem 'devise'
 
 gem 'bootstrap-sass', '3.2.0.2'
 
+gem 'heroku-deflater'
+
 # Paperclip helps to upload logo images for banks in migrations
 #gem "paperclip", "~> 4.2"
 
