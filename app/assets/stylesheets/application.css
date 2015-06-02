@@ -541,6 +541,7 @@ Media queries
 
   .box2{
     font-weight: none;
+    text-align: center;
   }
   .product{
     font-size: 12px;
@@ -709,7 +710,7 @@ h1 {
   color: #fff;
 }
 
-.box2 {
+.box2{
   display: none;
 }
 
@@ -889,10 +890,6 @@ p a .linkclass:hover{
 }
 
 .th-title { 
-  text-align: center;
-}
-
-.box2 { 
   text-align: center;
 }
 

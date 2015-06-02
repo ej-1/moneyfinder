@@ -336,6 +336,8 @@ $(document).ready(function() {
       //});
 
       var table1 = $('#table_id').dataTable({
+        "bAutoWidth": false,  // This finally solved the problem of the page being slow to load due to datatables combine with box2 = display:none.
+                              // This was the solution http://stackoverflow.com/questions/12527873/showing-a-hidden-datatable-with-jquery-breaks-css
         "aLengthMenu": [200], // sets the default row number to 200.
         "orderClasses": false,
         "order": [ 2, 'asc' ],
