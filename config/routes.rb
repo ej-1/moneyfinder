@@ -38,7 +38,7 @@ Ratesfinder::Application.routes.draw do
   get "redirect_akeliusspar" => 'public#redirect_akeliusspar'
 
   # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
-  root :to => 'adminsavingrates#sparrantor'
+  root :to => 'adminsmsloans#smslan'
 end
 
 #  root :to => 'public#mainlanding'
