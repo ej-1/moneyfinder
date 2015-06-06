@@ -40,6 +40,7 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
 
+      // When clicking "Vanliga frågor" in navbar the view scrolls down if you are on smslan page, if not then it changes page and scrolls down.
       if ($(".scrollhere").length) { 
         $(".vanliga-fragor").click(function() {
                 $('html,body').animate({
@@ -74,7 +75,7 @@ $(document).ready(function() {
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       $('input:checked').each(function() {
         $('td:contains("' + $(this).val() + '")').parent().hide();
-      });       
+      });
 
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
@@ -202,11 +203,11 @@ $(document).ready(function() {
 
       // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
       // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
-      var labelArr = new Array("", "14 dagar", "21 dagar", "30 dagar", "45 dagar","60 dagar","90 dagar","1 år","2 år","3 år","4 år","5 år");
+      var labelArr = new Array("", "14 dagar", "21 dagar", "30 dagar", "45 dagar","60 dagar","90 dagar","1 år");
       $( "#smstime-slider" ).slider({
         value:1,
         min: 1,
-        max: 11,
+        max: 7,
         step: 1,
         slide: function( event, ui ) {
           $("#smstime-value").html(labelArr[ui.value]);
@@ -259,7 +260,7 @@ $(document).ready(function() {
                   }).length;
               }).show();
 
-              $('.' + smstitle).css({"font-weight": "bold"});
+              //$('.' + smstitle).css({"font-weight": "bold"});
               $('.' + smstitle).show();
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
@@ -311,7 +312,11 @@ $(document).ready(function() {
                 $('td:contains("' + $(this).val() + '")').parent().hide();
               });
       
-             
+              // Replaces titles of cells
+              $("th.box2." + smstitle + ".od").text("Redan kund");
+              $("th.box2." + smstitle + ".nd").text("Ny kund");
+              // Makes the cell text of newdebtors bold for extra attention.
+              $("td.box2." + smstitle + ".nd:visible").css("font-weight", "bold");
 
       });
 
