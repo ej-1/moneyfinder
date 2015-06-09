@@ -51,7 +51,7 @@ $(document).ready(function() {
 
       } else if ($(".scrollhere").length === 0) {
             $(".vanliga-fragor").click(function() {
-              window.location.replace("https://infinite-spire-4571.herokuapp.com/smslan#scrollhere");
+              window.location.replace("https://www.moneylabs.se/smslan#scrollhere");
 
               });
             }
