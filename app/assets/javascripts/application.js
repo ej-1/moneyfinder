@@ -244,7 +244,9 @@ $(document).ready(function() {
       // Take the values from the sliders via the display span ids, put them together to filter away columns
       $("#smsbutton").click(function(){
 
-
+              //Hide checkbox for "Kostnadsfria Lån"
+              $('.freeloanbutton').hide();
+              $("#smsbutton").css("margin-top", "55px");
 
               // How to turn html element to variable (var) http://stackoverflow.com/questions/13845313/store-generated-html-in-variable
               var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
