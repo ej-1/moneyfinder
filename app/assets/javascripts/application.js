@@ -345,7 +345,7 @@ $(document).ready(function() {
                               // This was the solution http://stackoverflow.com/questions/12527873/showing-a-hidden-datatable-with-jquery-breaks-css
         "aLengthMenu": [200], // sets the default row number to 200.
         "orderClasses": false,
-        "order": [ 2, 'asc' ],
+        "order": [[ 2, 'asc' ], [ 1, 'asc' ]],
         "bDeferRender" : true,
         //"columnDefs": [
         //    {
