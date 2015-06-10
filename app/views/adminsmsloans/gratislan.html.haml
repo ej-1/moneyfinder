@@ -16,10 +16,11 @@
         .span8.top-buffer
           %table#table_id_gratislan
             %thead
-              %tr 
+              %tr.gratislantr
                 %th Lånebelopp
                 %th Löptid
                 %th Långivare
+                %th Kommentar
                 %th Ansök här
             %tbody
               %tr
@@ -27,6 +28,7 @@
                 %td 30 dagar
                 %td
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -34,6 +36,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök                
               %tr
@@ -41,6 +44,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -48,6 +52,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -55,6 +60,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -62,6 +68,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -69,6 +76,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -76,6 +84,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -83,6 +92,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -90,6 +100,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -97,6 +108,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -104,6 +116,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -111,6 +124,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -118,6 +132,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -125,6 +140,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -132,6 +148,7 @@
                 %td 30 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Ferratum
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -139,6 +156,7 @@
                 %td 14, 21 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Vivus
+                %td 
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -147,12 +165,14 @@
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Vivus
                 %td
+                %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
                 %td 3000 kr
                 %td 14, 21 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Vivus
+                %td
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -161,12 +181,14 @@
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Vivus
                 %td
+                %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
                 %td 6000 kr
                 %td 14, 21 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Vivus
+                %td
                 %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
               %tr
@@ -175,11 +197,171 @@
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Viaconto
                 %td
+                %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
-              %tr.bottom-buffer
+              %tr
                 %td 1000 kr
                 %td 14 dagar
                 %td 
                   %a.linkclass{:href => "http://www.ferratum.se"} Viaconto
                 %td
+                %td
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök
+
+
+              %tr
+                %td 1000 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 1500 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 2000 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 2500 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 3000 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 3000 kr
+                %td 14 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.savelend.se"} Savelend
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.savelend.se/", :target => "_blank"} Ansök
+              %tr
+                %td 500 kr
+                %td 15 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.pengos.se"} Pengos
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.pengos.se/", :target => "_blank"} Ansök
+              %tr
+                %td 500 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.strandiafinans.se"} Strandiafinans
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.strandiafinans.se/", :target => "_blank"} Ansök
+
+
+
+
+              %tr
+                %td 2500 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 3000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 3500 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 4000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 4500 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 5000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 6000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 7000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 8000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 9000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
+              %tr
+                %td 10000 kr
+                %td 30 dagar
+                %td 
+                  %a.linkclass{:href => "http://www.trustbuddy.se"} Trustbuddy
+                %td Även återkommande kunder
+                %td
+                  %a.btn.btn-success.btn-large{:href => "http://www.trustbuddy.se/", :target => "_blank"} Ansök
