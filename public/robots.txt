@@ -3,96 +3,107 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
-Allow: http://www.bästasparräntor.se
-Allow: http://www.bästasparräntor.se/sparrantor
-Allow: http://www.bästasparräntor.se/om
-Disallow: http://www.bästasparräntor.se/admins/sign_in
-Disallow: http://www.bästasparräntor.se/admins/sign_out
-Disallow: http://www.bästasparräntor.se/smsloans/new
-Disallow: http://www.bästasparräntor.se/smsloans/edit
-Disallow: http://www.bästasparräntor.se/smsloans/show
-Disallow: http://www.bästasparräntor.se/smsloans/create
-Disallow: http://www.bästasparräntor.se/smsloans/update
-Disallow: http://www.bästasparräntor.se/smsloans/destroy
-Disallow: http://www.bästasparräntor.se/smsloans/index
+Allow: http://www.moneylabs.se
+Allow: http://www.moneylabs.se/om
+Allow: http://www.moneylabs.se/smslan
+Allow: http://www.moneylabs.se/gratislan
 
-Disallow: http://www.bästasparräntor.se/savingrates/sign_in
-Disallow: http://www.bästasparräntor.se/savingrates/sign_out
-Disallow: http://www.bästasparräntor.se/savingrates/new
-Disallow: http://www.bästasparräntor.se/savingrates/edit
-Disallow: http://www.bästasparräntor.se/savingrates/show
-Disallow: http://www.bästasparräntor.se/savingrates/create
-Disallow: http://www.bästasparräntor.se/savingrates/update
-Disallow: http://www.bästasparräntor.se/savingrates/destroy
-Disallow: http://www.bästasparräntor.se/savingrates/index
 
-Disallow: http://www.bästasparräntor.se/mortgageloans/sign_in
-Disallow: http://www.bästasparräntor.se/mortgageloans/sign_out
-Disallow: http://www.bästasparräntor.se/mortgageloans/new
-Disallow: http://www.bästasparräntor.se/mortgageloans/edit
-Disallow: http://www.bästasparräntor.se/mortgageloans/show
-Disallow: http://www.bästasparräntor.se/mortgageloans/create
-Disallow: http://www.bästasparräntor.se/mortgageloans/update
-Disallow: http://www.bästasparräntor.se/mortgageloans/destroy
-Disallow: http://www.bästasparräntor.se/mortgageloans/index
-
-Disallow: http://www.bästasparräntor.se/loans/new
-Disallow: http://www.bästasparräntor.se/admin
-Disallow: http://www.bästasparräntor.se/rates
-
-Disallow: http://www.bästasparräntor.se/rates/sign_in
-Disallow: http://www.bästasparräntor.se/rates/sign_out
-Disallow: http://www.bästasparräntor.se/rates/new
-Disallow: http://www.bästasparräntor.se/rates/edit
-Disallow: http://www.bästasparräntor.se/rates/show
-Disallow: http://www.bästasparräntor.se/rates/create
-Disallow: http://www.bästasparräntor.se/rates/update
-Disallow: http://www.bästasparräntor.se/rates/destroy
-Disallow: http://www.bästasparräntor.se/rates/index
+Disallow: http://www.moneylabs.se/sparrantor
+Disallow: http://www.moneylabs.se/sparrantor_fb
+Disallow: http://www.moneylabs.se/om_fb
+Disallow: http://www.moneylabs.se/landets_rantor
+Disallow: http://www.moneylabs.se/mainlanding
 
 
 
+Disallow: http://www.moneylabs.se/admins/sign_in
+Disallow: http://www.moneylabs.se/admins/sign_out
+Disallow: http://www.moneylabs.se/smsloans/new
+Disallow: http://www.moneylabs.se/smsloans/edit
+Disallow: http://www.moneylabs.se/smsloans/show
+Disallow: http://www.moneylabs.se/smsloans/create
+Disallow: http://www.moneylabs.se/smsloans/update
+Disallow: http://www.moneylabs.se/smsloans/destroy
+Disallow: http://www.moneylabs.se/smsloans/index
 
-Disallow: http://bästasparräntor.se/admins/sign_in
-Disallow: http://bästasparräntor.se/admins/sign_out
-Disallow: http://bästasparräntor.se/smsloans/new
-Disallow: http://bästasparräntor.se/smsloans/edit
-Disallow: http://bästasparräntor.se/smsloans/show
-Disallow: http://bästasparräntor.se/smsloans/create
-Disallow: http://bästasparräntor.se/smsloans/update
-Disallow: http://bästasparräntor.se/smsloans/destroy
-Disallow: http://bästasparräntor.se/smsloans/index
+Disallow: http://www.moneylabs.se/savingrates/sign_in
+Disallow: http://www.moneylabs.se/savingrates/sign_out
+Disallow: http://www.moneylabs.se/savingrates/new
+Disallow: http://www.moneylabs.se/savingrates/edit
+Disallow: http://www.moneylabs.se/savingrates/show
+Disallow: http://www.moneylabs.se/savingrates/create
+Disallow: http://www.moneylabs.se/savingrates/update
+Disallow: http://www.moneylabs.se/savingrates/destroy
+Disallow: http://www.moneylabs.se/savingrates/index
 
-Disallow: http://bästasparräntor.se/savingrates/sign_in
-Disallow: http://bästasparräntor.se/savingrates/sign_out
-Disallow: http://bästasparräntor.se/savingrates/new
-Disallow: http://bästasparräntor.se/savingrates/edit
-Disallow: http://bästasparräntor.se/savingrates/show
-Disallow: http://bästasparräntor.se/savingrates/create
-Disallow: http://bästasparräntor.se/savingrates/update
-Disallow: http://bästasparräntor.se/savingrates/destroy
-Disallow: http://bästasparräntor.se/savingrates/index
+Disallow: http://www.moneylabs.se/mortgageloans/sign_in
+Disallow: http://www.moneylabs.se/mortgageloans/sign_out
+Disallow: http://www.moneylabs.se/mortgageloans/new
+Disallow: http://www.moneylabs.se/mortgageloans/edit
+Disallow: http://www.moneylabs.se/mortgageloans/show
+Disallow: http://www.moneylabs.se/mortgageloans/create
+Disallow: http://www.moneylabs.se/mortgageloans/update
+Disallow: http://www.moneylabs.se/mortgageloans/destroy
+Disallow: http://www.moneylabs.se/mortgageloans/index
 
-Disallow: http://bästasparräntor.se/mortgageloans/sign_in
-Disallow: http://bästasparräntor.se/mortgageloans/sign_out
-Disallow: http://bästasparräntor.se/mortgageloans/new
-Disallow: http://bästasparräntor.se/mortgageloans/edit
-Disallow: http://bästasparräntor.se/mortgageloans/show
-Disallow: http://bästasparräntor.se/mortgageloans/create
-Disallow: http://bästasparräntor.se/mortgageloans/update
-Disallow: http://bästasparräntor.se/mortgageloans/destroy
-Disallow: http://bästasparräntor.se/mortgageloans/index
+Disallow: http://www.moneylabs.se/loans/new
+Disallow: http://www.moneylabs.se/admin
+Disallow: http://www.moneylabs.se/rates
 
-Disallow: http://bästasparräntor.se/loans/new
-Disallow: http://bästasparräntor.se/admin
-Disallow: http://bästasparräntor.se/rates
+Disallow: http://www.moneylabs.se/rates/sign_in
+Disallow: http://www.moneylabs.se/rates/sign_out
+Disallow: http://www.moneylabs.se/rates/new
+Disallow: http://www.moneylabs.se/rates/edit
+Disallow: http://www.moneylabs.se/rates/show
+Disallow: http://www.moneylabs.se/rates/create
+Disallow: http://www.moneylabs.se/rates/update
+Disallow: http://www.moneylabs.se/rates/destroy
+Disallow: http://www.moneylabs.se/rates/index
 
-Disallow: http://bästasparräntor.se/rates/sign_in
-Disallow: http://bästasparräntor.se/rates/sign_out
-Disallow: http://bästasparräntor.se/rates/new
-Disallow: http://bästasparräntor.se/rates/edit
-Disallow: http://bästasparräntor.se/rates/show
-Disallow: http://bästasparräntor.se/rates/create
-Disallow: http://bästasparräntor.se/rates/update
-Disallow: http://bästasparräntor.se/rates/destroy
-Disallow: http://bästasparräntor.se/rates/index
+
+
+
+Disallow: http://moneylabs.se/admins/sign_in
+Disallow: http://moneylabs.se/admins/sign_out
+Disallow: http://moneylabs.se/smsloans/new
+Disallow: http://moneylabs.se/smsloans/edit
+Disallow: http://moneylabs.se/smsloans/show
+Disallow: http://moneylabs.se/smsloans/create
+Disallow: http://moneylabs.se/smsloans/update
+Disallow: http://moneylabs.se/smsloans/destroy
+Disallow: http://moneylabs.se/smsloans/index
+
+Disallow: http://moneylabs.se/savingrates/sign_in
+Disallow: http://moneylabs.se/savingrates/sign_out
+Disallow: http://moneylabs.se/savingrates/new
+Disallow: http://moneylabs.se/savingrates/edit
+Disallow: http://moneylabs.se/savingrates/show
+Disallow: http://moneylabs.se/savingrates/create
+Disallow: http://moneylabs.se/savingrates/update
+Disallow: http://moneylabs.se/savingrates/destroy
+Disallow: http://moneylabs.se/savingrates/index
+
+Disallow: http://moneylabs.se/mortgageloans/sign_in
+Disallow: http://moneylabs.se/mortgageloans/sign_out
+Disallow: http://moneylabs.se/mortgageloans/new
+Disallow: http://moneylabs.se/mortgageloans/edit
+Disallow: http://moneylabs.se/mortgageloans/show
+Disallow: http://moneylabs.se/mortgageloans/create
+Disallow: http://moneylabs.se/mortgageloans/update
+Disallow: http://moneylabs.se/mortgageloans/destroy
+Disallow: http://moneylabs.se/mortgageloans/index
+
+Disallow: http://moneylabs.se/loans/new
+Disallow: http://moneylabs.se/admin
+Disallow: http://moneylabs.se/rates
+
+Disallow: http://moneylabs.se/rates/sign_in
+Disallow: http://moneylabs.se/rates/sign_out
+Disallow: http://moneylabs.se/rates/new
+Disallow: http://moneylabs.se/rates/edit
+Disallow: http://moneylabs.se/rates/show
+Disallow: http://moneylabs.se/rates/create
+Disallow: http://moneylabs.se/rates/update
+Disallow: http://moneylabs.se/rates/destroy
+Disallow: http://moneylabs.se/rates/index
