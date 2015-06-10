@@ -264,6 +264,7 @@ $(document).ready(function() {
               $('.' + smstitle).show();
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
+              indexnumber2 = $('th.box2.' + smstitle + '.od').index();
               //table1.row(td).invalidate();
 
               //table1.destroy();
@@ -294,8 +295,7 @@ $(document).ready(function() {
               //});
               
               //Sort order of columns
-              table1.fnSort([indexnumber, 'asc']);
-
+              table1.fnSort([ [indexnumber, 'asc'], [indexnumber2,'asc'] ]);
 
 
 
