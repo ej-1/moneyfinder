@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.mobile
 //= require twitter/bootstrap
+
 
 //= require jquery-ui
 //= require jquery.dataTables.min.js
