@@ -201,6 +201,38 @@ $(document).ready(function() {
       // http://www.jqueryscript.net/tags.php?/Range%20Slider/
       // FINALLY GOT IT THE SLIDER TO TAKE AND PRESENT THE VALUE http://jsfiddle.net/mericson/5TTm4/6/
 
+      // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
+      // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
+      var labelArr = new Array("", "14 dagar", "21 dagar", "30 dagar", "45 dagar","60 dagar","90 dagar","1 år");
+      $( "#smstime-slider" ).slider({
+        value:1,
+        min: 1,
+        max: 7,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#smstime-value").html(labelArr[ui.value]);
+        }
+      });
+      //Get value and show value
+      $("#smstime-value").html(labelArr[$( "#smstime-slider" ).slider( "value" )]);
+        
+
+
+      // Custom intervals http://stackoverflow.com/questions/3336709/custom-range-variable-set-with-jquery-ui-slider
+      // USED THIS CODE IN THE END: Custom start value http://stackoverflow.com/questions/11206912/jquery-ui-slider-display-values
+      var labelArr2 = new Array("", "500 kr", "1000 kr", "2000 kr", "3000 kr", "4000 kr","5000 kr","6000 kr", "7000 kr", "8000 kr", "9000 kr","10000 kr","15000 kr","20000 kr","25000 kr","30000 kr");
+      $( "#smsamount-slider" ).slider({
+        value:1,
+        min: 1,
+        max: 15,
+        step: 1,
+        slide: function( event, ui ) {
+          $("#smsamount-value").html(labelArr2[ui.value]);
+        }
+      });
+      //Get value and show value
+      $("#smsamount-value").html(labelArr2[$( "#smsamount-slider" ).slider( "value" )]);
+        
 
 
 
