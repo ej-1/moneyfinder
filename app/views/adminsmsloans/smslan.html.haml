@@ -107,7 +107,7 @@
           %table#table_id
             %thead
               %tr
-                %th.th-title Långivare
+                %th.th-title.hidden-smslan Långivare
                 %th.th-title Minsta lånebelopp
                 %th.th-title Högsta lånebelopp
                 %th.box2.14d5h.od Loantime 14d 5h
@@ -462,7 +462,7 @@
             %tbody
               - @smsloans.each do |smsloan|
                 %tr
-                  %td.smsloangiver= smsloan.bank.to_s.html_safe
+                  %td.smsloangiver.hidden-smslan= smsloan.bank.to_s.html_safe
                   %td= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
                   %td.box2.14d5h.od= number_to_currency(smsloan.debtor_loantime_14d_5h, locale: :fr)
