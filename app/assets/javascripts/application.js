@@ -16,9 +16,6 @@
 
 //= require jquery-ui
 //= require jquery.dataTables.min.js
-//= require jquery.dataTables.js
-//= jquery.switchButton.js
-
 
 
 //= require_tree .
