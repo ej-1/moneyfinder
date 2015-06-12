@@ -710,7 +710,13 @@ h1 {
   color: #fff;
 }
 
+.box2{
+  display: none;
+}
 
+.hidden-smslan {
+  display: none;
+}
 
  tr {
   height: 10px;
@@ -845,67 +851,3 @@ input[type=radio]:checked+.lbl::before {
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
 
-
-p a .linkclass{ 
-  color: #50AD50;
-}
-
-p a .linkclass:hover{ 
-  color: darkgreen; 
-  background-color: #fff;
-  text-decoration: none;
-}
-
-.linkclass{ 
-  color: #50AD50;
-}
-
-.linkclass:hover{ 
-  color: darkgreen; 
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.linkclass2 { 
-  color: #777;
-  margin-top: 10px;
-}
-
-.linkclass2:hover{ 
-  color: green; 
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.linkclass2:focus{ 
-  color: darkgreen; 
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.th-title { 
-  text-align: center;
-}
-
-th { 
-  border-style: 1px solid #777;
-}
-
-.navbar-brand { 
-  margin-top: 0px;
-  margin-right: 35px;
-}
-
-
-.navbar-brand:hover { 
-  color: grey;
-  background-color: #fff;
-}
-
-.center-text{ 
-  text-align: center;
-}
-
-.padhack{ 
-  padding: 10px;
-}
