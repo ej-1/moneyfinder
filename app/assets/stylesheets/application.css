@@ -7,8 +7,6 @@
 
  * needed for slider bars
  *= require jquery-ui
-
- *= jquery.switchButton.css
 */
 
 
@@ -48,28 +46,11 @@ body {
   margin-top: 28px;
 }
 
-
-
-.navbar-default .navbar-toggle { /* Overriding bootstrap */
-  margin-right: 31px;
-}
-
-.logo { /* Overriding bootstrap */
-  margin-left: 20px;
-  margin-top: 4px;
-}
-/*
-.dropdown:hover .dropdown-menu {  Overriding bootstrap - menu appears on hover instead of onclick
-    display: block;
- }*/
-
 table {
   background-color: white;
   width: 100%;
   max-width: 200%;
   font-size: 12.5px;
-  /*border: 1px solid #ECECEC;*/
-  box-shadow: 0.1px 1px 2px rgba(136, 136, 136, 0.66);
 }
 
 tbody td {
@@ -79,7 +60,7 @@ tbody td {
 }
 
 tbody td.odd {
-  /* background-color: #E0E0E0; THIS WAS FOR ZEBRAROWS*/
+  background-color: #E0E0E0;
 }
 
 td.hovered {
@@ -90,13 +71,18 @@ td.hovered {
 }
 
 /* For column sorting */
+
+/*
+
 th.sortable {
     color: #666;
     cursor: pointer;
     text-decoration: underline;
-    font-family: 'Open Sans', sans-serif;
 }
 th.sortable:hover { color: black; }
+
+*/
+
 th.sorted-asc, th.sorted-desc  { color: black; }
 
 /* My personal design */
@@ -112,10 +98,6 @@ tbody th {
 
 .content-top {
   margin-top: 60px;
-}
-
-.content-top2 {
-  margin-top: 20px;
 }
 
 .grey-title {
@@ -137,10 +119,6 @@ tbody th {
 
 .top-buffer{
   padding-top: 30px;
-}
-
-.top-buffer2{
-  padding-top: 50px;
 }
 
 .bottom-buffer{
@@ -379,16 +357,6 @@ Media queries
     padding-left: 20px;
   }
 
-  table td {
-      font-family: 'Open Sans', sans-serif;
-      color: #7C8D87;
-      text-align: center;
-      font-size: 15px;
-      height: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
-
 }
 
 @media (max-width: 1200px) {
@@ -406,17 +374,6 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
-
-  table td {
-      font-family: 'Open Sans', sans-serif;
-      color: #7C8D87;
-      text-align: center;
-      font-size: 15px;
-      height: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
-
 }
 
 @media (max-width: 979px) {
@@ -434,16 +391,6 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
-
-  table td {
-      font-family: 'Open Sans', sans-serif;
-      color: #7C8D87;
-      text-align: center;
-      font-size: 15px;
-      height: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -460,16 +407,6 @@ Media queries
   .g-follow{
     padding-left: 40px;
   }
-
-  table td {
-      font-family: 'Open Sans', sans-serif;
-      color: #7C8D87;
-      text-align: center;
-      font-size: 15px;
-      height: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
 }
 
 @media (max-width: 767px) {
@@ -482,20 +419,6 @@ Media queries
   .g-follow{
     padding-left: 20px;
   }
-
-  .pagetitle {
-    margin-top: 50px;
-  }
-
-  table td {
-      font-family: 'Open Sans', sans-serif;
-      color: #7C8D87;
-      text-align: center;
-      font-size: 15px;
-      height: 30px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -505,66 +428,18 @@ Media queries
     margin-left: 2%;
   }
 
-  .pagetitle {
-    margin-top: 60px;
-  }
-
   .g-follow{
     padding-left: 20px;
   }
-
-  .th-title {
-    font-size: 10px;
-    font-weight: none;
-  }
-
-  table th {
-    font-size: 10px;
-  }
-
-  table td {
-    font-size: 12px;
-  }
-
-  .img-loangiver
-  {
-    width: 110px
-  }
-
-  .btn {
-    font-size: 12px;
-    }
-
-  .btn-large {
-    font-size: 12px;
-    }
-
-  .box2{
-    font-weight: none;
-    text-align: center;
-  }
-  .product{
-    font-size: 12px;
-    font-weight: none;
-  }
-
-  .img{
-    font-size: 8px;
-    font-weight: none;
-  }
-
-  .pagetitle {
-    margin-top: 110px;
-  }
-
-
 }
 
 
+.product {}
 
-
-
-
+.hidden-smslan {
+  color: white;
+  font-size: 1px;
+}
 
 
 /* http://jsfiddle.net/BxY99/ did not get it to work*/
@@ -583,48 +458,46 @@ body{font:62.5% Verdana,Arial,sans-serif}
 
 /* Table inspired by this tympanus.net/codrops/2014/01/09/sticky-table-headers-columns/  */
 
-th {
+
+
+    /* CSS for th on savingsrates tables */
+.sortable-savingsrates {
     /* background-color: #31BC86; */
-    background-color: #90C255;
+    background-color: #9BCC5F;
     height: 60px;
-    color: rgba(255, 255, 255, 0.97);
+    color: #fff;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     text-decoration: none;
-
 }
+
+.sortable-td-savingsrates {
+    color:#7C8D87;
+    text-align: center;
+    font-size: 13px;
+    height: 30px;
+}
+
 th.sortable:hover { color: rgba(62, 161, 32, 0.97); }
 
-
-
-table th {
-    font-family: 'Open Sans', sans-serif;
+table td {
+    color:#7C8D87;
     text-align: center;
+    font-size: 15px;
+    height: 30px;
 }
 
 
 
 .smsloaninterface {
-  margin-top: 20px;
-    border-radius: 3px;
-    /* color: rgba(150, 201, 88, 1); */
-    color: rgba(144, 194, 85, 1);
-    /* original background-color: #9BCC5F; */
-    background-color: rgb(144, 194, 85);
-    padding-top: 15px;
-    padding-bottom: 15px;
+    border-radius: 5px;
+    background-color: #9BCC5F;
+    padding-top: 25px;
+    padding-bottom: 25px;
     padding-left: 15px;
     padding-right: 15px;
-    box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
-    border: 1px solid #91C056;
 }
-
-.btn.btn-success.btn-large {
-    background-color: #50AD50;
-    border-color: #4BAB4B;
-}
-
 
 .float-right {
     float: right;
@@ -637,7 +510,6 @@ table th {
 .center-element {
   margin-left: auto;
   margin-right: auto;
-  display: block;
 }
 
 .sms-button {
@@ -656,7 +528,7 @@ table th {
 
 
 .smscheckboxes {
-  font-weight: normal;
+  font-weight: bold;
   color: #fff;
   font-size: 13.5px;
   display: block;
@@ -666,7 +538,7 @@ table th {
   font-size: 11px;
   font-weight: normal;
   color: rgba(43, 117, 5, 1);
-  font-family: oblique;
+  font-style: oblique;
   display: block;
   margin-bottom: 0px;
   margin-top: 34px;
@@ -675,52 +547,17 @@ table th {
 .smsfreeloantext {
   font-size: 11px;
   color: rgba(43, 117, 5, 1);
-  font-family: oblique;
+  font-style: oblique;
 }
 
 
 .pagetitle {
   font-weight: bold;
   font-size: 36px;
-  font-family: 'Open Sans', sans-serif;
-  color: rgba(53, 53, 53, 0.87);
+  margin-left: 3%;
 }
 
-.fonts {
-  font-family: 'Open Sans', sans-serif;
-}
 
-p {
-  font-family: 'Open Sans', sans-serif;
-  color: rgba(86, 86, 86, 0.87);
-}
-
-h1 {
-  font-family: 'Open Sans', sans-serif;
-  color: rgba(86, 86, 86, 0.87);
-}
-
-.h2-hulk {
-  font-family: 'Open Sans', sans-serif;
-  color: #86B64D;
-}
-
-.glyph {
-  font-family: 'Open Sans', sans-serif;
-  color: #fff;
-}
-
-.box2{
-  display: none;
-}
-
-.hidden-smslan {
-  display: none;
-}
-
- tr {
-  height: 10px;
-}
 
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
@@ -839,15 +676,9 @@ input[type=radio]:checked+.lbl::before {
   content: "\2022";
 }
 
-/* Hides search fields and pagination fo Datatables */
-.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_info { display: none; }
-#table_id_paginate { display: none; }
 
-#table_id_paginate { display: none; }
 
-#table_id_gratislan_paginate { display: none; }
 
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
-
