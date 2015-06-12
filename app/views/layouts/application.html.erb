@@ -11,19 +11,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
 
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        function cookieController() {
-            // Cookie setting scripts in here
-        }  
- 
-        $.cookiesDirective({
-            privacyPolicyUri: 'my-privacy-policy.html',
-            cookieScripts: 'Google Analytics,My Stats',
-            scriptWrapper: cookieController
-        });
-    });
-</script>
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -40,29 +28,6 @@
 
 </script>
 
-
-
-<script>
-/**
-* Function that tracks a click on an outbound link in Google Analytics.
-* This function takes a valid URL string as an argument, and uses that URL string
-* as the event label.
-*/
-var trackOutboundLink = function(url) {
-   ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
-     function () {
-     document.location = url;
-     }
-   });
-}
-</script> 
-
-    <script type="text/javascript">
-    setTimeout(function(){var a=document.createElement("script");
-    var b=document.getElementsByTagName("script")[0];
-    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0027/5391.js?"+Math.floor(new Date().getTime()/3600000);
-    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-    </script> 
 
 <!-- Google + Place this tag in your head or just before your close body tag. -->
 <script src="https://apis.google.com/js/platform.js" async defer>
@@ -81,15 +46,7 @@ var trackOutboundLink = function(url) {
 
 
 
-    <!-- Google Tag Manager -->
-    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N5R9XX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N5R9XX');</script>
-    <!-- End Google Tag Manager -->
+
 
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -127,24 +84,6 @@ var trackOutboundLink = function(url) {
 
   <script type="text/javascript"> var uri = 'http://impse.tradedoubler.com/imp?type(inv)g(17588024)a(2460789)' + new String (Math.random()).substring (2, 11); document.write('<img src="'+uri +'">'); </script>
 
-<!-- code for cookies disclaimer -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $.cookiesDirective({
-            privacyPolicyUri: 'my-privacy-policy.html'
-        });
-    });
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $.cookiesDirective({
-            privacyPolicyUri: 'my-privacy-policy.html',
-            cookieScripts: 'Google Analytics,My Stats',
-            scriptWrapper: cookieController
-        });
-    });
-</script>
 
   <script type="text/javascript" src="http://track.adtraction.com/t/t?as=1090730078&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
 
@@ -162,27 +101,6 @@ document.getElementsByTagName('head')[0].appendChild(scRec);
 
   </body>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        function cookieController() {
-            // Load Google Analytics to header
-            $.cookiesDirective.loadScript({
-                uri:'google.js',
-                appendTo: 'header'
-            });
- 
-            // Load My Stats to body (default)
-            $.cookiesDirective.loadScript({
-                uri:'mystats.js'
-            });
-        }  
- 
-        $.cookiesDirective({
-            privacyPolicyUri: 'my-privacy-policy.html',
-            cookieScripts: 'Google Analytics,My Stats',
-            scriptWrapper: cookieController
-        });
-    });
-</script>
+
 
 </html>
