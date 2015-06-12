@@ -1,0 +1,916 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+
+ * needed for slider bars
+ *= require jquery-ui
+
+*/
+
+
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+
+
+.navbar-default .navbar-toggle { /* Overriding bootstrap */
+  margin-right: 31px;
+}
+
+.logo { /* Overriding bootstrap */
+  margin-left: 20px;
+  margin-top: 4px;
+}
+/*
+.dropdown:hover .dropdown-menu {  Overriding bootstrap - menu appears on hover instead of onclick
+    display: block;
+ }*/
+
+table {
+  background-color: white;
+  width: 100%;
+  max-width: 200%;
+  font-size: 12.5px;
+  /*border: 1px solid #ECECEC;*/
+  box-shadow: 0.1px 1px 2px rgba(136, 136, 136, 0.66);
+}
+
+tbody td {
+  background-color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+tbody td.odd {
+  /* background-color: #E0E0E0; THIS WAS FOR ZEBRAROWS*/
+}
+
+td.hovered {
+  /* background-color: #ADD866; */
+  /* background-color: #CCE99D; */
+  background-color: lightblue;
+  color: #666;
+}
+
+/* For column sorting */
+th.sortable {
+    color: #666;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Open Sans', sans-serif;
+}
+th.sortable:hover { color: black; }
+th.sorted-asc, th.sorted-desc  { color: black; }
+
+/* My personal design */
+
+tbody th {
+  width: 100px;
+}
+
+.column-center {
+  text-align: center;
+  padding-left: 10px;  
+}
+
+.content-top {
+  margin-top: 60px;
+}
+
+.content-top2 {
+  margin-top: 20px;
+}
+
+.grey-title {
+ color: rgba(174, 174, 174, 1);
+ /* color: #08C;*/
+}
+
+.rates-padding{
+  width: 0px;
+}
+
+.rates-padding2{
+  padding-right: 5px;
+}
+
+.bank-padding{
+  padding-right: 5px;
+}
+
+.top-buffer{
+  padding-top: 30px;
+}
+
+.top-buffer2{
+  padding-top: 50px;
+}
+
+.bottom-buffer{
+  padding-bottom: 30px;
+}
+
+.bottom-buffer2{
+  padding-bottom: 400px;
+}
+
+.black-text{
+  color: #333;
+}
+
+.list-font{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.facebook-likes{
+  padding-right: 300px;
+}
+
+.paragraph-break{
+  padding-top: 15px;
+}
+
+.list-space{
+  padding-right: 50px;
+}
+
+img  {
+    float: left;
+    padding-right: 10px;
+} 
+
+/* For the loancalculator page */
+
+.box{
+  padding-right: 50px;
+  padding: 10px;
+  display: none;
+  margin-top: 20px;
+/*  border: 1px solid #000; */
+}
+
+.radiobutton{
+  padding-left: 15px;
+  display: inline-block
+}
+
+.realestatevalue{
+  padding-left: 15px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.radiobuttonfield{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.warning-number{
+  padding-bottom: 10px;
+  color: grey;
+}
+
+.loancalculator{
+  text-align: center;
+}
+
+.submitloanbutton{
+  padding-top: 1px;
+}
+
+.submit input {
+  width:100px;
+}
+
+/* Centers input in text fields. Maybe other forms also */
+input{
+   text-align:center;
+}
+
+
+/* Forked code from here. Original name "emerald-flat-button". http://cssdeck.com/labs/nmxt98xv */
+
+
+.big-loanbutton {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
+}
+.big-loanbutton:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.buttons { 
+  width: 200px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.buttons button { 
+  width: 200%;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
+}
+
+.buttons button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+ul /* Make as lists, especially the one with buttons on loanlanding page without bullets. */
+{
+    list-style-type: none;
+    color: white;
+}
+
+/* MAINLANDING */
+
+.big-buttons-positon {
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Hides link-images to link libraries */
+.stealth {
+  width: 1px;
+  height: 1px;
+}
+
+.checkbox-buffer {
+  margin-top: -17px;
+}
+
+.green-field {
+  background-color: rgba(138, 252, 79, 0.34);
+  border-radius: 5px;
+  width: 90%;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-right: 25px;
+  padding-bottom: 12.5px;
+  padding-left: 25px;
+}
+
+/* for the top-menu */
+.application-field {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+/* for the content on page */
+
+
+
+
+
+
+
+.primarch-buffer {
+  margin-top: 50px;
+}
+
+.primarch-buffer2 {
+  margin-top: 100px;
+}
+
+.ad-buffer {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.ad-buffer2 {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.pagefield h1  {
+  font-size: 35.5;
+}
+
+
+
+/*
+==============
+Media queries
+==============
+*/
+
+@media (min-width: 1200px) {
+  .pagefield-superior {
+    /* max-width: 60%; */
+    margin-right: 13%;
+    margin-left: 13%;
+
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .pagefield-right {
+    margin-left: 20%;
+
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+}
+
+@media (max-width: 979px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+    margin-right: 13%;
+    margin-left: 13%;
+  }
+
+  .pagefield-right {
+    margin-left: 20%;
+
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+    margin-right: 13%;
+    margin-left: 13%;
+  }
+
+  .pagefield-right {
+    margin-left: 95%;
+  }
+
+  .g-follow{
+    padding-left: 40px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+  .pagetitle {
+    margin-top: 50px;
+  }
+
+  table td {
+      font-family: 'Open Sans', sans-serif;
+      color: #7C8D87;
+      text-align: center;
+      font-size: 15px;
+      height: 30px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagefield-superior {
+  /* max-width: 60%; */
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+
+  .pagetitle {
+    margin-top: 60px;
+  }
+
+  .g-follow{
+    padding-left: 20px;
+  }
+
+  .th-title {
+    font-size: 10px;
+    font-weight: none;
+  }
+
+  table th {
+    font-size: 10px;
+  }
+
+  table td {
+    font-size: 12px;
+  }
+
+  .img-loangiver
+  {
+    width: 110px
+  }
+
+  .btn {
+    font-size: 12px;
+    }
+
+  .btn-large {
+    font-size: 12px;
+    }
+
+  .box2{
+    font-weight: none;
+    text-align: center;
+  }
+  .product{
+    font-size: 12px;
+    font-weight: none;
+  }
+
+  .img{
+    font-size: 8px;
+    font-weight: none;
+  }
+
+  .pagetitle {
+    margin-top: 110px;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+/* http://jsfiddle.net/BxY99/ did not get it to work*/
+body{font:62.5% Verdana,Arial,sans-serif}
+.ui-slider {
+    height: 0.3em;
+    border-radius: 10px;
+}
+.ui-slider-handle {
+    height: 1em;
+    top: -0.45em;
+    border-radius: 0.5em;
+    width: 1em;
+    margin-left: -0.5em;
+}
+
+/* Table inspired by this tympanus.net/codrops/2014/01/09/sticky-table-headers-columns/  */
+
+th {
+    /* background-color: #31BC86; */
+    background-color: #90C255;
+    height: 60px;
+    color: rgba(255, 255, 255, 0.97);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+th.sortable:hover { color: rgba(62, 161, 32, 0.97); }
+
+
+
+table th {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+
+
+.smsloaninterface {
+  margin-top: 20px;
+    border-radius: 3px;
+    /* color: rgba(150, 201, 88, 1); */
+    color: rgba(144, 194, 85, 1);
+    /* original background-color: #9BCC5F; */
+    background-color: rgb(144, 194, 85);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
+    border: 1px solid #91C056;
+}
+
+.btn.btn-success.btn-large {
+    background-color: #50AD50;
+    border-color: #4BAB4B;
+}
+
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.center-element {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.sms-button {
+  margin-top: 0px;
+}
+
+#smstime-value {
+  font-weight: bold;
+  color: #fff;
+}
+
+#smsamount-value {
+  font-weight: bold;
+  color: #fff;
+}
+
+
+.smscheckboxes {
+  font-weight: normal;
+  color: #fff;
+  font-size: 13.5px;
+  display: block;
+}
+
+.smsfreeloancheckbox {
+  font-size: 11px;
+  font-weight: normal;
+  color: rgba(43, 117, 5, 1);
+  font-family: oblique;
+  display: block;
+  margin-bottom: 0px;
+  margin-top: 34px;
+}
+
+.smsfreeloantext {
+  font-size: 11px;
+  color: rgba(43, 117, 5, 1);
+  font-family: oblique;
+}
+
+
+.pagetitle {
+  font-weight: bold;
+  font-size: 36px;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(53, 53, 53, 0.87);
+}
+
+.fonts {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(86, 86, 86, 0.87);
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(86, 86, 86, 0.87);
+}
+
+.h2-hulk {
+  font-family: 'Open Sans', sans-serif;
+  color: #86B64D;
+}
+
+.glyph {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+.box2{
+  display: none;
+}
+
+.hidden-smslan {
+  display: none;
+}
+
+ tr {
+  height: 10px;
+}
+
+
+/* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
+
+
+
+
+/* checboxes, but I customized. http://www.andwecode.com/custom-checkbox-radio-with-icon-fonts/ */
+/* Hiding default checkbox and Radio button design */
+input[type=checkbox],input[type=radio] {
+    opacity: 0;
+    position: absolute;
+    z-index: 12;
+    width: 18px;
+    height: 18px;
+}
+ 
+/* Disable outline when clicked*/
+input[type=checkbox]:checked,input[type=radio]:checked,input[type=checkbox]:focus,input[type=radio]:focus {
+    outline: none !important;
+}
+ 
+input[type=checkbox]+.lbl,input[type=radio]+.lbl {
+    position: relative;
+    z-index: 11;
+    display: inline-block;
+    margin: 0;
+    line-height: 20px;
+    min-height: 14px;
+    min-width: 14px;
+    /* font-weight: normal; */
+}
+
+
+
+
+input[type=checkbox]+.lbl.padding-16::before,input[type=radio]+.lbl.padding-16::before {
+    margin-right: 16px;
+}
+ 
+input[type=checkbox]+.lbl.padding-12::before,input[type=radio]+.lbl.padding-12::before {
+    margin-right: 12px;
+}
+ 
+input[type=checkbox]+.lbl.padding-8::before,input[type=radio]+.lbl.padding-8::before {
+    margin-right: 8px;
+}
+ 
+input[type=checkbox]+.lbl.padding-4::before,input[type=radio]+.lbl.padding-4::before {
+    margin-right: 4px;
+}
+ 
+input[type=checkbox]+.lbl.padding-0::before,input[type=radio]+.lbl.padding-0::before {
+    margin-right: 0px;
+}
+
+
+
+
+
+input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
+  font-family: fontAwesome;
+  /* font-weight: normal; */
+  font-size: 11px;
+  color: rgba(27, 203, 9, 1);
+  content: "\a0";
+  background-color: #FAFAFA;
+  border: 0px solid #CCC;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  height: 13px;
+  line-height: 13px;
+  min-width: 13px;
+  margin-right: 1px;
+  margin-top: -5px;
+}
+ 
+/* Checked state styles */
+input[type=checkbox]:checked+.lbl::before,input[type=radio]:checked+.lbl::before {
+  display: inline-block;
+  content: '\f00c';
+  background-color: #F5F8FC;
+  border-color: #adb8c0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+}
+ 
+/* Hover state styles */
+input[type=checkbox]:hover+.lbl::before,input[type=radio]:hover+.lbl::before,input[type=checkbox]+.lbl:hover::before,input[type=radio]+.lbl:hover::before {
+  border-color: #1c7aad;
+}
+ 
+/* Shadow when checked or Active */
+input[type=checkbox]:active+.lbl::before,input[type=radio]:active+.lbl::before,input[type=checkbox]:checked:active+.lbl::before,input[type=radio]:checked:active+.lbl::before {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Disabled state styles */
+input[type=checkbox]:disabled+.lbl::before,input[type=radio]:disabled+.lbl::before,input[type=checkbox][disabled]+.lbl::before,input[type=radio][disabled]+.lbl::before,input[type=checkbox].disabled+.lbl::before,input[type=radio].disabled+.lbl::before {
+  background-color: #DDD !important;
+  border-color: #CCC !important;
+  box-shadow: none !important;
+  color: #BBB;
+}
+ 
+/* Styles for Radio button */
+input[type=radio]+.lbl::before {
+  border-radius: 32px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 36px;
+}
+ 
+input[type=radio]:checked+.lbl::before {
+  content: "\2022";
+}
+
+/* Hides search fields and pagination fo Datatables */
+.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_info { display: none; }
+#table_id_paginate { display: none; }
+
+#table_id_paginate { display: none; }
+
+#table_id_gratislan_paginate { display: none; }
+
+/* Navbar that sticks and shrinks */
+/* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
+/* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
+
+
+p a .linkclass{ 
+  color: #50AD50;
+}
+
+p a .linkclass:hover{ 
+  color: darkgreen; 
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.linkclass{ 
+  color: #50AD50;
+}
+
+.linkclass:hover{ 
+  color: darkgreen; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.linkclass2 { 
+  color: #777;
+  margin-top: 10px;
+}
+
+.linkclass2:hover{ 
+  color: green; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.linkclass2:focus{ 
+  color: darkgreen; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.th-title { 
+  text-align: center;
+}
+
+th { 
+  border-style: 1px solid #777;
+}
+
+.navbar-brand { 
+  margin-top: 0px;
+  margin-right: 35px;
+}
+
+
+.navbar-brand:hover { 
+  color: grey;
+  background-color: #fff;
+}
+
+.center-text{ 
+  text-align: center;
+}
+
+.padhack{ 
+  padding: 10px;
+}
