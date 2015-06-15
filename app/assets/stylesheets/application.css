@@ -714,11 +714,6 @@ h1 {
   display: none;
 }
 
-.box3{
-  display: none;
-}
-
-
 .hidden-smslan {
   display: none;
 }
@@ -787,7 +782,7 @@ input[type=checkbox]+.lbl.padding-0::before,input[type=radio]+.lbl.padding-0::be
 
 
 input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
-  font-family: Arial;
+  font-family: arial;
   /* font-weight: normal; */
   font-size: 11px;
   color: rgba(27, 203, 9, 1);
