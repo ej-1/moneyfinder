@@ -40,7 +40,7 @@
 
 
   <body>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
     <!-- <div class="container-narrow"> -->
     <div class="application-field">
       <div class="masthead">
@@ -63,6 +63,7 @@
       <hr>
       <div class="content">
         <%= yield %>
+
       </div>
       <hr>
     <div class="application-field">
@@ -89,5 +90,8 @@
     </script>
     <!-- End SessionCam -->
 
+    
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>
