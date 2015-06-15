@@ -9,7 +9,7 @@
     
     <title><%= yield(:title) %></title>
 
-    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
 
     <%= csrf_meta_tags %>
@@ -90,7 +90,7 @@
     </script>
     <!-- End SessionCam -->
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
