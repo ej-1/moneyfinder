@@ -14,6 +14,8 @@ gem 'heroku-deflater'
 
 gem 'rake', '~> 10.4.2'
 
+gem 'actionpack-page_caching'
+
 # Paperclip helps to upload logo images for banks in migrations
 #gem "paperclip", "~> 4.2"
 
