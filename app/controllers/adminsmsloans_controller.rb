@@ -1,6 +1,7 @@
 class AdminsmsloansController < ApplicationController
   before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
   caches_page :smslan
+  caches_action :smslan
   # before_action :authenticate_admin!
   # GET /smsloans
   # GET /smsloans.json
