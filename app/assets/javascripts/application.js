@@ -256,14 +256,21 @@ $(document).ready(function() {
 
               $(".box2").hide();
               //Undoes the hiding of rows of empty cells att the end of this block.
-             $('tr').filter(function() {
-                  return $(this).find('td').filter(function() {
-                    return ! $.trim($(this).text());  
-                  }).length;
-              }).show();
+              $('tr').filter(function() {
+                   return $(this).find('td').filter(function() {
+                     return ! $.trim($(this).text());  
+                   }).length;
+               }).show();
 
               //$('.' + smstitle).css({"font-weight": "bold"});
               $('.' + smstitle).show();
+
+              //REPLACE THIS SO IT REPLACES TEXT WTH SMSTITLE
+              $('p.test').replaceWith('<h2>New heading</h2>');
+              $('td.box3').replaceWith('<td class="box3"><%= number_to_currency(smsloan.newdebtor_loantime_60d_1k, locale: :fr) %></td>');
+              $('td.box4').html('<td class="box4"><%= number_to_currency(smsloan.newdebtor_loantime_60d_1k, locale: :fr) %></td>');
+
+
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
               indexnumber2 = $('th.box2.' + smstitle + '.od').index();
