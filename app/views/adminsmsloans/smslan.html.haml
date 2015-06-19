@@ -1,6 +1,4 @@
-- content_for :title, "Jämför SMSlån - Jämför och hitta billigaste SMSlån och snabblån"
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
-
 .pagefield-superior
   .row
     .span12
@@ -9,871 +7,137 @@
           %h1.pagetitle Jämför SMSlån
           %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 25 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
           %p.fonts
-            Om du vill endast jämföra de olika 
-            %b gratislånen 
-            \ som erbjuds av långivarna kan du 
+            Om du vill endast jämföra de olika
+            %b gratislånen
+            som erbjuds av långivarna kan du
             %a.linkclass{:href => "gratislan"}
               %span.linkclass klicka här.
           %p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det billigaste lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
-
+          %p.test HEJ!
         %p#demo2
         .span8.smsloaninterface
           .span8
             .span4.float-left
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonouc"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonouc"}/
                 %span.lbl.padding-8.fonts Smslån utan UC
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
                 %span.lbl.padding-8.fonts SKEF Medlem
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
                 %span.lbl.padding-8.fonts Låna trots betalningsanmärkning
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower5k"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower5k"}/
                 %span.lbl.padding-8.fonts Låna 5000 kr eller mer första gången
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower10k"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower10k"}/
                 %span.lbl.padding-8.fonts Låna 10 000 kr eller mer första gången
-
-
-
             .span2.float-right
-
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
                 %span.lbl.padding-8.fonts 18 årsgräns
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noopenonsaturdays"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsaturdays"}/
                 %span.lbl.padding-8.fonts Lördagsöppet
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "noopenonsundays"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsundays"}/
                 %span.lbl.padding-8.fonts Söndagsöppet
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}/
                 %span.lbl.padding-8.fonts BankID
-
               %label.smscheckboxes
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
                 %span.lbl.padding-8.fonts Mobilvänlig site
-
-            //.span1.float-right
-            //  %p.glyph
-            //    Hjälp 
-            //    %span.glyphicon.glyphicon-question-sign.glyph
-
+            / /.span1.float-right
+            / /  %p.glyph
+            / /    Hjälp
+            / /    %span.glyphicon.glyphicon-question-sign.glyph
           .span8
             .span5
-              //Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
-
+              / /Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
               %p
-              //Show value
+              / /Show value
               %p#smstime-value.fonts
-              //Slider
+              / /Slider
               #smstime-slider
-
               %p
-              //Show value
+              / /Show value
               %p#smsamount-value.fonts
-              //Slider
+              / /Slider
               #smsamount-slider
-
-              //TEST - Shows the variable that is concenated to show the right column
-              //%p#demo
+              / /TEST - Shows the variable that is concenated to show the right column
+              / /%p#demo
               %p.results
             .span2
               %label.smscheckboxes.top-buffer.freeloanbutton
-                %input{:class => "smslanchkbx", :name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
+                %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
                 %span.lbl.padding-8 Kostnadsfria lån
 
-              //.switch-toggle.switch-candy
-              //  %input#on{:name => "state-d", :type => "radio"}/
-              //  %label{:id => "on", :for => "on", :onclick => ""} Redan kund
-              //  %input#off{ :name => "state-d", :type => "radio"}/
-              //  %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
-              //  %a
-
-              %button.btn.btn-success.btn-large.sms-button{:class => "blo", :type => "button", :id => "smsbutton"} Jämför Lån
-        - cache do
-          .span8.top-buffer.bottom-buffer
-            %table#table_id
-              %thead
-                %tr
-                  %th.th-title Långivare
-                  %th.th-title Minsta lånebelopp
-                  %th.th-title Högsta lånebelopp
-                  %th.box2.14d5h.od Loantime 14d 5h
-                  %th.box2.14d1k.od Loantime 14d 1k
-                  %th.box2.14d2k.od Loantime 14d 2k
-                  %th.box2.14d3k.od Loantime 14d 3k
-                  %th.box2.14d4k.od Loantime 14d 4k
-                  %th.box2.14d5k.od Loantime 14d 5k
-                  %th.box2.14d6k.od Loantime 14d 6k
-                  %th.box2.14d7k.od Loantime 14d 7k
-                  %th.box2.14d8k.od Loantime 14d 8k
-                  %th.box2.14d9k.od Loantime 14d 9k
-                  %th.box2.14d10k.od Loantime 14d 10k
-                  %th.box2.14d15k.od Loantime 14d 15k
-                  %th.box2.14d20k.od Loantime 14d 20k
-                  %th.box2.14d25k.od Loantime 14d 25k
-                  %th.box2.14d30k.od Loantime 14d 30k
-                  %th.box2.21d5h.od Loantime 21d 5h
-                  %th.box2.21d1k.od Loantime 21d 1k
-                  %th.box2.21d2k.od Loantime 21d 2k
-                  %th.box2.21d3k.od Loantime 21d 3k
-                  %th.box2.21d4k.od Loantime 21d 4k
-                  %th.box2.21d5k.od Loantime 21d 5k
-                  %th.box2.21d6k.od Loantime 21d 6k
-                  %th.box2.21d7k.od Loantime 21d 7k
-                  %th.box2.21d8k.od Loantime 21d 8k
-                  %th.box2.21d9k.od Loantime 21d 9k
-                  %th.box2.21d10k.od Loantime 21d 10k
-                  %th.box2.21d15k.od Loantime 21d 15k
-                  %th.box2.21d20k.od Loantime 21d 20k
-                  %th.box2.21d25k.od Loantime 21d 25k
-                  %th.box2.21d30k.od Loantime 21d 30k
-                  %th.box2.30d5h.od Loantime 30d 5h
-                  %th.box2.30d1k.od Loantime 30d 1k
-                  %th.box2.30d2k.od Loantime 30d 2k
-                  %th.box2.30d3k.od Loantime 30d 3k
-                  %th.box2.30d4k.od Loantime 30d 4k
-                  %th.box2.30d5k.od Loantime 30d 5k
-                  %th.box2.30d6k.od Loantime 30d 6k
-                  %th.box2.30d7k.od Loantime 30d 7k
-                  %th.box2.30d8k.od Loantime 30d 8k
-                  %th.box2.30d9k.od Loantime 30d 9k
-                  %th.box2.30d10k.od Loantime 30d 10k
-                  %th.box2.30d15k.od Loantime 30d 15k
-                  %th.box2.30d20k.od Loantime 30d 20k
-                  %th.box2.30d25k.od Loantime 30d 25k
-                  %th.box2.30d30k.od Loantime 30d 30k
-                  %th.box2.45d5h.od Loantime 45d 5h
-                  %th.box2.45d1k.od Loantime 45d 1k
-                  %th.box2.45d2k.od Loantime 45d 2k
-                  %th.box2.45d3k.od Loantime 45d 3k
-                  %th.box2.45d4k.od Loantime 45d 4k
-                  %th.box2.45d5k.od Loantime 45d 5k
-                  %th.box2.45d6k.od Loantime 45d 6k
-                  %th.box2.45d7k.od Loantime 45d 7k
-                  %th.box2.45d8k.od Loantime 45d 8k
-                  %th.box2.45d9k.od Loantime 45d 9k
-                  %th.box2.45d10k.od Loantime 45d 10k
-                  %th.box2.45d15k.od Loantime 45d 15k
-                  %th.box2.45d20k.od Loantime 45d 20k
-                  %th.box2.45d25k.od Loantime 45d 25k
-                  %th.box2.45d30k.od Loantime 45d 30k
-                  %th.box2.60d5h.od Loantime 60d 5h
-                  %th.box2.60d1k.od Loantime 60d 1k
-                  %th.box2.60d2k.od Loantime 60d 2k
-                  %th.box2.60d3k.od Loantime 60d 3k
-                  %th.box2.60d4k.od Loantime 60d 4k
-                  %th.box2.60d5k.od Loantime 60d 5k
-                  %th.box2.60d6k.od Loantime 60d 6k
-                  %th.box2.60d7k.od Loantime 60d 7k
-                  %th.box2.60d8k.od Loantime 60d 8k
-                  %th.box2.60d9k.od Loantime 60d 9k
-                  %th.box2.60d10k.od Loantime 60d 10k
-                  %th.box2.60d15k.od Loantime 60d 15k
-                  %th.box2.60d20k.od Loantime 60d 20k
-                  %th.box2.60d25.odk Loantime 60d 25k
-                  %th.box2.60d30k.od Loantime 60d 30k
-                  %th.box2.90d5h.od Loantime 90d 5h
-                  %th.box2.90d1k.od Loantime 90d 1k
-                  %th.box2.90d2k.od Loantime 90d 2k
-                  %th.box2.90d3k.od Loantime 90d 3k
-                  %th.box2.90d4k.od Loantime 90d 4k
-                  %th.box2.90d5k.od Loantime 90d 5k
-                  %th.box2.90d6k.od Loantime 90d 6k
-                  %th.box2.90d7k.od Loantime 90d 7k
-                  %th.box2.90d8k.od Loantime 90d 8k
-                  %th.box2.90d9k.od Loantime 90d 9k
-                  %th.box2.90d10k.od Loantime 90d 10k
-                  %th.box2.90d15k.od Loantime 90d 15k
-                  %th.box2.90d20k.od Loantime 90d 20k
-                  %th.box2.90d25k.od Loantime 90d 25k
-                  %th.box2.90d30k.od Loantime 90d 30k
-                  %th.box2.1year5h.od Loantime 1year 5h
-                  %th.box2.1year1k.od Loantime 1year 1k
-                  %th.box2.1year2k.od Loantime 1year 2k
-                  %th.box2.1year3k.od Loantime 1year 3k
-                  %th.box2.1year4k.od Loantime 1year 4k
-                  %th.box2.1year5k.od Loantime 1year 5k
-                  %th.box2.1year6k.od Loantime 1year 6k
-                  %th.box2.1year7k.od Loantime 1year 7k
-                  %th.box2.1year8k.od Loantime 1year 8k
-                  %th.box2.1year9k.od Loantime 1year 9k
-                  %th.box2.1year10k.od Loantime 1year 10k
-                  %th.box2.1year15k.od Loantime 1year 15k
-                  %th.box2.1year20k.od Loantime 1year 20k
-                  %th.box2.1year25k.od Loantime 1year 25k
-                  %th.box2.1year30k.od Loantime 1year 30k
-                  %th.box2.2year5h.od Loantime 2year 5h
-                  %th.box2.2year1k.od Loantime 2year 1k
-                  %th.box2.2year2k.od Loantime 2year 2k
-                  %th.box2.2year3k.od Loantime 2year 3k
-                  %th.box2.2year4k.od Loantime 2year 4k
-                  %th.box2.2year5k.od Loantime 2year 5k
-                  %th.box2.2year6k.od Loantime 2year 6k
-                  %th.box2.2year7k.od Loantime 2year 7k
-                  %th.box2.2year8k.od Loantime 2year 8k
-                  %th.box2.2year9k.od Loantime 2year 9k
-                  %th.box2.2year10k.od Loantime 2year 10k
-                  %th.box2.2year15k.od Loantime 2year 15k
-                  %th.box2.2year20k.od Loantime 2year 20k
-                  %th.box2.2year25k.od Loantime 2year 25k
-                  %th.box2.2year30k.od Loantime 2year 30k
-                  %th.box2.3year5h.od Loantime 3year 5h
-                  %th.box2.3year1k.od Loantime 3year 1k
-                  %th.box2.3year2k.od Loantime 3year 2k
-                  %th.box2.3year3k.od Loantime 3year 3k
-                  %th.box2.3year4k.od Loantime 3year 4k
-                  %th.box2.3year5k.od Loantime 3year 5k
-                  %th.box2.3year6k.od Loantime 3year 6k
-                  %th.box2.3year7k.od Loantime 3year 7k
-                  %th.box2.3year8k.od Loantime 3year 8k
-                  %th.box2.3year9k.od Loantime 3year 9k
-                  %th.box2.3year10k.od Loantime 3year 10k
-                  %th.box2.3year15k.od Loantime 3year 15k
-                  %th.box2.3year20k.od Loantime 3year 20k
-                  %th.box2.3year25k.od Loantime 3year 25k
-                  %th.box2.3year30k.od Loantime 3year 30k
-                  %th.box2.4year5h.od Loantime 4year 5h
-                  %th.box2.4year1k.od Loantime 4year 1k
-                  %th.box2.4year2k.od Loantime 4year 2k
-                  %th.box2.4year3k.od Loantime 4year 3k
-                  %th.box2.4year4k.od Loantime 4year 4k
-                  %th.box2.4year5k.od Loantime 4year 5k
-                  %th.box2.4year6k.od Loantime 4year 6k
-                  %th.box2.4year7k.od Loantime 4year 7k
-                  %th.box2.4year8k.od Loantime 4year 8k
-                  %th.box2.4year9k.od Loantime 4year 9k
-                  %th.box2.4year10k.od Loantime 4year 10k
-                  %th.box2.4year15k.od Loantime 4year 15k
-                  %th.box2.4year20k.od Loantime 4year 20k
-                  %th.box2.4year25k.od Loantime 4year 25k
-                  %th.box2.4year30k.od Loantime 4year 30k
-                  %th.box2.5year5h.od Loantime 5year 5h
-                  %th.box2.5year1k.od Loantime 5year 1k
-                  %th.box2.5year2k.od Loantime 5year 2k
-                  %th.box2.5year3k.od Loantime 5year 3k
-                  %th.box2.5year4k.od Loantime 5year 4k
-                  %th.box2.5year5k.od Loantime 5year 5k
-                  %th.box2.5year6k.od Loantime 5year 6k
-                  %th.box2.5year7k.od Loantime 5year 7k
-                  %th.box2.5year8k.od Loantime 5year 8k
-                  %th.box2.5year9k.od Loantime 5year 9k
-                  %th.box2.5year10k.od Loantime 5year 10k
-                  %th.box2.5year15k.od Loantime 5year 15k
-                  %th.box2.5year20k.od Loantime 5year 20k
-                  %th.box2.5year25k.od Loantime 5year 25k
-                  %th.box2.5year30k.od Loantime 5year 30k
-                  %th.box2.14d5h.nd Newdebtor loantime 14d 5h
-                  %th.box2.14d1k.nd Newdebtor loantime 14d 1k
-                  %th.box2.14d2k.nd Newdebtor loantime 14d 2k
-                  %th.box2.14d3k.nd Newdebtor loantime 14d 3k
-                  %th.box2.14d4k.nd Newdebtor loantime 14d 4k
-                  %th.box2.14d5k.nd Newdebtor loantime 14d 5k
-                  %th.box2.14d6k.nd Newdebtor loantime 14d 6k
-                  %th.box2.14d7k.nd Newdebtor loantime 14d 7k
-                  %th.box2.14d8k.nd Newdebtor loantime 14d 8k
-                  %th.box2.14d9k.nd Newdebtor loantime 14d 9k
-                  %th.box2.14d10k.nd Newdebtor loantime 14d 10k
-                  %th.box2.14d15k.nd Newdebtor loantime 14d 15k
-                  %th.box2.14d20k.nd Newdebtor loantime 14d 20k
-                  %th.box2.14d25k.nd Newdebtor loantime 14d 25k
-                  %th.box2.14d30k.nd Newdebtor loantime 14d 30k
-                  %th.box2.21d5h.nd Newdebtor loantime 21d 5h
-                  %th.box2.21d1k.nd Newdebtor loantime 21d 1k
-                  %th.box2.21d2k.nd Newdebtor loantime 21d 2k
-                  %th.box2.21d3k.nd Newdebtor loantime 21d 3k
-                  %th.box2.21d4k.nd Newdebtor loantime 21d 4k
-                  %th.box2.21d5k.nd Newdebtor loantime 21d 5k
-                  %th.box2.21d6k.nd Newdebtor loantime 21d 6k
-                  %th.box2.21d7k.nd Newdebtor loantime 21d 7k
-                  %th.box2.21d8k.nd Newdebtor loantime 21d 8k
-                  %th.box2.21d9k.nd Newdebtor loantime 21d 9k
-                  %th.box2.21d10k.nd Newdebtor loantime 21d 10k
-                  %th.box2.21d15k.nd Newdebtor loantime 21d 15k
-                  %th.box2.21d20k.nd Newdebtor loantime 21d 20k
-                  %th.box2.21d25k.nd Newdebtor loantime 21d 25k
-                  %th.box2.21d30k.nd Newdebtor loantime 21d 30k
-                  %th.box2.30d5h.nd Newdebtor loantime 30d 5h
-                  %th.box2.30d1k.nd Newdebtor loantime 30d 1k
-                  %th.box2.30d2k.nd Newdebtor loantime 30d 2k
-                  %th.box2.30d3k.nd Newdebtor loantime 30d 3k
-                  %th.box2.30d4k.nd Newdebtor loantime 30d 4k
-                  %th.box2.30d5k.nd Newdebtor loantime 30d 5k
-                  %th.box2.30d6k.nd Newdebtor loantime 30d 6k
-                  %th.box2.30d7k.nd Newdebtor loantime 30d 7k
-                  %th.box2.30d8k.nd Newdebtor loantime 30d 8k
-                  %th.box2.30d9k.nd Newdebtor loantime 30d 9k
-                  %th.box2.30d10k.nd Newdebtor loantime 30d 10k
-                  %th.box2.30d15k.nd Newdebtor loantime 30d 15k
-                  %th.box2.30d20k.nd Newdebtor loantime 30d 20k
-                  %th.box2.30d25k.nd Newdebtor loantime 30d 25k
-                  %th.box2.30d30k.nd Newdebtor loantime 30d 30k
-                  %th.box2.45d5h.nd Newdebtor loantime 45d 5h
-                  %th.box2.45d1k.nd Newdebtor loantime 45d 1k
-                  %th.box2.45d2k.nd Newdebtor loantime 45d 2k
-                  %th.box2.45d3k.nd Newdebtor loantime 45d 3k
-                  %th.box2.45d4k.nd Newdebtor loantime 45d 4k
-                  %th.box2.45d5k.nd Newdebtor loantime 45d 5k
-                  %th.box2.45d6k.nd Newdebtor loantime 45d 6k
-                  %th.box2.45d7k.nd Newdebtor loantime 45d 7k
-                  %th.box2.45d8k.nd Newdebtor loantime 45d 8k
-                  %th.box2.45d9k.nd Newdebtor loantime 45d 9k
-                  %th.box2.45d10k.nd Newdebtor loantime 45d 10k
-                  %th.box2.45d15k.nd Newdebtor loantime 45d 15k
-                  %th.box2.45d20k.nd Newdebtor loantime 45d 20k
-                  %th.box2.45d25k.nd Newdebtor loantime 45d 25k
-                  %th.box2.45d30k.nd Newdebtor loantime 45d 30k
-                  %th.box2.60d5h.nd Newdebtor loantime 60d 5h
-                  %th.box2.60d1k.nd Newdebtor loantime 60d 1k
-                  %th.box2.60d2k.nd Newdebtor loantime 60d 2k
-                  %th.box2.60d3k.nd Newdebtor loantime 60d 3k
-                  %th.box2.60d4k.nd Newdebtor loantime 60d 4k
-                  %th.box2.60d5k.nd Newdebtor loantime 60d 5k
-                  %th.box2.60d6k.nd Newdebtor loantime 60d 6k
-                  %th.box2.60d7k.nd Newdebtor loantime 60d 7k
-                  %th.box2.60d8k.nd Newdebtor loantime 60d 8k
-                  %th.box2.60d9k.nd Newdebtor loantime 60d 9k
-                  %th.box2.60d10k.nd Newdebtor loantime 60d 10k
-                  %th.box2.60d15k.nd Newdebtor loantime 60d 15k
-                  %th.box2.60d20k.nd Newdebtor loantime 60d 20k
-                  %th.box2.60d25k.nd Newdebtor loantime 60d 25k
-                  %th.box2.60d30k.nd Newdebtor loantime 60d 30k
-                  %th.box2.90d5h.nd Newdebtor loantime 90d 5h
-                  %th.box2.90d1k.nd Newdebtor loantime 90d 1k
-                  %th.box2.90d2k.nd Newdebtor loantime 90d 2k
-                  %th.box2.90d3k.nd Newdebtor loantime 90d 3k
-                  %th.box2.90d4k.nd Newdebtor loantime 90d 4k
-                  %th.box2.90d5k.nd Newdebtor loantime 90d 5k
-                  %th.box2.90d6k.nd Newdebtor loantime 90d 6k
-                  %th.box2.90d7k.nd Newdebtor loantime 90d 7k
-                  %th.box2.90d8k.nd Newdebtor loantime 90d 8k
-                  %th.box2.90d9k.nd Newdebtor loantime 90d 9k
-                  %th.box2.90d10k.nd Newdebtor loantime 90d 10k
-                  %th.box2.90d15k.nd Newdebtor loantime 90d 15k
-                  %th.box2.90d20k.nd Newdebtor loantime 90d 20k
-                  %th.box2.90d25k.nd Newdebtor loantime 90d 25k
-                  %th.box2.90d30k.nd Newdebtor loantime 90d 30k
-                  %th.box2.1year5h.nd Newdebtor loantime 1year 5h
-                  %th.box2.1year1k.nd Newdebtor loantime 1year 1k
-                  %th.box2.1year2k.nd Newdebtor loantime 1year 2k
-                  %th.box2.1year3k.nd Newdebtor loantime 1year 3k
-                  %th.box2.1year4k.nd Newdebtor loantime 1year 4k
-                  %th.box2.1year5k.nd Newdebtor loantime 1year 5k
-                  %th.box2.1year6k.nd Newdebtor loantime 1year 6k
-                  %th.box2.1year7k.nd Newdebtor loantime 1year 7k
-                  %th.box2.1year8k.nd Newdebtor loantime 1year 8k
-                  %th.box2.1year9k.nd Newdebtor loantime 1year 9k
-                  %th.box2.1year10k.nd Newdebtor loantime 1year 10k
-                  %th.box2.1year15k.nd Newdebtor loantime 1year 15k
-                  %th.box2.1year20k.nd Newdebtor loantime 1year 20k
-                  %th.box2.1year25k.nd Newdebtor loantime 1year 25k
-                  %th.box2.1year30k.nd Newdebtor loantime 1year 30k
-                  %th.box2.2year5h.nd Newdebtor loantime 2year 5h
-                  %th.box2.2year1k.nd Newdebtor loantime 2year 1k
-                  %th.box2.2year2k.nd Newdebtor loantime 2year 2k
-                  %th.box2.2year3k.nd Newdebtor loantime 2year 3k
-                  %th.box2.2year4k.nd Newdebtor loantime 2year 4k
-                  %th.box2.2year5k.nd Newdebtor loantime 2year 5k
-                  %th.box2.2year6k.nd Newdebtor loantime 2year 6k
-                  %th.box2.2year7k.nd Newdebtor loantime 2year 7k
-                  %th.box2.2year8k.nd Newdebtor loantime 2year 8k
-                  %th.box2.2year9k.nd Newdebtor loantime 2year 9k
-                  %th.box2.2year10k.nd Newdebtor loantime 2year 10k
-                  %th.box2.2year15k.nd Newdebtor loantime 2year 15k
-                  %th.box2.2year20k.nd Newdebtor loantime 2year 20k
-                  %th.box2.2year25k.nd Newdebtor loantime 2year 25k
-                  %th.box2.2year30k.nd Newdebtor loantime 2year 30k
-                  %th.box2.3year5h.nd Newdebtor loantime 3year 5h
-                  %th.box2.3year1k.nd Newdebtor loantime 3year 1k
-                  %th.box2.3year2k.nd Newdebtor loantime 3year 2k
-                  %th.box2.3year3k.nd Newdebtor loantime 3year 3k
-                  %th.box2.3year4k.nd Newdebtor loantime 3year 4k
-                  %th.box2.3year5k.nd Newdebtor loantime 3year 5k
-                  %th.box2.3year6k.nd Newdebtor loantime 3year 6k
-                  %th.box2.3year7k.nd Newdebtor loantime 3year 7k
-                  %th.box2.3year8k.nd Newdebtor loantime 3year 8k
-                  %th.box2.3year9k.nd Newdebtor loantime 3year 9k
-                  %th.box2.3year10k.nd Newdebtor loantime 3year 10k
-                  %th.box2.3year15k.nd Newdebtor loantime 3year 15k
-                  %th.box2.3year20k.nd Newdebtor loantime 3year 20k
-                  %th.box2.3year25k.nd Newdebtor loantime 3year 25k
-                  %th.box2.3year30k.nd Newdebtor loantime 3year 30k
-                  %th.box2.4year5h.nd Newdebtor loantime 4year 5h
-                  %th.box2.4year1k.nd Newdebtor loantime 4year 1k
-                  %th.box2.4year2k.nd Newdebtor loantime 4year 2k
-                  %th.box2.4year3k.nd Newdebtor loantime 4year 3k
-                  %th.box2.4year4k.nd Newdebtor loantime 4year 4k
-                  %th.box2.4year5k.nd Newdebtor loantime 4year 5k
-                  %th.box2.4year6k.nd Newdebtor loantime 4year 6k
-                  %th.box2.4year7k.nd Newdebtor loantime 4year 7k
-                  %th.box2.4year8k.nd Newdebtor loantime 4year 8k
-                  %th.box2.4year9k.nd Newdebtor loantime 4year 9k
-                  %th.box2.4year10k.nd Newdebtor loantime 4year 10k
-                  %th.box2.4year15k.nd Newdebtor loantime 4year 15k
-                  %th.box2.4year20k.nd Newdebtor loantime 4year 20k
-                  %th.box2.4year25k.nd Newdebtor loantime 4year 25k
-                  %th.box2.4year30k.nd Newdebtor loantime 4year 30k
-                  %th.box2.5year5h.nd Newdebtor loantime 5year 5h
-                  %th.box2.5year1k.nd Newdebtor loantime 5year 1k
-                  %th.box2.5year2k.nd Newdebtor loantime 5year 2k
-                  %th.box2.5year3k.nd Newdebtor loantime 5year 3k
-                  %th.box2.5year4k.nd Newdebtor loantime 5year 4k
-                  %th.box2.5year5k.nd Newdebtor loantime 5year 5k
-                  %th.box2.5year6k.nd Newdebtor loantime 5year 6k
-                  %th.box2.5year7k.nd Newdebtor loantime 5year 7k
-                  %th.box2.5year8k.nd Newdebtor loantime 5year 8k
-                  %th.box2.5year9k.nd Newdebtor loantime 5year 9k
-                  %th.box2.5year10k.nd Newdebtor loantime 5year 10k
-                  %th.box2.5year15k.nd Newdebtor loantime 5year 15k
-                  %th.box2.5year20k.nd Newdebtor loantime 5year 20k
-                  %th.box2.5year25k.nd Newdebtor loantime 5year 25k
-                  %th.box2.5year30k.nd Newdebtor loantime 5year 30k
-
-                  %th.hidden-smslan Högsta lånebelopp ny låntagare
-                  %th.hidden-smslan.hidden-smslan2 Aviavgift
-                  %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
-                  %th.hidden-smslan Mobilvänlig hemsida  
-                  %th.hidden-smslan Låna med betalningsanmärkelse
-                  %th.hidden-smslan Minimum ålder
-                  %th.hidden-smslan Kostnadsfria lån
-                  %th.hidden-smslan Kostnadsfria lån maxbelopp
-                  %th.hidden-smslan Låna 5000 kr första gången
-                  %th.hidden-smslan Låna 10 000 kr första gången
-                  %th.hidden-smslan Högsta lånebelopp för ny låntagare
-                  %th.hidden-smslan Ingen UC
-                  %th.hidden-smslan SKEF medlem
-                  %th.hidden-smslan BankID
-                  %th.hidden-smslan Lördagsöppet
-                  %th.hidden-smslan Söndagsöppet
-                  %th.th-title Ansök här
-                  //%th{:colspan => "3"}
-              %tbody
-                - @smsloans.each do |smsloan|
-                  %tr
-                    %td.smsloangiver= smsloan.bank.to_s.html_safe
-                    %td= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
-                    %td= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
-                    %td.box2.14d5h.od= number_to_currency(smsloan.debtor_loantime_14d_5h, locale: :fr)
-                    %td.box2.14d1k.od= number_to_currency(smsloan.debtor_loantime_14d_1k, locale: :fr)
-                    %td.box2.14d2k.od= number_to_currency(smsloan.debtor_loantime_14d_2k, locale: :fr)
-                    %td.box2.14d3k.od= number_to_currency(smsloan.debtor_loantime_14d_3k, locale: :fr)
-                    %td.box2.14d4k.od= number_to_currency(smsloan.debtor_loantime_14d_4k, locale: :fr)
-                    %td.box2.14d5k.od= number_to_currency(smsloan.debtor_loantime_14d_5k, locale: :fr)
-                    %td.box2.14d6k.od= number_to_currency(smsloan.debtor_loantime_14d_6k, locale: :fr)
-                    %td.box2.14d7k.od= number_to_currency(smsloan.debtor_loantime_14d_7k, locale: :fr)
-                    %td.box2.14d8k.od= number_to_currency(smsloan.debtor_loantime_14d_8k, locale: :fr)
-                    %td.box2.14d9k.od= number_to_currency(smsloan.debtor_loantime_14d_9k, locale: :fr)
-                    %td.box2.14d10k.od= number_to_currency(smsloan.debtor_loantime_14d_10k, locale: :fr)
-                    %td.box2.14d15k.od= number_to_currency(smsloan.debtor_loantime_14d_15k, locale: :fr)
-                    %td.box2.14d20k.od= number_to_currency(smsloan.debtor_loantime_14d_20k, locale: :fr)
-                    %td.box2.14d25k.od= number_to_currency(smsloan.debtor_loantime_14d_25k, locale: :fr)
-                    %td.box2.14d30k.od= number_to_currency(smsloan.debtor_loantime_14d_30k, locale: :fr)
-                    %td.box2.21d5h.od= number_to_currency(smsloan.debtor_loantime_21d_5h, locale: :fr)
-                    %td.box2.21d1k.od= number_to_currency(smsloan.debtor_loantime_21d_1k, locale: :fr)
-                    %td.box2.21d2k.od= number_to_currency(smsloan.debtor_loantime_21d_2k, locale: :fr)
-                    %td.box2.21d3k.od= number_to_currency(smsloan.debtor_loantime_21d_3k, locale: :fr)
-                    %td.box2.21d4k.od= number_to_currency(smsloan.debtor_loantime_21d_4k, locale: :fr)
-                    %td.box2.21d5k.od= number_to_currency(smsloan.debtor_loantime_21d_5k, locale: :fr)
-                    %td.box2.21d6k.od= number_to_currency(smsloan.debtor_loantime_21d_6k, locale: :fr)
-                    %td.box2.21d7k.od= number_to_currency(smsloan.debtor_loantime_21d_7k, locale: :fr)
-                    %td.box2.21d8k.od= number_to_currency(smsloan.debtor_loantime_21d_8k, locale: :fr)
-                    %td.box2.21d9k.od= number_to_currency(smsloan.debtor_loantime_21d_9k, locale: :fr)
-                    %td.box2.21d10k.od= number_to_currency(smsloan.debtor_loantime_21d_10k, locale: :fr)
-                    %td.box2.21d15k.od= number_to_currency(smsloan.debtor_loantime_21d_15k, locale: :fr)
-                    %td.box2.21d20k.od= number_to_currency(smsloan.debtor_loantime_21d_20k, locale: :fr)
-                    %td.box2.21d25k.od= number_to_currency(smsloan.debtor_loantime_21d_25k, locale: :fr)
-                    %td.box2.21d30k.od= number_to_currency(smsloan.debtor_loantime_21d_30k, locale: :fr)
-                    %td.box2.30d5h.od= number_to_currency(smsloan.debtor_loantime_30d_5h, locale: :fr)
-                    %td.box2.30d1k.od= number_to_currency(smsloan.debtor_loantime_30d_1k, locale: :fr)
-                    %td.box2.30d2k.od= number_to_currency(smsloan.debtor_loantime_30d_2k, locale: :fr)
-                    %td.box2.30d3k.od= number_to_currency(smsloan.debtor_loantime_30d_3k, locale: :fr)
-                    %td.box2.30d4k.od= number_to_currency(smsloan.debtor_loantime_30d_4k, locale: :fr)
-                    %td.box2.30d5k.od= number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr)
-                    %td.box2.30d6k.od= number_to_currency(smsloan.debtor_loantime_30d_6k, locale: :fr)
-                    %td.box2.30d7k.od= number_to_currency(smsloan.debtor_loantime_30d_7k, locale: :fr)
-                    %td.box2.30d8k.od= number_to_currency(smsloan.debtor_loantime_30d_8k, locale: :fr)
-                    %td.box2.30d9k.od= number_to_currency(smsloan.debtor_loantime_30d_9k, locale: :fr)
-                    %td.box2.30d10k.od= number_to_currency(smsloan.debtor_loantime_30d_10k, locale: :fr)
-                    %td.box2.30d15k.od= number_to_currency(smsloan.debtor_loantime_30d_15k, locale: :fr)
-                    %td.box2.30d20k.od= number_to_currency(smsloan.debtor_loantime_30d_20k, locale: :fr)
-                    %td.box2.30d25k.od= number_to_currency(smsloan.debtor_loantime_30d_25k, locale: :fr)
-                    %td.box2.30d30k.od= number_to_currency(smsloan.debtor_loantime_30d_30k, locale: :fr)
-                    %td.box2.45d5h.od= number_to_currency(smsloan.debtor_loantime_45d_5h, locale: :fr)
-                    %td.box2.45d1k.od= number_to_currency(smsloan.debtor_loantime_45d_1k, locale: :fr)
-                    %td.box2.45d2k.od= number_to_currency(smsloan.debtor_loantime_45d_2k, locale: :fr)
-                    %td.box2.45d3k.od= number_to_currency(smsloan.debtor_loantime_45d_3k, locale: :fr)
-                    %td.box2.45d4k.od= number_to_currency(smsloan.debtor_loantime_45d_4k, locale: :fr)
-                    %td.box2.45d5k.od= number_to_currency(smsloan.debtor_loantime_45d_5k, locale: :fr)
-                    %td.box2.45d6k.od= number_to_currency(smsloan.debtor_loantime_45d_6k, locale: :fr)
-                    %td.box2.45d7k.od= number_to_currency(smsloan.debtor_loantime_45d_7k, locale: :fr)
-                    %td.box2.45d8k.od= number_to_currency(smsloan.debtor_loantime_45d_8k, locale: :fr)
-                    %td.box2.45d9k.od= number_to_currency(smsloan.debtor_loantime_45d_9k, locale: :fr)
-                    %td.box2.45d10k.od= number_to_currency(smsloan.debtor_loantime_45d_10k, locale: :fr)
-                    %td.box2.45d15k.od= number_to_currency(smsloan.debtor_loantime_45d_15k, locale: :fr)
-                    %td.box2.45d20k.od= number_to_currency(smsloan.debtor_loantime_45d_20k, locale: :fr)
-                    %td.box2.45d25k.od= number_to_currency(smsloan.debtor_loantime_45d_25k, locale: :fr)
-                    %td.box2.45d30k.od= number_to_currency(smsloan.debtor_loantime_45d_30k, locale: :fr)
-                    %td.box2.60d5h.od= number_to_currency(smsloan.debtor_loantime_60d_5h, locale: :fr)
-                    %td.box2.60d1k.od= number_to_currency(smsloan.debtor_loantime_60d_1k, locale: :fr)
-                    %td.box2.60d2k.od= number_to_currency(smsloan.debtor_loantime_60d_2k, locale: :fr)
-                    %td.box2.60d3k.od= number_to_currency(smsloan.debtor_loantime_60d_3k, locale: :fr)
-                    %td.box2.60d4k.od= number_to_currency(smsloan.debtor_loantime_60d_4k, locale: :fr)
-                    %td.box2.60d5k.od= number_to_currency(smsloan.debtor_loantime_60d_5k, locale: :fr)
-                    %td.box2.60d6k.od= number_to_currency(smsloan.debtor_loantime_60d_6k, locale: :fr)
-                    %td.box2.60d7k.od= number_to_currency(smsloan.debtor_loantime_60d_7k, locale: :fr)
-                    %td.box2.60d8k.od= number_to_currency(smsloan.debtor_loantime_60d_8k, locale: :fr)
-                    %td.box2.60d9k.od= number_to_currency(smsloan.debtor_loantime_60d_9k, locale: :fr)
-                    %td.box2.60d10k.od= number_to_currency(smsloan.debtor_loantime_60d_10k, locale: :fr)
-                    %td.box2.60d15k.od= number_to_currency(smsloan.debtor_loantime_60d_15k, locale: :fr)
-                    %td.box2.60d20k.od= number_to_currency(smsloan.debtor_loantime_60d_20k, locale: :fr)
-                    %td.box2.60d25k.od= number_to_currency(smsloan.debtor_loantime_60d_25k, locale: :fr)
-                    %td.box2.60d30k.od= number_to_currency(smsloan.debtor_loantime_60d_30k, locale: :fr)
-                    %td.box2.90d5h.od= number_to_currency(smsloan.debtor_loantime_90d_5h, locale: :fr)
-                    %td.box2.90d1k.od= number_to_currency(smsloan.debtor_loantime_90d_1k, locale: :fr)
-                    %td.box2.90d2k.od= number_to_currency(smsloan.debtor_loantime_90d_2k, locale: :fr)
-                    %td.box2.90d3k.od= number_to_currency(smsloan.debtor_loantime_90d_3k, locale: :fr)
-                    %td.box2.90d4k.od= number_to_currency(smsloan.debtor_loantime_90d_4k, locale: :fr)
-                    %td.box2.90d5k.od= number_to_currency(smsloan.debtor_loantime_90d_5k, locale: :fr)
-                    %td.box2.90d6k.od= number_to_currency(smsloan.debtor_loantime_90d_6k, locale: :fr)
-                    %td.box2.90d7k.od= number_to_currency(smsloan.debtor_loantime_90d_7k, locale: :fr)
-                    %td.box2.90d8k.od= number_to_currency(smsloan.debtor_loantime_90d_8k, locale: :fr)
-                    %td.box2.90d9k.od= number_to_currency(smsloan.debtor_loantime_90d_9k, locale: :fr)
-                    %td.box2.90d10k.od= number_to_currency(smsloan.debtor_loantime_90d_10k, locale: :fr)
-                    %td.box2.90d15k.od= number_to_currency(smsloan.debtor_loantime_90d_15k, locale: :fr)
-                    %td.box2.90d20k.od= number_to_currency(smsloan.debtor_loantime_90d_20k, locale: :fr)
-                    %td.box2.90d25k.od= number_to_currency(smsloan.debtor_loantime_90d_25k, locale: :fr)
-                    %td.box2.90d30k.od= number_to_currency(smsloan.debtor_loantime_90d_30k, locale: :fr)
-                    %td.box2.1year5h.od= number_to_currency(smsloan.debtor_loantime_1year_5h, locale: :fr)
-                    %td.box2.1year1k.od= number_to_currency(smsloan.debtor_loantime_1year_1k, locale: :fr)
-                    %td.box2.1year2k.od= number_to_currency(smsloan.debtor_loantime_1year_2k, locale: :fr)
-                    %td.box2.1year3k.od= number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr)
-                    %td.box2.1year4k.od= number_to_currency(smsloan.debtor_loantime_1year_4k, locale: :fr)
-                    %td.box2.1year5k.od= number_to_currency(smsloan.debtor_loantime_1year_5k, locale: :fr)
-                    %td.box2.1year6k.od= number_to_currency(smsloan.debtor_loantime_1year_6k, locale: :fr)
-                    %td.box2.1year7k.od= number_to_currency(smsloan.debtor_loantime_1year_7k, locale: :fr)
-                    %td.box2.1year8k.od= number_to_currency(smsloan.debtor_loantime_1year_8k, locale: :fr)
-                    %td.box2.1year9k.od= number_to_currency(smsloan.debtor_loantime_1year_9k, locale: :fr)
-                    %td.box2.1year10k.od= number_to_currency(smsloan.debtor_loantime_1year_10k, locale: :fr)
-                    %td.box2.1year15k.od= number_to_currency(smsloan.debtor_loantime_1year_15k, locale: :fr)
-                    %td.box2.1year20k.od= number_to_currency(smsloan.debtor_loantime_1year_20k, locale: :fr)
-                    %td.box2.1year25k.od= number_to_currency(smsloan.debtor_loantime_1year_25k, locale: :fr)
-                    %td.box2.1year30k.od= number_to_currency(smsloan.debtor_loantime_1year_30k, locale: :fr)
-                    %td.box2.2year5h.od= number_to_currency(smsloan.debtor_loantime_2year_5h, locale: :fr)
-                    %td.box2.2year1k.od= number_to_currency(smsloan.debtor_loantime_2year_1k, locale: :fr)
-                    %td.box2.2year2k.od= number_to_currency(smsloan.debtor_loantime_2year_2k, locale: :fr)
-                    %td.box2.2year3k.od= number_to_currency(smsloan.debtor_loantime_2year_3k, locale: :fr)
-                    %td.box2.2year4k.od= number_to_currency(smsloan.debtor_loantime_2year_4k, locale: :fr)
-                    %td.box2.2year5k.od= number_to_currency(smsloan.debtor_loantime_2year_5k, locale: :fr)
-                    %td.box2.2year6k.od= number_to_currency(smsloan.debtor_loantime_2year_6k, locale: :fr)
-                    %td.box2.2year7k.od= number_to_currency(smsloan.debtor_loantime_2year_7k, locale: :fr)
-                    %td.box2.2year8k.od= number_to_currency(smsloan.debtor_loantime_2year_8k, locale: :fr)
-                    %td.box2.2year9k.od= number_to_currency(smsloan.debtor_loantime_2year_9k, locale: :fr)
-                    %td.box2.2year10k.od= number_to_currency(smsloan.debtor_loantime_2year_10k, locale: :fr)
-                    %td.box2.2year15k.od= number_to_currency(smsloan.debtor_loantime_2year_15k, locale: :fr)
-                    %td.box2.2year20k.od= number_to_currency(smsloan.debtor_loantime_2year_20k, locale: :fr)
-                    %td.box2.2year25k.od= number_to_currency(smsloan.debtor_loantime_2year_25k, locale: :fr)
-                    %td.box2.2year30k.od= number_to_currency(smsloan.debtor_loantime_2year_30k, locale: :fr)
-                    %td.box2.3year5h.od= number_to_currency(smsloan.debtor_loantime_3year_5h, locale: :fr)
-                    %td.box2.3year1k.od= number_to_currency(smsloan.debtor_loantime_3year_1k, locale: :fr)
-                    %td.box2.3year2k.od= number_to_currency(smsloan.debtor_loantime_3year_2k, locale: :fr)
-                    %td.box2.3year3k.od= number_to_currency(smsloan.debtor_loantime_3year_3k, locale: :fr)
-                    %td.box2.3year4k.od= number_to_currency(smsloan.debtor_loantime_3year_4k, locale: :fr)
-                    %td.box2.3year5k.od= number_to_currency(smsloan.debtor_loantime_3year_5k, locale: :fr)
-                    %td.box2.3year6k.od= number_to_currency(smsloan.debtor_loantime_3year_6k, locale: :fr)
-                    %td.box2.3year7k.od= number_to_currency(smsloan.debtor_loantime_3year_7k, locale: :fr)
-                    %td.box2.3year8k.od= number_to_currency(smsloan.debtor_loantime_3year_8k, locale: :fr)
-                    %td.box2.3year9k.od= number_to_currency(smsloan.debtor_loantime_3year_9k, locale: :fr)
-                    %td.box2.3year10k.od= number_to_currency(smsloan.debtor_loantime_3year_10k, locale: :fr)
-                    %td.box2.3year15k.od= number_to_currency(smsloan.debtor_loantime_3year_15k, locale: :fr)
-                    %td.box2.3year20k.od= number_to_currency(smsloan.debtor_loantime_3year_20k, locale: :fr)
-                    %td.box2.3year25k.od= number_to_currency(smsloan.debtor_loantime_3year_25k, locale: :fr)
-                    %td.box2.3year30k.od= number_to_currency(smsloan.debtor_loantime_3year_30k, locale: :fr)
-                    %td.box2.4year5h.od= number_to_currency(smsloan.debtor_loantime_4year_5h, locale: :fr)
-                    %td.box2.4year1k.od= number_to_currency(smsloan.debtor_loantime_4year_1k, locale: :fr)
-                    %td.box2.4year2k.od= number_to_currency(smsloan.debtor_loantime_4year_2k, locale: :fr)
-                    %td.box2.4year3k.od= number_to_currency(smsloan.debtor_loantime_4year_3k, locale: :fr)
-                    %td.box2.4year4k.od= number_to_currency(smsloan.debtor_loantime_4year_4k, locale: :fr)
-                    %td.box2.4year5k.od= number_to_currency(smsloan.debtor_loantime_4year_5k, locale: :fr)
-                    %td.box2.4year6k.od= number_to_currency(smsloan.debtor_loantime_4year_6k, locale: :fr)
-                    %td.box2.4year7k.od= number_to_currency(smsloan.debtor_loantime_4year_7k, locale: :fr)
-                    %td.box2.4year8k.od= number_to_currency(smsloan.debtor_loantime_4year_8k, locale: :fr)
-                    %td.box2.4year9k.od= number_to_currency(smsloan.debtor_loantime_4year_9k, locale: :fr)
-                    %td.box2.4year10k.od= number_to_currency(smsloan.debtor_loantime_4year_10k, locale: :fr)
-                    %td.box2.4year15k.od= number_to_currency(smsloan.debtor_loantime_4year_15k, locale: :fr)
-                    %td.box2.4year20k.od= number_to_currency(smsloan.debtor_loantime_4year_20k, locale: :fr)
-                    %td.box2.4year25k.od= number_to_currency(smsloan.debtor_loantime_4year_25k, locale: :fr)
-                    %td.box2.4year30k.od= number_to_currency(smsloan.debtor_loantime_4year_30k, locale: :fr)
-                    %td.box2.5year5h.od= number_to_currency(smsloan.debtor_loantime_5year_5h, locale: :fr)
-                    %td.box2.5year1k.od= number_to_currency(smsloan.debtor_loantime_5year_1k, locale: :fr)
-                    %td.box2.5year2k.od= number_to_currency(smsloan.debtor_loantime_5year_2k, locale: :fr)
-                    %td.box2.5year3k.od= number_to_currency(smsloan.debtor_loantime_5year_3k, locale: :fr)
-                    %td.box2.5year4k.od= number_to_currency(smsloan.debtor_loantime_5year_4k, locale: :fr)
-                    %td.box2.5year5k.od= number_to_currency(smsloan.debtor_loantime_5year_5k, locale: :fr)
-                    %td.box2.5year6k.od= number_to_currency(smsloan.debtor_loantime_5year_6k, locale: :fr)
-                    %td.box2.5year7k.od= number_to_currency(smsloan.debtor_loantime_5year_7k, locale: :fr)
-                    %td.box2.5year8k.od= number_to_currency(smsloan.debtor_loantime_5year_8k, locale: :fr)
-                    %td.box2.5year9k.od= number_to_currency(smsloan.debtor_loantime_5year_9k, locale: :fr)
-                    %td.box2.5year10k.od= number_to_currency(smsloan.debtor_loantime_5year_10k, locale: :fr)
-                    %td.box2.5year15k.od= number_to_currency(smsloan.debtor_loantime_5year_15k, locale: :fr)
-                    %td.box2.5year20k.od= number_to_currency(smsloan.debtor_loantime_5year_20k, locale: :fr)
-                    %td.box2.5year25k.od= number_to_currency(smsloan.debtor_loantime_5year_25k, locale: :fr)
-                    %td.box2.5year30k.od= number_to_currency(smsloan.debtor_loantime_5year_30k, locale: :fr)
-                    %td.box2.14d5h.nd= number_to_currency(smsloan.newdebtor_loantime_14d_5h, locale: :fr)
-                    %td.box2.14d1k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_1k, locale: :fr)
-                    %td.box2.14d2k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_2k, locale: :fr)
-                    %td.box2.14d3k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_3k, locale: :fr)
-                    %td.box2.14d4k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_4k, locale: :fr)
-                    %td.box2.14d5k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_5k, locale: :fr)
-                    %td.box2.14d6k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_6k, locale: :fr)
-                    %td.box2.14d7k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_7k, locale: :fr)
-                    %td.box2.14d8k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_8k, locale: :fr)
-                    %td.box2.14d9k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_9k, locale: :fr)
-                    %td.box2.14d10k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_10k, locale: :fr)
-                    %td.box2.14d15k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_15k, locale: :fr)
-                    %td.box2.14d20k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_20k, locale: :fr)
-                    %td.box2.14d25k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_25k, locale: :fr)
-                    %td.box2.14d30k.nd= number_to_currency(smsloan.newdebtor_loantime_14d_30k, locale: :fr)
-                    %td.box2.21d5h.nd= number_to_currency(smsloan.newdebtor_loantime_21d_5h, locale: :fr)
-                    %td.box2.21d1k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_1k, locale: :fr)
-                    %td.box2.21d2k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_2k, locale: :fr)
-                    %td.box2.21d3k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_3k, locale: :fr)
-                    %td.box2.21d4k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_4k, locale: :fr)
-                    %td.box2.21d5k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_5k, locale: :fr)
-                    %td.box2.21d6k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_6k, locale: :fr)
-                    %td.box2.21d7k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_7k, locale: :fr)
-                    %td.box2.21d8k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_8k, locale: :fr)
-                    %td.box2.21d9k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_9k, locale: :fr)
-                    %td.box2.21d10k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_10k, locale: :fr)
-                    %td.box2.21d15k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_15k, locale: :fr)
-                    %td.box2.21d20k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_20k, locale: :fr)
-                    %td.box2.21d25k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_25k, locale: :fr)
-                    %td.box2.21d30k.nd= number_to_currency(smsloan.newdebtor_loantime_21d_30k, locale: :fr)
-                    %td.box2.30d5h.nd= number_to_currency(smsloan.newdebtor_loantime_30d_5h, locale: :fr)
-                    %td.box2.30d1k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_1k, locale: :fr)
-                    %td.box2.30d2k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_2k, locale: :fr)
-                    %td.box2.30d3k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_3k, locale: :fr)
-                    %td.box2.30d4k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_4k, locale: :fr)
-                    %td.box2.30d5k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr)
-                    %td.box2.30d6k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_6k, locale: :fr)
-                    %td.box2.30d7k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_7k, locale: :fr)
-                    %td.box2.30d8k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_8k, locale: :fr)
-                    %td.box2.30d9k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_9k, locale: :fr)
-                    %td.box2.30d10k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_10k, locale: :fr)
-                    %td.box2.30d15k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_15k, locale: :fr)
-                    %td.box2.30d20k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_20k, locale: :fr)
-                    %td.box2.30d25k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_25k, locale: :fr)
-                    %td.box2.30d30k.nd= number_to_currency(smsloan.newdebtor_loantime_30d_30k, locale: :fr)
-                    %td.box2.45d5h.nd= number_to_currency(smsloan.newdebtor_loantime_45d_5h, locale: :fr)
-                    %td.box2.45d1k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_1k, locale: :fr)
-                    %td.box2.45d2k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_2k, locale: :fr)
-                    %td.box2.45d3k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_3k, locale: :fr)
-                    %td.box2.45d4k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_4k, locale: :fr)
-                    %td.box2.45d5k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_5k, locale: :fr)
-                    %td.box2.45d6k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_6k, locale: :fr)
-                    %td.box2.45d7k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_7k, locale: :fr)
-                    %td.box2.45d8k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_8k, locale: :fr)
-                    %td.box2.45d9k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_9k, locale: :fr)
-                    %td.box2.45d10k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_10k, locale: :fr)
-                    %td.box2.45d15k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_15k, locale: :fr)
-                    %td.box2.45d20k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_20k, locale: :fr)
-                    %td.box2.45d25k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_25k, locale: :fr)
-                    %td.box2.45d30k.nd= number_to_currency(smsloan.newdebtor_loantime_45d_30k, locale: :fr)
-                    %td.box2.60d5h.nd= number_to_currency(smsloan.newdebtor_loantime_60d_5h, locale: :fr)
-                    %td.box2.60d1k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_1k, locale: :fr)
-                    %td.box2.60d2k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_2k, locale: :fr)
-                    %td.box2.60d3k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_3k, locale: :fr)
-                    %td.box2.60d4k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_4k, locale: :fr)
-                    %td.box2.60d5k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_5k, locale: :fr)
-                    %td.box2.60d6k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_6k, locale: :fr)
-                    %td.box2.60d7k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_7k, locale: :fr)
-                    %td.box2.60d8k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_8k, locale: :fr)
-                    %td.box2.60d9k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_9k, locale: :fr)
-                    %td.box2.60d10k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_10k, locale: :fr)
-                    %td.box2.60d15k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_15k, locale: :fr)
-                    %td.box2.60d20k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_20k, locale: :fr)
-                    %td.box2.60d25k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_25k, locale: :fr)
-                    %td.box2.60d30k.nd= number_to_currency(smsloan.newdebtor_loantime_60d_30k, locale: :fr)
-                    %td.box2.90d5h.nd= number_to_currency(smsloan.newdebtor_loantime_90d_5h, locale: :fr)
-                    %td.box2.90d1k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_1k, locale: :fr)
-                    %td.box2.90d2k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_2k, locale: :fr)
-                    %td.box2.90d3k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_3k, locale: :fr)
-                    %td.box2.90d4k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_4k, locale: :fr)
-                    %td.box2.90d5k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_5k, locale: :fr)
-                    %td.box2.90d6k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_6k, locale: :fr)
-                    %td.box2.90d7k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_7k, locale: :fr)
-                    %td.box2.90d8k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_8k, locale: :fr)
-                    %td.box2.90d9k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_9k, locale: :fr)
-                    %td.box2.90d10k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_10k, locale: :fr)
-                    %td.box2.90d15k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_15k, locale: :fr)
-                    %td.box2.90d20k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_20k, locale: :fr)
-                    %td.box2.90d25k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_25k, locale: :fr)
-                    %td.box2.90d30k.nd= number_to_currency(smsloan.newdebtor_loantime_90d_30k, locale: :fr)
-                    %td.box2.1year5h.nd= number_to_currency(smsloan.newdebtor_loantime_1year_5h, locale: :fr)
-                    %td.box2.1year1k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_1k, locale: :fr)
-                    %td.box2.1year2k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_2k, locale: :fr)
-                    %td.box2.1year3k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr)
-                    %td.box2.1year4k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_4k, locale: :fr)
-                    %td.box2.1year5k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_5k, locale: :fr)
-                    %td.box2.1year6k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_6k, locale: :fr)
-                    %td.box2.1year7k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_7k, locale: :fr)
-                    %td.box2.1year8k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_8k, locale: :fr)
-                    %td.box2.1year9k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_9k, locale: :fr)
-                    %td.box2.1year10k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_10k, locale: :fr)
-                    %td.box2.1year15k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_15k, locale: :fr)
-                    %td.box2.1year20k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_20k, locale: :fr)
-                    %td.box2.1year25k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_25k, locale: :fr)
-                    %td.box2.1year30k.nd= number_to_currency(smsloan.newdebtor_loantime_1year_30k, locale: :fr)
-                    %td.box2.2year5h.nd= number_to_currency(smsloan.newdebtor_loantime_2year_5h, locale: :fr)
-                    %td.box2.2year1k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_1k, locale: :fr)
-                    %td.box2.2year2k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_2k, locale: :fr)
-                    %td.box2.2year3k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_3k, locale: :fr)
-                    %td.box2.2year4k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_4k, locale: :fr)
-                    %td.box2.2year5k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_5k, locale: :fr)
-                    %td.box2.2year6k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_6k, locale: :fr)
-                    %td.box2.2year7k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_7k, locale: :fr)
-                    %td.box2.2year8k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_8k, locale: :fr)
-                    %td.box2.2year9k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_9k, locale: :fr)
-                    %td.box2.2year10k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_10k, locale: :fr)
-                    %td.box2.2year15k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_15k, locale: :fr)
-                    %td.box2.2year20k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_20k, locale: :fr)
-                    %td.box2.2year25k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_25k, locale: :fr)
-                    %td.box2.2year30k.nd= number_to_currency(smsloan.newdebtor_loantime_2year_30k, locale: :fr)
-                    %td.box2.3year5h.nd= number_to_currency(smsloan.newdebtor_loantime_3year_5h, locale: :fr)
-                    %td.box2.3year1k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_1k, locale: :fr)
-                    %td.box2.3year2k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_2k, locale: :fr)
-                    %td.box2.3year3k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_3k, locale: :fr)
-                    %td.box2.3year4k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_4k, locale: :fr)
-                    %td.box2.3year5k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_5k, locale: :fr)
-                    %td.box2.3year6k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_6k, locale: :fr)
-                    %td.box2.3year7k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_7k, locale: :fr)
-                    %td.box2.3year8k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_8k, locale: :fr)
-                    %td.box2.3year9k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_9k, locale: :fr)
-                    %td.box2.3year10k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_10k, locale: :fr)
-                    %td.box2.3year15k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_15k, locale: :fr)
-                    %td.box2.3year20k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_20k, locale: :fr)
-                    %td.box2.3year25k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_25k, locale: :fr)
-                    %td.box2.3year30k.nd= number_to_currency(smsloan.newdebtor_loantime_3year_30k, locale: :fr)
-                    %td.box2.4year5h.nd= number_to_currency(smsloan.newdebtor_loantime_4year_5h, locale: :fr)
-                    %td.box2.4year1k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_1k, locale: :fr)
-                    %td.box2.4year2k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_2k, locale: :fr)
-                    %td.box2.4year3k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_3k, locale: :fr)
-                    %td.box2.4year4k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_4k, locale: :fr)
-                    %td.box2.4year5k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_5k, locale: :fr)
-                    %td.box2.4year6k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_6k, locale: :fr)
-                    %td.box2.4year7k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_7k, locale: :fr)
-                    %td.box2.4year8k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_8k, locale: :fr)
-                    %td.box2.4year9k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_9k, locale: :fr)
-                    %td.box2.4year10k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_10k, locale: :fr)
-                    %td.box2.4year15k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_15k, locale: :fr)
-                    %td.box2.4year20k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_20k, locale: :fr)
-                    %td.box2.4year25k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_25k, locale: :fr)
-                    %td.box2.4year30k.nd= number_to_currency(smsloan.newdebtor_loantime_4year_30k, locale: :fr)
-                    %td.box2.5year5h.nd= number_to_currency(smsloan.newdebtor_loantime_5year_5h, locale: :fr)
-                    %td.box2.5year1k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_1k, locale: :fr)
-                    %td.box2.5year2k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_2k, locale: :fr)
-                    %td.box2.5year3k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_3k, locale: :fr)
-                    %td.box2.5year4k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_4k, locale: :fr)
-                    %td.box2.5year5k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_5k, locale: :fr)
-                    %td.box2.5year6k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_6k, locale: :fr)
-                    %td.box2.5year7k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_7k, locale: :fr)
-                    %td.box2.5year8k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_8k, locale: :fr)
-                    %td.box2.5year9k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_9k, locale: :fr)
-                    %td.box2.5year10k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_10k, locale: :fr)
-                    %td.box2.5year15k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_15k, locale: :fr)
-                    %td.box2.5year20k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_20k, locale: :fr)
-                    %td.box2.5year25k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_25k, locale: :fr)
-                    %td.box2.5year30k.nd= number_to_currency(smsloan.newdebtor_loantime_5year_30k, locale: :fr)
-                    %td.hidden-smslan= smsloan.max_amount_new_borrower
-                    %td.hidden-smslan= smsloan.invoice_fee
-                    %td.hidden-smslan= smsloan.application_fee
-                    %td.hidden-smslan= smsloan.mobile_friendly_site
-                    %td.hidden-smslan= smsloan.low_credit_score
-                    %td.hidden-smslan= smsloan.min_age
-                    %td.hidden-smslan= smsloan.cost_free_loan
-                    %td.hidden-smslan= smsloan.cost_free_loan_amount
-                    %td.hidden-smslan= smsloan.new_borrower_5K
-                    %td.hidden-smslan= smsloan.new_borrower_10K
-                    %td.hidden-smslan= smsloan.max_amount_new_borrower
-                    %td.hidden-smslan= smsloan.no_uc
-                    %td.hidden-smslan= smsloan.skef_member
-                    %td.hidden-smslan= smsloan.bankid
-                    %td.hidden-smslan= smsloan.open_on_saturdays
-                    %td.hidden-smslan= smsloan.open_on_sundays
-                    %td= smsloan.weblink.to_s.html_safe
-
-      //.pagefield-right
-      //  .span2
-      //    %h1 Fillet text
-      //    %p filler text sefnsfnsosnfseofnonfosnefosenfnsfos ono o oo  o sf jse ofs ose s oof os fjose osf sofo soe osf so jso jofsj osfso fjsofeifis f oef js j oseso of jsof ofj s josef os sof .
+              / /.switch-toggle.switch-candy
+              / /  %input#on{:name => "state-d", :type => "radio"}/
+              / /  %label{:id => "on", :for => "on", :onclick => ""} Redan kund
+              / /  %input#off{ :name => "state-d", :type => "radio"}/
+              / /  %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
+              / /  %a
+              = link_to "Jämför lån", smslan_path, :remote => true, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
+        .span8
+      / /.pagefield-right
+      / /  .span2
+      / /    %h1 Fillet text
+      / /    %p filler text sefnsfnsosnfseofnonfosnefosenfnsfos ono o oo  o sf jse ofs ose s oof os fjose osf sofo soe osf so jso jofsj osfso fjsofeifis f oef js j oseso of jsof ofj s josef os sof .
 
       .span9.top-buffer
         %hr/
+
+      .span8
+        #div_id
+          = render partial: 'smslan2'
+
       .span9.top-buffer.bottom-buffer.scrollhere
-
         %h1.pagetitle.center-text Vanliga frågor
-
         .span4.bottom-buffer.padhack
           %h2.h2-hulk.top-buffer2 Vad är SMSlån?
           %p.fonts.content-top2 SMSlån, eller snabblån som det även kallas, är lån som särskiljer sig genom att röra sig om mindre belopp och kortare återbetalningstider. Handläggningstiden är även snabbare och är ofta under en minut.
-
           %h2.h2-hulk.top-buffer2 Vad innebär att en långivare är SKEF-medlem?
           %p.fonts.content-top2
             %a{:href => "http://konsumentkreditforetagen.se/"}
               %span.linkclass SKEF
-            \(Svenska Konsumentkreditföretagen Ekonomisk Förening) är en branschförening för företag som erbjuder konsumenter korta lån. Föreningen strävar efter att stärka praxis för branschen som gäller god kreditgivningssed för att säkerställa kvalitet och trygghet för konsumenter på Sveriges snabblånemarknad. Genom att en långivare är medlem i SKEF kan konsumenter som vill ta lån vara 
-            %b säkra på att de vänder sig till en seriös långivare 
-            \som är väletablerad.
-
+            (Svenska Konsumentkreditföretagen Ekonomisk Förening) är en branschförening för företag som erbjuder konsumenter korta lån. Föreningen strävar efter att stärka praxis för branschen som gäller god kreditgivningssed för att säkerställa kvalitet och trygghet för konsumenter på Sveriges snabblånemarknad. Genom att en långivare är medlem i SKEF kan konsumenter som vill ta lån vara
+            %b säkra på att de vänder sig till en seriös långivare
+            som är väletablerad.
           %h2.h2-hulk.top-buffer2 Utför alla långivare kreditupplysning?
-          %p.fonts.content-top2 Nej. Endel gör inte det, men de flesta långivare vänder sig till UC eller andra kreditupplysningsföretag för att göra en kreditkontroll om du ansöker om lån hos dem.  Du kan söka efter långivare som inte kräver kreditupplysning genom att klicka i "Smslån utan UC" i söktjänstens reglage. 
-
+          %p.fonts.content-top2 Nej. Endel gör inte det, men de flesta långivare vänder sig till UC eller andra kreditupplysningsföretag för att göra en kreditkontroll om du ansöker om lån hos dem.  Du kan söka efter långivare som inte kräver kreditupplysning genom att klicka i "Smslån utan UC" i söktjänstens reglage.
           %h2.h2-hulk.top-buffer2 Vilka krav finns för få SMSlån?
-          %p.fonts.content-top2 Kraven varierar mellan olika långivare. De vanligaste kraven brukar innefatta att du är svenska medborgare, vilket innebär att du ska folkbokförd i Sverige och ha adress här. 
+          %p.fonts.content-top2 Kraven varierar mellan olika långivare. De vanligaste kraven brukar innefatta att du är svenska medborgare, vilket innebär att du ska folkbokförd i Sverige och ha adress här.
           %p.fonts Du ska ha ett privat bankkonto samt ett privat telefonabonnemang.
-          %p.fonts Lägsta åldersgräns är 18 år som alla långivare måste hålla sig tll, medan endel långivare har 20 år eller högre som gräns. 
+          %p.fonts Lägsta åldersgräns är 18 år som alla långivare måste hålla sig tll, medan endel långivare har 20 år eller högre som gräns.
           %p.fonts Krav på årsinkomst kan finnas och kreditprövning är ofta ett krav, men vissa långivare kräver inte detta.
-
         .span4.bottom-buffer.padhack
           %h2.h2-hulk.top-buffer2 När bör man undvika att ta SMSlån?
           %p.fonts.content-top2
             %b Om man anser att risken att man inte kan betala tillbaka lånet i tid är påtaglig
-            \bör kanske undvika att använda SMSlån. Om du blir försenad med att betala av delbetalningarna får du en påminnelse vilket kan kosta ytterligare. Om du inte kan betala påminnelsen heller så riskerar ärendet att hamna hos inkasso och till sist hos Kronofogden om du inte lyckats göra någon återbetalning tidigare. Då riskerar du att få en 
+            bör kanske undvika att använda SMSlån. Om du blir försenad med att betala av delbetalningarna får du en påminnelse vilket kan kosta ytterligare. Om du inte kan betala påminnelsen heller så riskerar ärendet att hamna hos inkasso och till sist hos Kronofogden om du inte lyckats göra någon återbetalning tidigare. Då riskerar du att få en
             %b betalningsanmärkning, vilket finns registrerad i tre år.
-            \En betalningsanmärking kan resultera i att du får svårigheter att ansöka om lån, hyresbostad, telefonabbonemand etc.
+            En betalningsanmärking kan resultera i att du får svårigheter att ansöka om lån, hyresbostad, telefonabbonemand etc.
           %p.fonts Det man bör vara medveten om är att med SMSlån får man inte bara pengarna snabbt utan återbetalningen också är kort. Kostnaderna ökar för lånet ju längre återbetalningstid man väljer.
-
           %h2.h2-hulk.top-buffer2 Vilka risker finns med SMSlån?
           %p.fonts.content-top2 Att inte kunna sköta återbetalningen av lånet är en risk. Om du är osäker på att du hinner betala tillbaka lånet i tid så kan du ta en längre återbetalningstid och försöka betala av snabbare.
           %p.fonts Gratislån hjälper då de inte har kostnader som läggs på, men detta gäller endast om du betalar av den inom den avtalade återbetalningstiden.
           %p.fonts Förlängnings- och påminnelseavgifter kan vara dyra så se till att betala av lånen i tid.
           %p.fonts Bra att tänka på är att se efter vad långivarna har för process för indrivning och vad de har skrivit i sina villkor angående förnyelser.
-
           %h2.h2-hulk.top-buffer2 Var medveten om dina rättigheter som kreditkonsument.
-          %p.fonts.content-top2 
-            Det som kan vara bra för dig som tar lån att känna till är dina rättigheter som kreditkonsument. Dessa finns beskrivna i 
-            %b konsumentkreditlagen 
-            \som du kan läsa mer om på konsumentverkets 
+          %p.fonts.content-top2
+            Det som kan vara bra för dig som tar lån att känna till är dina rättigheter som kreditkonsument. Dessa finns beskrivna i
+            %b konsumentkreditlagen
+            som du kan läsa mer om på konsumentverkets
             %a{:href => "http://www.konsumentverket.se/Vart-arbete/Lagar-och-regler/Konsumentlagar/Konsumentkreditlagen/"}
               %span.linkclass hemsida.
-
           %p.fonts
-            T.ex. har du som kreditkonsument 
-            %b ångerrätt (avbeställningsrätt) 
-            \på lånet inom 14 dagar från tidpunkten då kreditavtalet ingicks enligt konsumentkreditlagen. Dock får du betala ränta för dagarna du har haft tillgång till krediten. Läs mer om ångerrätt 
+            T.ex. har du som kreditkonsument
+            %b ångerrätt (avbeställningsrätt)
+            på lånet inom 14 dagar från tidpunkten då kreditavtalet ingicks enligt konsumentkreditlagen. Dock får du betala ränta för dagarna du har haft tillgång till krediten. Läs mer om ångerrätt
             %a{:href => "http://www.konsumentverket.se/Vart-arbete/Lagar-och-regler/Konsumentlagar/Konsumentkreditlagen/"}
               %span.linkclass här.
-
           %h2.h2-hulk.top-buffer2 Kan jag låna trots betalningsanmärkelse?
           %p.fonts.content-top2.bottom-buffer Ja. Flera långivare erbjuder kunder att låna utan betalningsanmärkelse. Du kan söka efter dessa långivare genom att klicka i "Låna trots betalningsanmärkelse" i söktjänstens reglage.

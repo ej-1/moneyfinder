@@ -256,14 +256,15 @@ $(document).ready(function() {
 
               $(".box2").hide();
               //Undoes the hiding of rows of empty cells att the end of this block.
-             $('tr').filter(function() {
-                  return $(this).find('td').filter(function() {
-                    return ! $.trim($(this).text());  
-                  }).length;
-              }).show();
+              $('tr').filter(function() {
+                   return $(this).find('td').filter(function() {
+                     return ! $.trim($(this).text());  
+                   }).length;
+               }).show();
 
               //$('.' + smstitle).css({"font-weight": "bold"});
               $('.' + smstitle).show();
+
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
               indexnumber2 = $('th.box2.' + smstitle + '.od').index();
@@ -273,7 +274,7 @@ $(document).ready(function() {
               //$("#table_id").dataTable().fnDestroy();
 
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-              //$('.results').html('number is ' +indexnumber);
+              $('.results').html('number is ' +indexnumber);
 
               // https://datatables.net/api needs to be var table1 = $('#table_id').dataTable({
                 // not var table1 = $('#table_id').DataTable({
