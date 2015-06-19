@@ -9,7 +9,23 @@ class AdminsmsloansController < ApplicationController
 
   def smslan
     @smsloans = Smsloan.all
+    # This explanaion solved it http://stackoverflow.com/questions/5099182/how-do-i-render-partial-via-ajax-in-rails3-and-jquery
+    respond_to do |format|               
+      format.html # smslan.html.erb
+      format.js   # smslan.js.erb
+    end
   end
+
+
+
+
+  def show_blog
+  @rendersmslan = Smsloan.find(params[:id])
+  respond_to do |format|
+     format.js 
+  end
+  end
+
 
   def gratislan
     @smsloans = Smsloan.all

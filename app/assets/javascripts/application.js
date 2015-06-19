@@ -265,12 +265,6 @@ $(document).ready(function() {
               //$('.' + smstitle).css({"font-weight": "bold"});
               $('.' + smstitle).show();
 
-              //REPLACE THIS SO IT REPLACES TEXT WTH SMSTITLE
-              $('p.test').replaceWith('<h2>New heading</h2>');
-              $('td.box3').replaceWith('<td class="box3"><%= number_to_currency(smsloan.newdebtor_loantime_60d_1k, locale: :fr) %></td>');
-              $('td.box4').html('<td class="box4"><%= number_to_currency(smsloan.newdebtor_loantime_60d_1k, locale: :fr) %></td>');
-
-
 
               indexnumber = $('th.box2.' + smstitle + '.nd').index();
               indexnumber2 = $('th.box2.' + smstitle + '.od').index();
@@ -280,7 +274,7 @@ $(document).ready(function() {
               //$("#table_id").dataTable().fnDestroy();
 
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-              //$('.results').html('number is ' +indexnumber);
+              $('.results').html('number is ' +indexnumber);
 
               // https://datatables.net/api needs to be var table1 = $('#table_id').dataTable({
                 // not var table1 = $('#table_id').DataTable({
