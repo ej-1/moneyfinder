@@ -6,50 +6,41 @@
     <meta name="google-site-verification" content="VtdEH7zhYHz6CaihcENT2lRMqI0BR8wq5uX55UWYMl8" />
     <meta name="google-site-verification" content="bzqmsweAUZ_e6buU4OGRM6m6c9LjeFGqjTCn2QWITtk" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= yield(:title) %></title>
     
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
-
-
-
+    <title><%= yield(:title) %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
+
     <%= csrf_meta_tags %>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-18624650-4', 'auto');
-  ga('send', 'pageview');
+      ga('create', 'UA-18624650-4', 'auto');
+      ga('send', 'pageview');
 
-</script>
-
-
-<!-- Google + Place this tag in your head or just before your close body tag. -->
-<script src="https://apis.google.com/js/platform.js" async defer>
-  {lang: 'sv'}
-</script>
-
-  <!-- TradeDoubler site verification 2460789 -->
-
-<%= yield(:header) %>
+    </script>
 
 
+    <!-- TradeDoubler site verification 2460789 -->
+
+    <%= yield(:header) %>
+
+
+    <!-- Google + Place this tag in your head or just before your close body tag. -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'sv'}
+    </script>
 
   </head>
 
+
   <body>
-
-
-
-
-
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
     <!-- <div class="container-narrow"> -->
     <div class="application-field">
       <div class="masthead">
@@ -69,10 +60,10 @@
       </div>
     </div>
 
-
       <hr>
       <div class="content">
         <%= yield %>
+
       </div>
       <hr>
     <div class="application-field">
@@ -82,25 +73,25 @@
      </div>
     </div> <!-- /container -->
 
-  <script type="text/javascript"> var uri = 'http://impse.tradedoubler.com/imp?type(inv)g(17588024)a(2460789)' + new String (Math.random()).substring (2, 11); document.write('<img src="'+uri +'">'); </script>
+    <script type="text/javascript"> var uri = 'http://impse.tradedoubler.com/imp?type(inv)g(17588024)a(2460789)' + new String (Math.random()).substring (2, 11); document.write('<img src="'+uri +'">'); </script>
 
 
-  <script type="text/javascript" src="http://track.adtraction.com/t/t?as=1090730078&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
+    <script type="text/javascript" src="http://track.adtraction.com/t/t?as=1090730078&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
 
 
-<!-- SessionCam Client Integration v6.0 -->
-<script type="text/javascript">
-//<![CDATA[
-var scRec=document.createElement('SCRIPT');
-scRec.type='text/javascript';
-scRec.src="//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js";
-document.getElementsByTagName('head')[0].appendChild(scRec);
-//]]>
-</script>
-<!-- End SessionCam -->
+    <!-- SessionCam Client Integration v6.0 -->
+    <script type="text/javascript">
+    //<![CDATA[
+    var scRec=document.createElement('SCRIPT');
+    scRec.type='text/javascript';
+    scRec.src="//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js";
+    document.getElementsByTagName('head')[0].appendChild(scRec);
+    //]]>
+    </script>
+    <!-- End SessionCam -->
 
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
-
-
-
 </html>
