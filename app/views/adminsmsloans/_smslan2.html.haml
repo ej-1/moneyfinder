@@ -1,9 +1,13 @@
+
 %table#table_id
   %thead
     %tr
       %th.th-title Långivare
       %th.th-title Minsta lånebelopp
       %th.th-title Högsta lånebelopp
+
+      %th.box3 Newdebtor loantime 5year 25k
+      %th.box4 Newdebtor loantime 5year 30k
 
       %th.hidden-smslan Högsta lånebelopp ny låntagare
       %th.hidden-smslan.hidden-smslan2 Aviavgift
@@ -32,6 +36,8 @@
 
         /%td.box2.60d3k.od= number_to_currency(smsloan.debtor_loantime_60d_3k, locale: :fr)
         /%td.box2.60d4k.od= number_to_currency(smsloan.debtor_loantime_60d_4k, locale: :fr)
+        %td.box3= number_to_currency(smsloan.debtor_loantime_30d_1k, locale: :fr)
+        %td.box4= number_to_currency(smsloan.newdebtor_loantime_30d_1k, locale: :fr)
 
         %td.hidden-smslan= smsloan.max_amount_new_borrower
         %td.hidden-smslan= smsloan.invoice_fee

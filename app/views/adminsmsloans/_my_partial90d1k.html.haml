@@ -1,0 +1,57 @@
+%table#table_id
+  %thead
+    %tr
+      %th.th-title Långivare
+      %th.th-title Minsta lånebelopp
+      %th.th-title Högsta lånebelopp
+
+      %th.box3 Redan kund
+      %th.box4 Ny kund
+
+      %th.hidden-smslan Högsta lånebelopp ny låntagare
+      %th.hidden-smslan.hidden-smslan2 Aviavgift
+      %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
+      %th.hidden-smslan Mobilvänlig hemsida  
+      %th.hidden-smslan Låna med betalningsanmärkelse
+      %th.hidden-smslan Minimum ålder
+      %th.hidden-smslan Kostnadsfria lån
+      %th.hidden-smslan Kostnadsfria lån maxbelopp
+      %th.hidden-smslan Låna 5000 kr första gången
+      %th.hidden-smslan Låna 10 000 kr första gången
+      %th.hidden-smslan Högsta lånebelopp för ny låntagare
+      %th.hidden-smslan Ingen UC
+      %th.hidden-smslan SKEF medlem
+      %th.hidden-smslan BankID
+      %th.hidden-smslan Lördagsöppet
+      %th.hidden-smslan Söndagsöppet
+      %th.th-title Ansök här
+      //%th{:colspan => "3"}
+  %tbody
+    - @smsloans.each do |smsloan|
+      %tr
+        %td.smsloangiver= smsloan.bank.to_s.html_safe
+        %td= number_to_currency(smsloan.min_loanamount, strip_insignificant_zeros: true, locale: :fr)
+        %td= number_to_currency(smsloan.max_loanamount, strip_insignificant_zeros: true, locale: :fr)
+
+        /%td.box2.60d3k.od= number_to_currency(smsloan.debtor_loantime_60d_3k, locale: :fr)
+        /%td.box2.60d4k.od= number_to_currency(smsloan.debtor_loantime_60d_4k, locale: :fr)
+        %td.box3= number_to_currency(smsloan.debtor_loantime_90d_1k, locale: :fr)
+        %td.box4= number_to_currency(smsloan.newdebtor_loantime_90d_1k, locale: :fr)
+
+        %td.hidden-smslan= smsloan.max_amount_new_borrower
+        %td.hidden-smslan= smsloan.invoice_fee
+        %td.hidden-smslan= smsloan.application_fee
+        %td.hidden-smslan= smsloan.mobile_friendly_site
+        %td.hidden-smslan= smsloan.low_credit_score
+        %td.hidden-smslan= smsloan.min_age
+        %td.hidden-smslan= smsloan.cost_free_loan
+        %td.hidden-smslan= smsloan.cost_free_loan_amount
+        %td.hidden-smslan= smsloan.new_borrower_5K
+        %td.hidden-smslan= smsloan.new_borrower_10K
+        %td.hidden-smslan= smsloan.max_amount_new_borrower
+        %td.hidden-smslan= smsloan.no_uc
+        %td.hidden-smslan= smsloan.skef_member
+        %td.hidden-smslan= smsloan.bankid
+        %td.hidden-smslan= smsloan.open_on_saturdays
+        %td.hidden-smslan= smsloan.open_on_sundays
+        %td= smsloan.weblink.to_s.html_safe
