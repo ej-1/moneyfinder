@@ -1,0 +1,16 @@
+
+//take smstitle variable
+var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
+var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
+var smstitle = smstime + smsamount;
+
+//render the right partial view depending on smstitle, that is decided by what user chose in the ui-sliders.
+if (smstitle == '14d1k') {
+
+  $('#div_id').html("<%= escape_javascript(render :partial => 'my_partial14d1k') %>");
+}
+
+if (smstitle == '14d2k') {
+
+  $('#div_id').html("<%= escape_javascript(render :partial => 'my_partial14d2k') %>");
+}
