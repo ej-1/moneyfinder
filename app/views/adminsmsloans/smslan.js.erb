@@ -1,8 +1,18 @@
+// move action for buttonclick smsbutton here. otherwise it switches when user changes sliders.
+//ues code to filter away rows with empty cells.
+// fast when loading page now, but a it slow loading whn fltering. Minify js here or perhaps make the code in partials smaller.
+//loading order of css onpage.
+
 
 //take smstitle variable
 var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");
 var smsamount = $("#smsamount-value").html().replace("000 kr", "k").replace("500 kr", "5h");
 var smstitle = smstime + smsamount;
+
+
+
+
+
 
 //render the right partial view depending on smstitle, that is decided by what user chose in the ui-sliders.
 if (smstitle == '14d5h') {
@@ -516,3 +526,9 @@ if (smstitle == '1year30k') {
 
   $('#div_id').html("<%= escape_javascript(render :partial => 'my_partial1year30k') %>");
 }
+
+$('tr').filter(function() {
+    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+      return ! $.trim($(this).text());  
+    }).length;
+}).hide();
