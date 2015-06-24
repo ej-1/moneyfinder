@@ -2,6 +2,7 @@ class AdminsmsloansController < ApplicationController
   before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
   caches_page :smslan
   caches_action :smslan
+  respond_to :html, :js
   # before_action :authenticate_admin!
   # GET /smsloans
   # GET /smsloans.json
@@ -10,13 +11,47 @@ class AdminsmsloansController < ApplicationController
   end
 
   def smslan
-    @smsloans = Smsloan.all
+    p(params)
+    puts "======="
+    puts "DA SCHTUFF1111111"
+    @smslan = Smsloan.all
+    # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
+    # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.
+    # After I have selected the correct columns
+    # @smsloans = Smsloan.pluck(:id, :name)
+    
+
+    @extra_title = "Things"
+
+    # THESE THREE LINES WORK TO GET TWO VARIABLES FROM DATABASE
+
+  
+    if params[:search]
+      @smslan = Smsloan.search(params[:search]).order("created_at DESC")
+      @plucker = Smsloan.pluck(params[:search])
+    else
+      @smslan = Smsloan.all.order('created_at DESC')
+      @pluckvalue = "debtor_loantime_1year_10k"
+      #@pluckvalue2 = "newdebtor_loantime_1year_10k"
+      @plucker = Smsloan.pluck(@pluckvalue)
+    end
+
+
+
+
     # This explanaion solved it http://stackoverflow.com/questions/5099182/how-do-i-render-partial-via-ajax-in-rails3-and-jquery
     respond_to do |format|               
       format.html # smslan.html.erb
       format.js   # smslan.js.erb
     end
   end
+
+
+
+
+
+
+
 
 
 
