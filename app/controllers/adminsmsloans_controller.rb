@@ -24,16 +24,52 @@ class AdminsmsloansController < ApplicationController
     @extra_title = "Things"
 
     # THESE THREE LINES WORK TO GET TWO VARIABLES FROM DATABASE
-
+    @plucker = Smsloan.all
   
     if params[:search]
       @smslan = Smsloan.search(params[:search]).order("created_at DESC")
-      @plucker = Smsloan.pluck(params[:search])
+      @pluckervalue = params[:search]
+      @stringer = @pluckervalue.join("")
+      @replacesmstime = @stringer.sub! "1", "newdebtor_loantime_14d"
+      @showresults = @replacesmstime.sub! "2", "_2k"
+      @plucker = Smsloan.pluck(@showresults)
+
+      #@showresults = @replacesms["1"]= "14d"
+
+      #@pluckervalue2 = @pluckervalue["1"]= "14"
+
+
+
+      #@plucker = Smsloan.pluck(params[:search])
+      #@slider 1 value e.g. 1 = 14d                   @slider1 = params[:search] add
+      #if slider1.include? "1"
+      #  newstring = stringvariable.gsub(/[*1/, '')
+        #@slider1.sub! '1', '14d'
+        #@slider1.sub! '2', '21d'
+        #@slider1.sub! '3', '30d'
+        #@slider1.sub! '4', '45d'
+        #@slider1.sub! '5', '60d'
+        #@slider1.sub! '6', '90d'
+        #@slider1.sub! '7', '1year'
+
+        #@slider2.sub! '1', '1000k'
+        #@slider2.sub! '2', '2000k'
+        #@slider2.sub! '3', '3000k'
+        #@slider2.sub! '4', '4000k'
+        #@slider2.sub! '5', '5000k'
+        #@slider2.sub! '6', '6000k'
+        #@slider2.sub! '7', '7000k'
+      #end
+
+
+      #@slider 1 value e.g. 1 = 14d
+      # combine theses two into one string variable   @smslan = @slider1 + @slider2
+      # search for that variable
     else
       @smslan = Smsloan.all.order('created_at DESC')
-      @pluckvalue = "debtor_loantime_1year_10k"
+      #@pluckvalue = "debtor_loantime_1year_10k"
       #@pluckvalue2 = "newdebtor_loantime_1year_10k"
-      @plucker = Smsloan.pluck(@pluckvalue)
+      #@plucker = Smsloan.pluck(@pluckvalue)
     end
 
 

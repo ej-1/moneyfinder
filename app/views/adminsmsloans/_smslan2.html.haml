@@ -14,7 +14,7 @@
     - @plucker.each do |plucker|
       %tr
         %td= plucker
-        //THIS WORKS %td= plucker2
+//THIS WORKS %td= plucker2
 
 
 //= form_tag smslan_path, :method => 'get' do
@@ -24,9 +24,9 @@
 
 
 //http://www.stefanosioannou.com/rails-4-simple-search-form/
-= form_tag(smslan_path, :method => "get", id: "search-form") do
-  = text_field_tag :search, params[:search], placeholder: "Search Users"
-  = submit_tag "Search", :name => nil
+//= form_tag(smslan_path, :method => "get", id: "search-form") do
+//  = text_field_tag :search, params[:search], placeholder: "Search Users"
+//  = submit_tag "Search", :name => nil
 
 
 
@@ -35,3 +35,25 @@
     %p.bank= s.bank
     %p.bank= s.new_borrower_5K
 
+
+
+
+= form_tag(smslan_path, :method => "get", id: "search-form") do
+
+  = range_field :search, params[:search], :in => 1..7, :step => '1'
+  = range_field :search, params[:search], :in => 1..7, :step => '1'
+  //%label{:for => "time"} Time
+  //%input#time{:list => "timesetting", :max => "6", :min => "1", :type => "range", :value => "1"}/
+  //%datalist#timesetting
+  //%option 0
+  //%option 20
+  //%option 40
+  //%option 60
+  //%option 80
+  //%option 100
+  = submit_tag "Search", :name => nil
+
+%p THIS IS WHAT YOU SEARCHED FOR 
+%pre
+  = @pluckervalue
+  = @showresults
