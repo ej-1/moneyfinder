@@ -10,6 +10,8 @@ class AdminsmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
+
+
   def smslan
     p(params)
     puts "======="
@@ -25,15 +27,29 @@ class AdminsmsloansController < ApplicationController
 
     # THESE THREE LINES WORK TO GET TWO VARIABLES FROM DATABASE
     @plucker = Smsloan.all
-  
-    if params[:search]
-      @smslan = Smsloan.search(params[:search]).order("created_at DESC")
-      @pluckervalue = params[:search]
-      @stringer = @pluckervalue.join("")
-      @replacesmstime = @stringer.sub! "1", "newdebtor_loantime_14d"
-      @showresults = @replacesmstime.sub! "2", "_2k"
-      @plucker = Smsloan.pluck(@showresults)
 
+
+    if params[:search]
+
+
+      @pluckervalue = params[:search]
+
+      #To get new debtor
+      @smsarray = @pluckervalue[0]
+      @smsarray2 = @pluckervalue[1]
+      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d'}
+      a = {'1' => '_1k', '2' => '_2k'}
+      @replace1 = h[@smsarray[0]]
+      @replace2 = a[@smsarray2[0]]
+      @joiner =[@replace1, @replace2].join("")
+
+      r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d'}
+      @replace3 = r[@smsarray[0]]
+      @joiner2 =[@replace3, @replace2].join("")
+
+      @plucker = Smsloan.pluck(:bank, @joiner, @joiner2)
+      params.delete :search #this clears the 
+      
       #@showresults = @replacesms["1"]= "14d"
 
       #@pluckervalue2 = @pluckervalue["1"]= "14"
@@ -66,7 +82,8 @@ class AdminsmsloansController < ApplicationController
       # combine theses two into one string variable   @smslan = @slider1 + @slider2
       # search for that variable
     else
-      @smslan = Smsloan.all.order('created_at DESC')
+
+      @plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
       #@pluckvalue = "debtor_loantime_1year_10k"
       #@pluckvalue2 = "newdebtor_loantime_1year_10k"
       #@plucker = Smsloan.pluck(@pluckvalue)
@@ -80,14 +97,10 @@ class AdminsmsloansController < ApplicationController
       format.html # smslan.html.erb
       format.js   # smslan.js.erb
     end
+
+
+
   end
-
-
-
-
-
-
-
 
 
 

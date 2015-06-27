@@ -274,7 +274,7 @@ $(document).ready(function() {
               //$("#table_id").dataTable().fnDestroy();
 
               // Reloads the table each time smsbutton is pushed and sorts relevant cost column
-              $('.results').html('number is ' +indexnumber);
+              //$('.results').html('number is ' +indexnumber);
 
               // https://datatables.net/api needs to be var table1 = $('#table_id').dataTable({
                 // not var table1 = $('#table_id').DataTable({

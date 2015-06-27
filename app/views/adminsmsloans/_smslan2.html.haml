@@ -1,21 +1,32 @@
 
-%pre
+//%pre
 
-%p
-  Best. App. Ever. #{@extra_title}
+//%p
+//  Best. App. Ever. #{@extra_title}
 
 %table#table_id
   %thead
     %tr
+      %th.th-title Bank
       %th.th-title Redan kund
       %th.th-title Ny kund
   %tbody
     //THIS WORKS - @plucker.each do |plucker, plucker2|
-    - @plucker.each do |plucker|
+    - @plucker.each do |bank, plucker, plucker2|
       %tr
+        %td= bank
         %td= plucker
+        %td= plucker2
 //THIS WORKS %td= plucker2
 
+%p THIS IS WHAT YOU SEARCHED FOR 
+%pre
+  = @pluckervalue
+  = @replace1
+  = @replace2
+%pre
+  = @joiner
+  = @joiner2
 
 //= form_tag smslan_path, :method => 'get' do
 //  %p
@@ -30,30 +41,4 @@
 
 
 
-- @smslan.each do |s|
-  .message
-    %p.bank= s.bank
-    %p.bank= s.new_borrower_5K
 
-
-
-
-= form_tag(smslan_path, :method => "get", id: "search-form") do
-
-  = range_field :search, params[:search], :in => 1..7, :step => '1'
-  = range_field :search, params[:search], :in => 1..7, :step => '1'
-  //%label{:for => "time"} Time
-  //%input#time{:list => "timesetting", :max => "6", :min => "1", :type => "range", :value => "1"}/
-  //%datalist#timesetting
-  //%option 0
-  //%option 20
-  //%option 40
-  //%option 60
-  //%option 80
-  //%option 100
-  = submit_tag "Search", :name => nil
-
-%p THIS IS WHAT YOU SEARCHED FOR 
-%pre
-  = @pluckervalue
-  = @showresults
