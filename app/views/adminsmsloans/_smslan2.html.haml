@@ -4,29 +4,69 @@
 //%p
 //  Best. App. Ever. #{@extra_title}
 
+
+
+
 %table#table_id
   %thead
     %tr
       %th.th-title Bank
+      %th min_loanamount
+      %th max_loanamount
       %th.th-title Redan kund
       %th.th-title Ny kund
+      %th.hidden-smslan max_amount_new_borrower
+      %th.hidden-smslan invoice_fee
+      %th.hidden-smslan application_fee
+      %th.hidden-smslan mobile_friendly_site
+      %th.hidden-smslan min_age
+      %th.hidden-smslan low_credit_score
+      %th.hidden-smslan cost_free_loan
+      %th.hidden-smslan cost_free_loan_amount
+      %th.hidden-smslan new_borrower_5K
+      %th.hidden-smslan new_borrower_10K
+      %th.hidden-smslan no_uc
+      %th.hidden-smslan skef_member
+      %th.hidden-smslan bankid
+      %th.hidden-smslan open_on_saturdays
+      %th.hidden-smslan open_on_sundays
+      %th.th-title weblink
   %tbody
     //THIS WORKS - @plucker.each do |plucker, plucker2|
-    - @plucker.each do |bank, plucker, plucker2|
+    - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
       %tr
         %td= bank
-        %td= plucker
-        %td= plucker2
-//THIS WORKS %td= plucker2
+        %td= number_to_currency(min_loanamount, strip_insignificant_zeros: true, locale: :fr)
+        %td= number_to_currency(max_loanamount, strip_insignificant_zeros: true, locale: :fr)
+        %td= number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+        %td= number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+        %td.hidden-smslan= max_amount_new_borrower
+        %td.hidden-smslan= invoice_fee
+        %td.hidden-smslan= application_fee
+        %td.hidden-smslan= mobile_friendly_site
+        %td.hidden-smslan= min_age
+        %td.hidden-smslan= low_credit_score
+        %td.hidden-smslan= cost_free_loan
+        %td.hidden-smslan= cost_free_loan_amount
+        %td.hidden-smslan= new_borrower_5K
+        %td.hidden-smslan= new_borrower_10K
+        %td.hidden-smslan= no_uc
+        %td.hidden-smslan= skef_member
+        %td.hidden-smslan= bankid
+        %td.hidden-smslan= open_on_saturdays
+        %td.hidden-smslan= open_on_sundays
+        %td= weblink.to_s.html_safe
 
-%p THIS IS WHAT YOU SEARCHED FOR 
-%pre
-  = @pluckervalue
-  = @replace1
-  = @replace2
-%pre
-  = @joiner
-  = @joiner2
+
+
+
+
+//%p THIS IS WHAT YOU SEARCHED FOR 
+//%pre
+//  = @joiner
+//%pre
+//  = @joiner2
+
 
 //= form_tag smslan_path, :method => 'get' do
 //  %p

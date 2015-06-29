@@ -4,7 +4,7 @@
     .span12
       .pagefield-left
         .span8
-          %h1.pagetitle J
+          %h1.pagetitle Jämför smslån
           %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 25 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
           %p.fonts
             Om du vill endast jämföra de olika
@@ -16,7 +16,7 @@
           %p.test HEJ!
         %p#demo2
         .span8.smsloaninterface
-          .span8
+          .span8.bottom-buffer
             .span4.float-left
               %label.smscheckboxes
                 %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonouc"}/
@@ -55,22 +55,29 @@
             / /    %span.glyphicon.glyphicon-question-sign.glyph
           .span8
             .span5
+              %p#W1.fonts.white 14 dagar
+        
+              = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
+                = range_field :search, params[:search], :in => 1..7, :step => '1', :id => 'slider1', value: '1'
+                %p#W2.fonts.white 1000 kr
+                = range_field :search, params[:search], :in => 1..14, :step => '1', :id => 'slider2', value: '1'
+                = submit_tag "Search", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
               / /Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
-              %p
+              //%p
               / /Show value
-              %p#smstime-value.fonts
+              //%p#smstime-value.fonts
               / /Slider
-              #smstime-slider
-              %p
+              //#smstime-slider
+              //%p
               / /Show value
-              %p#smsamount-value.fonts
+              //%p#smsamount-value.fonts
               / /Slider
-              #smsamount-slider
+              //#smsamount-slider
               / /TEST - Shows the variable that is concenated to show the right column
               / /%p#demo
-              %p.results
+              //%p.results
             .span2
-              %label.smscheckboxes.top-buffer.freeloanbutton
+              %label.smscheckboxes.top-buffer
                 %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
                 %span.lbl.padding-8 Kostnadsfria lån
 
@@ -80,16 +87,13 @@
               / /  %input#off{ :name => "state-d", :type => "radio"}/
               / /  %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
               / /  %a
-              = link_to "Jämför lån", smslan_path, :remote => true, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
+
+              //= link_to "Jämför lån", smslan_path, :remote => true, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
         .span8
       / /.pagefield-right
       / /  .span2
       / /    %h1 Fillet text
       / /    %p filler text sefnsfnsosnfseofnonfosnefosenfnsfos ono o oo  o sf jse ofs ose s oof os fjose osf sofo soe osf so jso jofsj osfso fjsofeifis f oef js j oseso of jsof ofj s josef os sof .
-
-      .span9.top-buffer
-        %hr/
-
 
       .span8
         #div_id
@@ -151,19 +155,11 @@
                   %td.hidden-smslan= smsloan.open_on_sundays
                   %td= smsloan.weblink.to_s.html_safe
 
-
-        = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
-
-          = range_field :search, params[:search], :in => 1..7, :step => '1'
-          = range_field :search, params[:search], :in => 1..20, :step => '1'
-
-          = submit_tag "Search", :name => nil
-
-
-
-
+          
+      .span9.top-buffer
+        %hr/ 
       .span9.top-buffer.bottom-buffer.scrollhere
-        %h1.pagetitle.center-text Vanliga frågor
+        %h1.pagetitle.text-center Vanliga frågor
         .span4.bottom-buffer.padhack
           %h2.h2-hulk.top-buffer2 Vad är SMSlån?
           %p.fonts.content-top2 SMSlån, eller snabblån som det även kallas, är lån som särskiljer sig genom att röra sig om mindre belopp och kortare återbetalningstider. Handläggningstiden är även snabbare och är ofta under en minut.

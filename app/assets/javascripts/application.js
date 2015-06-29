@@ -39,6 +39,85 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      $("#slider1").mousemove(function () {
+        var newValue = $('#slider1').val();
+
+          if (newValue === '1') {
+            newValue2 = "14 dagar";
+          }
+          if (newValue === '2') {
+            newValue2 = "21 dagar";
+          }
+          if (newValue === '3') {
+            newValue2 = "30 dagar";
+          }
+          if (newValue === '4') {
+            newValue2 = "45 dagar";
+          }
+          if (newValue === '5') {
+            newValue2 = "60 dagar";
+          }
+          if (newValue === '6') {
+            newValue2 = "90 dagar";
+          }
+          if (newValue === '7') {
+            newValue2 = "1 år";
+          }
+
+          $("#W1").text(newValue2);
+      });
+
+
+      $("#slider2").mousemove(function () {
+        var newValue = $('#slider2').val();
+
+          if (newValue === '1') {
+            newValue2 = "1000 kr";
+          }
+          if (newValue === '2') {
+            newValue2 = "2000 kr";
+          }
+          if (newValue === '3') {
+            newValue2 = "3000 kr";
+          }
+          if (newValue === '4') {
+            newValue2 = "4000 kr";
+          }
+          if (newValue === '5') {
+            newValue2 = "5000 kr";
+          }
+          if (newValue === '6') {
+            newValue2 = "6000 kr";
+          }
+          if (newValue === '7') {
+            newValue2 = "7000 kr";
+          }
+          if (newValue === '8') {
+            newValue2 = "8000 kr";
+          }
+          if (newValue === '9') {
+            newValue2 = "9000 kr";
+          }
+          if (newValue === '10') {
+            newValue2 = "10 000 kr";
+          }
+          if (newValue === '11') {
+            newValue2 = "15 000 kr";
+          }
+          if (newValue === '12') {
+            newValue2 = "20 000 kr";
+          }
+          if (newValue === '13') {
+            newValue2 = "25 000 kr";
+          }
+          if (newValue === '14') {
+            newValue2 = "30 000 kr";
+          }
+
+
+          $("#W2").text(newValue2);
+      });
+
 
       // When clicking "Vanliga frågor" in navbar the view scrolls down if you are on smslan page, if not then it changes page and scrolls down.
       if ($(".scrollhere").length) { 
@@ -246,7 +325,7 @@ $(document).ready(function() {
 
               //Hide checkbox for "Kostnadsfria Lån"
               $('.freeloanbutton').hide();
-              $("#smsbutton").css("margin-top", "55px");
+              //$("#smsbutton").css("margin-top", "55px");
 
               // How to turn html element to variable (var) http://stackoverflow.com/questions/13845313/store-generated-html-in-variable
               var smstime = $("#smstime-value").html().replace(" dagar","d").replace(" år", "year");

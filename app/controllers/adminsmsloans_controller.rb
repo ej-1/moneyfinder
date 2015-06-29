@@ -31,23 +31,25 @@ class AdminsmsloansController < ApplicationController
 
     if params[:search]
 
-
       @pluckervalue = params[:search]
-
+      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
+      a = {'1' => '_1k', '2' => '_2k', '3' => '_3k', '4' => '_4k', '5' => '_5k', '6' => '_6k', '7' => '_7k', '8' => '_8k', '9' => '_9k', '10' => '_10k', '11' => '_15k', '12' => '_20k', '13' => '_25k', '14' => '_30k'}
+      
       #To get new debtor
       @smsarray = @pluckervalue[0]
-      @smsarray2 = @pluckervalue[1]
-      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d'}
-      a = {'1' => '_1k', '2' => '_2k'}
+
+      @replace2 = a[@pluckervalue[1]]
       @replace1 = h[@smsarray[0]]
-      @replace2 = a[@smsarray2[0]]
+
       @joiner =[@replace1, @replace2].join("")
 
-      r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d'}
+      r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
       @replace3 = r[@smsarray[0]]
       @joiner2 =[@replace3, @replace2].join("")
 
-      @plucker = Smsloan.pluck(:bank, @joiner, @joiner2)
+      @plucker = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @joiner, @joiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+
+
       params.delete :search #this clears the 
       
       #@showresults = @replacesms["1"]= "14d"
