@@ -6,7 +6,7 @@
       .span8
         .row
           .span8
-            %h1.pagetitle Jämför smslån
+            %h1.pagetitle Jämför SMSlån
             %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 25 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
             %p.fonts
               Om du vill endast jämföra de olika
@@ -58,7 +58,7 @@
                 = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
                   = range_field :search, params[:search], :in => 1..7, :step => '1', :id => 'slider1', value: '1'
                   %p#W2.fonts.white 1000 kr
-                  = range_field :search, params[:search], :in => 1..14, :step => '1', :id => 'slider2', value: '1'
+                  = range_field :search, params[:search], :in => 1..15, :step => '1', :id => 'slider2', value: '1'
                   = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
               / /Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
               //%p

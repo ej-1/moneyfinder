@@ -33,7 +33,7 @@ class AdminsmsloansController < ApplicationController
 
       @pluckervalue = params[:search]
       h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
-      a = {'1' => '_1k', '2' => '_2k', '3' => '_3k', '4' => '_4k', '5' => '_5k', '6' => '_6k', '7' => '_7k', '8' => '_8k', '9' => '_9k', '10' => '_10k', '11' => '_15k', '12' => '_20k', '13' => '_25k', '14' => '_30k'}
+      a = {'1' => '_5h', '2' => '_1k', '3' => '_2k', '4' => '_3k', '5' => '_4k', '6' => '_5k', '7' => '_6k', '8' => '_7k', '9' => '_8k', '10' => '_9k', '11' => '_10k', '12' => '_15k', '13' => '_20k', '14' => '_25k', '15' => '_30k'}
       
       #To get new debtor
       @smsarray = @pluckervalue[0]

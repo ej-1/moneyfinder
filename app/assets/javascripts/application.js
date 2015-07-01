@@ -72,45 +72,48 @@ $(document).ready(function() {
         var newValue = $('#slider2').val();
 
           if (newValue === '1') {
-            newValue2 = "1000 kr";
+            newValue2 = "500 kr";
           }
           if (newValue === '2') {
-            newValue2 = "2000 kr";
+            newValue2 = "1000 kr";
           }
           if (newValue === '3') {
-            newValue2 = "3000 kr";
+            newValue2 = "2000 kr";
           }
           if (newValue === '4') {
-            newValue2 = "4000 kr";
+            newValue2 = "3000 kr";
           }
           if (newValue === '5') {
-            newValue2 = "5000 kr";
+            newValue2 = "4000 kr";
           }
           if (newValue === '6') {
-            newValue2 = "6000 kr";
+            newValue2 = "5000 kr";
           }
           if (newValue === '7') {
-            newValue2 = "7000 kr";
+            newValue2 = "6000 kr";
           }
           if (newValue === '8') {
-            newValue2 = "8000 kr";
+            newValue2 = "7000 kr";
           }
           if (newValue === '9') {
-            newValue2 = "9000 kr";
+            newValue2 = "8000 kr";
           }
           if (newValue === '10') {
-            newValue2 = "10 000 kr";
+            newValue2 = "9000 kr";
           }
           if (newValue === '11') {
-            newValue2 = "15 000 kr";
+            newValue2 = "10 000 kr";
           }
           if (newValue === '12') {
-            newValue2 = "20 000 kr";
+            newValue2 = "15 000 kr";
           }
           if (newValue === '13') {
-            newValue2 = "25 000 kr";
+            newValue2 = "20 000 kr";
           }
           if (newValue === '14') {
+            newValue2 = "25 000 kr";
+          }
+          if (newValue === '15') {
             newValue2 = "30 000 kr";
           }
 

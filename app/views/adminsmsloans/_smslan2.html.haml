@@ -6,13 +6,12 @@
 
 
 
-
 %table#table_id
   %thead
     %tr
       %th.th-title Bank
-      %th min_loanamount
-      %th max_loanamount
+      %th Minsta lånebelopp
+      %th Högsta lånebelopp
       %th.th-title Redan kund
       %th.th-title Ny kund
       %th.hidden-smslan max_amount_new_borrower
@@ -30,7 +29,7 @@
       %th.hidden-smslan bankid
       %th.hidden-smslan open_on_saturdays
       %th.hidden-smslan open_on_sundays
-      %th.th-title weblink
+      %th.th-title Ansök här
   %tbody
     //THIS WORKS - @plucker.each do |plucker, plucker2|
     - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
