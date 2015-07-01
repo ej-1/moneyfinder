@@ -11,3 +11,8 @@
 
 $('#div_id').html("<%= escape_javascript(render :partial => 'smslan2') %>");
 
+$('tr').filter(function() {
+    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+      return ! $.trim($(this).text());  
+    }).length;
+}).hide();

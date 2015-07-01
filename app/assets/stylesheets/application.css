@@ -325,8 +325,8 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
 
 /* for the top-menu */
 .application-field {
-  margin: 0 auto;
-  max-width: 75%;
+  /*margin: 0 auto;*/
+  /*max-width: 75%;*/
 }
 
 /* for the content on page */
@@ -411,7 +411,7 @@ Media queries
       font-family: 'Open Sans', sans-serif;
       color: #7C8D87;
       text-align: center;
-      font-size: 15px;
+      font-size: 13px;
       height: 30px;
       padding-top: 20px;
       padding-bottom: 20px;
@@ -589,7 +589,7 @@ th {
     height: 60px;
     color: rgba(255, 255, 255, 0.97);
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     text-decoration: none;
 
@@ -607,17 +607,18 @@ table th {
 
 .smsloaninterface {
   margin-top: 20px;
-    border-radius: 3px;
-    /* color: rgba(150, 201, 88, 1); */
-    color: rgba(144, 194, 85, 1);
-    /* original background-color: #9BCC5F; */
-    background-color: rgb(144, 194, 85);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
-    border: 1px solid #91C056;
+  margin-bottom: 10px;  
+  border-radius: 3px;
+  /* color: rgba(150, 201, 88, 1); */
+  color: rgba(144, 194, 85, 1);
+  /* original background-color: #9BCC5F; */
+  background-color: rgb(144, 194, 85);
+  padding-top: 15px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
+  border: 1px solid #91C056;
 }
 
 .btn.btn-success.btn-large {
@@ -732,6 +733,11 @@ h1 {
   text-align: center;
 }
 
+.page-padding {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
@@ -794,6 +800,7 @@ input[type=checkbox]+.lbl.padding-0::before,input[type=radio]+.lbl.padding-0::be
 
 input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
   font-family: arial;
+  font-family: fontAwesome;  
   /* font-weight: normal; */
   font-size: 11px;
   color: rgba(27, 203, 9, 1);
