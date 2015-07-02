@@ -1,4 +1,3 @@
-
 %table#table_id
   %thead
     %tr
@@ -36,9 +35,8 @@
 
         /%td.box2.60d3k.od= number_to_currency(smsloan.debtor_loantime_60d_3k, locale: :fr)
         /%td.box2.60d4k.od= number_to_currency(smsloan.debtor_loantime_60d_4k, locale: :fr)
-
-        %td.box3= number_to_currency(smsloan.debtor_loantime_14d_10k, locale: :fr)
-        %td.box4= number_to_currency(smsloan.newdebtor_loantime_14d_10k, locale: :fr)
+        %td.box3= number_to_currency(smsloan.debtor_loantime_90d_30k, locale: :fr)
+        %td.box4= number_to_currency(smsloan.newdebtor_loantime_90d_30k, locale: :fr)
 
         %td.hidden-smslan= smsloan.max_amount_new_borrower
         %td.hidden-smslan= smsloan.invoice_fee
