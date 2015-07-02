@@ -743,6 +743,7 @@ h1 {
 }
 
 
+
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
 
 
@@ -897,7 +898,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 6px;
-  background: #a7c255;
+  background: #50AD50;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -4.15px;
@@ -920,7 +921,7 @@ input[type=range]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 6px;
-  background: #a7c255;
+  background: #50AD50;
   cursor: pointer;
 }
 input[type=range]::-ms-track {
