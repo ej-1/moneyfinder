@@ -34,7 +34,7 @@
     //THIS WORKS - @plucker.each do |plucker, plucker2|
     - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
       %tr
-        %td= bank.to_s.html_safe
+        %td.smsloangiver= bank.to_s.html_safe
         %td= number_to_currency(min_loanamount, strip_insignificant_zeros: true, locale: :fr)
         %td= number_to_currency(max_loanamount, strip_insignificant_zeros: true, locale: :fr)
         %td= number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
