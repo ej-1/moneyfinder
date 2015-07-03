@@ -3,7 +3,7 @@ class AdminsmsloansController < ApplicationController
   caches_page :smslan
   caches_action :smslan
   respond_to :html, :js
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
   # GET /smsloans
   # GET /smsloans.json
   def index
