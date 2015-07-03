@@ -1,11 +1,4 @@
 
-//%pre
-
-//%p
-//  Best. App. Ever. #{@extra_title}
-
-
-
 %table#table_id
   %thead
     %tr
@@ -31,7 +24,6 @@
       %th.hidden-smslan open_on_sundays
       %th.th-title Ansök här
   %tbody
-    //THIS WORKS - @plucker.each do |plucker, plucker2|
     - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
       %tr
         %td.smsloangiver= bank.to_s.html_safe
@@ -55,36 +47,4 @@
         %td.hidden-smslan= open_on_saturdays
         %td.hidden-smslan= open_on_sundays
         %td= weblink.to_s.html_safe
-
-
-
-
-
-//%p THIS IS WHAT YOU SEARCHED FOR 
-//%pre
-//  %p JOINER
-//  = @joiner
-//  = @joiner2
-//%pre
-//  %p COMBINER
-//  = @combiner
-//  = @combiner2
-//= debug @pluckervalue
-//%pre
-//  = @joiner2
-
-
-//= form_tag smslan_path, :method => 'get' do
-//  %p
-//    = text_field_tag :search, params[:search] #params gets what in the search field an turns it into a variable
-//    = submit_tag "Search", :name => nil
-
-
-//http://www.stefanosioannou.com/rails-4-simple-search-form/
-//= form_tag(smslan_path, :method => "get", id: "search-form") do
-//  = text_field_tag :search, params[:search], placeholder: "Search Users"
-//  = submit_tag "Search", :name => nil
-
-
-
 

@@ -5,10 +5,6 @@
  *= require_self
  *= require_tree .
 
- * needed for slider bars
- *= require jquery-ui
-
- *= jquery.switchButton.css
 */
 
 

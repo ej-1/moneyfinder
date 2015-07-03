@@ -13,21 +13,14 @@ class AdminsmsloansController < ApplicationController
 
 
   def smslan
-    p(params)
-    puts "======="
-    puts "DA SCHTUFF1111111"
     @smslan = Smsloan.all
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
     # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.
     # After I have selected the correct columns
     # @smsloans = Smsloan.pluck(:id, :name)
-    
-
-    @extra_title = "Things"
 
     # THESE THREE LINES WORK TO GET TWO VARIABLES FROM DATABASE
     @plucker = Smsloan.all
-
 
     if params[:search]
 
@@ -49,36 +42,7 @@ class AdminsmsloansController < ApplicationController
 
       @plucker = Smsloan.order(@joiner2, @joiner).pluck(:bank, :min_loanamount, :max_loanamount, @joiner, @joiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
 
-
       params.delete :search #this clears the 
-      
-      #@showresults = @replacesms["1"]= "14d"
-
-      #@pluckervalue2 = @pluckervalue["1"]= "14"
-
-
-
-      #@plucker = Smsloan.pluck(params[:search])
-      #@slider 1 value e.g. 1 = 14d                   @slider1 = params[:search] add
-      #if slider1.include? "1"
-      #  newstring = stringvariable.gsub(/[*1/, '')
-        #@slider1.sub! '1', '14d'
-        #@slider1.sub! '2', '21d'
-        #@slider1.sub! '3', '30d'
-        #@slider1.sub! '4', '45d'
-        #@slider1.sub! '5', '60d'
-        #@slider1.sub! '6', '90d'
-        #@slider1.sub! '7', '1year'
-
-        #@slider2.sub! '1', '1000k'
-        #@slider2.sub! '2', '2000k'
-        #@slider2.sub! '3', '3000k'
-        #@slider2.sub! '4', '4000k'
-        #@slider2.sub! '5', '5000k'
-        #@slider2.sub! '6', '6000k'
-        #@slider2.sub! '7', '7000k'
-      #end
-
 
       #@slider 1 value e.g. 1 = 14d
       # combine theses two into one string variable   @smslan = @slider1 + @slider2
@@ -86,13 +50,13 @@ class AdminsmsloansController < ApplicationController
     else
       #HAD TO COMMENT AWAY THIS ROW TO GET BOTH SLIDERS AND DROPDOWNS TO WORK
       #@plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
-
-      #@pluckvalue = "debtor_loantime_1year_10k"
-      #@pluckvalue2 = "newdebtor_loantime_1year_10k"
-      #@plucker = Smsloan.pluck(@pluckvalue)
     end
 
 
+
+
+
+                        # //http://stackoverflow.com/questions/11762542/passing-multiple-parameters-in-a-form-tag
     if params[:search1] # this block is for the form with dropdowns in mobile and tablet
 
       @smsdrop1 = params[:search1]
@@ -102,7 +66,6 @@ class AdminsmsloansController < ApplicationController
 
       @drop1 = h[@smsdrop1[0]]
       @drop2 = a[@smsdrop2]
-
 
       @combiner =[@drop1, @drop2].join("")
 
@@ -119,30 +82,7 @@ class AdminsmsloansController < ApplicationController
     end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # This explanaion solved it http://stackoverflow.com/questions/5099182/how-do-i-render-partial-via-ajax-in-rails3-and-jquery
+    # This explanation solved it http://stackoverflow.com/questions/5099182/how-do-i-render-partial-via-ajax-in-rails3-and-jquery
     respond_to do |format|               
       format.html # smslan.html.erb
       format.js   # smslan.js.erb

@@ -62,45 +62,12 @@
                     = range_field :search, params[:search], :in => 1..15, :step => '1', :id => 'slider2', value: '1'
                     = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
                 #smsloan_dropdowns
-                  //http://stackoverflow.com/questions/11762542/passing-multiple-parameters-in-a-form-tag
+
                   = form_tag smslan_path, :method => "get", id: "search-form", remote: true do
                     = select_tag :search1, options_for_select([["14 dagar", "1"], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown"
 
                     = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown"
                     = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
-
-              / /Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
-              //%p
-              / /Show value
-              //%p#smstime-value.fonts
-              / /Slider
-              //#smstime-slider
-              //%p
-              / /Show value
-              //%p#smsamount-value.fonts
-              / /Slider
-              //#smsamount-slider
-              / /TEST - Shows the variable that is concenated to show the right column
-              / /%p#demo
-              //%p.results
-            //.span2
-            //  %label.smscheckboxes.top-buffer
-            //    %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nofreeloan"}/
-            //    %span.lbl.padding-8 Kostnadsfria lån
-
-            //.switch-toggle.switch-candy
-            //  %input#on{:name => "state-d", :type => "radio"}/
-            //  %label{:id => "on", :for => "on", :onclick => ""} Redan kund
-            //  %input#off{ :name => "state-d", :type => "radio"}/
-            //  %label{:checked => "checked", :id => "off", :for => "off", :onclick => ""} Ny kund
-            //  %a
-
-            //= link_to "Jämför lån", smslan_path, :remote => true, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
-          //.span8
-          / /.pagefield-right
-          / /  .span2
-          / /    %h1 Fillet text
-          / /    %p filler text sefnsfnsosnfseofnonfosnefosenfnsfos ono o oo  o sf jse ofs ose s oof os fjose osf sofo soe osf so jso jofsj osfso fjsofeifis f oef js j oseso of jsof ofj s josef os sof .
 
           .span8
             #div_id
