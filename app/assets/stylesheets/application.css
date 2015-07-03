@@ -5,10 +5,6 @@
  *= require_self
  *= require_tree .
 
- * needed for slider bars
- *= require jquery-ui
-
- *= jquery.switchButton.css
 */
 
 
@@ -325,8 +321,8 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
 
 /* for the top-menu */
 .application-field {
-  margin: 0 auto;
-  max-width: 75%;
+  /*margin: 0 auto;*/
+  /*max-width: 75%;*/
 }
 
 /* for the content on page */
@@ -368,6 +364,14 @@ Media queries
 */
 
 @media (min-width: 1200px) {
+
+  #smsloan_sliders {
+  }
+
+  #smsloan_dropdowns {
+    display: none;
+  }
+
   .pagefield-superior {
     /* max-width: 60%; */
     margin-right: 13%;
@@ -392,6 +396,7 @@ Media queries
 }
 
 @media (max-width: 1200px) {
+
   .pagefield-superior {
   /* max-width: 60%; */
     margin-right: 5%;
@@ -411,7 +416,7 @@ Media queries
       font-family: 'Open Sans', sans-serif;
       color: #7C8D87;
       text-align: center;
-      font-size: 15px;
+      font-size: 13px;
       height: 30px;
       padding-top: 20px;
       padding-bottom: 20px;
@@ -419,7 +424,18 @@ Media queries
 
 }
 
+@media (min-width: 980px) and (max-width: 1200px) {
+  #smsloan_sliders {
+    display: none;
+  }
+
+  #smsloan_dropdowns {
+
+  }
+}
+
 @media (max-width: 979px) {
+
   .pagefield-superior {
   /* max-width: 60%; */
     margin-right: 13%;
@@ -446,7 +462,16 @@ Media queries
   }
 }
 
+
 @media (min-width: 768px) and (max-width: 979px) {
+  #smsloan_sliders {
+    display: none;
+  }
+
+  #smsloan_dropdowns {
+
+  }
+
   .pagefield-superior {
   /* max-width: 60%; */
     margin-right: 13%;
@@ -473,6 +498,13 @@ Media queries
 }
 
 @media (max-width: 767px) {
+  #smsloan_sliders {
+    display: none;
+  }
+
+  #smsloan_dropdowns {
+  }
+
   .pagefield-superior {
   /* max-width: 60%; */
     margin-right: 2%;
@@ -499,6 +531,13 @@ Media queries
 }
 
 @media (max-width: 480px) {
+  #smsloan_sliders {
+    display: none;
+  }
+
+  #smsloan_dropdowns {
+  }
+
   .pagefield-superior {
   /* max-width: 60%; */
     margin-right: 2%;
@@ -589,7 +628,7 @@ th {
     height: 60px;
     color: rgba(255, 255, 255, 0.97);
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     text-decoration: none;
 
@@ -607,17 +646,18 @@ table th {
 
 .smsloaninterface {
   margin-top: 20px;
-    border-radius: 3px;
-    /* color: rgba(150, 201, 88, 1); */
-    color: rgba(144, 194, 85, 1);
-    /* original background-color: #9BCC5F; */
-    background-color: rgb(144, 194, 85);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
-    border: 1px solid #91C056;
+  margin-bottom: 10px;  
+  border-radius: 3px;
+  /* color: rgba(150, 201, 88, 1); */
+  color: rgba(144, 194, 85, 1);
+  /* original background-color: #9BCC5F; */
+  background-color: rgb(144, 194, 85);
+  padding-top: 15px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0.5px 1px 2px rgba(136, 136, 136, 0.66);
+  border: 1px solid #91C056;
 }
 
 .btn.btn-success.btn-large {
@@ -641,8 +681,15 @@ table th {
 }
 
 .sms-button {
-  margin-top: 0px;
+  margin-top: 10px;
+  /* margin-top: -75px;
+   margin-left: 500px;*/
 }
+
+.smsdropdown {
+  margin-top: 10px;
+}
+
 
 #smstime-value {
   font-weight: bold;
@@ -690,6 +737,11 @@ table th {
   font-family: 'Open Sans', sans-serif;
 }
 
+.white {
+  color: #FFF;
+  font-weight: bold;
+}
+
 p {
   font-family: 'Open Sans', sans-serif;
   color: rgba(86, 86, 86, 0.87);
@@ -721,6 +773,20 @@ h1 {
  tr {
   height: 10px;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.page-padding {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.smsloangiver {
+  padding-left: 30px;
+}
+
 
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
@@ -783,6 +849,7 @@ input[type=checkbox]+.lbl.padding-0::before,input[type=radio]+.lbl.padding-0::be
 
 input[type=checkbox]+.lbl::before,input[type=radio]+.lbl::before {
   font-family: arial;
+  font-family: fontAwesome;  
   /* font-weight: normal; */
   font-size: 11px;
   color: rgba(27, 203, 9, 1);
@@ -850,4 +917,94 @@ input[type=radio]:checked+.lbl::before {
 /* Navbar that sticks and shrinks */
 /* http://stackoverflow.com/questions/24765155/shrinking-navigation-bar-when-scrolling-down-bootstrap3 */
 /* http://webdesign.tutsplus.com/tutorials/how-to-build-a-shrinking-fixed-top-bar-with-foundation--cms-20895 */
+
+
+/* http://danielstern.ca/range.css/#/ */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 4.15px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5.7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #4a4a4a;
+  border-radius: 11.9px;
+  border: 0px solid #000127;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid #398439;
+  height: 14px;
+  width: 14px;
+  border-radius: 6px;
+  background: #50AD50;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4.15px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #4a4a4a;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5.7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #4a4a4a;
+  border-radius: 11.9px;
+  border: 0px solid #000127;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid #398439;
+  height: 14px;
+  width: 14px;
+  border-radius: 6px;
+  background: #50AD50;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5.7px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #4a4a4a;
+  border: 0px solid #000127;
+  border-radius: 23.8px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-fill-upper {
+  background: #4a4a4a;
+  border: 0px solid #000127;
+  border-radius: 23.8px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0.4px solid #398439;
+  height: 14px;
+  width: 14px;
+  border-radius: 6px;
+  background: #a7c255;
+  cursor: pointer;
+  height: 5.7px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #4a4a4a;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #4a4a4a;
+}
+
+
 
