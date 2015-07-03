@@ -84,12 +84,60 @@ class AdminsmsloansController < ApplicationController
       # combine theses two into one string variable   @smslan = @slider1 + @slider2
       # search for that variable
     else
+      #HAD TO COMMENT AWAY THIS ROW TO GET BOTH SLIDERS AND DROPDOWNS TO WORK
+      #@plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
 
-      @plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
       #@pluckvalue = "debtor_loantime_1year_10k"
       #@pluckvalue2 = "newdebtor_loantime_1year_10k"
       #@plucker = Smsloan.pluck(@pluckvalue)
     end
+
+
+    if params[:search1] # this block is for the form with dropdowns in mobile and tablet
+
+      @smsdrop1 = params[:search1]
+      @smsdrop2 = params[:search2]
+      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
+      a = {'1' => '_5h', '2' => '_1k', '3' => '_2k', '4' => '_3k', '5' => '_4k', '6' => '_5k', '7' => '_6k', '8' => '_7k', '9' => '_8k', '10' => '_9k', '11' => '_10k', '12' => '_15k', '13' => '_20k', '14' => '_25k', '15' => '_30k'}
+
+      @drop1 = h[@smsdrop1[0]]
+      @drop2 = a[@smsdrop2]
+
+
+      @combiner =[@drop1, @drop2].join("")
+
+      r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
+      @drop3 = r[@smsdrop1[0]]
+      @combiner2 =[@drop3, @drop2].join("")
+
+      @plucker = Smsloan.order(@combiner2, @combiner).pluck(:bank, :min_loanamount, :max_loanamount, @combiner, @combiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+
+      params.delete :search #this clears the 
+    else
+      #HAD TO COMMENT AWAY THIS ROW TO GET BOTH SLIDERS AND DROPDOWNS TO WORK
+      #@plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
+    end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

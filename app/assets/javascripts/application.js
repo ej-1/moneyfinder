@@ -39,6 +39,10 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+      $("select#search").change(function(){
+        $(this).closest("form").submit();
+      });
+
       $("#slider1").mousemove(function () {
         var newValue = $('#slider1').val();
 
