@@ -430,10 +430,11 @@ Media queries
 
 @media (min-width: 980px) and (max-width: 1200px) {
   #smsloan_sliders {
+    display: none;
   }
 
   #smsloan_dropdowns {
-    display: none;
+
   }
 }
 
@@ -684,9 +685,15 @@ table th {
 }
 
 .sms-button {
+  margin-top: 10px;
   /* margin-top: -75px;
    margin-left: 500px;*/
 }
+
+.smsdropdown {
+  margin-top: 10px;
+}
+
 
 #smstime-value {
   font-weight: bold;

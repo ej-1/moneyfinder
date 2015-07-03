@@ -7,7 +7,7 @@
         .row
           .span8
             %h1.pagetitle Jämför SMSlån
-            %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 25 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
+            %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 30 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
             %p.fonts
               Om du vill endast jämföra de olika
               %b gratislånen
@@ -64,8 +64,9 @@
                 #smsloan_dropdowns
                   //http://stackoverflow.com/questions/11762542/passing-multiple-parameters-in-a-form-tag
                   = form_tag smslan_path, :method => "get", id: "search-form", remote: true do
-                    = select_tag :search1, options_for_select([["14 dagar", "1"], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1])
-                    = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2])
+                    = select_tag :search1, options_for_select([["14 dagar", "1"], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown"
+
+                    = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown"
                     = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
 
               / /Slider - http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/
@@ -152,9 +153,9 @@
                       %td= smsloan.weblink.to_s.html_safe
 
 
-          .span8.top-buffer
+          .span8.top-buffer.scrollhere
             %hr/
-          .span8.scrollhere
+          .span8
           %h1.top-buffer.bottom-buffer.pagetitle.text-center Vanliga frågor
 
           .span4.bottom-buffer.padhack
