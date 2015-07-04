@@ -126,10 +126,7 @@ $(document).ready(function() {
       // When clicking "Vanliga frågor" in navbar the view scrolls down if you are on smslan page, if not then it changes page and scrolls down.
       if ($(".scrollhere").length) {
           $(".vanliga-fragor").click(function () {
-              $('html,body').animate({
-                  scrollTop: $(".scrollhere").offset().top
-              },
-                  'slow');
+              
           });
 
 
@@ -138,12 +135,12 @@ $(document).ready(function() {
 
               window.location.href = 'http://www.moneylabs.se/smslan';
 
-               $(document).ready(function() {
+          if (window.location.href.indexOf("http://www.moneylabs.se/smslan") > -1) {
               $('html,body').animate({
                   scrollTop: $(".scrollhere").offset().top
               },
                   'slow');
-              });
+          }
 
 
       });
