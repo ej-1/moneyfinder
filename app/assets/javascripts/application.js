@@ -124,30 +124,28 @@ $(document).ready(function() {
 
 
       // When clicking "Vanliga frågor" in navbar the view scrolls down if you are on smslan page, if not then it changes page and scrolls down.
-      if ($(".scrollhere").length) {
-          $(".vanliga-fragor").click(function () {
-              
-          });
-
+      if ($(".scrollhere").length) { 
+        $(".vanliga-fragor").click(function() {
+                $('html,body').animate({
+                    scrollTop: $(".scrollhere").offset().top},
+                    'slow');
+            });
+      
 
       } else if ($(".scrollhere").length === 0) {
-          $(".vanliga-fragor").click(function () {
+            $(".vanliga-fragor").click(function() {
+              window.location.replace("http://www.moneylabs.se/smslan#scrollhere");
 
-              window.location.href = 'http://www.moneylabs.se/smslan';
-
-          if (window.location.href.indexOf("http://www.moneylabs.se/smslan") > -1) {
-              $('html,body').animate({
-                  scrollTop: $(".scrollhere").offset().top
-              },
-                  'slow');
-          }
-
-
-      });
-      }
+              });
+            }
 
       //http://stackoverflow.com/questions/21718282/check-if-url-contains-string-with-jquery
-
+      if (window.location.href.indexOf("smslan#scrollhere") > -1) {
+          $('html,body').animate({
+              scrollTop: $(".scrollhere").offset().top
+          },
+              'slow');
+      }
 
 
       // get it without clicking button http://www.tutorialrepublic.com/faq/show-hide-divs-based-on-checkbox-selection-in-jquery.php
