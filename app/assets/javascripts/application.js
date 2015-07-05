@@ -134,7 +134,7 @@ $(document).ready(function() {
 
       } else if ($(".scrollhere").length === 0) {
             $(".vanliga-fragor").click(function() {
-              window.location.replace("http://www.moneylabs.se/smslan#scrollhere");
+              window.location.replace("http://www.moneylabs.se/smslån#scrollhere");
 
               });
             }

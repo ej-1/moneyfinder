@@ -498,6 +498,11 @@ Media queries
 }
 
 @media (max-width: 767px) {
+  .page-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   #smsloan_sliders {
     display: none;
   }
@@ -531,6 +536,11 @@ Media queries
 }
 
 @media (max-width: 480px) {
+  .page-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   #smsloan_sliders {
     display: none;
   }
@@ -778,13 +788,20 @@ h1 {
   text-align: center;
 }
 
-.page-padding {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
 .smsloangiver {
   padding-left: 30px;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
 }
 
 
