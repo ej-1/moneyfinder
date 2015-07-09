@@ -355,6 +355,19 @@ ul /* Make as lists, especially the one with buttons on loanlanding page without
   font-size: 35.5;
 }
 
+.adsense {
+  padding-left: 10px;
+  margin-top: 150px;
+}
+
+.adsense2 {
+  padding-left: 20px;
+}
+
+
+.green {
+  background-color: green;
+}
 
 
 /*
@@ -499,8 +512,8 @@ Media queries
 
 @media (max-width: 767px) {
   .page-padding {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   #smsloan_sliders {
@@ -537,8 +550,8 @@ Media queries
 
 @media (max-width: 480px) {
   .page-padding {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   #smsloan_sliders {
@@ -1022,6 +1035,3 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #4a4a4a;
 }
-
-
-
