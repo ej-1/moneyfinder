@@ -1,4 +1,3 @@
-
 %table#table_id
   %thead
     %tr
@@ -29,8 +28,8 @@
         %td.smsloangiver= bank.to_s.html_safe
         %td= number_to_currency(min_loanamount, strip_insignificant_zeros: true, locale: :fr)
         %td= number_to_currency(max_loanamount, strip_insignificant_zeros: true, locale: :fr)
-        %td= number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-        %td= number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+        %td.bold-text= number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+        %td.bold-text= number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
         %td.hidden-smslan= max_amount_new_borrower
         %td.hidden-smslan= invoice_fee
         %td.hidden-smslan= application_fee
@@ -48,3 +47,6 @@
         %td.hidden-smslan= open_on_sundays
         %td= weblink.to_s.html_safe
 
+#tryagain1
+#tryagain2
+#tryagain3

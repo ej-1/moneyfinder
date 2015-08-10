@@ -51,8 +51,9 @@ class AdminsmsloansController < ApplicationController
       #HAD TO COMMENT AWAY THIS ROW TO GET BOTH SLIDERS AND DROPDOWNS TO WORK
       #@plucker = Smsloan.pluck(:bank, :debtor_loantime_14d_1k, :newdebtor_loantime_14d_1k)
     end
-
-
+      # This solved the issue of make the form submit when dragging the sliders without using the submit button.
+      # The issue was that the form reloaded the page instead of loading the partial.
+      # http://stackoverflow.com/questions/23703631/rails4-ajax-returning-the-text-inside-my-js-erb-file
 
 
 

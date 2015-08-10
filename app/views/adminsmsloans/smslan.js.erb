@@ -23,3 +23,11 @@ $('input:checked').each(function() {
   $('td:contains("' + $(this).val() + '")').parent().hide();
 });
 
+//This checks if there are any loangivers offering a loan for 
+var rowCount = $('#table_id tr:visible').size()
+
+if (rowCount === 1){
+  $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
+  $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
+  $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
+}

@@ -36,8 +36,10 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
-      $("select#search").change(function(){
-        $(this).closest("form").submit();
+
+      $( ".glyph" ).click(function() {
+        $( ".advanced-search-options" ).slideToggle( "fast", function() {
+        });
       });
 
       $("#slider1").mousemove(function () {
