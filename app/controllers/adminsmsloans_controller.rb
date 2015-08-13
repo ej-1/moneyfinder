@@ -10,10 +10,43 @@ class AdminsmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
+  def signup
+    @signup = Signup.new(params[:email])
+    @signupers = Signup.all
+  end
 
+   def register
+     @signup = Signup.new(params[:email])
+       if(request.post? and @signup.save)
+             flash[:notice] = “Account Created Successfully”
+             redirect_to :controller => ‘yourloginsuccessfullycontrollername’
+       end
+   end
 
   def smslan
+   @signup = Signup.new(params[:signup])
+     if(request.post? and @signup.save)
+           flash[:notice] = “Account Created Successfully”
+           redirect_to :controller => ‘yourloginsuccessfullycontrollername’
+     end
+
+    @signupers = Signup.all
+
+
+    
+
     @smslan = Smsloan.all
+
+    # This block handles the data for the SMSloan overview
+
+
+
+      # This section cleans up the data about lowcreditscore so only output is 'Ja' or 'Nej'.
+
+
+
+
+    
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
     # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.
     # After I have selected the correct columns

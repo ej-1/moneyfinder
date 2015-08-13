@@ -3,10 +3,10 @@
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
 //.page-padding
 
-.row
+.row.row-padding-fix 
   .span1
   .span10
-    %h1.pagetitle Jämför SMSlån
+    %h1.pagetitle J
     %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 30 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
     %p.fonts
       Om du vill endast jämföra de olika
@@ -16,7 +16,7 @@
         %span.linkclass klicka här.
     //%p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det billigaste lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
     .span1
-.row
+.row.row-padding-fix 
   .span1
   .span10.smsloaninterface
     .row.row-padding-fix 
@@ -116,6 +116,7 @@
             //= submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
         #smsloan_dropdowns.content-top2.row-padding-fix.smsloandropdown-fix3 
 
+
           .span3
             %p.fonts.white Välj löptid på lånet
             %p#W1.smsloandropdown-fix
@@ -124,6 +125,12 @@
               %p.fonts.white Välj lånebelopp
               %p#W2.smsloandropdown-fix
               = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();"
+
+        .span1
+          %button.btn.btn-success
+            %i.icon-white.icon-zoom-in
+            Visa lånöversikt
+
 
           //.span3
           //  %p.fonts.white Välj löptid på lånet
@@ -139,7 +146,7 @@
           //  = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();"
           //  = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
   .span1
-.row
+.row.row-padding-fix 
   .span1
   .span10
     #div_id
@@ -191,13 +198,487 @@
               %td.hidden-smslan= smsloan.open_on_sundays
               %td= smsloan.weblink.to_s.html_safe
 
+
+
+
+
+.row.row-padding-fix
+  .span1
+  .span10
+  - @smslan.each do |smsloan|
+    .row.row-padding-fix.content-top
+      .switch_smsloan_example1
+        .row
+          .smslogo-size= smsloan.bank.to_s.html_safe
+          %table#smsloanexampletable
+            %thead
+              %tr
+                %th Belopp
+                %th 30 dagar
+                %th 60 dagar
+            %tbody
+              %tr
+                %td 3000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_3k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_3k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_3k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_3k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_3k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_3k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 4000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_4k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_4k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_4k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_4k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_4k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_4k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 5000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_5k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_5k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_5k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_5k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_5k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_5k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 7000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_7k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_7k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_7k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_7k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_7k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_7k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 10 000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_10k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_10k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_10k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_10k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_10k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_10k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 15 000 kr
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_30d_15k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_15k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_15k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td
+                  - @smsloanoverview1 = smsloan.debtor_loantime_60d_15k
+                  - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_15k
+                  - if @smsloanoverview1 == @smsloanoverview2
+                    - @smsloanoverview2 = ""
+                  - else
+                    - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_15k
+                    - if @smsloanoverview2 = 0
+                      - @smsloanoverview2 = "(0)"
+                    - else
+                      - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                  %ul#horizontal-list
+                    %li= @smsloanoverview2
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+      .switch_smsloan_example2
+        .span1
+        .span6
+          .row
+            .span2
+              //%p with span
+              .smslogo-size= smsloan.bank.to_s.html_safe
+            .span4
+              %table#smsloanexampletable
+                %thead
+                  %tr
+                    %th Belopp
+                    %th 30 dagar
+                    %th 60 dagar
+                %tbody
+                  %tr
+                    %td 3000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_3k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_3k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_3k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_3k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_3k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_3k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                  %tr
+                    %td 4000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_4k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_4k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_4k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_4k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_4k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_4k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                  %tr
+                    %td 5000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_5k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_5k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_5k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_5k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_5k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_5k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                  %tr
+                    %td 7000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_7k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_7k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_7k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_7k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_7k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_7k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                  %tr
+                    %td 10 000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_10k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_10k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_10k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_10k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_10k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_10k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                  %tr
+                    %td 15 000 kr
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_30d_15k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_15k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_30d_15k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                    %td
+                      - @smsloanoverview1 = smsloan.debtor_loantime_60d_15k
+                      - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_15k
+                      - if @smsloanoverview1 == @smsloanoverview2
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanvalue1 = smsloan.newdebtor_loantime_60d_15k
+                        - if @smsloanoverview2 = 0
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - @smsloanoverview2 = "(" + @smsloanvalue1.floor.to_s + " kr)"
+                      %ul#horizontal-list
+                        %li= @smsloanoverview2
+                        %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+      .span4
+        .row
+          .smsloanoverviewinfo.float-left
+            //%p Ansökningsavgift 0 kr
+            %p
+              %strong> Lånebelopp
+              \: 
+              - @smsloan_minamount = smsloan.min_loanamount
+              - @smsloan_maxamount = smsloan.max_loanamount
+              = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+            %p
+              %strong> Åldersgräns
+              \: 
+              = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+              //try this
+              //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+            %p
+              %strong> SKEF-medlem
+              \:
+              = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+              = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+            %p
+              %strong> Lån trots betalningsanm.
+              \:
+              //= Smsloan.second.low_credit_score
+              = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+            %p
+              = excerpt(smsloan.no_uc, 'UC', radius: 6, omission: '')
+
+          .smsloanoverview_buttons.float-right
+            %ul
+              %li
+                %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök om lån
+              %li
+                .div.typeofloan-sms
+                  .glyphicon.glyphicon-ok.float-left.typeofloancheckmark
+                  .typeofloaninfo SMSlån
+
+
+
+
+
+
+
+  .span12
+    = form_for @signup do |f|
+      %p
+        Email:
+        %br/
+        = f.text_field :email
+      %p= submit_tag "Create Account"
+
+    %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
+      %thead
+        %tr
+          %th Emailadresser
+      %tbody
+        - @signupers.each do |signup|
+          %tr
+            %td= signup.email
+
+    - if @signupers.length > 0
+      = render @signupers
+    - else
+      = 'No records found'
+
+
+
 .row
   .span10.top-buffer.scrollhere
     %hr/
-.row
+.row.thebiggreyarea
   .span10
   %h1.top-buffer.bottom-buffer.pagetitle.text-center Vanliga frågor
-.row
+.row.thebiggreyarea
   .span1
   .span5.bottom-buffer.padhack
     %h2.h2-hulk.top-buffer2 Vad är SMSlån?

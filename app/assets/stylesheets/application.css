@@ -293,7 +293,7 @@ input{
 ul /* Make as lists, especially the one with buttons on loanlanding page without bullets. */
 {
     list-style-type: none;
-    color: white;
+    /*color: white;*/
 }
 
 /* MAINLANDING */
@@ -409,6 +409,24 @@ Media queries
     display: none;
   }
 
+  .smslogo-size{
+    width: 115%;
+  }
+
+  .switch_smsloan_example1{
+    display:none;
+  }
+
+  .switch_smsloan_example2{
+  }
+
+  .smsloanoverviewinfo{
+    padding-left: 10px;
+  }
+
+  .smsloanoverview_buttons{
+  }
+
 }
 
 @media (max-width: 1200px) {
@@ -441,6 +459,10 @@ Media queries
   .show767-979 {
     display: none;
   }
+
+  .smslogo-size{
+    width: 115%;
+  }
 }
 
 @media (min-width: 980px) and (max-width: 1200px) {
@@ -462,6 +484,26 @@ Media queries
   .show767-979 {
     display: inline;
   }
+
+  .smslogo-size{
+    width: 115%;
+  }
+
+  .switch_smsloan_example1{
+    display:none;
+  }
+
+  .switch_smsloan_example2{
+  }
+
+  .smsloanoverviewinfo{
+    padding-left: 10px;
+  }
+
+  .smsloanoverview_buttons{
+    margin-right: -50px;
+  }
+
 }
 
 @media (max-width: 979px) {
@@ -489,6 +531,10 @@ Media queries
       height: 30px;
       padding-top: 20px;
       padding-bottom: 20px;
+  }
+
+  .smslogo-size{
+    width: 115%;
   }
 }
 
@@ -537,6 +583,25 @@ Media queries
   .smsloandropdown-fix {
     margin-top: -20px;
   }
+
+  .switch_smsloan_example1{
+    display:none;
+  }
+
+  .switch_smsloan_example2{
+  }
+
+  .smslogo-size{
+    width: 115%
+  }
+
+  .smsloanoverviewinfo{
+    padding-left: 10px;
+  }
+
+  .smsloanoverview_buttons{
+    margin-right: -117px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -577,7 +642,8 @@ Media queries
   }
 
   .row-padding-fix {
-    padding-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .smsloandropdown-fix {
@@ -591,7 +657,41 @@ Media queries
   .hide767-979 {
     display: none !important;
   }
+
+  #smsloanexample {
+
+  }
+
 }
+
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .switch_smsloan_example1{
+  }
+
+  .switch_smsloan_example2{
+    display:none;
+  }
+
+  .smslogo-size{
+    width: 33%;
+  }
+
+  .smsloanoverviewinfo{
+    padding-top: 5px;
+  }
+
+  .smsloanoverviewinfo{
+    padding-left: 10px;
+  }
+
+  .smsloanoverview_buttons{
+    padding-top: 5px;
+  }
+}
+
+
 
 @media (max-width: 480px) {
   .page-padding {
@@ -678,6 +778,45 @@ Media queries
 
   .hide767-979 {
     display: none !important;
+  }
+
+  #hori-vertical-list{
+    margin-top: 75px;
+  }
+
+  .smslogo-size{
+    width: 90%;
+  }
+
+  #smsloanexampletable{
+  }
+
+  .switch_smsloan_example1{
+  }
+
+  .switch_smsloan_example2{
+    display: none;
+  }
+
+  .smsloanoverviewinfo{
+    padding-top: 5px;
+    width: 50%;
+    margin-left: 3%;
+  }
+
+  .smsloanoverview_buttons{
+    width: 50%;
+    margin-right: 3%;
+  }
+
+  .smsloanoverviewinfo{
+    padding-left: 10px;
+  }
+
+  .smsloanoverview_buttons{
+    padding-top: 5px;
+    margin-left: -30px;
+    padding-left: 4%;
   }
 }
 
@@ -899,6 +1038,77 @@ table th {
 
 /* Applies cursor:default to all elements except links. For some reason cursor: text or auto is applid on every element, but not sure where the css is located. */
 :not(a:link) {cursor: default;}
+
+#smsloanexampletable th{
+  background-color: white;
+  font-size: 13px;
+  color: black;
+  height: 25px;
+  border: 1px solid #CCC;
+}
+
+#smsloanexampletable td{
+  background-color: white;
+  font-size: 13px;
+  color: black;
+  height: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.typeofloan-blancolan{
+  background-color: #337AB7;
+  border-radius: 8px;
+  font-size: 13px;
+  color: white;
+  margin-top: 10px;
+  width: 120px;
+  height: 20px;
+}
+
+.typeofloan-sms{
+  background-color: #F0AD4E;
+  border-radius: 8px;
+  font-size: 13px;
+  color: white;
+  margin-top: 10px;
+  width: 120px;
+  height: 20px;
+}
+
+.typeofloaninfo{
+  margin-left: 28px;
+  margin-bottom: 20px;
+}
+
+.typeofloancheckmark{
+  margin-left: 11px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+.smsloanoverviewinfo{
+  font-size: 11px;
+}
+
+.thebiggreyarea{
+  background-color: grey;
+}
+
+ul#horizontal-list{
+  margin-left: 0px;
+  margin-bottom: -8px;
+  padding-bottom: 10px;
+}
+
+ul#horizontal-list li{
+  display:inline;
+  color: #000;
+  font-size: 13px;
+  font-family: "Open Sans",sans-serif;
+}
+
+
 
 
 
