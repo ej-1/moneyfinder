@@ -648,29 +648,6 @@
 
 
 
-  .span12
-    = form_for @signup do |f|
-      %p
-        Email:
-        %br/
-        = f.text_field :email
-      %p= submit_tag "Create Account"
-
-    %table.content-top#resultTable{cellpadding: "1", cellspacing: "1"}
-      %thead
-        %tr
-          %th Emailadresser
-      %tbody
-        - @signupers.each do |signup|
-          %tr
-            %td= signup.email
-
-    - if @signupers.length > 0
-      = render @signupers
-    - else
-      = 'No records found'
-
-
 
 .row
   .span10.top-buffer.scrollhere
