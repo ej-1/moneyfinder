@@ -23,6 +23,8 @@ Ratesfinder::Application.routes.draw do
   get "bolan" => 'adminmortgageloans#mortgageloans'
   get "smslan" => 'adminsmsloans#smslan'
   get "smslan_nouc" => 'adminsmsloans#smslan_nouc'
+
+  post '/signup', :to=>"adminsmsloans#smslan", :as=>"signups"
   #get "smslan" => 'adminsmsloans#smslanfilter'
 
 
