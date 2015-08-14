@@ -32,21 +32,8 @@ class AdminsmsloansController < ApplicationController
 
   #  @signupers = Signup.all
 
-
-    
-
     @smslan = Smsloan.all
 
-    # This block handles the data for the SMSloan overview
-
-
-
-      # This section cleans up the data about lowcreditscore so only output is 'Ja' or 'Nej'.
-
-
-
-
-    
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
     # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.
     # After I have selected the correct columns

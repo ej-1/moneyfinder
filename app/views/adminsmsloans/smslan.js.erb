@@ -11,7 +11,7 @@
 
 $('#div_id').html("<%= escape_javascript(render :partial => 'smslan2') %>");
 
-$('tr').filter(function() {
+$('#table_id tr').filter(function() {
     return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
       return ! $.trim($(this).text());  
     }).length;
@@ -20,7 +20,7 @@ $('tr').filter(function() {
 
 //Code copied from showHideProducts. If one checks a checkbox after a filter search then does another, then the checkbox is still in effect.
 $('input:checked').each(function() {
-  $('td:contains("' + $(this).val() + '")').parent().hide();
+  $('table_id td:contains("' + $(this).val() + '")').parent().hide();
 });
 
 //This checks if there are any loangivers offering a loan for 

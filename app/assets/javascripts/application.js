@@ -36,11 +36,12 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
-
+      // Code for the "Advancerad filtrering" link
       $( ".glyph" ).click(function() {
         $( ".advanced-search-options" ).slideToggle( "fast", function() {
         });
       });
+
 
       $("#slider1").mousemove(function () {
         var newValue = $('#slider1').val();
@@ -159,7 +160,7 @@ $(document).ready(function() {
 
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       $('input:checked').each(function() {
-        $('td:contains("' + $(this).val() + '")').parent().hide();
+        $('table_id td:contains("' + $(this).val() + '")').parent().hide();
       });
 
       $('input:checkbox').change(showHideProducts);
@@ -170,8 +171,8 @@ $(document).ready(function() {
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           if ( $('#smsbutton').data('clicked', true)) {
             //Hide rows with empty cells
-            $('tr').filter(function() {
-                return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
+            $('table_id tr').filter(function() {
+                return $(this).find('table_id td:visible:not(".smsloangiver")').filter(function() {
                   return ! $.trim($(this).text());  
                 }).length;
             }).hide();
@@ -190,7 +191,7 @@ $(document).ready(function() {
               function()
               {
                   // had to put this code in from smsloanbutton to make it work together
-                  $('td:contains("' + $(this).val() + '")').parent().hide();
+                  $('table_id td:contains("' + $(this).val() + '")').parent().hide();
                   //$('tr').filter(function() {
                   //    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                   //      return ! $.trim($(this).text());  
@@ -200,7 +201,7 @@ $(document).ready(function() {
           );
       }
 
-    
+
 
 
       //http://stackoverflow.com/questions/4323848/how-to-handle-button-click-events-in-jquery
