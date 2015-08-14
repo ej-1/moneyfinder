@@ -10,27 +10,27 @@ class AdminsmsloansController < ApplicationController
     @smsloans = Smsloan.all
   end
 
-  def signup
-    @signup = Signup.new(params[:email])
-    @signupers = Signup.all
-  end
+  #def signup
+  #  @signup = Signup.new(params[:email])
+  #  @signupers = Signup.all
+  #end
 
-   def register
-     @signup = Signup.new(params[:email])
-       if(request.post? and @signup.save)
-             flash[:notice] = “Account Created Successfully”
-             redirect_to :controller => ‘yourloginsuccessfullycontrollername’
-       end
-   end
+  # def register
+  #   @signup = Signup.new(params[:email])
+  #     if(request.post? and @signup.save)
+  #           flash[:notice] = “Account Created Successfully”
+  #           redirect_to :controller => ‘yourloginsuccessfullycontrollername’
+  #     end
+  # end
 
   def smslan
-   @signup = Signup.new(params[:signup])
-     if(request.post? and @signup.save)
-           flash[:notice] = “Account Created Successfully”
-           redirect_to :controller => ‘yourloginsuccessfullycontrollername’
-     end
+  # @signup = Signup.new(params[:signup])
+  #   if(request.post? and @signup.save)
+  #         flash[:notice] = “Account Created Successfully”
+  #         redirect_to :controller => ‘yourloginsuccessfullycontrollername’
+  #   end
 
-    @signupers = Signup.all
+  #  @signupers = Signup.all
 
 
     
