@@ -28,9 +28,9 @@
               - @cost_debtor_texted = "-"
             - if plucker2.nil?
               - @cost_newdebtor = "-"
-            %td.smsloangiver= bank.to_s.html_safe
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
 
-            %td.sms_info_list_mobileformat
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
               %ul.sms_info_list
                 %li
                   %p
@@ -60,16 +60,16 @@
                   %p
                     = excerpt(no_uc, 'UC', radius: 6, omission: '')
 
-            %td.check_if_empty.sms_costs_mobileformat
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
               %ul
                 %li
-                  .sms_costnew= @cost_newdebtor
+                  .sms_costnew_searchresult= @cost_newdebtor
               %ul#horizontal-list
                 %li
-                  .sms_costold= @cost_debtor_texted
+                  .sms_costold_searchresult= @cost_debtor_texted
 
 
-            %td.sms_ansokbutton_mobileformat= weblink.to_s.html_safe
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
             %td.hidden-smslan= max_amount_new_borrower
             %td.hidden-smslan= invoice_fee
             %td.hidden-smslan= application_fee
