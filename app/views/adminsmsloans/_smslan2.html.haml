@@ -11,7 +11,7 @@
         %li.bold-text= @smstime_visible_info_for_user
         %li
           = form_tag smslan3_path, :method => "get", id: "search-form", remote: true do
-            = button_tag(type: 'submit', class: "btn btn-info btn-small") do
+            = button_tag(type: 'submit', class: "btn btn-info btn-info") do
               %i.icon-white.icon-list
               Visa lånöversikt igen
 
@@ -30,10 +30,10 @@
               - @cost_newdebtor = "-"
             %td.smsloangiver= bank.to_s.html_safe
 
-            %td
+            %td.sms_info_list_mobileformat
               %ul.sms_info_list
                 %li
-                  %p.distance
+                  %p
                     %strong> Lånebelopp
                     \: 
                     - @smsloan_minamount = min_loanamount
@@ -60,7 +60,7 @@
                   %p
                     = excerpt(no_uc, 'UC', radius: 6, omission: '')
 
-            %td.check_if_empty
+            %td.check_if_empty.sms_costs_mobileformat
               %ul
                 %li
                   .sms_costnew= @cost_newdebtor
@@ -69,7 +69,7 @@
                   .sms_costold= @cost_debtor_texted
 
 
-            %td= weblink.to_s.html_safe
+            %td.sms_ansokbutton_mobileformat= weblink.to_s.html_safe
             %td.hidden-smslan= max_amount_new_borrower
             %td.hidden-smslan= invoice_fee
             %td.hidden-smslan= application_fee

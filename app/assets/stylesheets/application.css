@@ -433,6 +433,21 @@ Media queries
     padding-bottom: 10px;
   }
 
+  .smsloangiver {
+    padding-left: 30px;
+    max-width: 90px;
+  }
+
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .sms_costold{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -514,6 +529,21 @@ Media queries
     padding-bottom: 10px;
     padding-bottom: 10px;
   }
+
+  .smsloangiver {
+    padding-left: 30px;
+    max-width: 90px;
+  }
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .sms_costold{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
+  }
 }
 
 @media (max-width: 979px) {
@@ -545,6 +575,17 @@ Media queries
 
   .smslogo-size{
     width: 115%;
+  }
+
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .sms_costold{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
   }
 }
 
@@ -616,6 +657,22 @@ Media queries
   ul#smsloan_options_chosen{
     padding-bottom: 10px;
     padding-bottom: 10px;
+  }
+
+  .smsloangiver {
+    padding-left: 30px;
+    max-width: 90px;
+  }
+
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .sms_costold{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
   }
 }
 
@@ -707,6 +764,22 @@ Media queries
   ul#smsloan_options_chosen{
     padding-bottom: 10px;
     padding-bottom: 10px;
+  }
+
+  .smsloangiver {
+    padding-left: 30px;
+    max-width: 90px;
+  }
+
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .sms_costold{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
   }
 }
 
@@ -842,6 +915,85 @@ Media queries
     padding-bottom: 0px;
     padding-bottom: 0px;
   }
+
+  /* RESPONSIVE TABLE */
+/* https://css-tricks.com/responsive-data-tables */
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr { 
+    display: block; 
+  }
+
+  table tr { 
+    height: 185px;
+    margin-top: 10px;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+  }
+  
+  td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+  }
+
+  .sms_info_list_mobileformat { 
+    height: 91px;
+  }
+
+  .sms_costs_mobileformat { 
+    margin-left: 65%;
+    margin-top: -90px;
+  }
+
+  .sms_ansokbutton_mobileformat {
+    margin-left: 40%;
+    margin-top: 62px;
+    width: 40px;
+
+  }
+
+  table tr:empty {
+    height: 0px;
+
+  }
+
+  .smsloangiver {
+    padding-left: 15px;
+    max-width: 220px;
+    margin-bottom: 23px;
+  }
+
+  .sms_costnew{
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 15px;
+    color: #4C5954
+  }
+
+  .sms_costold{
+    font-size: 11px;
+    font-family: 'Open Sans', sans-serif;
+    color: #7C8D87;
+  }
+/* RESPONSIVE TABLE END */
 }
 
 
@@ -1026,10 +1178,6 @@ h1 {
   text-align: center;
 }
 
-.smsloangiver {
-  padding-left: 30px;
-  max-width: 90px;
-}
 
 .bold-text {
   font-weight: bold;
@@ -1133,17 +1281,6 @@ ul#horizontal-list li{
   font-family: "Open Sans",sans-serif;
 }
 
-.sms_costnew{
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.sms_costold{
-  font-size: 13px;
-  font-family: 'Open Sans', sans-serif;
-  color: #7C8D87;
-}
-
 .sms_info_list p{
   text-align: left;
   font-size: 10px;
@@ -1189,9 +1326,33 @@ table.ex1 tr:empty {
   margin-top: -12px;
 }
 
-.distance {
-  padding-top: 5px;
-}
+
+
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
 
