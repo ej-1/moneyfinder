@@ -54,6 +54,11 @@ class AdminsmsloansController < ApplicationController
       @replace2 = a[@pluckervalue[1]]
       @replace1 = h[@smsarray[0]]
 
+      i = {'1' => '14 dagar', '2' => '21 dagar', '3' => '30 dagar', '4' => '45 dagar', '5' => '60 dagar', '6' => '90 dagar', '7' => '1 år'}
+      @smstime_visible_info_for_user2 = i[@smsarray[0]]
+      ii = {'1' => '500 kr', '2' => '1000 kr', '3' => '2000 kr', '4' => '3000 kr', '5' => '4000 kr', '6' => '5000 kr', '7' => '6000 kr', '8' => '7000 kr', '9' => '8000 kr', '10' => '9000 kr', '11' => '10 000 kr', '12' => '11 000 kr', '13' => '20 000 kr', '14' => '25 000 kr', '15' => '30 000 kr'}
+      @smsamount_visible_info_for_user2 = ii[@pluckervalue[1]]
+
       @joiner =[@replace1, @replace2].join("")
 
       r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
@@ -88,10 +93,18 @@ class AdminsmsloansController < ApplicationController
       @drop1 = h[@smsdrop1[0]]
       @drop2 = a[@smsdrop2]
 
+      i = {'1' => '14 dagar', '2' => '21 dagar', '3' => '30 dagar', '4' => '45 dagar', '5' => '60 dagar', '6' => '90 dagar', '7' => '1 år'}
+      @smstime_visible_info_for_user = i[@smsdrop1[0]]
+      ii = {'1' => '500 kr', '2' => '1000 kr', '3' => '2000 kr', '4' => '3000 kr', '5' => '4000 kr', '6' => '5000 kr', '7' => '6000 kr', '8' => '7000 kr', '9' => '8000 kr', '10' => '9000 kr', '11' => '10 000 kr', '12' => '11 000 kr', '13' => '20 000 kr', '14' => '25 000 kr', '15' => '30 000 kr'}
+      @smsamount_visible_info_for_user = ii[@smsdrop2]
+
+      #olddebtor
       @combiner =[@drop1, @drop2].join("")
 
       r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
       @drop3 = r[@smsdrop1[0]]
+
+      #newdebtor
       @combiner2 =[@drop3, @drop2].join("")
 
       @plucker = Smsloan.order(@combiner2, @combiner).pluck(:bank, :min_loanamount, :max_loanamount, @combiner, @combiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
@@ -110,6 +123,13 @@ class AdminsmsloansController < ApplicationController
     end
   end
 
+  def smslan3 #This function is for the button "Visa lånöversikt igen"
+    @smslan = Smsloan.all
+    respond_to do |format|               
+      format.html # smslan.html.erb
+      format.js   # smslan.js.erb
+    end
+  end
 
   def smslan_nouc
     @smslan = Smsloan.all

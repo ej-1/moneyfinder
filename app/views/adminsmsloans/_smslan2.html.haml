@@ -1,52 +1,94 @@
-%table#table_id
-  %thead
-    %tr
-      %th.th-title Bank
-      %th Minsta lånebelopp
-      %th Högsta lånebelopp
-      %th.th-title Redan kund
-      %th.th-title Ny kund
-      %th.hidden-smslan max_amount_new_borrower
-      %th.hidden-smslan invoice_fee
-      %th.hidden-smslan application_fee
-      %th.hidden-smslan mobile_friendly_site
-      %th.hidden-smslan min_age
-      %th.hidden-smslan low_credit_score
-      %th.hidden-smslan cost_free_loan
-      %th.hidden-smslan cost_free_loan_amount
-      %th.hidden-smslan new_borrower_5K
-      %th.hidden-smslan new_borrower_10K
-      %th.hidden-smslan no_uc
-      %th.hidden-smslan skef_member
-      %th.hidden-smslan bankid
-      %th.hidden-smslan open_on_saturdays
-      %th.hidden-smslan open_on_sundays
-      %th.th-title Ansök här
-  %tbody
-    - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-      %tr
-        %td.smsloangiver= bank.to_s.html_safe
-        %td= number_to_currency(min_loanamount, strip_insignificant_zeros: true, locale: :fr)
-        %td= number_to_currency(max_loanamount, strip_insignificant_zeros: true, locale: :fr)
-        %td.bold-text= number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-        %td.bold-text= number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-        %td.hidden-smslan= max_amount_new_borrower
-        %td.hidden-smslan= invoice_fee
-        %td.hidden-smslan= application_fee
-        %td.hidden-smslan= mobile_friendly_site
-        %td.hidden-smslan= min_age
-        %td.hidden-smslan= low_credit_score
-        %td.hidden-smslan= cost_free_loan
-        %td.hidden-smslan= cost_free_loan_amount
-        %td.hidden-smslan= new_borrower_5K
-        %td.hidden-smslan= new_borrower_10K
-        %td.hidden-smslan= no_uc
-        %td.hidden-smslan= skef_member
-        %td.hidden-smslan= bankid
-        %td.hidden-smslan= open_on_saturdays
-        %td.hidden-smslan= open_on_sundays
-        %td= weblink.to_s.html_safe
+.row.row-padding-fix
+  .span1
+  .span10
+    .center_element2
+      %ul#smsloan_options_chosen
+        %li Sökresultat för:
+        %li.bold-text= @smsamount_visible_info_for_user2
+        %li.bold-text= @smsamount_visible_info_for_user
+        %li med löptid på 
+        %li.bold-text= @smstime_visible_info_for_user2
+        %li.bold-text= @smstime_visible_info_for_user
+        %li
+          = form_tag smslan3_path, :method => "get", id: "search-form", remote: true do
+            = button_tag(type: 'submit', class: "btn btn-info btn-small") do
+              %i.icon-white.icon-list
+              Visa lånöversikt igen
 
-#tryagain1
-#tryagain2
-#tryagain3
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody
+        - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver= bank.to_s.html_safe
+
+            %td
+              %ul.sms_info_list
+                %li
+                  %p.distance
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = excerpt(no_uc, 'UC', radius: 6, omission: '')
+
+            %td.check_if_empty
+              %ul
+                %li
+                  .sms_costnew= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold= @cost_debtor_texted
+
+
+            %td= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    #tryagain1
+    #tryagain2
+    #tryagain3
+
+    //mockup design
+    //https://wireframe.cc/50sd16

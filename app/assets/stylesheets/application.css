@@ -427,6 +427,12 @@ Media queries
   .smsloanoverview_buttons{
   }
 
+  ul#smsloan_options_chosen{
+    margin-left: 0px;
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
 }
 
 @media (max-width: 1200px) {
@@ -504,6 +510,10 @@ Media queries
     margin-right: -50px;
   }
 
+  ul#smsloan_options_chosen{
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 @media (max-width: 979px) {
@@ -602,6 +612,11 @@ Media queries
   .smsloanoverview_buttons{
     margin-right: -117px;
   }
+
+  ul#smsloan_options_chosen{
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -661,7 +676,6 @@ Media queries
   #smsloanexample {
 
   }
-
 }
 
 
@@ -688,6 +702,11 @@ Media queries
 
   .smsloanoverview_buttons{
     padding-top: 5px;
+  }
+
+  ul#smsloan_options_chosen{
+    padding-bottom: 10px;
+    padding-bottom: 10px;
   }
 }
 
@@ -817,6 +836,11 @@ Media queries
     padding-top: 5px;
     margin-left: -30px;
     padding-left: 4%;
+  }
+
+  ul#smsloan_options_chosen{
+    padding-bottom: 0px;
+    padding-bottom: 0px;
   }
 }
 
@@ -1004,6 +1028,7 @@ h1 {
 
 .smsloangiver {
   padding-left: 30px;
+  max-width: 90px;
 }
 
 .bold-text {
@@ -1108,9 +1133,65 @@ ul#horizontal-list li{
   font-family: "Open Sans",sans-serif;
 }
 
+.sms_costnew{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sms_costold{
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  color: #7C8D87;
+}
+
+.sms_info_list p{
+  text-align: left;
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.sms_loangiver_panel{
+
+}
 
 
+ul#smsloan_options_chosen li{
+  display:inline;
+  color: #558EA8;
+  font-size: 12px;
+  font-family: "Open Sans",sans-serif;
+}
 
+table.ex1 { 
+  border-collapse: separate;
+  border-spacing: 0px 12px;
+  box-shadow: 0px 0px 0px rgba(136, 136, 136, 0.66);
+  }
+table.ex1 td, 
+table.ex1 th { 
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* border-radius: 15px 50px;*/
+  }
+table.ex1 tr { 
+  outline: rgba(124, 141, 135, 0.4) solid thin;
+  }
+
+table.ex1 tr:empty {
+  display: none;
+}
+
+.center_element2 {
+  text-align: center;
+}
+
+.anti_border_spacing {
+  margin-top: -12px;
+}
+
+.distance {
+  padding-top: 5px;
+}
 
 /* TRY THIS FOR CHECKBOXES  http://www.cssscript.com/pretty-checkbox-radio-inputs-bootstrap-awesome-bootstrap-checkbox-css/ */
 

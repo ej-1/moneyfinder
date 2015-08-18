@@ -11,7 +11,9 @@
 
 $('#div_id').html("<%= escape_javascript(render :partial => 'smslan2') %>");
 
-$('#table_id tr').filter(function() {
+
+
+$('tr').filter(function() {
     return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
       return ! $.trim($(this).text());  
     }).length;
@@ -20,13 +22,14 @@ $('#table_id tr').filter(function() {
 
 //Code copied from showHideProducts. If one checks a checkbox after a filter search then does another, then the checkbox is still in effect.
 $('input:checked').each(function() {
-  $('table_id td:contains("' + $(this).val() + '")').parent().hide();
+  $('td:contains("' + $(this).val() + '")').parent().hide();
 });
 
 //This checks if there are any loangivers offering a loan for 
-var rowCount = $('#table_id tr:visible').size()
+var rowCount = $('#table_id2 tr:visible').size();
 
-if (rowCount === 1){
+
+if (rowCount === 0){
   $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
   $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
   $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
