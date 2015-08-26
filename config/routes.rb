@@ -1,4 +1,6 @@
 Ratesfinder::Application.routes.draw do
+  resources :gratis_smsloans
+
   resources :smsloans
 
   resources :adminsmsloans
@@ -25,7 +27,6 @@ Ratesfinder::Application.routes.draw do
   get "smslan_nouc" => 'adminsmsloans#smslan_nouc'
   get "smslan3" => 'adminsmsloans#smslan3'
   #get "smslan" => 'adminsmsloans#smslanfilter'
-
 
 
   get "gratislan" => 'adminsmsloans#gratislan'

@@ -1,22 +1,67 @@
 #div_id
-  .row.row-padding-fix
-    .span10
+  .row
+    .span12
+      .showme_buttons.center_element2
+        .button_showmeless_than_90d
+          %button.btn.btn-info.btn-sm
+            %i.icon-white.icon-time
+            Visa bindningstider: 30, 60 dagar
+        .button_showmemore_than_90d
+          %button.btn.btn-info.btn-sm
+            %i.icon-white.icon-time
+            Visa bindningstider: 90 dagar, 1 år
+
+  .row.row-padding-fix.search_results
+    .span10.table_overview_fix
     - @smslan.each do |smsloan|
-      .row.row-padding-fix.content-top
-        .switch_smsloan_example1
+      .row.row-padding-fix.content-top.odd_searchresults_color.smsloanoverview
+        .switch_smsloan_example1.X1
           .row
             .smslogo-size= smsloan.bank.to_s.html_safe
-            %table#smsloanexampletable
+            %table#smsloanexampletable.switch_smsloan_example1_table.table_overview_fix
               %thead
                 %tr
-                  %th Belopp
-                  %th 30 dagar
-                  %th 60 dagar
+                  %th.hidden-smslan Högsta lånebelopp ny låntagare
+                  %th.hidden-smslan.hidden-smslan2 Aviavgift
+                  %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
+                  %th.hidden-smslan Mobilvänlig hemsida  
+                  %th.hidden-smslan Låna med betalningsanmärkelse
+                  %th.hidden-smslan Minimum ålder
+                  %th.hidden-smslan Kostnadsfria lån
+                  %th.hidden-smslan Kostnadsfria lån maxbelopp
+                  %th.hidden-smslan Låna 5000 kr första gången
+                  %th.hidden-smslan Låna 10 000 kr första gången
+                  %th.hidden-smslan Högsta lånebelopp för ny låntagare
+                  %th.hidden-smslan Ingen UC
+                  %th.hidden-smslan SKEF medlem
+                  %th.hidden-smslan BankID
+                  %th.hidden-smslan Lördagsöppet
+                  %th.hidden-smslan Söndagsöppet
+                  %th.stickyamount Belopp
+                  %th.less_than_90d 30 dagar
+                  %th.less_than_90d 60 dagar
+                  %th.more_than_90d 90 dagar
+                  %th.more_than_90d 1 år
               %tbody
                 %tr
-
+                  %td.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.hidden-smslan= smsloan.invoice_fee
+                  %td.hidden-smslan= smsloan.application_fee
+                  %td.hidden-smslan= smsloan.mobile_friendly_site
+                  %td.hidden-smslan= smsloan.low_credit_score
+                  %td.hidden-smslan= smsloan.min_age
+                  %td.hidden-smslan= smsloan.cost_free_loan
+                  %td.hidden-smslan= smsloan.cost_free_loan_amount
+                  %td.hidden-smslan= smsloan.new_borrower_5K
+                  %td.hidden-smslan= smsloan.new_borrower_10K
+                  %td.hidden-smslan= smsloan.max_amount_new_borrower
+                  %td.hidden-smslan= smsloan.no_uc
+                  %td.hidden-smslan= smsloan.skef_member
+                  %td.hidden-smslan= smsloan.bankid
+                  %td.hidden-smslan= smsloan.open_on_saturdays
+                  %td.hidden-smslan= smsloan.open_on_sundays
                   %td 3000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_3k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_3k
                     // checks if both are empty
@@ -35,14 +80,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_3k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_3k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_3k
                     // checks if both are empty
@@ -61,7 +106,60 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_3k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_3k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_3k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_3k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
@@ -70,7 +168,7 @@
 
                 %tr
                   %td 4000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_4k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_4k
                     // checks if both are empty
@@ -89,14 +187,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_4k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_4k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_4k
                     // checks if both are empty
@@ -115,7 +213,61 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_4k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_4k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_4k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_4k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
@@ -123,11 +275,9 @@
                       %li= @smsloanoverview1
 
 
-
-
                 %tr
                   %td 5000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_5k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_5k
                     // checks if both are empty
@@ -147,14 +297,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_5k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_5k
                     // checks if both are empty
@@ -173,18 +323,70 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_5k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_5k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_5k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_5k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
 
                 %tr
                   %td 7000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_7k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_7k
                     // checks if both are empty
@@ -203,14 +405,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_7k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_7k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_7k
                     // checks if both are empty
@@ -229,7 +431,61 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_7k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_7k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_7k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_7k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
@@ -237,7 +493,7 @@
                       %li= @smsloanoverview1
                 %tr
                   %td 10 000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_10k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_10k
                     // checks if both are empty
@@ -256,14 +512,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_10k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_10k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_10k
                     // checks if both are empty
@@ -282,16 +538,69 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_10k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_10k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_10k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_10k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_10k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
                 %tr
                   %td 15 000 kr
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_30d_15k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_15k
                     // checks if both are empty
@@ -310,14 +619,14 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_15k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-                  %td
+                  %td.less_than_90d
                     - @smsloanoverview1 = smsloan.debtor_loantime_60d_15k
                     - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_15k
                     // checks if both are empty
@@ -336,58 +645,153 @@
                           - if(@smsloanoverview2.nil?)
                             - @smsloanoverview2 = "(-)"
                           - else
-                            - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_15k, locale: :fr, strip_insignificant_zeros: true)
                             - @changethis2 = @changethis.chomp(" kr")
                             - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                     %ul#horizontal-list
                       %li= @smsloanoverview2
                       %li= @smsloanoverview1
 
-        .switch_smsloan_example2
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_90d_15k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_15k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+                  %td.more_than_90d
+                    - @smsloanoverview1 = smsloan.debtor_loantime_1year_15k
+                    - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_15k
+                    // checks if both are empty
+                    - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                      - @smsloanoverview1 = "-"
+                    - else
+                      // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                      - if(@smsloanoverview1 == @smsloanoverview2)
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                        - @smsloanoverview2 = ""
+                      - else
+                        - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                        - if(@smsloanoverview2 == 0)
+                          - @smsloanoverview2 = "(0)"
+                        - else
+                          - if(@smsloanoverview2.nil?)
+                            - @smsloanoverview2 = "(-)"
+                          - else
+                            - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                    %ul#horizontal-list
+                      %li= @smsloanoverview2
+                      %li= @smsloanoverview1
+
+        .switch_smsloan_example2.X2
           .span1
           .span6
             .row
               .span2
                 //%p with span
                 .smslogo-size= smsloan.bank.to_s.html_safe
-              .span4
-                %table#smsloanexampletable
+
+              .span4.scroll_table
+                %table
                   %thead
                     %tr
-                      %th Belopp
-                      %th 30 dagar
-                      %th 60 dagar
+                      %th.hidden-smslan Högsta lånebelopp ny låntagare
+                      %th.hidden-smslan.hidden-smslan2 Aviavgift
+                      %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
+                      %th.hidden-smslan Mobilvänlig hemsida  
+                      %th.hidden-smslan Låna med betalningsanmärkelse
+                      %th.hidden-smslan Minimum ålder
+                      %th.hidden-smslan Kostnadsfria lån
+                      %th.hidden-smslan Kostnadsfria lån maxbelopp
+                      %th.hidden-smslan Låna 5000 kr första gången
+                      %th.hidden-smslan Låna 10 000 kr första gången
+                      %th.hidden-smslan Högsta lånebelopp för ny låntagare
+                      %th.hidden-smslan Ingen UC
+                      %th.hidden-smslan SKEF medlem
+                      %th.hidden-smslan BankID
+                      %th.hidden-smslan Lördagsöppet
+                      %th.hidden-smslan Söndagsöppet
+                  %tbody
+                    %tr
+                      %td.hidden-smslan= smsloan.max_amount_new_borrower
+                      %td.hidden-smslan= smsloan.invoice_fee
+                      %td.hidden-smslan= smsloan.application_fee
+                      %td.hidden-smslan= smsloan.mobile_friendly_site
+                      %td.hidden-smslan= smsloan.low_credit_score
+                      %td.hidden-smslan= smsloan.min_age
+                      %td.hidden-smslan= smsloan.cost_free_loan
+                      %td.hidden-smslan= smsloan.cost_free_loan_amount
+                      %td.hidden-smslan= smsloan.new_borrower_5K
+                      %td.hidden-smslan= smsloan.new_borrower_10K
+                      %td.hidden-smslan= smsloan.max_amount_new_borrower
+                      %td.hidden-smslan= smsloan.no_uc
+                      %td.hidden-smslan= smsloan.skef_member
+                      %td.hidden-smslan= smsloan.bankid
+                      %td.hidden-smslan= smsloan.open_on_saturdays
+                      %td.hidden-smslan= smsloan.open_on_sundays
+
+                %table#smsloanexampletable.table_overview_fix
+                  %thead
+                    %tr
+                      %th.stickyamount Belopp
+                      %th.less_than_90d 30 dagar
+                      %th.less_than_90d 60 dagar
+                      %th.more_than_90d 90 dagar
+                      %th.more_than_90d 1 år      
                   %tbody
                     %tr
 
                       %td 3000 kr
-                      %td
-                        - @smsloanoverview1 = smsloan.debtor_loantime_30d_3k
-                        - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_3k
+                      %td.less_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_3k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_3k
                         // checks if both are empty
                         - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
                           - @smsloanoverview1 = "-"
                         - else
                           // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
                           - if(@smsloanoverview1 == @smsloanoverview2)
-                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_30d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
                             - @smsloanoverview2 = ""
                           - else
-                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_30d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
                             - if(@smsloanoverview2 == 0)
                               - @smsloanoverview2 = "(0)"
                             - else
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_3k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_3k
                         // checks if both are empty
@@ -406,7 +810,61 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_3k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_3k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_3k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_3k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
@@ -415,7 +873,7 @@
 
                     %tr
                       %td 4000 kr
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_30d_4k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_4k
                         // checks if both are empty
@@ -434,14 +892,14 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_4k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_4k
                         // checks if both are empty
@@ -460,19 +918,70 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_4k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_4k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_4k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_4k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
 
                     %tr
                       %td 5000 kr
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_30d_5k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_5k
                         // checks if both are empty
@@ -492,14 +1001,14 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_5k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_5k
                         // checks if both are empty
@@ -518,18 +1027,70 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_5k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_5k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
+
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_5k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_5k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
 
                     %tr
                       %td 7000 kr
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_30d_7k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_7k
                         // checks if both are empty
@@ -555,7 +1116,7 @@
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_7k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_7k
                         // checks if both are empty
@@ -580,9 +1141,63 @@
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_7k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_7k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_7k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_7k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
                     %tr
                       %td 10 000 kr
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_30d_10k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_10k
                         // checks if both are empty
@@ -601,14 +1216,14 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_10k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_10k
                         // checks if both are empty
@@ -627,16 +1242,69 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_10k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_10k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_10k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_10k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
                     %tr
                       %td 15 000 kr
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_30d_15k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_30d_15k
                         // checks if both are empty
@@ -655,14 +1323,14 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
 
-                      %td
+                      %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_60d_15k
                         - @smsloanoverview2 = smsloan.newdebtor_loantime_60d_15k
                         // checks if both are empty
@@ -681,15 +1349,106 @@
                               - if(@smsloanoverview2.nil?)
                                 - @smsloanoverview2 = "(-)"
                               - else
-                                - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
                                 - @changethis2 = @changethis.chomp(" kr")
                                 - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                         %ul#horizontal-list
                           %li= @smsloanoverview2
                           %li= @smsloanoverview1
-        .span4
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_90d_15k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_90d_15k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+
+
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+
+                      %td.more_than_90d
+                        - @smsloanoverview1 = smsloan.debtor_loantime_1year_15k
+                        - @smsloanoverview2 = smsloan.newdebtor_loantime_1year_15k
+                        // checks if both are empty
+                        - if(@smsloanoverview1.nil? && @smsloanoverview2.nil?)
+                          - @smsloanoverview1 = "-"
+                        - else
+                          // checks if they are both the same (If both are the same and empty, then one has become "-" and the other "" with the code above and thus are not equal.)
+                          - if(@smsloanoverview1 == @smsloanoverview2)
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - @smsloanoverview2 = ""
+                          - else
+                            - @smsloanoverview1 = number_to_currency(smsloan.debtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                            - if(@smsloanoverview2 == 0)
+                              - @smsloanoverview2 = "(0)"
+                            - else
+                              - if(@smsloanoverview2.nil?)
+                                - @smsloanoverview2 = "(-)"
+                              - else
+                                - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
+                                - @changethis2 = @changethis.chomp(" kr")
+                                - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                        %ul#horizontal-list
+                          %li= @smsloanoverview2
+                          %li= @smsloanoverview1
+        .span4.smsloaninfo
+          %table
+            %thead
+              %tr
+                %th.hidden-smslan Högsta lånebelopp ny låntagare
+                %th.hidden-smslan.hidden-smslan2 Aviavgift
+                %th.hidden-smslan.hidden-smslan2 Ansökningsavgift
+                %th.hidden-smslan Mobilvänlig hemsida  
+                %th.hidden-smslan Låna med betalningsanmärkelse
+                %th.hidden-smslan Minimum ålder
+                %th.hidden-smslan Kostnadsfria lån
+                %th.hidden-smslan Kostnadsfria lån maxbelopp
+                %th.hidden-smslan Låna 5000 kr första gången
+                %th.hidden-smslan Låna 10 000 kr första gången
+                %th.hidden-smslan Högsta lånebelopp för ny låntagare
+                %th.hidden-smslan Ingen UC
+                %th.hidden-smslan SKEF medlem
+                %th.hidden-smslan BankID
+                %th.hidden-smslan Lördagsöppet
+                %th.hidden-smslan Söndagsöppet
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
           .row
-            .smsloanoverviewinfo.float-left
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
               //%p Ansökningsavgift 0 kr
               %p
                 %strong> Lånebelopp
@@ -717,12 +1476,12 @@
               %p
                 = excerpt(smsloan.no_uc, 'UC', radius: 6, omission: '')
 
-            .smsloanoverview_buttons.float-right
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
               %ul
                 %li
                   %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök om lån
                 %li
-                  .div.typeofloan-sms
-                    .glyphicon.glyphicon-ok.float-left.typeofloancheckmark
-                    .typeofloaninfo SMSlån
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+
     .span1
