@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 
       // Helps user to filter overview with loantime, because showing all loantimes at once is to much
-      // and using side-scrollable tables is mostly messy.
+      // and using side-scrollable tables is mostly messy..
       $( ".button_showmemore_than_90d" ).click(function() {
         // the cells in the table that are hidden
         $( ".less_than_90d" ).hide() 
