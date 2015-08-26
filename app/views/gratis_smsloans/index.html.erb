@@ -1,0 +1,37 @@
+<h1>Listing gratis_smsloans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bank</th>
+      <th>Min loan amount</th>
+      <th>Max loan amount</th>
+      <th>Loan time</th>
+      <th>Comment</th>
+      <th>Comment2</th>
+      <th>Link button</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gratis_smsloans.each do |gratis_smsloan| %>
+      <tr>
+        <td><%= gratis_smsloan.bank %></td>
+        <td><%= gratis_smsloan.min_loan_amount %></td>
+        <td><%= gratis_smsloan.max_loan_amount %></td>
+        <td><%= gratis_smsloan.loan_time %></td>
+        <td><%= gratis_smsloan.comment %></td>
+        <td><%= gratis_smsloan.comment2 %></td>
+        <td><%= gratis_smsloan.link_button %></td>
+        <td><%= link_to 'Show', gratis_smsloan %></td>
+        <td><%= link_to 'Edit', edit_gratis_smsloan_path(gratis_smsloan) %></td>
+        <td><%= link_to 'Destroy', gratis_smsloan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gratis smsloan', new_gratis_smsloan_path %>

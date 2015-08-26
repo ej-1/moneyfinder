@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810123333) do
+ActiveRecord::Schema.define(version: 20150820084806) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20150810123333) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "gratis_smsloans", force: true do |t|
+    t.string   "bank"
+    t.integer  "min_loan_amount"
+    t.integer  "max_loan_amount"
+    t.integer  "loan_time"
+    t.string   "comment"
+    t.string   "comment2"
+    t.string   "link_button"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "loans", force: true do |t|
     t.string   "bank"
@@ -94,12 +106,6 @@ ActiveRecord::Schema.define(version: 20150810123333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "weblink"
-  end
-
-  create_table "signups", force: true do |t|
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "smsloans", force: true do |t|

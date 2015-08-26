@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @gratis_smsloan.bank %>
+</p>
+
+<p>
+  <strong>Min loan amount:</strong>
+  <%= @gratis_smsloan.min_loan_amount %>
+</p>
+
+<p>
+  <strong>Max loan amount:</strong>
+  <%= @gratis_smsloan.max_loan_amount %>
+</p>
+
+<p>
+  <strong>Loan time:</strong>
+  <%= @gratis_smsloan.loan_time %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @gratis_smsloan.comment %>
+</p>
+
+<p>
+  <strong>Comment2:</strong>
+  <%= @gratis_smsloan.comment2 %>
+</p>
+
+<p>
+  <strong>Link button:</strong>
+  <%= @gratis_smsloan.link_button %>
+</p>
+
+<%= link_to 'Edit', edit_gratis_smsloan_path(@gratis_smsloan) %> |
+<%= link_to 'Back', gratis_smsloans_path %>

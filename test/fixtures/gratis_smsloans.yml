@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bank: MyString
+  min_loan_amount: 1
+  max_loan_amount: 1
+  loan_time: 1
+  comment: MyString
+  comment2: MyString
+  link_button: MyString
+
+two:
+  bank: MyString
+  min_loan_amount: 1
+  max_loan_amount: 1
+  loan_time: 1
+  comment: MyString
+  comment2: MyString
+  link_button: MyString

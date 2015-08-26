@@ -12,9 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+
+
 
 //= require jquery-ui
+
+
+//= require jquery
+
 
 
 
@@ -36,95 +41,79 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+
+      // Makes nice colorful bubbles that tells what kind of smsloan it is.
+      $(".typeofloan:contains('1')").replaceWith("<div class='typeofloan typeofloan-sms'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>SMSlån</div></div></div>");
+      $(".typeofloan:contains('2')").replaceWith("<div class='typeofloan typeofloan-blancolan'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>Blancolån</div></div></div>");
+
+
+      // Helps user to filter overview with loantime, because showing all loantimes at once is to much
+      // and using side-scrollable tables is mostly messy.
+      $( ".button_showmemore_than_90d" ).click(function() {
+        // the cells in the table that are hidden
+        $( ".less_than_90d" ).hide() 
+        $( ".more_than_90d" ).show()
+        // Show the right button
+        $( ".button_showmeless_than_90d" ).show()
+        $( ".button_showmemore_than_90d" ).hide()
+      });
+
+      $( ".button_showmeless_than_90d" ).click(function() {
+        $( ".less_than_90d" ).show()
+        $( ".more_than_90d" ).hide()
+        $( ".button_showmemore_than_90d" ).show()
+        $( ".button_showmeless_than_90d" ).hide()
+      });
+
+
       // Code for the "Advancerad filtrering" link
       $( ".glyph" ).click(function() {
         $( ".advanced-search-options" ).slideToggle( "fast", function() {
         });
       });
 
+      // The value of the sliders
+      var rangeValues = {
+          "1": "14 dagar",
+          "2": "21 dagar",
+          "3": "30 dagar",
+          "4": "45 dagar",
+          "5": "60 dagar",
+          "6": "90 dagar",
+          "7": "1 år"
+      };
 
-      $("#slider1").mousemove(function () {
-        var newValue = $('#slider1').val();
-
-          if (newValue === '1') {
-            newValue2 = "14 dagar";
-          }
-          if (newValue === '2') {
-            newValue2 = "21 dagar";
-          }
-          if (newValue === '3') {
-            newValue2 = "30 dagar";
-          }
-          if (newValue === '4') {
-            newValue2 = "45 dagar";
-          }
-          if (newValue === '5') {
-            newValue2 = "60 dagar";
-          }
-          if (newValue === '6') {
-            newValue2 = "90 dagar";
-          }
-          if (newValue === '7') {
-            newValue2 = "1 år";
-          }
-
-          $("#W1").text(newValue2);
+      $(function () {
+          $('#W1').text(rangeValues[$('#slider1').val()]);
+          $('#slider1').mousemove(function () {
+              $('#W1').text(rangeValues[$(this).val()]);
+          });
       });
 
+      var rangeValues2 = {
+          "1": "500 kr",
+          "2": "1000 kr",
+          "3": "2000 kr",
+          "4": "3000 kr",
+          "5": "4000 kr",
+          "6": "5000 kr",
+          "7": "6000 kr",
+          "8": "7000 kr",
+          "9": "8000 kr",
+          "10": "9000 kr",
+          "11": "10 000 kr",
+          "12": "15 000 kr",
+          "13": "20 000 kr",
+          "14": "25 000 kr",
+          "15": "30 000 kr",
+      };
 
-      $("#slider2").mousemove(function () {
-        var newValue = $('#slider2').val();
-
-          if (newValue === '1') {
-            newValue2 = "500 kr";
-          }
-          if (newValue === '2') {
-            newValue2 = "1000 kr";
-          }
-          if (newValue === '3') {
-            newValue2 = "2000 kr";
-          }
-          if (newValue === '4') {
-            newValue2 = "3000 kr";
-          }
-          if (newValue === '5') {
-            newValue2 = "4000 kr";
-          }
-          if (newValue === '6') {
-            newValue2 = "5000 kr";
-          }
-          if (newValue === '7') {
-            newValue2 = "6000 kr";
-          }
-          if (newValue === '8') {
-            newValue2 = "7000 kr";
-          }
-          if (newValue === '9') {
-            newValue2 = "8000 kr";
-          }
-          if (newValue === '10') {
-            newValue2 = "9000 kr";
-          }
-          if (newValue === '11') {
-            newValue2 = "10 000 kr";
-          }
-          if (newValue === '12') {
-            newValue2 = "15 000 kr";
-          }
-          if (newValue === '13') {
-            newValue2 = "20 000 kr";
-          }
-          if (newValue === '14') {
-            newValue2 = "25 000 kr";
-          }
-          if (newValue === '15') {
-            newValue2 = "30 000 kr";
-          }
-
-
-          $("#W2").text(newValue2);
+      $(function () {
+          $('#W2').text(rangeValues2[$('#slider2').val()]);
+          $('#slider2').mousemove(function () {
+              $('#W2').text(rangeValues2[$(this).val()]);
+          });
       });
-
 
       // When clicking "Vanliga frågor" in navbar the view scrolls down if you are on smslan page, if not then it changes page and scrolls down.
       if ($(".scrollhere").length) { 
@@ -166,8 +155,35 @@ $(document).ready(function() {
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
       {
-          $('td').parent().show();
-          
+
+          if ($(window).width() <= 767) {
+            $('td').parentsUntil(".smsloanoverview").show();
+            $(".switch_smsloan_example1").show();
+            $(".switch_smsloan_example2").hide();
+            $(".smsloaninfo").show();
+          }
+          else {
+            $('td').parentsUntil(".smsloanoverview").show();
+            $(".switch_smsloan_example2").show();
+            $(".switch_smsloan_example1").hide();
+            $(".smsloaninfo").show();
+          }
+
+          window.onresize = function() {
+              if (window.innerHeight <= 767) {                   
+                            $('td').parentsUntil(".smsloanoverview").show();
+                            $(".switch_smsloan_example1").show();
+                            $(".switch_smsloan_example2").hide();
+                            $(".smsloaninfo").show(); }
+              if (window.innerWidth >= 768) {                    
+                            $('td').parentsUntil(".smsloanoverview").show();
+                            $(".switch_smsloan_example2").show();
+                            $(".switch_smsloan_example1").hide();
+                            $(".smsloaninfo").show(); }
+          }          
+
+
+
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           if ( $('#smsbutton').data('clicked', true)) {
             //Hide rows with empty cells
@@ -191,7 +207,9 @@ $(document).ready(function() {
               function()
               {
                   // had to put this code in from smsloanbutton to make it work together
-                  $('td:contains("' + $(this).val() + '")').parent().hide();
+
+                  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+
                   //$('tr').filter(function() {
                   //    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                   //      return ! $.trim($(this).text());  

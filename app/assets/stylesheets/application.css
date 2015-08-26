@@ -448,6 +448,22 @@ Media queries
     font-family: 'Open Sans', sans-serif;
     color: #7C8D87;
   }
+
+  .navbar-fix{
+    margin-top: -20px; 
+  }
+
+  .logo { /* Overriding bootstrap */
+    margin-left: 70px;
+    }
+
+  .sms_info_list p{
+    line-height: 1px;
+  }
+
+  .pagetitle{
+    margin-top: -10px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -484,6 +500,7 @@ Media queries
   .smslogo-size{
     width: 115%;
   }
+
 }
 
 @media (min-width: 980px) and (max-width: 1200px) {
@@ -534,6 +551,7 @@ Media queries
     padding-left: 30px;
     max-width: 90px;
   }
+
   .sms_costnew_searchresult{
     font-weight: bold;
     font-size: 20px;
@@ -543,6 +561,18 @@ Media queries
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
     color: #7C8D87;
+  }
+
+  .navbar-fix{
+    margin-top: -20px; 
+  }
+
+  .logo { /* Overriding bootstrap */
+  margin-left: 70px;
+  }
+
+  .sms_info_list p{
+    line-height: 1px;
   }
 }
 
@@ -674,6 +704,14 @@ Media queries
     font-family: 'Open Sans', sans-serif;
     color: #7C8D87;
   }
+
+  .navbar-fix{
+    margin-top: -0px; 
+  }
+
+  .sms_info_list p{
+    line-height: 1px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -700,7 +738,7 @@ Media queries
   }
 
   .pagetitle {
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 
   table td {
@@ -781,6 +819,41 @@ Media queries
     font-family: 'Open Sans', sans-serif;
     color: #7C8D87;
   }
+
+  /* Search results for each loangiver for this format*/
+  .switch_smsloan_example1_table {
+    width: 50%;
+    margin-top: 72px;
+  }
+
+  .switch_smsloan_example1_info {
+    margin-top: -197px;
+    margin-left: 50%;
+    float: none;
+  }
+
+  .switch_smsloan_example1_button {
+    margin-top: -60px;
+    margin-left: 48%;
+  }
+
+  .float-right-not797 {
+    float: none;
+  }
+
+  .navbar-fix{
+    margin-left: -20px;
+    margin-right: -20px;    
+  }
+  /* END - Search results for each loangiver for this format*/
+
+  .content {
+    margin-top: -50px;
+  }
+
+  .sms_info_list p{
+    line-height: 10px;
+  }
 }
 
 
@@ -805,7 +878,7 @@ Media queries
   }
 
   .pagetitle {
-    margin-top: 60px;
+    /* margin-top: 60px; */
   }
 
   .g-follow{
@@ -853,7 +926,7 @@ Media queries
   }
 
   .pagetitle {
-    margin-top: 110px;
+    /* margin-top: 110px; */
   }
 
   .row-padding-fix {
@@ -943,7 +1016,7 @@ Media queries
   .ex1 td { 
     /* Behave  like a "row" */
     border: none;
-    border-bottom: 1px solid #eee; 
+    /* border-bottom: 1px solid #eee; */
     position: relative;
 
   }
@@ -1001,6 +1074,48 @@ Media queries
     color: #7C8D87;
   }
 /* RESPONSIVE TABLE END */
+  .navbar-fix{
+    margin-left: -20px;
+    margin-right: -20px;    
+  }
+
+  .content {
+    margin-top: -110px;
+  }
+
+  .sms_info_list p{
+    line-height: 1px;
+  }
+
+/*
+  .scroll_table {
+    border:1px solid grey;
+    width:20%;
+    height:200px;
+    overflow:scroll;
+    overflow-y: hidden;
+    margin-top: -239px;
+    margin-left: 50px;
+  }
+
+  .table_overview_fix {
+    max-width:150%;
+    width: 100%;
+  }
+
+  .first_column_fix td{
+    line-height: 22px;
+    border-left:1px solid black;
+  }
+
+  .first_column_fix{
+    border-left:1px solid black;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    width: 10%;
+*/
+
+  }
 }
 
 
@@ -1272,7 +1387,7 @@ table th {
 }
 
 .thebiggreyarea{
-  background-color: grey;
+  background-color: rgba(121, 128, 127, 0.2);
 }
 
 ul#horizontal-list{
@@ -1291,7 +1406,7 @@ ul#horizontal-list li{
 .sms_info_list p{
   text-align: left;
   font-size: 10px;
-  line-height: 10px;
+  padding-top: 7px;
 }
 
 .sms_loangiver_panel{
@@ -1333,9 +1448,135 @@ table.ex1 tr:empty {
   margin-top: -12px;
 }
 
+#search_form_dropdown {
+  color: rgba(86, 86, 86, 0.87);
+}
+
+.float-right-not797 {
+  float: left;
+}
+/*
+.odd_searchresults_color:nth-child(even) {background: #CCC}
+.odd_searchresults_color:nth-child(odd) {background: #FFF}
+*/
 
 
+#table_id_gratislan td{
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 13px;
+}
 
+.table_id_gratislan_textleft{
+  text-align: left;
+}
+
+.gratislan_comment{
+  width: 50px;
+  font-size: 11px;
+}
+
+.gratislan_comment_th{
+  width: 66px;
+}
+
+.gratis_lan_padding_left {
+  padding-left: 5%;
+}
+
+#table_id_gratislan tbody td.odd {
+  background-color: #E0E0E0;
+}
+
+.navbar-a-fix {
+  margin-top: 7px;
+}
+
+.navbar-brand {
+  font-size: 15px;
+  margin-left: -19px;
+}
+
+.NO_UC_class {
+  color: red;
+}
+
+.search_results{
+  margin-top: -25px;
+}
+
+.button_showmeless_than_90d{
+  display: none;
+}
+.showme_buttons{
+  margin-top: 0px;
+  margin-bottom: -25px;
+}
+
+.more_than_90d{
+  display: none;
+}
+
+/* 
+.do_a_search{
+  margin-top: 40px;
+  margin-left: 24%;
+  margin-right: 20px;
+}
+
+.do_a_search_fix{
+  padding-bottom: 40px;
+}
+
+#smsloan_sliders{
+  display: none;
+}
+
+
+*/
+
+/* 
+.scroll_table {
+  border:1px solid grey;
+  height:200px;
+  width: 80%;
+  overflow:scroll;
+  overflow-y: hidden;
+}
+
+.table_overview_fix {
+  max-width:150%;
+  width: 150%;
+}
+
+.first_column_fix td{
+  line-height: 22px;
+  border-left:1px solid black;
+}
+
+.first_column_fix{
+  border-left:1px solid black;
+  border-top:1px solid black;
+  border-bottom:1px solid black;
+}
+
+table td:first-of-type {
+            position:absolute; 
+            width:50px; 
+            left:25;
+
+            border-right: 0px none black; 
+}
+
+table th:first-of-type {
+            position:absolute; 
+            width:50px; 
+            left:25;
+
+            border-right: 0px none black; 
+
+}
+*/
 
 /* 
 Max width before this PARTICULAR table gets nasty

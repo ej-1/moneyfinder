@@ -1,0 +1,45 @@
+<%= form_for(@gratis_smsloan) do |f| %>
+  <% if @gratis_smsloan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gratis_smsloan.errors.count, "error") %> prohibited this gratis_smsloan from being saved:</h2>
+
+      <ul>
+      <% @gratis_smsloan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bank %><br>
+    <%= f.text_field :bank %>
+  </div>
+  <div class="field">
+    <%= f.label :min_loan_amount %><br>
+    <%= f.number_field :min_loan_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :max_loan_amount %><br>
+    <%= f.number_field :max_loan_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :loan_time %><br>
+    <%= f.number_field :loan_time %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :comment2 %><br>
+    <%= f.text_field :comment2 %>
+  </div>
+  <div class="field">
+    <%= f.label :link_button %><br>
+    <%= f.text_field :link_button %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

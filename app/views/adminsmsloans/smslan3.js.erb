@@ -10,3 +10,25 @@
 //= require jquery-ui
 
 $('#div_id').html("<%= escape_javascript(render :partial => 'smslan3') %>");
+
+// Creates nice, colorful bubbles that indicate what type of loan it is.
+$(".typeofloan:contains('1')").replaceWith("<div class='typeofloan typeofloan-sms'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>SMSlån</div></div></div>");
+$(".typeofloan:contains('2')").replaceWith("<div class='typeofloan typeofloan-blancolan'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>Blancolån</div></div></div>");
+
+// Helps user to filter overview with loantime, because showing all loantimes at once is to much
+// and using side-scrollable tables is mostly messy.
+$( ".button_showmemore_than_90d" ).click(function() {
+  // the cells in the table that are hidden
+  $( ".less_than_90d" ).hide() 
+  $( ".more_than_90d" ).show()
+  // Show the right button
+  $( ".button_showmeless_than_90d" ).show()
+  $( ".button_showmemore_than_90d" ).hide()
+});
+
+$( ".button_showmeless_than_90d" ).click(function() {
+  $( ".less_than_90d" ).show()
+  $( ".more_than_90d" ).hide()
+  $( ".button_showmemore_than_90d" ).show()
+  $( ".button_showmeless_than_90d" ).hide()
+});
