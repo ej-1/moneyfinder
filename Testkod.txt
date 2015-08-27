@@ -1,3 +1,98 @@
+    .row.advanced-search-options
+      .span1.hide767-979
+      .span3.float-left.hide767-979.row-padding-fix
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx",:type => "checkbox", :value => "nonouc"}/
+          %span.lbl.padding-8.fonts Smslån utan UC
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
+          %span.lbl.padding-8.fonts SKEF Medlem
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
+          %span.lbl.padding-8.fonts Låna trots betalningsanmärkning
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
+          %span.lbl.padding-8.fonts 18 årsgräns
+      .span4.float-left.show767-979.row-padding-fix
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx",:type => "checkbox", :value => "nonouc"}/
+          %span.lbl.padding-8.fonts Smslån utan UC
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
+          %span.lbl.padding-8.fonts SKEF Medlem
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
+          %span.lbl.padding-8.fonts Låna trots betalningsanmärkning
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
+          %span.lbl.padding-8.fonts 18 årsgräns
+
+
+      .span2.float-left.hide767-979.row-padding-fix
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
+          %span.lbl.padding-8.fonts Mobilvänlig site
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}/
+          %span.lbl.padding-8.fonts BankID för legitimering
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsaturdays"}/
+          %span.lbl.padding-8.fonts Lördagsöppet
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsundays"}/
+          %span.lbl.padding-8.fonts Söndagsöppet
+
+      .span3.float-left.show767-979.row-padding-fix
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
+          %span.lbl.padding-8.fonts Mobilvänlig site
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nobankid"}/
+          %span.lbl.padding-8.fonts BankID för legitimering
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsaturdays"}/
+          %span.lbl.padding-8.fonts Lördagsöppet
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noopenonsundays"}/
+          %span.lbl.padding-8.fonts Söndagsöppet
+
+      .span2.float-right.row-padding-fix
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower5k"}/
+          %span.lbl.padding-8.fonts Låna 5000 kr eller mer första gången
+        %label.smscheckboxes
+          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nonewborrower10k"}/
+          %span.lbl.padding-8.fonts Låna 10 000 kr eller mer första gången
+
+
+
+      / /.span1.float-right
+      / /  %p.glyph
+      / /    Hjälp
+      / /    %span.glyphicon.glyphicon-question-sign.glyph
+    .row
+      .span1.hide767-979
+      .span7
+
+        #smsloan_sliders.content-top2
+          .row
+            .span2
+              %p.fonts.white2 Hur lång löptid ska lånet ha?
+            .span2
+              %p#W1.fonts.white
+          = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
+            = range_field :search, params[:search], :value =>'3', :in => 1..7, :step => '1', :id => 'slider1', :onchange => "$(this).parent('form').submit();"
+            .row
+              .span2
+                %p.fonts.white2 Hur mycket vill du låna?
+              .span2
+                %p#W2.fonts.white
+            = range_field :search, params[:search], :in => 1..15, :step => '1', :id => 'slider2', :value =>'6', :onchange => "$(this).parent('form').submit();"
+            //= submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
+        #smsloan_dropdowns.content-top2.row-padding-fix.smsloandropdown-fix3 
+
+
+
 CODE FOR SIDE-SCROLLABLE TALBLES
  = favicon_link_tag 'favicon.ico'
 - content_for :title, "Moneylabs.se - Jämför och hitta billigast smslån och snabblån"

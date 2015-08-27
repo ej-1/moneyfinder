@@ -11,10 +11,10 @@
             %i.icon-white.icon-time
             Visa bindningstider: 90 dagar, 1 år
 
-  .row.row-padding-fix.search_results
+  .row.row-padding-fix.search_results.smsloanoverview
     .span10.table_overview_fix
     - @smslan.each do |smsloan|
-      .row.row-padding-fix.content-top.odd_searchresults_color.smsloanoverview
+      .row.row-padding-fix.content-top.odd_searchresults_color
         .switch_smsloan_example1.X1
           .row
             .smslogo-size= smsloan.bank.to_s.html_safe
