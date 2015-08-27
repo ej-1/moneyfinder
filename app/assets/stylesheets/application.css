@@ -516,14 +516,6 @@ Media queries
     margin-top: -15px;
   }
 
-  .hide767-979 {
-    display: none;
-  }
-
-  .show767-979 {
-    display: inline;
-  }
-
   .smslogo-size{
     width: 115%;
   }
@@ -654,14 +646,6 @@ Media queries
       padding-bottom: 20px;
   }
 
-  .hide767-979 {
-    display: none;
-  }
-
-  .show767-979 {
-    display: inline;
-  }
-
   .smsloandropdown-fix {
     margin-top: -20px;
   }
@@ -763,10 +747,6 @@ Media queries
 
   .smsloandropdown-fix2 {
     margin-top: -15px;
-  }
-
-  .hide767-979 {
-    display: none !important;
   }
 
   #smsloanexample {
@@ -942,9 +922,6 @@ Media queries
     padding-bottom: 15px;
   }
 
-  .hide767-979 {
-    display: none !important;
-  }
 
   #hori-vertical-list{
     margin-top: 75px;

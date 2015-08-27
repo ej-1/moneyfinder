@@ -192,7 +192,12 @@ $(document).ready(function() {
                             $('td').parentsUntil(".smsloanoverview").show();
                             $(".switch_smsloan_example1").show();
                             $(".switch_smsloan_example2").hide();
-                            $(".smsloaninfo").show(); }
+                            $(".smsloaninfo").show();
+                            $('input:checked').each(function() {
+                              $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+                            });
+
+                            }
               if (window.innerWidth >= 768) {                    
                             $('td').parentsUntil(".smsloanoverview").show();
                             $(".switch_smsloan_example2").show();
