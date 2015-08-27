@@ -167,7 +167,7 @@ $(document).ready(function() {
 
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       $('input:checked').each(function() {
-        $('td:contains("' + $(this).val() + '")').parent().hide();
+        $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
       });
 
       $('input:checkbox').change(showHideProducts);

@@ -36,4 +36,6 @@ if (rowCount === 0){
   $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
 }
 
-
+$('input:checked').each(function() {
+  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+});
