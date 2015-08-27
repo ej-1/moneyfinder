@@ -13,12 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 
-
-
 //= require jquery-ui
 
+//= require_tree .
+//= require bootstrap
 
-//= require jquery
 
 
 
@@ -40,6 +39,25 @@
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
+
+
+
+      //One example how to fix navbar collapse: http://stackoverflow.com/questions/21496304/bootstrap-collapse-component-not-closing-menu-on-clicking-away
+      //Toggle collapse for navbar options in mobile format.
+      $(".navbar-toggle").click(function(event) {
+        $(".navbar-collapse").collapse('toggle');
+      });
+      // When clicking somewhere outside the navbar it collapses.
+      // $(document).click(function(event) {
+      //   $(".navbar-collapse").collapse('toggle');
+      // });
+      // Collapses menu when clicking on a link in menu.
+      // $(".navbar-nav li a").click(function(event) {
+      //   $(".navbar-collapse").collapse('toggle');
+      // });
+
+
+
 
 
       // Makes nice colorful bubbles that tells what kind of smsloan it is.
