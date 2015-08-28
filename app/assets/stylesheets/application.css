@@ -458,6 +458,7 @@ Media queries
   .pagetitle{
     margin-top: -10px;
   }
+
 }
 
 @media (max-width: 1200px) {
@@ -736,7 +737,7 @@ Media queries
 
 
 @media (min-width: 481px) and (max-width: 767px) {
-  
+
   .smsloanoverviewinfo{
     padding-top: 5px;
   }
