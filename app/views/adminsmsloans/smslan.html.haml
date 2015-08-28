@@ -134,6 +134,7 @@
     - @smslan.each do |smsloan|
       .row.row-padding-fix.content-top.odd_searchresults_color
 
+
         .switch_smsloan_example2.X2
           .span1
           .span6
@@ -141,7 +142,7 @@
               .span2
                 //%p with span
                 .smslogo-size= smsloan.bank.to_s.html_safe
-
+              .span4.scroll_table
                 %table#smsloanexampletable.table_overview_fix
                   %thead
                     %tr
@@ -152,6 +153,7 @@
                       %th.more_than_90d 1 år      
                   %tbody
                     %tr
+
                       %td 3000 kr
                       %td.less_than_90d
                         - @smsloanoverview1 = smsloan.debtor_loantime_1year_3k
