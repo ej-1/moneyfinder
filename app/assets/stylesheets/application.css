@@ -414,13 +414,6 @@ Media queries
     width: 115%;
   }
 
-  .switch_smsloan_example1{
-    display:none;
-  }
-
-  .switch_smsloan_example2{
-  }
-
   .smsloanoverviewinfo{
     padding-left: 10px;
   }
@@ -518,13 +511,6 @@ Media queries
 
   .smslogo-size{
     width: 115%;
-  }
-
-  .switch_smsloan_example1{
-    display:none;
-  }
-
-  .switch_smsloan_example2{
   }
 
   .smsloanoverviewinfo{
@@ -650,13 +636,6 @@ Media queries
     margin-top: -20px;
   }
 
-  .switch_smsloan_example1{
-    display:none;
-  }
-
-  .switch_smsloan_example2{
-  }
-
   .smslogo-size{
     width: 115%
   }
@@ -757,17 +736,7 @@ Media queries
 
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .switch_smsloan_example1{
-  }
-
-  .switch_smsloan_example2{
-    display:none;
-  }
-
-  .smslogo-size{
-    width: 33%;
-  }
-
+  
   .smsloanoverviewinfo{
     padding-top: 5px;
   }
@@ -932,13 +901,6 @@ Media queries
   }
 
   #smsloanexampletable{
-  }
-
-  .switch_smsloan_example1{
-  }
-
-  .switch_smsloan_example2{
-    display: none;
   }
 
   .smsloanoverviewinfo{
