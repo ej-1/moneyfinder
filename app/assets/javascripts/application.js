@@ -170,10 +170,10 @@ $(document).ready(function() {
         $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
       });
 
+      // INPUT FROM CHECKBOX TRIGGERS showHideProducts.
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
       {
-
           if ($(window).width() <= 767) {
             $('td').parentsUntil(".smsloanoverview").show();
             $(".switch_smsloan_example1").show();
@@ -186,7 +186,6 @@ $(document).ready(function() {
             $(".switch_smsloan_example1").hide();
             $(".smsloaninfo").show();
           }
-
           window.onresize = function() {
               if (window.innerHeight <= 767) {                   
                             $('td').parentsUntil(".smsloanoverview").show();
@@ -207,19 +206,16 @@ $(document).ready(function() {
                             });
                             }
           }          
-
-
-
+          
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
-          if ( $('#smsbutton').data('clicked', true)) {
+          //if ( $('#smsbutton').data('clicked', true)) {
             //Hide rows with empty cells
-            $('tr').filter(function() {
-                return $(this).find('.check_if_empty').filter(function() {
-                  return ! $.trim($(this).text());  
-                }).length;
-            }).hide();
-          };
-
+          //  $('tr').filter(function() {
+          //      return $(this).find('.check_if_empty').filter(function() {
+          //        return ! $.trim($(this).text());  
+          //      }).length;
+          //  }).hide();
+          //};
 
           // had to put this code in from smsloanbutton to make it work together
           //$('tr').filter(function() {
@@ -233,9 +229,7 @@ $(document).ready(function() {
               function()
               {
                   // had to put this code in from smsloanbutton to make it work together
-
                   $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
-
                   //$('tr').filter(function() {
                   //    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                   //      return ! $.trim($(this).text());  
