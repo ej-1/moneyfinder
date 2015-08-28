@@ -378,6 +378,14 @@ Media queries
 
 @media (min-width: 1200px) {
 
+  .XXX1 {
+    display: none; 
+  }
+
+  .XXX2 {
+
+  }
+
   #smsloan_sliders {
   }
 
@@ -458,6 +466,8 @@ Media queries
   .pagetitle{
     margin-top: -10px;
   }
+
+
 }
 
 @media (max-width: 1200px) {
@@ -552,6 +562,13 @@ Media queries
 
   .sms_info_list p{
     line-height: 1px;
+  }
+
+  .XXX1 {
+    display: none; 
+  }
+
+  .XXX2 {
   }
 }
 
@@ -675,6 +692,14 @@ Media queries
 
   .sms_info_list p{
     line-height: 1px;
+  }
+
+  .XXX1 {
+    display: none; 
+  }
+
+  .XXX2 {
+
   }
 }
 
@@ -804,11 +829,21 @@ Media queries
   .sms_info_list p{
     line-height: 10px;
   }
+
+  .XXX1 {
+
+  }
+
+  .XXX2 {
+    display: none; 
+  }
 }
 
 
 
 @media (max-width: 480px) {
+
+
   .page-padding {
     padding-left: 60px;
     padding-right: 60px;
@@ -896,7 +931,7 @@ Media queries
     margin-top: 75px;
   }
 
-  .smslogo-size{
+  #smslogo-size{
     width: 90%;
   }
 
@@ -1027,6 +1062,14 @@ Media queries
     line-height: 1px;
   }
 
+  .XXX1 {
+  }
+
+  .XXX2 {
+    display: none; 
+  }
+
+
 /*
   .scroll_table {
     border:1px solid grey;
@@ -1054,11 +1097,18 @@ Media queries
     border-bottom:1px solid black;
     width: 10%;
 */
-
 }
 
 
 
+
+.XXX1 {
+
+}
+
+.XXX2 {
+
+}
 
 
 
