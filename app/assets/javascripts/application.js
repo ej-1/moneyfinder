@@ -174,39 +174,9 @@ $(document).ready(function() {
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
       {
-          if ($(window).width() <= 767) {
-            $('td').parentsUntil(".smsloanoverview").show();
-            $(".switch_smsloan_example1").show();
-            $(".switch_smsloan_example2").hide();
-            $(".smsloaninfo").show();
-          }
-          else {
-            $('td').parentsUntil(".smsloanoverview").show();
-            $(".switch_smsloan_example2").show();
-            $(".switch_smsloan_example1").hide();
-            $(".smsloaninfo").show();
-          }
-          window.onresize = function() {
-              if (window.innerHeight <= 767) {                   
-                            $('td').parentsUntil(".smsloanoverview").show();
-                            $(".switch_smsloan_example1").show();
-                            $(".switch_smsloan_example2").hide();
-                            $(".smsloaninfo").show();
-                            $('input:checked').each(function() {
-                              $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
-                            });
-                            }
-              if (window.innerWidth >= 768) {                    
-                            $('td').parentsUntil(".smsloanoverview").show();
-                            $(".switch_smsloan_example2").show();
-                            $(".switch_smsloan_example1").hide();
-                            $(".smsloaninfo").show();
-                            $('input:checked').each(function() {
-                              $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
-                            });
-                            }
-          }          
-          
+          $('td').parentsUntil(".smsloanoverview").show();
+          $(".smsloaninfo").show();
+
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           //if ( $('#smsbutton').data('clicked', true)) {
             //Hide rows with empty cells
