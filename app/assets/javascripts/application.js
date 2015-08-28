@@ -175,13 +175,8 @@ $(document).ready(function() {
       function showHideProducts()
       {
           $('td').parentsUntil(".smsloanoverview").show();
-          $(".switch_smsloan_example2").show();
-          $(".switch_smsloan_example1").hide();
           $(".smsloaninfo").show();
-          $('input:checked').each(function() {
-            $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
-          });    
-          
+
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           //if ( $('#smsbutton').data('clicked', true)) {
             //Hide rows with empty cells
