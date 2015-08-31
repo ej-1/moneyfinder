@@ -137,7 +137,7 @@
         .span2
           .smslogo-size= smsloan.bank.to_s.html_safe
         .span4
-          %table#smsloanexampletable.table_overview_fix
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format
             %thead
               %tr
                 %th.stickyamount Belopp
@@ -793,6 +793,7 @@
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
+                    
         .span4.smsloaninfo
           %table
             %thead

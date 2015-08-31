@@ -805,6 +805,12 @@ Media queries
   .sms_info_list p{
     line-height: 10px;
   }
+
+  .table_mobile_and_table_format {
+    /* Specialskapad för td */
+    margin-top: 71px;
+    width: 50%;
+  }
 }
 
 
@@ -1055,6 +1061,12 @@ Media queries
     border-bottom:1px solid black;
     width: 10%;
 */
+
+
+  .table_mobile_and_table_format {
+    /* Specialskapad för td */
+    margin-top: 80px;
+  }
 
 }
 
