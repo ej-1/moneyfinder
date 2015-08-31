@@ -808,7 +808,7 @@ Media queries
 
   .table_mobile_and_table_format {
     /* Specialskapad för td */
-    margin-top: 71px;
+    margin-top: 61px;
     width: 50%;
   }
 }

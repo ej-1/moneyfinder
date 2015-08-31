@@ -859,7 +859,7 @@
                 = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
 
               %p
-                = excerpt(smsloan.no_uc, 'UC', radius: 6, omission: '')
+                = smsloan.no_uc[/"(.*?)"/, 1]
 
             .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
               %ul
