@@ -29,7 +29,7 @@
       .span1.hide767-979
       .span3.float-left.hide767-979.row-padding-fix
         %label.smscheckboxes
-          %input.smslanchkbx{:name => "smslanchkbx",:type => "checkbox", :value => "nonouc"}/
+          %input.smslanchkbx{:name => "smslanchkbx",:type => "checkbox", :value => "hasuc"}/
           %span.lbl.padding-8.fonts Smslån utan UC
         %label.smscheckboxes
           %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
@@ -859,7 +859,7 @@
                 = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
 
               %p
-              //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
                 = smsloan.no_uc[/"(.*?)"/, 1]
 
             .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
