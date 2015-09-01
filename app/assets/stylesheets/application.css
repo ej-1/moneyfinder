@@ -811,6 +811,11 @@ Media queries
     margin-top: 61px;
     width: 50%;
   }
+
+.pagetitle {
+  margin-top: 52px;
+  }
+
 }
 
 
@@ -835,6 +840,7 @@ Media queries
   }
 
   .pagetitle {
+    margin-top: 120px;
     /* margin-top: 60px; */
   }
 
