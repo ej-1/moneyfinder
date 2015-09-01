@@ -89,6 +89,8 @@
       </div>
       <hr>
     <div class="application-field">
+
+      
       <div class="footer span12">
         <p>&copy; Moneylabs.se 2014-2015 All rights reserved</p>
       </div>
@@ -115,5 +117,9 @@
     
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<!-- Customer chat -->
+<script type='text/javascript' data-cfasync='false'>(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: 'd5bb4c33-fb46-474e-bab2-dc6d4a579366', f: true }); done = true; } }; })();</script>
+
   </body>
 </html>
