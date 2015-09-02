@@ -1475,7 +1475,9 @@ table.ex1 tr:empty {
   display: none;
 }
 
-
+.blocker  {
+  display: none;
+  }
 
 /* 
 .do_a_search{
