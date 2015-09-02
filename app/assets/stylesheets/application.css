@@ -1068,11 +1068,29 @@ Media queries
     width: 10%;
 */
 
-
   .table_mobile_and_table_format {
     /* Specialskapad för td */
     margin-top: 80px;
   }
+
+  .scrollToTop{
+    width:100%;
+    margin-left: -5px;
+    height:20px;
+    text-align:center; 
+    background: black;
+    opacity: 0.5;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    position:fixed;
+    top: 0px;
+    display:none;
+  }
+  .scrollToTop:hover{
+    text-decoration:none;
+  }
+
 
 }
 
@@ -1475,9 +1493,10 @@ table.ex1 tr:empty {
   display: none;
 }
 
-.blocker  {
+.blocker /*prevents ghost box on tablet*/{
   display: none;
   }
+
 
 /* 
 .do_a_search{
