@@ -44,12 +44,9 @@ $(document).ready(function() {
 
       //One example how to fix navbar collapse: http://stackoverflow.com/questions/21496304/bootstrap-collapse-component-not-closing-menu-on-clicking-away
       //Toggle collapse for navbar options in mobile format.
-      
       $(".navbar-toggle").click(function(event) {
-        $(".navbar-collapse").collapse('toggle');
+        $('.collapse').collapse('toggle');
       });
-
-
       // When clicking somewhere outside the navbar it collapses.
       // $(document).click(function(event) {
       //   $(".navbar-collapse").collapse('toggle');
