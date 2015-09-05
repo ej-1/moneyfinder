@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905150037) do
+ActiveRecord::Schema.define(version: 20150905151125) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,27 @@ ActiveRecord::Schema.define(version: 20150905150037) do
     t.string   "comment"
     t.string   "comment2"
     t.string   "link_button"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "loanbrokers", force: true do |t|
+    t.string   "broker"
+    t.string   "broker_logo"
+    t.integer  "min_amount"
+    t.integer  "max_amount"
+    t.decimal  "effective_interest"
+    t.integer  "start_fee"
+    t.integer  "invoice_fee"
+    t.string   "FI_reg"
+    t.string   "payment_note"
+    t.integer  "minloan_time"
+    t.integer  "maxloan_time"
+    t.string   "min_age"
+    t.integer  "yearly_income"
+    t.string   "comments"
+    t.string   "comments2"
+    t.string   "web_link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
