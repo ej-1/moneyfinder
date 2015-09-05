@@ -5,7 +5,7 @@ one:
   broker_logo: MyString
   min_amount: 1
   max_amount: 1
-  effective_interest: 1
+  effective_interest: 9.99
   start_fee: 1
   invoice_fee: 1
   FI_reg: MyString
@@ -15,6 +15,7 @@ one:
   min_age: MyString
   yearly_income: 1
   comments: MyString
+  comments2: MyString
   web_link: MyString
 
 two:
@@ -22,7 +23,7 @@ two:
   broker_logo: MyString
   min_amount: 1
   max_amount: 1
-  effective_interest: 1
+  effective_interest: 9.99
   start_fee: 1
   invoice_fee: 1
   FI_reg: MyString
@@ -32,4 +33,5 @@ two:
   min_age: MyString
   yearly_income: 1
   comments: MyString
+  comments2: MyString
   web_link: MyString

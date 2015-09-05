@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904223307) do
+ActiveRecord::Schema.define(version: 20150905145247) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150904223307) do
     t.string   "broker_logo"
     t.integer  "min_amount"
     t.integer  "max_amount"
-    t.integer  "effective_interest"
+    t.decimal  "effective_interest"
     t.integer  "start_fee"
     t.integer  "invoice_fee"
     t.string   "FI_reg"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150904223307) do
     t.string   "min_age"
     t.integer  "yearly_income"
     t.string   "comments"
+    t.string   "comments2"
     t.string   "web_link"
     t.datetime "created_at"
     t.datetime "updated_at"

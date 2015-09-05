@@ -5,7 +5,7 @@ class CreateLoanbrokers < ActiveRecord::Migration
       t.string :broker_logo
       t.integer :min_amount
       t.integer :max_amount
-      t.integer :effective_interest
+      t.decimal :effective_interest
       t.integer :start_fee
       t.integer :invoice_fee
       t.string :FI_reg
@@ -15,6 +15,7 @@ class CreateLoanbrokers < ActiveRecord::Migration
       t.string :min_age
       t.integer :yearly_income
       t.string :comments
+      t.string :comments2
       t.string :web_link
 
       t.timestamps
