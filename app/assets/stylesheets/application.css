@@ -60,7 +60,7 @@ body {
     display: block;
  }*/
 
-table {
+table_standard {
   background-color: white;
   width: 100%;
   max-width: 200%;
@@ -459,6 +459,17 @@ Media queries
     margin-top: -10px;
   }
 
+  .scrollToTop{
+    display:none;
+  }
+
+  .loanbrokers_mobile{
+    display: none;
+  }
+
+  .loanbrokers_desktop{
+
+  }
 }
 
 @media (max-width: 1200px) {
@@ -554,6 +565,18 @@ Media queries
   .sms_info_list p{
     line-height: 1px;
   }
+
+  .scrollToTop{
+    display:none;
+  }
+
+  .loanbrokers_mobile{
+    display: none;
+  }
+
+  .loanbrokers_desktop{
+
+  }
 }
 
 @media (max-width: 979px) {
@@ -597,6 +620,7 @@ Media queries
     font-family: 'Open Sans', sans-serif;
     color: #7C8D87;
   }
+
 }
 
 
@@ -677,6 +701,18 @@ Media queries
   .sms_info_list p{
     line-height: 1px;
   }
+
+  .scrollToTop{
+    display:none;
+  }
+
+  .loanbrokers_mobile{
+    display: none;
+  }
+
+  .loanbrokers_desktop{
+
+  }
 }
 
 @media (max-width: 767px) {
@@ -732,6 +768,7 @@ Media queries
   #smsloanexample {
 
   }
+
 }
 
 
@@ -816,6 +853,16 @@ Media queries
   margin-top: 52px;
   }
 
+  .scrollToTop{
+    display:none;
+  }
+
+  .loanbrokers_mobile{
+  }
+
+  .loanbrokers_desktop{
+    display: none;
+  }
 }
 
 
@@ -1091,6 +1138,12 @@ Media queries
     text-decoration:none;
   }
 
+  .loanbrokers_mobile{
+  }
+
+  .loanbrokers_desktop{
+    display: none;
+  }
 
 }
 
@@ -1495,7 +1548,46 @@ table.ex1 tr:empty {
 
 .blocker /*prevents ghost box on tablet*/{
   display: none;
-  }
+}
+
+.circle{
+  margin-left: 700px;
+  margin-top: -120px;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  background-color: red;
+  text-align: center;
+}
+
+.circle-text{
+  color: white;
+  font-weight: bold;
+  padding-top: 27px;
+}
+
+.circle-text2{
+  color: white;
+  font-weight: bold;
+}
+
+#list_block{
+  display: inline-block;
+  font-family: "Open Sans",sans-serif;
+}
+
+.loanbrokerbox {
+  border-bottom: solid 2px #D1D1D1;
+}
+
+#table_id_loanbrokers tr{
+  border-bottom: solid 2px #D1D1D1;
+}
+
+#table_id_loanbrokers td{
+
+}
+
 
 
 /* 

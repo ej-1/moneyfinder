@@ -70,10 +70,10 @@
       / /    Hjälp
       / /    %span.glyphicon.glyphicon-question-sign.glyph
     .row
-      .span1.hide767-979
       .span7
 
         #smsloan_sliders.content-top2
+
           .row
             .span2
               %p.fonts.white2 Hur lång löptid ska lånet ha?
@@ -88,6 +88,14 @@
                 %p#W2.fonts.white
             = range_field :search, params[:search], :in => 1..15, :step => '1', :id => 'slider2', :value =>'6', :onchange => "$(this).parent('form').submit();"
             //= submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
+            .span2
+              .circle
+                .circle-text
+                  %a.circle-text{:href => "laneformedlare"} Söker du lån över 30 000?
+                .circle-text2
+                  %a.circle-text2{:href => "laneformedlare"} Klicka här   
+                %span.glyphicon.glyphicon-hand-up.white
+
         #smsloan_dropdowns.content-top2.row-padding-fix.smsloandropdown-fix3 
 
 

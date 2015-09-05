@@ -40,32 +40,26 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
-      //http://tympanus.net/codrops/2010/01/03/scrolling-to-the-top-and-bottom-with-jquery/
-      //Check to see if the window is top if not then display button
-      $(window).scroll(function(){
-        if ($(this).scrollTop() > 100) {
-          $('.scrollToTop').fadeIn();
-        } else {
-          $('.scrollToTop').fadeOut();
+        if ($(window).width() < 481) {
+          //http://tympanus.net/codrops/2010/01/03/scrolling-to-the-top-and-bottom-with-jquery/
+          //Check to see if the window is top if not then display button
+          $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+              $('.scrollToTop').fadeIn();
+            } else {
+              $('.scrollToTop').fadeOut();
+            }
+          });
+          
+          //Click event to scroll to top
+          $('.scrollToTop').click(function(){
+            $('html, body').animate({scrollTop : 0},800);
+            return false;
+          });
         }
-      });
-      
-      //Click event to scroll to top
-      $('.scrollToTop').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
-        return false;
-      });
+        else {
 
-
-      // whenever we scroll fade out both buttons
-      $(window).bind('scrollstart', function(){
-        $('.scrollToTo').stop().animate({'opacity':'0.2'});
-      });
-      // ... and whenever we stop scrolling fade in both buttons
-      $(window).bind('scrollstop', function(){
-        $('.scrollToTo').stop().animate({'opacity':'1'});
-      });
-
+        }
 
 
       //One example how to fix navbar collapse: http://stackoverflow.com/questions/21496304/bootstrap-collapse-component-not-closing-menu-on-clicking-away

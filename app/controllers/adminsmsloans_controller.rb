@@ -23,6 +23,10 @@ class AdminsmsloansController < ApplicationController
   #     end
   # end
 
+  def laneformedlare
+    @loanbrokers = Loanbroker.all
+  end
+
   def smslan
   # @signup = Signup.new(params[:signup])
   #   if(request.post? and @signup.save)
