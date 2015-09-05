@@ -1,0 +1,53 @@
+<h1>Listing loanbrokers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Broker</th>
+      <th>Broker logo</th>
+      <th>Min amount</th>
+      <th>Max amount</th>
+      <th>Effective interest</th>
+      <th>Start fee</th>
+      <th>Invoice fee</th>
+      <th>Fi reg</th>
+      <th>Payment note</th>
+      <th>Minloan time</th>
+      <th>Maxloan time</th>
+      <th>Min age</th>
+      <th>Yearly income</th>
+      <th>Comments</th>
+      <th>Web link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loanbrokers.each do |loanbroker| %>
+      <tr>
+        <td><%= loanbroker.broker %></td>
+        <td><%= loanbroker.broker_logo %></td>
+        <td><%= loanbroker.min_amount %></td>
+        <td><%= loanbroker.max_amount %></td>
+        <td><%= loanbroker.effective_interest %></td>
+        <td><%= loanbroker.start_fee %></td>
+        <td><%= loanbroker.invoice_fee %></td>
+        <td><%= loanbroker.FI_reg %></td>
+        <td><%= loanbroker.payment_note %></td>
+        <td><%= loanbroker.minloan_time %></td>
+        <td><%= loanbroker.maxloan_time %></td>
+        <td><%= loanbroker.min_age %></td>
+        <td><%= loanbroker.yearly_income %></td>
+        <td><%= loanbroker.comments %></td>
+        <td><%= loanbroker.web_link %></td>
+        <td><%= link_to 'Show', loanbroker %></td>
+        <td><%= link_to 'Edit', edit_loanbroker_path(loanbroker) %></td>
+        <td><%= link_to 'Destroy', loanbroker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loanbroker', new_loanbroker_path %>

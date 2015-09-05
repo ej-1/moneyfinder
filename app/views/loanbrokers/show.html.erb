@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Broker:</strong>
+  <%= @loanbroker.broker %>
+</p>
+
+<p>
+  <strong>Broker logo:</strong>
+  <%= @loanbroker.broker_logo %>
+</p>
+
+<p>
+  <strong>Min amount:</strong>
+  <%= @loanbroker.min_amount %>
+</p>
+
+<p>
+  <strong>Max amount:</strong>
+  <%= @loanbroker.max_amount %>
+</p>
+
+<p>
+  <strong>Effective interest:</strong>
+  <%= @loanbroker.effective_interest %>
+</p>
+
+<p>
+  <strong>Start fee:</strong>
+  <%= @loanbroker.start_fee %>
+</p>
+
+<p>
+  <strong>Invoice fee:</strong>
+  <%= @loanbroker.invoice_fee %>
+</p>
+
+<p>
+  <strong>Fi reg:</strong>
+  <%= @loanbroker.FI_reg %>
+</p>
+
+<p>
+  <strong>Payment note:</strong>
+  <%= @loanbroker.payment_note %>
+</p>
+
+<p>
+  <strong>Minloan time:</strong>
+  <%= @loanbroker.minloan_time %>
+</p>
+
+<p>
+  <strong>Maxloan time:</strong>
+  <%= @loanbroker.maxloan_time %>
+</p>
+
+<p>
+  <strong>Min age:</strong>
+  <%= @loanbroker.min_age %>
+</p>
+
+<p>
+  <strong>Yearly income:</strong>
+  <%= @loanbroker.yearly_income %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @loanbroker.comments %>
+</p>
+
+<p>
+  <strong>Web link:</strong>
+  <%= @loanbroker.web_link %>
+</p>
+
+<%= link_to 'Edit', edit_loanbroker_path(@loanbroker) %> |
+<%= link_to 'Back', loanbrokers_path %>
