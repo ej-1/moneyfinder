@@ -60,13 +60,13 @@ body {
     display: block;
  }*/
 
-table_standard {
+table {
   background-color: white;
   width: 100%;
   max-width: 200%;
   font-size: 12.5px;
   /*border: 1px solid #ECECEC;*/
-  box-shadow: 0.1px 1px 2px rgba(136, 136, 136, 0.66);
+  /*box-shadow: 0.1px 1px 2px rgba(136, 136, 136, 0.66);*/
 }
 
 tbody td {
@@ -961,6 +961,7 @@ Media queries
   }
 
   #smsloanexampletable{
+    width: 50%;
   }
 
   .smsloanoverviewinfo{
@@ -1363,6 +1364,11 @@ table th {
 /* Applies cursor:default to all elements except links. For some reason cursor: text or auto is applid on every element, but not sure where the css is located. */
 :not(a:link) {cursor: default;}
 
+
+#smsloanexampletable{
+  border: 1px solid #CCC;
+}
+
 #smsloanexampletable th{
   background-color: white;
   font-size: 13px;
@@ -1579,6 +1585,19 @@ table.ex1 tr:empty {
 .loanbrokerbox {
   border-bottom: solid 2px #D1D1D1;
 }
+
+#table_id_loanbrokers table{
+  border-bottom: solid 2px #D1D1D1;
+}
+
+
+
+
+
+
+
+
+
 
 #table_id_loanbrokers tr{
   border-bottom: solid 2px #D1D1D1;
