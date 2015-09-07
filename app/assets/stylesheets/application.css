@@ -961,22 +961,25 @@ Media queries
   }
 
   #smsloanexampletable{
-    width: 50%;
+    /* width: 50%; */
+    
   }
 
   .smsloanoverviewinfo{
+    padding-left: 10px;
     padding-top: 5px;
     width: 50%;
     margin-left: 3%;
   }
 
+  .smsloanoverviewinfo p{
+    font-size: 10px;
+    line-height: 9px;
+  }
+
   .smsloanoverview_buttons{
     width: 50%;
     margin-right: 3%;
-  }
-
-  .smsloanoverviewinfo{
-    padding-left: 10px;
   }
 
   .smsloanoverview_buttons{
@@ -1087,6 +1090,9 @@ Media queries
   .sms_info_list p{
     line-height: 1px;
   }
+
+
+
 
 /*
   .scroll_table {

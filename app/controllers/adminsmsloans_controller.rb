@@ -99,6 +99,11 @@ class AdminsmsloansController < ApplicationController
       @drop2 = a[@smsdrop2]
 
 
+      x = {'1' => '14 dagar', '2' => '21 dagar', '3' => '30 dagar', '4' => '45 dagar', '5' => '60 dagar', '6' => '90 dagar', '7' => '1 år'}
+      @smstime_visible_info_for_user2 = x[@smsdrop1[0]]
+      xx = {'1' => '500 kr', '2' => '1000 kr', '3' => '2000 kr', '4' => '3000 kr', '5' => '4000 kr', '6' => '5000 kr', '7' => '6000 kr', '8' => '7000 kr', '9' => '8000 kr', '10' => '9000 kr', '11' => '10 000 kr', '12' => '11 000 kr', '13' => '20 000 kr', '14' => '25 000 kr', '15' => '30 000 kr'}
+      @smsamount_visible_info_for_user2 = xx[@smsdrop2]
+
 
       #olddebtor
       @combiner =[@drop1, @drop2].join("")
