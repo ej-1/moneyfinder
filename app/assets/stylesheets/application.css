@@ -470,6 +470,16 @@ Media queries
   .loanbrokers_desktop{
 
   }
+
+  .circle{
+    margin-left: 700px;
+    margin-top: -120px;
+  }
+
+  .circle2{
+    display: none;
+  }
+
 }
 
 @media (max-width: 1200px) {
@@ -577,6 +587,16 @@ Media queries
   .loanbrokers_desktop{
 
   }
+
+  .circle{
+    margin-left: 170px;
+    margin-top: -12px;
+  }
+
+  .circle2{
+    display: none;
+  }
+
 }
 
 @media (max-width: 979px) {
@@ -712,6 +732,15 @@ Media queries
 
   .loanbrokers_desktop{
 
+  }
+
+  .circle{
+    margin-left: 125px;
+    margin-top: -12px;
+  }
+
+  .circle2{
+    display: none;
   }
 }
 
@@ -863,6 +892,15 @@ Media queries
   .loanbrokers_desktop{
     display: none;
   }
+
+  .circle{
+    display: none;
+  }
+
+  .circle2{
+
+  }
+
 }
 
 
@@ -1150,6 +1188,19 @@ Media queries
 
   .loanbrokers_desktop{
     display: none;
+  }
+
+  .loanbrokers_desktop{
+    margin-left: 700px;
+    margin-top: -120px;
+  }
+
+  .circle{
+    display: none;
+  }
+
+  .circle2{
+
   }
 
 }
@@ -1563,8 +1614,6 @@ table.ex1 tr:empty {
 }
 
 .circle{
-  margin-left: 700px;
-  margin-top: -120px;
   border-radius: 50%;
   width: 125px;
   height: 125px;
