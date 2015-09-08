@@ -728,8 +728,7 @@
 
             .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
               %ul
-                %li
-                  %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se/", :target => "_blank"} Ansök om lån
+                %li= smsloan.weblink.to_s.html_safe
                 %li
                   .typeofloan
                     .hidden-smslan= smsloan.application_fee
