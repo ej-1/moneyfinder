@@ -79,12 +79,12 @@
           %ul#list_block
             %li Lånebelopp
             %li Löptid
-            %li Info
 
 
           %ul#list_block
             %li= @smsloangratis_minandmaxamount
             %li= @gratis_smsloan_time
-            %li= gratis_smsloan.comment
+
           .span6
+            .mobile_button_fix= gratis_smsloan.comment
             %p#list_block.mobile_button_fix= gratis_smsloan.link_button.to_s.html_safe

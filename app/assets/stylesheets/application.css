@@ -901,6 +901,10 @@ Media queries
 
   }
 
+  .mobile_logos{
+    padding-top: 7px;
+  }
+
 }
 
 
