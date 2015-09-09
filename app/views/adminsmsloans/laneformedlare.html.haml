@@ -53,7 +53,7 @@
     .span12.loanbrokerbox
       .row
         .span2
-          = loanbroker.broker_logo.to_s.html_safe
+          .mobile_logos= loanbroker.broker_logo.to_s.html_safe
         .span4
           %ul#list_block
             %li Belopp:
@@ -80,7 +80,7 @@
             %li= @loanbroker_min_age = loanbroker.min_age + " år"
             %li= number_to_currency(loanbroker.yearly_income, locale: :fr, strip_insignificant_zeros: true)
         .span6
-          %p#list_block= loanbroker.web_link.to_s.html_safe
+          %p#list_block.mobile_button_fix= loanbroker.web_link.to_s.html_safe
 
 .row
   .span12

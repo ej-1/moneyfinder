@@ -1203,6 +1203,16 @@ Media queries
 
   }
 
+  .mobile_logos{
+    height: 60px;
+    padding-left: 25px;
+    padding-top: 7px;
+  }
+
+
+  .mobile_button_fix{
+    padding-left: 20px;
+  }
 }
 
 
