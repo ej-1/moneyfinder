@@ -40,6 +40,17 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+
+
+        //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixes,
+        // when clicking an afffiliate link.
+        $('a#affiliatelink').click(function(e) {
+            window.open('http://localhost:3000/transfer');
+            
+        });
+
+
+
         if ($(window).width() < 481) {
           //http://tympanus.net/codrops/2010/01/03/scrolling-to-the-top-and-bottom-with-jquery/
           //Check to see if the window is top if not then display button

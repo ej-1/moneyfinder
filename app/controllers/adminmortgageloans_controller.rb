@@ -21,7 +21,6 @@ class AdminmortgageloansController < ApplicationController
 
 
 
-
   def index
     @mortgageloans = Mortgageloan.all
   end

@@ -30,7 +30,7 @@ Ratesfinder::Application.routes.draw do
   get "smslan3" => 'adminsmsloans#smslan3'
   get "laneformedlare" => 'adminsmsloans#laneformedlare'
   #get "smslan" => 'adminsmsloans#smslanfilter'
-
+  get "transfer" => "layouts#transfer"
 
   get "gratislan" => 'adminsmsloans#gratislan'
 

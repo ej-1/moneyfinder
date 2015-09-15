@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <%= favicon_link_tag 'favicon.ico' %>
+    
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="VtdEH7zhYHz6CaihcENT2lRMqI0BR8wq5uX55UWYMl8" />
+    <meta name="google-site-verification" content="bzqmsweAUZ_e6buU4OGRM6m6c9LjeFGqjTCn2QWITtk" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title><%= yield(:title) %></title>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+
+    <%= csrf_meta_tags %>
+
+    <!-- Checkbox CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-18624650-4', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+
+    <!-- TradeDoubler site verification 2460789 -->
+    <!-- TradeDoubler site verification 2549466 -->
+    <%= yield(:header) %>
+
+
+    <!-- Google + Place this tag in your head or just before your close body tag. -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'sv'}
+    </script>
+
+  </head>
+
+
+  <body>
+
+<!-- Closes the window after it opens. -->
+    <script type="text/javascript">
+    window.close('http://localhost:3000/transfer');
+    </script>
+
+
+
+<div class="row">
+
+  <div class="span12 center-vertically">
+
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <div class="center_element2" style="margin-left:6%">
+      <h1 class="fonts">Var vänlig vänta</h1>
+      <p class="fonts">din långivare laddas...</p>
+      <p class="fonts">Tack för att du använder Moneylabs.se</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    </div> <!-- /container -->
+
+    <script type="text/javascript"> var uri = 'http://impse.tradedoubler.com/imp?type(inv)g(17588024)a(2460789)' + new String (Math.random()).substring (2, 11); document.write('<img src="'+uri +'">'); </script>
+
+
+
+    <script type="text/javascript" src="https://track.adtraction.com/t/t?as=1090730078&t=1&tk=0&trt=2" charset="ISO-8859-1"></script>
+
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+     <!-- Google Code for Click Conversion Page -->
+    <script type="text/javascript">
+    / <![CDATA[ /
+    var google_conversion_id = 1003001125;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "W1Q6CKew6l8Qpaqi3gM";
+    var google_remarketing_only = false;
+    / ]]> /
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1003001125/?label=W1Q6CKew6l8Qpaqi3gM&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
+
+  </body>
+</html>
+
+
+

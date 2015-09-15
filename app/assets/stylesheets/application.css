@@ -1575,6 +1575,7 @@ table.ex1 tr:empty {
 
 .table_id_gratislan_textleft{
   text-align: left;
+  padding-left: 40px;
 }
 
 .gratislan_comment{
@@ -1659,6 +1660,9 @@ table.ex1 tr:empty {
   border-bottom: solid 2px #D1D1D1;
 }
 
+.center-vertically{
+  margin-top: 20%;
+}
 
 
 
