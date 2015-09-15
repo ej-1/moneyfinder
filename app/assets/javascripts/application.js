@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 
 
-        //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixes,
+        //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
         $('a#affiliatelink').click(function(e) {
             window.open('http://localhost:3000/transfer');
