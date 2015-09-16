@@ -38,6 +38,12 @@ class AdminsmsloansController < ApplicationController
     @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
     @thorn_lowestinterest = 0.099
 
+    @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
+    @frogtail_lowestinterest = 0.099
+
+    @banknorwegian = Smsloan.where({ bank: '<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>'})
+    @banknorwegian_lowestinterest = 0.0499
+
     @smslan = Smsloan.all
 
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
