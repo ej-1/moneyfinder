@@ -35,6 +35,8 @@ class AdminsmsloansController < ApplicationController
   #   end
 
   #  @signupers = Signup.all
+    @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
+    @thorn_lowestinterest = 0.099
 
     @smslan = Smsloan.all
 
