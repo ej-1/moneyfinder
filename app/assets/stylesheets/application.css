@@ -1720,6 +1720,14 @@ table.ex1 tr:empty {
   font-size: 9px;
 }
 
+.correction{
+  margin-top: 50px;
+}
+
+.correction2{
+  margin-top: 0px;
+}
+
 
 
 

@@ -161,17 +161,16 @@
       .row.row-padding-fix.content-top.odd_searchresults_color
         .span1
         .span2
-          .smslogo-size.smsloan_extrainfo_desk= smsloan.bank.to_s.html_safe
-          %p.smsloan_extrainfo.smsloan_extrainfo_desk Thorn erbjuder individuell ränta 9,9% - 21,9% på lån upp till 50 000 kr. Uppläggningsavgiften är 495 kr och låna upp till 72 månader.
-          %p.smsloan_extrainfo2.smsloan_extrainfo_desk (Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften.)
+          .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+          .smsloan_extrainfo.smsloan_extrainfo_desk.correction.fonts Thorn erbjuder individuell ränta 9,9% - 21,9% på lån upp till 50 000 kr. Uppläggningsavgiften är 495 kr.
 
 
         .smslogo-size.smsloan_extrainfo_tabmob= smsloan.bank.to_s.html_safe
         .smsloan_extrainfo_box
-          %p.smsloan_extrainfo_tabmob.smsloan_extrainfo Thorn erbjuder individuell ränta 9,9% - 21,9% på lån upp till 50 000 kr. Uppläggningsavgiften är 495 kr och låna upp till 72 månader.
+          %p.smsloan_extrainfo_tabmob.smsloan_extrainfo Thorn erbjuder individuell ränta 9,9% - 21,9%. Låna upp till 50 000 kr. Uppläggningsavgiften är 495 kr och låna upp till 72 månader.
           %p.smsloan_extrainfo_tabmob.smsloan_extrainfo2 (Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften.)
         .span4
-          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
             %thead
               %tr
                 %th.stickyamount Belopp
@@ -311,7 +310,7 @@
                   - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1) + 495
                   %ul#horizontal-list
                     %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
-
+          .smsloan_extrainfo2.smsloan_extrainfo_desk (Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften.)
         .span4.smsloaninfo
           %table.blocker
             %tbody
