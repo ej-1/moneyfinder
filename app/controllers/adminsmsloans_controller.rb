@@ -35,16 +35,49 @@ class AdminsmsloansController < ApplicationController
   #   end
 
   #  @signupers = Signup.all
-    @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
-    @thorn_lowestinterest = 0.099
 
-    @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
-    @frogtail_lowestinterest = 0.099
-
+    # NORWEGIAN
     @banknorwegian = Smsloan.where({ bank: '<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>'})
     @banknorwegian_lowestinterest = 0.0499
+    @banknorwegian_smallest_invoice_fee = 19
+    @banknorwegian_arrangement_fee = 399
+    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr.)"
 
-    @smslan = Smsloan.all
+    # THORN
+    @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
+    @thorn_lowestinterest = 0.099
+    @thorn_smallest_invoice_fee = 0
+    @thorn_arrangement_fee = 495
+    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+
+    # FROGTAIL
+    @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
+    @frogtail_lowestinterest = 0.099
+    @frogtail_smallest_invoice_fee = 15
+    @frogtail_arrangement_fee = 350
+    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr.)"
+
+    # LEASY MINILÅN
+    @leasy_minilan = Smsloan.where({ bank: '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'})
+    @leasy_minilan_lowestinterest = 0.099
+    @leasy_minilan_smallest_invoice_fee = 0
+    @leasy_minilan_arrangement_fee = 495
+    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+
+    # LEASY
+    @leasy_lan = Smsloan.where({ bank: '<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'})
+    @leasy_lan_lowestinterest = 0.099
+    @leasy_lan_smallest_invoice_fee = 0
+    @leasy_lan_arrangement_fee = 495
+    @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+
+    # The querying for SMSloans, but skipped querying the hardcoded ones from the database.
+    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'])
+
+
+    #Tried to make more efficient code, ut did not work
+    #@smslan = Smsloan.all.where.not(bank:, "_.name like frogtail%")
+    #@smslan = Smsloan.all.where.not(Smsloan.arel_table[:bank].matches('%frogtail'))
 
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
     # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.

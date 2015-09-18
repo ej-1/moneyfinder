@@ -932,7 +932,7 @@ Media queries
   }
 
   .smsloan_extrainfo_tabmob{
-
+    font-size: 11px;
   }
 
   .smsloan_extrainfo_desk{
@@ -1255,7 +1255,7 @@ Media queries
   }
 
   .smsloan_extrainfo_tabmob{
-
+    font-size: 11px;
   }
 
   .smsloan_extrainfo_desk{
@@ -1717,7 +1717,7 @@ table.ex1 tr:empty {
 }
 
 .smsloan_extrainfo2{
-  font-size: 9px;
+  font-size: 11px;
 }
 
 .correction{
@@ -1728,7 +1728,10 @@ table.ex1 tr:empty {
   margin-top: 0px;
 }
 
-
+.table_comment{
+  font-size: 9px;
+  color: #AAA;
+}
 
 
 #table_id_loanbrokers tr{
