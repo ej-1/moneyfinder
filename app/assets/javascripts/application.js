@@ -41,7 +41,6 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
 
-
         //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
         $('a#affiliatelink').click(function(e) {
@@ -50,12 +49,11 @@ $(document).ready(function() {
         });
 
 
-
         if ($(window).width() < 481) {
           //http://tympanus.net/codrops/2010/01/03/scrolling-to-the-top-and-bottom-with-jquery/
           //Check to see if the window is top if not then display button
           $(window).scroll(function(){
-            if ($(this).scrollTop() > 100) {
+            if ($(this).scrollTop() > 700) {
               $('.scrollToTop').fadeIn();
             } else {
               $('.scrollToTop').fadeOut();
@@ -71,6 +69,16 @@ $(document).ready(function() {
         else {
 
         }
+
+          //http://tympanus.net/codrops/2010/01/03/scrolling-to-the-top-and-bottom-with-jquery/
+          //Check to see if the window is top if not then display button
+          $(window).scroll(function(){
+            if ($(this).scrollTop() > 700) {
+              $('.barshowtime').fadeIn();
+            } else {
+              $('.barshowtime').fadeOut();
+            }
+          });
 
 
       //One example how to fix navbar collapse: http://stackoverflow.com/questions/21496304/bootstrap-collapse-component-not-closing-menu-on-clicking-away

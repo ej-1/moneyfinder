@@ -2,9 +2,10 @@
 - content_for :title, "Moneylabs.se - Jämför och hitta billigast smslån och snabblån"
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
 //.page-padding
+
 .row
-  .span10.scrollToTopBar
-    %a.scrollToTop{:href => "#"} Scrolla till toppen
+  .scrollToTop Scrolla till toppen
+
 .row.row-padding-fix
   .span1
   .span10
@@ -142,6 +143,12 @@
   .span1
 
 #div_id
+  .row
+    .button_showmeless_than_90d
+      .barshowtime Visa bindningstider: 30, 60 dagar
+    .button_showmemore_than_90d
+      .barshowtime Visa bindningstider: 90 dagar, 1 år 
+
   .row
     .span12
       .showme_buttons.center_element2

@@ -11,6 +11,1117 @@
             %i.icon-white.icon-time
             Visa bindningstider: 90 dagar, 1 år 
 
+  //This is for Bank Norwegian
+  .row.row-padding-fix.search_results.smsloanoverview
+    .span12.table_overview_fix
+    - @banknorwegian.each do |smsloan|
+      .row.row-padding-fix.content-top.odd_searchresults_color
+        .span1
+        .span2
+          .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+          .smsloan_extrainfo.smsloan_extrainfo_desk.correction.fonts Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Omedelbart preliminärt besked.
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Personlig från ränta 4,99% till 20,24 %.
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 399 kr
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Månadsavgift 19 kr
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-15 år
+
+        .smslogo-size.smsloan_extrainfo_tabmob= smsloan.bank.to_s.html_safe
+        .smsloan_extrainfo_box
+
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Omedelbart preliminärt besked.
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Personlig från ränta 4,99% till 20,24 %.
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Uppläggningsavgift 399 kr
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Månadsavgift 19 kr
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Lånetid 1-15 år
+
+
+        .span4
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
+            %thead
+              %tr
+                %th.stickyamount Belopp
+                %th.less_than_90d 30 dagar
+                %th.less_than_90d 60 dagar
+                %th.more_than_90d 90 dagar
+                %th.more_than_90d 1 år      
+            %tbody
+              %tr
+                %td 3000 kr
+                %td.less_than_90d
+                  // (amount * lowest yearly intrest * years) + uppläggningsavgift
+                  - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+              %tr
+                %td 4000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+              %tr
+                %td 5000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.less_than_90d
+                  - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 7000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 10 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 15 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @banknorwegian_table_comment
+          .smsloan_extrainfo2.smsloan_extrainfo_desk.table_comment= @banknorwegian_table_comment
+        .span4.smsloaninfo
+          %table.blocker
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
+          .row
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
+              //%p Ansökningsavgift 0 kr
+              %p
+                %strong> Lånebelopp
+                \: 
+                - @smsloan_minamount = smsloan.min_loanamount
+                - @smsloan_maxamount = smsloan.max_loanamount
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+              %p
+                %strong> Åldersgräns
+                \: 
+                = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+                //try this
+                //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+              %p
+                %strong> SKEF-medlem
+                \:
+                = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+                = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+              %p
+                %strong> Lån trots betalningsanm.
+                \:
+                //= Smsloan.second.low_credit_score
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+              %p
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                = smsloan.no_uc[/"(.*?)"/, 1]
+
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
+              %ul
+                %li= smsloan.weblink.to_s.html_safe
+
+                %li
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+        .span1
+
+  //This is for Thorn
+  .row.row-padding-fix.search_results.smsloanoverview
+    .span12.table_overview_fix
+    - @thorn.each do |smsloan|
+      .row.row-padding-fix.content-top.odd_searchresults_color
+        .span1
+        .span2
+          .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+          .smsloan_extrainfo.smsloan_extrainfo_desk.correction.fonts Thorn erbjuder individuell ränta 9,9% - 21,9% på lån upp till 50 000 kr.
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 495 kr
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift: 0:- vid autogiro (39:-/mån annars)
+          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-6 år
+
+        .smslogo-size.smsloan_extrainfo_tabmob= smsloan.bank.to_s.html_safe
+        .smsloan_extrainfo_box
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Thorn erbjuder individuell ränta 9,9% - 21,9%. Låna upp till 50 000 kr.
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgif 495 kr
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift: 0:- vid autogiro (39:-/mån annars)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånetid 1-6 år
+
+        .span4
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
+            %thead
+              %tr
+                %th.stickyamount Belopp
+                %th.less_than_90d 30 dagar
+                %th.less_than_90d 60 dagar
+                %th.more_than_90d 90 dagar
+                %th.more_than_90d 1 år      
+            %tbody
+              %tr
+
+                %td 3000 kr
+                %td.less_than_90d
+                  // (amount * lowest yearly intrest * years) + uppläggningsavgift
+                  - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1) + 495
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 4000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 5000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 7000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 10 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 15 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @thorn_table_comment
+          .smsloan_extrainfo2.smsloan_extrainfo_desk.table_comment= @thorn_table_comment
+        .span4.smsloaninfo
+          %table.blocker
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
+          .row
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
+              //%p Ansökningsavgift 0 kr
+              %p
+                %strong> Lånebelopp
+                \: 
+                - @smsloan_minamount = smsloan.min_loanamount
+                - @smsloan_maxamount = smsloan.max_loanamount
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+              %p
+                %strong> Åldersgräns
+                \: 
+                = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+                //try this
+                //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+              %p
+                %strong> SKEF-medlem
+                \:
+                = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+                = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+              %p
+                %strong> Lån trots betalningsanm.
+                \:
+                //= Smsloan.second.low_credit_score
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+              %p
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                = smsloan.no_uc[/"(.*?)"/, 1]
+
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
+              %ul
+                %li= smsloan.weblink.to_s.html_safe
+
+                %li
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+        .span1
+
+  //This is for Frogtail
+  .row.row-padding-fix.search_results.smsloanoverview
+    .span12.table_overview_fix
+    - @frogtail.each do |smsloan|
+      .row.row-padding-fix.content-top.odd_searchresults_color
+        .span1
+        .span2
+          .smsloan_extrainfo_box
+            .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Frogtail erbjuder personlig ränta från 9,9% till 39% på lån upp till 25 000 kr. 
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 0 kr
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift 15 kr
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid minst 1-2 år
+
+        .smslogo-size.smsloan_extrainfo_tabmob= smsloan.bank.to_s.html_safe
+        .smsloan_extrainfo_box
+
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Frogtail erbjuder personlig ränta från 9,9%  till 39% på lån upp till 25 000 kr.
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgift 0 kr
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift 15 kr
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånetid minst 1-2 år
+        .span4
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
+            %thead
+              %tr
+                %th.stickyamount Belopp
+                %th.less_than_90d 30 dagar
+                %th.less_than_90d 60 dagar
+                %th.more_than_90d 90 dagar
+                %th.more_than_90d 1 år      
+            %tbody
+              %tr
+                %td 3000 kr
+                %td.less_than_90d
+                  // (amount * lowest yearly intrest * years) + uppläggningsavgift
+                  - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+              %tr
+                %td 4000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+              %tr
+                %td 5000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+              %tr
+                %td 7000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+              %tr
+                %td 10 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 15 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @frogtail_table_comment
+          .smsloan_extrainfo2.smsloan_extrainfo_desk.table_comment= @frogtail_table_comment
+        .span4.smsloaninfo
+          %table.blocker
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
+          .row
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
+              //%p Ansökningsavgift 0 kr
+              %p
+                %strong> Lånebelopp
+                \: 
+                - @smsloan_minamount = smsloan.min_loanamount
+                - @smsloan_maxamount = smsloan.max_loanamount
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+              %p
+                %strong> Åldersgräns
+                \: 
+                = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+                //try this
+                //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+              %p
+                %strong> SKEF-medlem
+                \:
+                = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+                = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+              %p
+                %strong> Lån trots betalningsanm.
+                \:
+                //= Smsloan.second.low_credit_score
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+              %p
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                = smsloan.no_uc[/"(.*?)"/, 1]
+
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
+              %ul
+                %li= smsloan.weblink.to_s.html_safe
+
+                %li
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+        .span1
+
+  //This is for L'easy minilån
+  .row.row-padding-fix.search_results.smsloanoverview
+    .span12.table_overview_fix
+    - @leasy_minilan.each do |smsloan|
+      .row.row-padding-fix.content-top.odd_searchresults_color
+        .span1
+        .span2
+          .smslogo-size.smsloan_extrainfo_tabmob.fonts= smsloan.bank.to_s.html_safe
+          .smsloan_extrainfo_box
+            .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts 60 dagar räntefritt.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts L'easy minilån erbjuder personlig ränta 9,9% - 21,6%.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 495 kr
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift: 0:- vid autogiro (39:-/mån annars)
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-3 år
+
+          .smsloan_extrainfo_box
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo 60 dagar räntefritt.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo L'easy erbjuder personlig ränta från 9,9%  till 21,6% på lån upp till 25 000 kr.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgift 495 kr
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift: 0:- vid autogiro (39:-/mån annars).
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånetid 1-3 år
+        .span4
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
+            %thead
+              %tr
+                %th.stickyamount Belopp
+                %th.less_than_90d 30 dagar
+                %th.less_than_90d 60 dagar
+                %th.more_than_90d 90 dagar
+                %th.more_than_90d 1 år      
+            %tbody
+              %tr
+
+                %td 3000 kr
+                %td.less_than_90d
+                  // (amount * lowest yearly intrest * years) + uppläggningsavgift
+                  - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 4000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 5000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 7000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 10 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 15 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @leasy_minilan_table_comment
+          .smsloan_extrainfo2.smsloan_extrainfo_desk.table_comment= @leasy_minilan_table_comment
+        .span4.smsloaninfo
+          %table.blocker
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
+          .row
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
+              //%p Ansökningsavgift 0 kr
+              %p
+                %strong> Lånebelopp
+                \: 
+                - @smsloan_minamount = smsloan.min_loanamount
+                - @smsloan_maxamount = smsloan.max_loanamount
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+              %p
+                %strong> Åldersgräns
+                \: 
+                = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+                //try this
+                //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+              %p
+                %strong> SKEF-medlem
+                \:
+                = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+                = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+              %p
+                %strong> Lån trots betalningsanm.
+                \:
+                //= Smsloan.second.low_credit_score
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+              %p
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                = smsloan.no_uc[/"(.*?)"/, 1]
+
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
+              %ul
+                %li= smsloan.weblink.to_s.html_safe
+
+                %li
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+        .span1
+
+  //This is for L'easy lån
+  .row.row-padding-fix.search_results.smsloanoverview
+    .span12.table_overview_fix
+    - @leasy_lan.each do |smsloan|
+      .row.row-padding-fix.content-top.odd_searchresults_color
+        .span1
+        .span2
+          .smslogo-size.smsloan_extrainfo_tabmob.fonts= smsloan.bank.to_s.html_safe
+          .smsloan_extrainfo_box
+            .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts 60 dagar räntefritt.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts L'easy minilån erbjuder personlig ränta 9,9% - 21,6%.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 495 kr
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift: 0:- vid autogiro (39:-/mån annars)
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-3 år
+
+          .smsloan_extrainfo_box
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo 60 dagar räntefritt.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo L'easy erbjuder personlig ränta från 9,9%  till 21,6% på lån upp till 25 000 kr.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgift 495 kr
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift: 0:- vid autogiro (39:-/mån annars).
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånetid 1-3 år
+
+
+        .span4
+          %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format.correction2
+            %thead
+              %tr
+                %th.stickyamount Belopp
+                %th.less_than_90d 30 dagar
+                %th.less_than_90d 60 dagar
+                %th.more_than_90d 90 dagar
+                %th.more_than_90d 1 år      
+            %tbody
+              %tr
+
+                %td 3000 kr
+                %td.less_than_90d
+                  // (amount * lowest yearly intrest * years) + uppläggningsavgift
+                  - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+                %td.more_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 4000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+
+              %tr
+                %td 5000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 1)  + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 7000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 10 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+              %tr
+                %td 15 000 kr
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.less_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= "-"
+
+                %td.more_than_90d
+                  - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                  %ul#horizontal-list
+                    %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @leasy_lan_table_comment
+          .smsloan_extrainfo2.smsloan_extrainfo_desk.table_comment= @leasy_lan_table_comment
+        .span4.smsloaninfo
+          %table.blocker
+            %tbody
+              %tr
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.invoice_fee
+                %td.hidden-smslan= smsloan.application_fee
+                %td.hidden-smslan= smsloan.mobile_friendly_site
+                %td.hidden-smslan= smsloan.low_credit_score
+                %td.hidden-smslan= smsloan.min_age
+                %td.hidden-smslan= smsloan.cost_free_loan
+                %td.hidden-smslan= smsloan.cost_free_loan_amount
+                %td.hidden-smslan= smsloan.new_borrower_5K
+                %td.hidden-smslan= smsloan.new_borrower_10K
+                %td.hidden-smslan= smsloan.max_amount_new_borrower
+                %td.hidden-smslan= smsloan.no_uc
+                %td.hidden-smslan= smsloan.skef_member
+                %td.hidden-smslan= smsloan.bankid
+                %td.hidden-smslan= smsloan.open_on_saturdays
+                %td.hidden-smslan= smsloan.open_on_sundays
+          .row
+            .smsloanoverviewinfo.switch_smsloan_example1_info.float-left
+              //%p Ansökningsavgift 0 kr
+              %p
+                %strong> Lånebelopp
+                \: 
+                - @smsloan_minamount = smsloan.min_loanamount
+                - @smsloan_maxamount = smsloan.max_loanamount
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+              %p
+                %strong> Åldersgräns
+                \: 
+                = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+                //try this
+                //http://apidock.com/rails/v4.2.1/ActionView/Helpers/TextHelper/excerpt
+              %p
+                %strong> SKEF-medlem
+                \:
+                = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+                = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+              %p
+                %strong> Lån trots betalningsanm.
+                \:
+                //= Smsloan.second.low_credit_score
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+
+              %p
+                //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
+                = smsloan.no_uc[/"(.*?)"/, 1]
+
+            .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
+              %ul
+                %li= smsloan.weblink.to_s.html_safe
+
+                %li
+                  .typeofloan
+                    .hidden-smslan= smsloan.application_fee
+        .span1
+
+
+
   .row.row-padding-fix.search_results.smsloanoverview
     .span12.table_overview_fix
     - @smslan.each do |smsloan|

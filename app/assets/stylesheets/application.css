@@ -1218,10 +1218,14 @@ Media queries
     position:fixed;
     top: 0px;
     display:none;
+    margin-top: 40px;
+    cursor:pointer;
   }
   .scrollToTop:hover{
     text-decoration:none;
   }
+
+
 
   .loanbrokers_mobile{
   }
@@ -1733,6 +1737,35 @@ table.ex1 tr:empty {
   color: #AAA;
 }
 
+.barshowtime{
+  width:100%;
+  margin-left: -5px;
+  height: 40px;
+  text-align:center; 
+  background: #fff;
+  font-weight: bold;
+  color: #777;
+  text-decoration: none;
+  position:fixed;
+  top: 0px;
+  display:none;
+  border-bottom: solid 0.1px #E4E4E4;
+  padding-top: 8px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.barshowtime:hover{
+  text-decoration:none;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+
 
 #table_id_loanbrokers tr{
   border-bottom: solid 2px #D1D1D1;
@@ -1850,7 +1883,7 @@ input[type=checkbox]:checked,input[type=radio]:checked,input[type=checkbox]:focu
 }
  
 input[type=checkbox]+.lbl,input[type=radio]+.lbl {
-    position: relative;
+    /* Disabled this so that it would not show through the text in .barshowtime. position: relative;*/
     z-index: 11;
     display: inline-block;
     margin: 0;
