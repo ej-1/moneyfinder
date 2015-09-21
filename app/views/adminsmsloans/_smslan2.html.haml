@@ -1,10 +1,15 @@
 = @combiner_array
 = @combiner2
 .row
-  .button_showmeless_than_90d
-    .barshowtime 90 dagar
-  .button_showmemore_than_90d
-    .barshowtime 60 dagar
+  .barshowgroup
+    %ul#horizontal-list-groupbar
+      %li.fonts.group_bar_options.group_14d 14 dagar
+      %li.fonts.group_bar_options.group_21d 21 dagar
+      %li.fonts.group_bar_options.group_30d 30 dagar
+      %li.fonts.group_bar_options.group_60d 60 dagar
+      %li.fonts.group_bar_options.group_90d 90 dagar
+      %li.fonts.group_bar_options.group_1y 1 år
+
 .row.row-padding-fix
   .span1
   .span10
@@ -21,8 +26,8 @@
             = button_tag(type: 'submit', class: "btn btn-info btn-info") do
               %i.icon-white.icon-list
               Visa lånöversikt igen
-    %h2#table_id2.h2-hulk-bold 14 dagar
-    %table#table_id2.ex1.anti_border_spacing
+    %h2#table_id2.h2-hulk-bold.table14d 14 dagar
+    %table#table_id2#table14d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
@@ -92,8 +97,8 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold 21 dagar
-    %table#table_id2.ex1.anti_border_spacing
+    %h2#table_id2.h2-hulk-bold.table21d 21 dagar
+    %table#table_id2#table21d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
@@ -163,8 +168,8 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold 30 dagar
-    %table#table_id2.ex1.anti_border_spacing
+    %h2#table_id2.h2-hulk-bold.table30d 30 dagar
+    %table#table_id2#table30d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
@@ -234,8 +239,8 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold 60 dagar
-    %table#table_id2.ex1.anti_border_spacing
+    %h2#table_id2.h2-hulk-bold.table60d 60 dagar
+    %table#table_id2#table60d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
@@ -305,8 +310,8 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold 90 dagar
-    %table#table_id2.ex1.anti_border_spacing
+    %h2#table_id2.h2-hulk-bold.table90d 90 dagar
+    %table#table_id2#table90d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
@@ -376,7 +381,7 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold 1 year
+    %h2#table_id2#table1y.h2-hulk-bold.table1y 1 year
     %table#table_id2.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|

@@ -80,6 +80,16 @@ $(document).ready(function() {
             }
           });
 
+          //This is for bar that scrolls to the loantime group
+          $(window).scroll(function(){
+            if ($(this).scrollTop() > 50) {
+              $('.barshowgroup').fadeIn();
+            } else {
+              $('.barshowgroup').fadeOut();
+            }
+          });
+
+
 
       //One example how to fix navbar collapse: http://stackoverflow.com/questions/21496304/bootstrap-collapse-component-not-closing-menu-on-clicking-away
       //Toggle collapse for navbar options in mobile format.

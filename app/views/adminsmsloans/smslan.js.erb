@@ -29,17 +29,99 @@ $('input:checked').each(function() {
 //This checks if there are any loangivers offering a loan for 
 rowCount = $('#table_id2 tr:visible').size();
 
-if ($('#table_id2 tr:visible').size() === 0){
-  $(this).hide();
+//if ($('#table_id2 tr:visible').size() === 0){
+//  $(this).hide();
+//}
+
+var t14d = ($('#table14d tr:visible').size());
+var t21d = ($('#table21d tr:visible').size());
+var t30d = ($('#table30d tr:visible').size());
+var t60d = ($('#table60d tr:visible').size());
+var t90d = ($('#table90d tr:visible').size());
+var t1y = ($('#table1y tr:visible').size());
+
+
+// Hides titles of loantime groups if there are no results in the group
+// Hides the corresponding option in the bar appearing after a search.
+if (t14d === 0){
+  $('.table14d').hide();
+  $('.group_14d').hide();
+}
+
+if (t21d === 0){
+  $('.table21d').hide();
+  $('.group_21d').hide();
+}
+
+if (t30d === 0){
+  $('.table30d').hide();
+  $('.group_30d').hide();
+}
+
+if (t60d === 0){
+  $('.table60d').hide();
+  $('.group_60d').hide();
+}
+
+if (t90d === 0){
+  $('.table90d').hide();
+  $('.group_90d').hide();
+}
+
+if (t1y === 0){
+  $('.table1y').hide();
+  $('.group_1y').hide();
 }
 
 
-if (rowCount === 0){
+// Shows this message if there are no results that match the search.
+if (t14d === 0 && t21d === 0 && t30d === 0 && t60d === 0 && t90d === 0 && t1y === 0){
   $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
   $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
   $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
 }
 
+// Keeps hidden the things that should be hidden by the checked checkboxes
 $('input:checked').each(function() {
   $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
 });
+
+
+// Use the navbar ater doing a search, to scroll down to the corresponding loantime group.
+$(".group_14d").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table14d").offset().top},
+            'slow');
+    });
+      
+$(".group_21d").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table21d").offset().top},
+            'slow');
+    });
+
+$(".group_30d").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table30d").offset().top},
+            'slow');
+    });
+      
+$(".group_60d").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table60d").offset().top},
+            'slow');
+    });
+
+$(".group_90d").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table90d").offset().top},
+            'slow');
+    });
+
+$(".group_1y").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".table1y").offset().top},
+            'slow');
+    });
+
+
