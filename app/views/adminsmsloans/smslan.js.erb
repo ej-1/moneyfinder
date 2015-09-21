@@ -27,7 +27,11 @@ $('input:checked').each(function() {
 });
 
 //This checks if there are any loangivers offering a loan for 
-var rowCount = $('#table_id2 tr:visible').size();
+rowCount = $('#table_id2 tr:visible').size();
+
+if ($('#table_id2 tr:visible').size() === 0){
+  $(this).hide();
+}
 
 
 if (rowCount === 0){

@@ -1432,6 +1432,12 @@ h1 {
   color: #86B64D;
 }
 
+.h2-hulk-bold {
+  font-family: 'Open Sans', sans-serif;
+  color: #86B64D;
+  font-weight: bold;
+}
+
 .glyph {
   font-family: 'Open Sans', sans-serif;
   color: #fff;

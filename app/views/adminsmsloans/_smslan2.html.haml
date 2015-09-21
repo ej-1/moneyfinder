@@ -1,3 +1,5 @@
+= @combiner_array
+= @combiner2
 .row
   .button_showmeless_than_90d
     .barshowtime 90 dagar
@@ -19,10 +21,365 @@
             = button_tag(type: 'submit', class: "btn btn-info btn-info") do
               %i.icon-white.icon-list
               Visa lånöversikt igen
-
+    %h2#table_id2.h2-hulk-bold 14 dagar
     %table#table_id2.ex1.anti_border_spacing
       %tbody.smsloanoverview
-        - @plucker.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+        - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
+              %ul.sms_info_list
+                %li
+                  %p
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = no_uc[/"(.*?)"/, 1]
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+              %ul
+                %li
+                  .sms_costnew_searchresult= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold_searchresult= @cost_debtor_texted
+
+
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    %h2#table_id2.h2-hulk-bold 21 dagar
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody.smsloanoverview
+        - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
+              %ul.sms_info_list
+                %li
+                  %p
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = no_uc[/"(.*?)"/, 1]
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+              %ul
+                %li
+                  .sms_costnew_searchresult= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold_searchresult= @cost_debtor_texted
+
+
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    %h2#table_id2.h2-hulk-bold 30 dagar
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody.smsloanoverview
+        - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
+              %ul.sms_info_list
+                %li
+                  %p
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = no_uc[/"(.*?)"/, 1]
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+              %ul
+                %li
+                  .sms_costnew_searchresult= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold_searchresult= @cost_debtor_texted
+
+
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    %h2#table_id2.h2-hulk-bold 60 dagar
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody.smsloanoverview
+        - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
+              %ul.sms_info_list
+                %li
+                  %p
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = no_uc[/"(.*?)"/, 1]
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+              %ul
+                %li
+                  .sms_costnew_searchresult= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold_searchresult= @cost_debtor_texted
+
+
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    %h2#table_id2.h2-hulk-bold 90 dagar
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody.smsloanoverview
+        - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+          - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+          - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+          - if plucker.nil? && plucker2.nil?
+          - else
+            - if plucker.nil?
+              - @cost_debtor_texted = "-"
+            - if plucker2.nil?
+              - @cost_newdebtor = "-"
+            %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+            %td.sms_info_list_mobileformat.td_fix_mobileformat
+              %ul.sms_info_list
+                %li
+                  %p
+                    %strong> Lånebelopp
+                    \: 
+                    - @smsloan_minamount = min_loanamount
+                    - @smsloan_maxamount = max_loanamount
+                    = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+                %li
+                  %p
+                    %strong> Åldersgräns
+                    \: 
+                    = excerpt(min_age, 'år', radius: 3, omission: '')
+                %li
+                  %p
+                    %strong> SKEF-medlem
+                    \:
+                    = excerpt(skef_member, 'Ja', radius: 0, omission: '')
+                    = excerpt(skef_member, 'Nej', radius: 0, omission: '')
+                %li
+                  %p
+                    %strong> Lån trots betalningsanm.
+                    \:
+                    //= Smsloan.second.low_credit_score
+                    = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                %li
+                  %p
+                    = no_uc[/"(.*?)"/, 1]
+            %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+              %ul
+                %li
+                  .sms_costnew_searchresult= @cost_newdebtor
+              %ul#horizontal-list
+                %li
+                  .sms_costold_searchresult= @cost_debtor_texted
+
+
+            %td.sms_ansokbutton_mobileformat.td_fix_mobileformat= weblink.to_s.html_safe
+            %td.hidden-smslan= max_amount_new_borrower
+            %td.hidden-smslan= invoice_fee
+            %td.hidden-smslan= application_fee
+            %td.hidden-smslan= mobile_friendly_site
+            %td.hidden-smslan= min_age
+            %td.hidden-smslan= low_credit_score
+            %td.hidden-smslan= cost_free_loan
+            %td.hidden-smslan= cost_free_loan_amount
+            %td.hidden-smslan= new_borrower_5K
+            %td.hidden-smslan= new_borrower_10K
+            %td.hidden-smslan= no_uc
+            %td.hidden-smslan= skef_member
+            %td.hidden-smslan= bankid
+            %td.hidden-smslan= open_on_saturdays
+            %td.hidden-smslan= open_on_sundays
+
+    %h2#table_id2.h2-hulk-bold 1 year
+    %table#table_id2.ex1.anti_border_spacing
+      %tbody.smsloanoverview
+        - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
           - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
           - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)

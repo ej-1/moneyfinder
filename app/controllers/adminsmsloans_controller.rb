@@ -133,10 +133,10 @@ class AdminsmsloansController < ApplicationController
 
       @smsdrop1 = params[:search1]
       @smsdrop2 = params[:search2]
-      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
+      #XX h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
       a = {'1' => '_5h', '2' => '_1k', '3' => '_2k', '4' => '_3k', '5' => '_4k', '6' => '_5k', '7' => '_6k', '8' => '_7k', '9' => '_8k', '10' => '_9k', '11' => '_10k', '12' => '_15k', '13' => '_20k', '14' => '_25k', '15' => '_30k'}
 
-      @drop1 = h[@smsdrop1[0]]
+      #XX @drop1 = h[@smsdrop1[0]]
       @drop2 = a[@smsdrop2]
 
 
@@ -147,15 +147,49 @@ class AdminsmsloansController < ApplicationController
 
 
       #olddebtor
-      @combiner =[@drop1, @drop2].join("")
+      #XX @combiner =[@drop1, @drop2].join("")
+      @drop14d = 'debtor_loantime_14d'
+      @drop21d = 'debtor_loantime_21d'
+      @drop30d = 'debtor_loantime_30d'
+      @drop60d = 'debtor_loantime_60d'
+      @drop90d = 'debtor_loantime_90d'
+      @drop1y = 'debtor_loantime_90d'
+
+      @combiner14d =[@drop14d, @drop2].join("")
+      @combiner21d =[@drop21d, @drop2].join("")
+      @combiner30d =[@drop30d, @drop2].join("")
+      @combiner60d =[@drop60d, @drop2].join("")
+      @combiner90d =[@drop90d, @drop2].join("")
+      @combiner1y =[@drop1y, @drop2].join("")
 
       r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
       @drop3 = r[@smsdrop1[0]]
 
       #newdebtor
-      @combiner2 =[@drop3, @drop2].join("")
+      #@combiner2 =[@drop3, @drop2].join("")
+      @drop14dn = 'newdebtor_loantime_14d'
+      @drop21dn = 'newdebtor_loantime_21d'
+      @drop30dn = 'newdebtor_loantime_30d'
+      @drop60dn = 'newdebtor_loantime_60d'
+      @drop90dn = 'newdebtor_loantime_90d'
+      @drop1yn = 'newdebtor_loantime_90d'
 
-      @plucker = Smsloan.order(@combiner2, @combiner).pluck(:bank, :min_loanamount, :max_loanamount, @combiner, @combiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @combiner14dn =[@drop14dn, @drop2].join("")
+      @combiner21dn =[@drop21dn, @drop2].join("")
+      @combiner30dn =[@drop30dn, @drop2].join("")
+      @combiner60dn =[@drop60dn, @drop2].join("")
+      @combiner90dn =[@drop90dn, @drop2].join("")
+      @combiner1yn =[@drop1yn, @drop2].join("")
+
+
+      @plucker14 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner14dn, @combiner14d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker21 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner21dn, @combiner21d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker30 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner30dn, @combiner30d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker60 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner60dn, @combiner60d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker90 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner90dn, @combiner90d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker1 = Smsloan.pluck(:bank, :min_loanamount, :max_loanamount, @combiner1yn, @combiner1y, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+
+
 
       params.delete :search #this clears the 
     else
