@@ -1099,7 +1099,7 @@ Media queries
     /* Behave  like a "row" */
     border: none;
     /* border-bottom: 1px solid #eee; */
-    position: relative;
+    /*commented away so that bars in mobile don't go beneath. position: relative; */
 
   }
 
@@ -1211,14 +1211,14 @@ Media queries
     height:20px;
     text-align:center; 
     background: black;
-    opacity: 0.5;
+    opacity: 0.7;
     font-weight: bold;
     color: #fff;
     text-decoration: none;
     position:fixed;
     top: 0px;
     display:none;
-    margin-top: 40px;
+    margin-top: 38px;
     cursor:pointer;
   }
   .scrollToTop:hover{
@@ -1614,6 +1614,7 @@ table.ex1 tr:empty {
 
 #search_form_dropdown {
   color: rgba(86, 86, 86, 0.87);
+  display: inherit; /* Added this to fix position of dropdown in barshowgroup*/
 }
 
 .float-right-not797 {
@@ -1781,7 +1782,6 @@ table.ex1 tr:empty {
   padding-top: 8px;
   font-size: 11px;
   font-weight: bold;
-  cursor: pointer;
   padding-bottom: 7px;
 }
 
@@ -1809,6 +1809,7 @@ a {
   padding-right: 10px;
   color: #fff;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 ul#horizontal-list-groupbar{
@@ -1824,6 +1825,35 @@ ul#horizontal-list-groupbar li{
   font-family: "Open Sans",sans-serif;
 }
 
+
+.hulk-box {
+  background-color: rgb(144, 194, 85);
+  color: #fff;
+  font-size: 30px;
+  font-family: "Open Sans",sans-serif;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #91C056;
+  border-radius: 3px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 80px;
+  margin-bottom: 15px; 
+}
+
+.hidden-smsdropdown {
+  display: none;
+}
+
+.barshowgroup_dropdown {
+  width: 75px;
+}
+
+.barshowgroup_correction {
+  margin-top: -5px;
+}
 
 /* 
 .do_a_search{

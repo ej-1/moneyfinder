@@ -46,32 +46,53 @@ var t1y = ($('#table1y tr:visible').size());
 if (t14d === 0){
   $('.table14d').hide();
   $('.group_14d').hide();
+}else{
+  $('.table14d').show();
+  $('.group_14d').show();
 }
 
 if (t21d === 0){
   $('.table21d').hide();
   $('.group_21d').hide();
+}else{
+  $('.table21d').show();
+  $('.group_21d').show();
 }
 
 if (t30d === 0){
   $('.table30d').hide();
   $('.group_30d').hide();
+}else{
+  $('.table30d').show();
+  $('.group_30d').show();
 }
 
 if (t60d === 0){
   $('.table60d').hide();
   $('.group_60d').hide();
+}else{
+  $('.table60d').show();
+  $('.group_60d').show();
 }
 
 if (t90d === 0){
   $('.table90d').hide();
   $('.group_90d').hide();
+}else{
+  $('.table90d').show();
+  $('.group_90d').show();
 }
 
 if (t1y === 0){
   $('.table1y').hide();
   $('.group_1y').hide();
+}else{
+  $('.table1y').show();
+  $('.group_1y').show();
 }
+
+
+
 
 
 // Shows this message if there are no results that match the search.
@@ -79,6 +100,7 @@ if (t14d === 0 && t21d === 0 && t30d === 0 && t60d === 0 && t90d === 0 && t1y ==
   $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
   $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
   $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
+  $('.barshowgroup').hide();
 }
 
 // Keeps hidden the things that should be hidden by the checked checkboxes
@@ -87,41 +109,53 @@ $('input:checked').each(function() {
 });
 
 
-// Use the navbar ater doing a search, to scroll down to the corresponding loantime group.
+// Use the navbar after doing a search, to scroll down to the corresponding loantime group.
 $(".group_14d").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table14d").offset().top},
+            scrollTop: $(".table14d").offset().top - 50},
             'slow');
     });
       
 $(".group_21d").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table21d").offset().top},
+            scrollTop: $(".table21d").offset().top - 50},
             'slow');
     });
 
 $(".group_30d").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table30d").offset().top},
+            scrollTop: $(".table30d").offset().top - 50},
             'slow');
     });
       
 $(".group_60d").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table60d").offset().top},
+            scrollTop: $(".table60d").offset().top - 50},
             'slow');
     });
 
 $(".group_90d").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table90d").offset().top},
+            scrollTop: $(".table90d").offset().top - 50},
             'slow');
     });
 
 $(".group_1y").click(function() {
         $('html,body').animate({
-            scrollTop: $(".table1y").offset().top},
+            scrollTop: $(".table1y").offset().top - 50},
             'slow');
     });
 
 
+
+if ($(this).scrollTop() > 50 || $('#horizontal-list-groupbar').length) {
+  $('.barshowgroup').show();
+} else {
+  $('.barshowgroup').fadeOut();
+}
+
+//Brings back the titles of the loantime groups in a search results if after de-selecting a checkbox
+// and and a loantime group is revealed again.
+$('.smslanchkbx').onchange(function(){
+
+});

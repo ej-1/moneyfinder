@@ -9,6 +9,11 @@
       %li.fonts.group_bar_options.group_60d 60 dagar
       %li.fonts.group_bar_options.group_90d 90 dagar
       %li.fonts.group_bar_options.group_1y 1 år
+      %li.barshowgroup_correction
+        = form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do
+          = select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj löptid på lånet"
+          = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "barshowgroup_dropdown smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj belopp"
+
 
 .row.row-padding-fix
   .span1
@@ -97,7 +102,7 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold.table21d 21 dagar
+    .table21d.hulk-box#table_id2 21 dagar
     %table#table_id2#table21d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -167,8 +172,8 @@
             %td.hidden-smslan= bankid
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
-
-    %h2#table_id2.h2-hulk-bold.table30d 30 dagar
+    
+    .table30d.hulk-box#table_id2 30 dagar
     %table#table_id2#table30d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -239,7 +244,7 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold.table60d 60 dagar
+    .table60d.hulk-box#table_id2 60 dagar
     %table#table_id2#table60d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -310,7 +315,7 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2.h2-hulk-bold.table90d 90 dagar
+    .table90d.hulk-box#table_id2 90 dagar
     %table#table_id2#table90d.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -381,8 +386,8 @@
             %td.hidden-smslan= open_on_saturdays
             %td.hidden-smslan= open_on_sundays
 
-    %h2#table_id2#table1y.h2-hulk-bold.table1y 1 year
-    %table#table_id2.ex1.anti_border_spacing
+    .table1y.hulk-box#table_id2 1 year
+    %table#table_id2#table1y.ex1.anti_border_spacing
       %tbody.smsloanoverview
         - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr

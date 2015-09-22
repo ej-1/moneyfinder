@@ -82,7 +82,7 @@ $(document).ready(function() {
 
           //This is for bar that scrolls to the loantime group
           $(window).scroll(function(){
-            if ($(this).scrollTop() > 50) {
+            if ($(this).scrollTop() > 50 || $('#horizontal-list-groupbar').length) {
               $('.barshowgroup').fadeIn();
             } else {
               $('.barshowgroup').fadeOut();
@@ -225,6 +225,50 @@ $(document).ready(function() {
       {
           $('td').parentsUntil(".smsloanoverview").show();
           $(".smsloaninfo").show();
+              //Duplicated below to show the thulk-box after unclicking a checkbox.
+              var t14dclicked = ($('#table14d tr:visible').size());
+              var t21dclicked = ($('#table21d tr:visible').size());
+              var t30dclicked = ($('#table30d tr:visible').size());
+              var t60dclicked = ($('#table60d tr:visible').size());
+              var t90dclicked = ($('#table90d tr:visible').size());
+              var t1yclicked = ($('#table1y tr:visible').size());
+              if (t14dclicked === 0){
+              }else{
+                $('.table14d').show();
+                $('.group_14d').show();
+              }
+
+              if (t21dclicked === 0){
+              }else{
+                $('.table21d').show();
+                $('.group_21d').show();
+              }
+
+              if (t30dclicked === 0){
+              }else{
+                $('.table30d').show();
+                $('.group_30d').show();
+              }
+
+              if (t60dclicked === 0){
+              }else{
+                $('.table60d').show();
+                $('.group_60d').show();
+              }
+
+              if (t90dclicked === 0){
+              }else{
+                $('.table90d').show();
+                $('.group_90d').show();
+              }
+
+              if (t1yclicked === 0){
+              }else{
+                $('.table1y').show();
+                $('.group_1y').show();
+              }
+
+
 
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           //if ( $('#smsbutton').data('clicked', true)) {
@@ -254,9 +298,70 @@ $(document).ready(function() {
                   //      return ! $.trim($(this).text());  
                   //    }).length;
                   //}).hide();
+                  var t14dclicked = ($('#table14d tr:visible').size());
+                  var t21dclicked = ($('#table21d tr:visible').size());
+                  var t30dclicked = ($('#table30d tr:visible').size());
+                  var t60dclicked = ($('#table60d tr:visible').size());
+                  var t90dclicked = ($('#table90d tr:visible').size());
+                  var t1yclicked = ($('#table1y tr:visible').size());
+                  if (t14dclicked === 0){
+                    $('.table14d').hide();
+                    $('.group_14d').hide();
+                  }else{
+                    $('.table14d').show();
+                    $('.group_14d').show();
+                  }
+
+                  if (t21dclicked === 0){
+                    $('.table21d').hide();
+                    $('.group_21d').hide();
+                  }else{
+                    $('.table21d').show();
+                    $('.group_21d').show();
+                  }
+
+                  if (t30dclicked === 0){
+                    $('.table30d').hide();
+                    $('.group_30d').hide();
+                  }else{
+                    $('.table30d').show();
+                    $('.group_30d').show();
+                  }
+
+                  if (t60dclicked === 0){
+                    $('.table60d').hide();
+                    $('.group_60d').hide();
+                  }else{
+                    $('.table60d').show();
+                    $('.group_60d').show();
+                  }
+
+                  if (t90dclicked === 0){
+                    $('.table90d').hide();
+                    $('.group_90d').hide();
+                  }else{
+                    $('.table90d').show();
+                    $('.group_90d').show();
+                  }
+
+                  if (t1yclicked === 0){
+                    $('.table1y').hide();
+                    $('.group_1y').hide();
+                  }else{
+                    $('.table1y').show();
+                    $('.group_1y').show();
+                  }
+
+                  if (t14dclicked === 0 && t21dclicked === 0 && t30dclicked === 0 && t60dclicked === 0 && t90dclicked === 0 && t1yclicked === 0){
+                    $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
+                    $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
+                    $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
+                    $('.barshowgroup').hide();
+                  }
               }            
           );
       }
+
 
 
 
