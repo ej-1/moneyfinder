@@ -214,6 +214,49 @@ $(document).ready(function() {
       //http://stackoverflow.com/questions/10543854/jquery-product-filter-using-checkboxes-and-contains-show-hide
       //http://jsfiddle.net/WssNb/
 
+
+      //Filters parents based on first child
+      //http://stackoverflow.com/questions/7831712/jquery-sort-divs-by-innerhtml-of-children
+      function sortUsingNestedText(parent, childSelector, keySelector) {
+          var items = parent.children(childSelector).sort(function(a, b) {
+              var vA = $(keySelector, a).text();
+              var vB = $(keySelector, b).text();
+              return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
+          });
+          parent.append(items);
+      }
+
+      
+      
+
+      /* setup sort attributes */
+      $('#sPrice').data("sortKey", ".sms_costnew_searchresult:first-child");
+      $('#sStyle').data("sortKey", "span.style");
+
+
+      /* sort on button click */
+      $("button.btnSort").click(function() {
+         sortUsingNestedText($('#sortThis'), "div", $(this).data("sortKey"));
+         var ist = $('.sms_costnew_searchresult:first-child').html();
+         alert(ist);
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       $('input:checked').each(function() {
         $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
@@ -225,7 +268,21 @@ $(document).ready(function() {
       {
           $('td').parentsUntil(".smsloanoverview").show();
           $(".smsloaninfo").show();
-              //Duplicated below to show the thulk-box after unclicking a checkbox.
+
+              //finds the cheapest loan of each loantimegroup.s
+              //cheapest_child30d = $('.sms_costnew_searchresult30d:first-child').html().replace(' kr', '');
+              //cheapest_child60d = $('.sms_costnew_searchresult60d:first-child').html().replace(' kr', '');
+
+              //sorts the cheapest loans according to size - lowest to highest.
+              //var cheap_children = [cheapest_child30d, cheapest_child60d];
+              //cheap_children_sorted = cheap_children.sort(function(a, b){return a-b});
+
+
+              //.parentsUntil("#table_id2")
+              
+
+
+              //Duplicated below to show the hulk-box after unclicking a checkbox.
               var t14dclicked = ($('#table14d tr:visible').size());
               var t21dclicked = ($('#table21d tr:visible').size());
               var t30dclicked = ($('#table30d tr:visible').size());

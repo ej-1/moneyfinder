@@ -108,9 +108,9 @@
             %p.fonts.white Välj löptid på lånet
             %p#W1.smsloandropdown-fix
             = form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do
-              = select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj löptid på lånet"
-              %p.fonts.white Välj lånebelopp
-              %p#W2.smsloandropdown-fix
+              = select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj löptid på lånet"
+              %p.fonts.white.hidden-smslan Välj lånebelopp
+              %p#W2.smsloandropdown-fix.hidden-smslan
               = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj belopp"
           .span1
             .circle
@@ -141,6 +141,10 @@
           //  = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();"
           //  = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
   .span1
+%button#sPrice.btnSort Sort By Price
+%br/
+%button#sStyle.btnSort Sort By Style
+%br/
 
 #div_id
   .row

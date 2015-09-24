@@ -72,7 +72,7 @@ class AdminsmsloansController < ApplicationController
     @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
 
     # The querying for SMSloans, but skipped querying the hardcoded ones from the database.
-    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'])
+    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">']).order(:invoice_fee)
 
 
     #Tried to make more efficient code, ut did not work
@@ -90,14 +90,14 @@ class AdminsmsloansController < ApplicationController
     if params[:search]
 
       @pluckervalue = params[:search]
-      h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
+      #h = {'1' => 'debtor_loantime_14d', '2' => 'debtor_loantime_21d', '3' => 'debtor_loantime_30d', '4' => 'debtor_loantime_45d', '5' => 'debtor_loantime_60d', '6' => 'debtor_loantime_90d', '7' => 'debtor_loantime_1year'}
       a = {'1' => '_5h', '2' => '_1k', '3' => '_2k', '4' => '_3k', '5' => '_4k', '6' => '_5k', '7' => '_6k', '8' => '_7k', '9' => '_8k', '10' => '_9k', '11' => '_10k', '12' => '_15k', '13' => '_20k', '14' => '_25k', '15' => '_30k'}
       
       #To get new debtor
       @smsarray = @pluckervalue[0]
 
       @replace2 = a[@pluckervalue[1]]
-      @replace1 = h[@smsarray[0]]
+      #@replace1 = h[@smsarray[0]]
 
 
       i = {'1' => '14 dagar', '2' => '21 dagar', '3' => '30 dagar', '4' => '45 dagar', '5' => '60 dagar', '6' => '90 dagar', '7' => '1 år'}
@@ -105,13 +105,61 @@ class AdminsmsloansController < ApplicationController
       ii = {'1' => '500 kr', '2' => '1000 kr', '3' => '2000 kr', '4' => '3000 kr', '5' => '4000 kr', '6' => '5000 kr', '7' => '6000 kr', '8' => '7000 kr', '9' => '8000 kr', '10' => '9000 kr', '11' => '10 000 kr', '12' => '11 000 kr', '13' => '20 000 kr', '14' => '25 000 kr', '15' => '30 000 kr'}
       @smsamount_visible_info_for_user2 = ii[@pluckervalue[1]]
 
-      @joiner =[@replace1, @replace2].join("")
+      #olddebtor
+      @drop14d = 'debtor_loantime_14d'
+      @drop21d = 'debtor_loantime_21d'
+      @drop30d = 'debtor_loantime_30d'
+      @drop60d = 'debtor_loantime_60d'
+      @drop90d = 'debtor_loantime_90d'
+      @drop1y = 'debtor_loantime_90d'
 
-      r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
-      @replace3 = r[@smsarray[0]]
-      @joiner2 =[@replace3, @replace2].join("")
+      @combiner14d =[@drop14d, @replace2].join("")
+      @combiner21d =[@drop21d, @replace2].join("")
+      @combiner30d =[@drop30d, @replace2].join("")
+      @combiner60d =[@drop60d, @replace2].join("")
+      @combiner90d =[@drop90d, @replace2].join("")
+      @combiner1y =[@drop1y, @replace2].join("")
 
-      @plucker = Smsloan.order(@joiner2, @joiner).pluck(:bank, :min_loanamount, :max_loanamount, @joiner, @joiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      #r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
+      #@drop3 = r[@smsdrop1[0]]
+
+      #newdebtor
+      @drop14dn = 'newdebtor_loantime_14d'
+      @drop21dn = 'newdebtor_loantime_21d'
+      @drop30dn = 'newdebtor_loantime_30d'
+      @drop60dn = 'newdebtor_loantime_60d'
+      @drop90dn = 'newdebtor_loantime_90d'
+      @drop1yn = 'newdebtor_loantime_90d'
+
+      @combiner14dn =[@drop14dn, @replace2].join("")
+      @combiner21dn =[@drop21dn, @replace2].join("")
+      @combiner30dn =[@drop30dn, @replace2].join("")
+      @combiner60dn =[@drop60dn, @replace2].join("")
+      @combiner90dn =[@drop90dn, @replace2].join("")
+      @combiner1yn =[@drop1yn, @replace2].join("")
+
+
+      #@joiner =[@replace1, @replace2].join("")
+
+      #r = {'1' => 'newdebtor_loantime_14d', '2' => 'newdebtor_loantime_21d', '3' => 'newdebtor_loantime_30d', '4' => 'newdebtor_loantime_45d', '5' => 'newdebtor_loantime_60d', '6' => 'newdebtor_loantime_90d', '7' => 'newdebtor_loantime_1year'}
+      #@replace3 = r[@smsarray[0]]
+      #@joiner2 =[@replace3, @replace2].join("")
+
+      #@plucker = Smsloan.order(@joiner2, @joiner).pluck(:bank, :min_loanamount, :max_loanamount, @joiner, @joiner2, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker14 = Smsloan.order(@combiner14dn, @combiner14d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner14d, @combiner14dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker21 = Smsloan.order(@combiner21dn, @combiner21d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner21d, @combiner21dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      # Local and global variables - or how to get variable to work with desc. https://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/45-more-classes/lessons/110-instance-variables
+      #How to get null values to be at the end. http://stackoverflow.com/questions/5520628/rails-sort-nils-to-the-end-of-a-scope
+      @plucker30 = Smsloan.order('coalesce(newdebtor_loantime_30d_3k, 999999999) asc', 'coalesce(debtor_loantime_30d_3k, 999999999) asc').pluck(:bank, :min_loanamount, :max_loanamount, @combiner30d, @combiner30dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker60 = Smsloan.order(@combiner60dn, @combiner60d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner60d, @combiner60dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker90 = Smsloan.order(@combiner90dn, @combiner90d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner90d, @combiner90dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker1 = Smsloan.order(@combiner1yn, @combiner1y).pluck(:bank, :min_loanamount, :max_loanamount, @combiner1y, @combiner1yn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+
+
+
+
+
+
 
       params.delete :search #this clears the 
 
@@ -182,12 +230,14 @@ class AdminsmsloansController < ApplicationController
       @combiner1yn =[@drop1yn, @drop2].join("")
 
 
-      @plucker14 = Smsloan.order(@combiner14dn, @combiner14d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner14dn, @combiner14d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
-      @plucker21 = Smsloan.order(@combiner21dn, @combiner21d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner21dn, @combiner21d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
-      @plucker30 = Smsloan.order(@combiner30dn, @combiner30d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner30dn, @combiner30d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
-      @plucker60 = Smsloan.order(@combiner60dn, @combiner60d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner60dn, @combiner60d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
-      @plucker90 = Smsloan.order(@combiner90dn, @combiner90d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner90dn, @combiner90d, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
-      @plucker1 = Smsloan.order(@combiner1yn, @combiner1y).pluck(:bank, :min_loanamount, :max_loanamount, @combiner1yn, @combiner1y, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker14 = Smsloan.order(@combiner14dn, @combiner14d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner14d, @combiner14dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker21 = Smsloan.order(@combiner21dn, @combiner21d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner21d, @combiner21dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      # Local and global variables - or how to get variable to work with desc. https://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/45-more-classes/lessons/110-instance-variables
+      #How to get null values to be at the end. http://stackoverflow.com/questions/5520628/rails-sort-nils-to-the-end-of-a-scope
+      @plucker30 = Smsloan.order('coalesce(newdebtor_loantime_30d_3k, 999999999) asc', 'coalesce(debtor_loantime_30d_3k, 999999999) asc').pluck(:bank, :min_loanamount, :max_loanamount, @combiner30d, @combiner30dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker60 = Smsloan.order(@combiner60dn, @combiner60d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner60d, @combiner60dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker90 = Smsloan.order(@combiner90dn, @combiner90d).pluck(:bank, :min_loanamount, :max_loanamount, @combiner90d, @combiner90dn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
+      @plucker1 = Smsloan.order(@combiner1yn, @combiner1y).pluck(:bank, :min_loanamount, :max_loanamount, @combiner1y, @combiner1yn, :max_amount_new_borrower, :invoice_fee, :application_fee, :mobile_friendly_site, :min_age, :low_credit_score, :cost_free_loan, :cost_free_loan_amount, :new_borrower_5K, :new_borrower_10K, :no_uc, :skef_member, :bankid, :open_on_saturdays, :open_on_sundays, :weblink)
 
 
 
