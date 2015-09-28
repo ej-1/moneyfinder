@@ -144,6 +144,11 @@ tbody th {
   padding-top: 50px;
 }
 
+.top-buffer-small{
+  padding-top: 10px;
+}
+
+
 .bottom-buffer{
   padding-bottom: 30px;
 }
@@ -419,6 +424,9 @@ Media queries
   }
 
   .smsloanoverview_buttons{
+    /* margin-right: -50px; */
+    position: absolute;
+    right: 15%;
   }
 
   ul#smsloan_options_chosen{
@@ -459,6 +467,11 @@ Media queries
     margin-top: -10px;
   }
 
+  .pagetitle-gratislan{
+    margin-top: -10px;
+    font-size: 36px;
+  }
+
   .scrollToTop{
     display:none;
   }
@@ -473,7 +486,7 @@ Media queries
 
   .circle{
     margin-left: 700px;
-    margin-top: -120px;
+    margin-top: -86px;
   }
 
   .circle2{
@@ -485,6 +498,22 @@ Media queries
   }
 
   .smsloan_extrainfo_desk{
+
+  }
+
+  .nr_of_loans{
+    margin-top: -19px;
+  }
+
+  .returntolanding{
+    margin-bottom: 35px;
+  }
+
+  .mobile_landingpage{
+    display: none;
+  }
+
+  .desktop_tablet_landingpage{
 
   }
 }
@@ -547,7 +576,10 @@ Media queries
   }
 
   .smsloanoverview_buttons{
-    margin-right: -50px;
+    /* margin-right: -50px; */
+    position: absolute;
+    right: 15%;
+    
   }
 
   ul#smsloan_options_chosen{
@@ -596,8 +628,8 @@ Media queries
   }
 
   .circle{
-    margin-left: 170px;
-    margin-top: -12px;
+    margin-left: 62px;
+    margin-top: -35px;
   }
 
   .circle2{
@@ -611,6 +643,23 @@ Media queries
   .smsloan_extrainfo_desk{
 
   }
+
+  .nr_of_loans{
+    margin-top: -19px;
+  }
+
+  .mobile_landingpage{
+    display: none;
+  }
+
+  .desktop_tablet_landingpage{
+
+  }
+
+  .smsloaninterface-options-fix{
+    display: none;
+  }
+
 }
 
 @media (max-width: 979px) {
@@ -768,6 +817,79 @@ Media queries
   .smsloan_extrainfo_box{
 
   }
+
+  .nr_of_loans{
+    margin-top: -19px;
+  }
+
+  .returntolanding{
+    margin-top: -3px;
+    margin-bottom: -3px;
+  }
+
+  .mobile_landingpage{
+    display: none;
+  }
+
+  .desktop_tablet_landingpage{
+
+  }
+
+  #table_id_loanbrokers tr{
+    border-bottom: solid 2px #D1D1D1;
+  }
+
+  #table_id_loanbrokers th{
+    font-size: 10px;
+  }
+
+  #table_id_loanbrokers td{
+    white-space: nowrap;
+    padding: 20px;
+    font-size: 12px;
+  }
+
+  .loanbrokers_logo{
+    width: 120px;
+  }
+
+  .loanbrokers_padding_fix{
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  .loanbrokers_padding_fix_logo{
+    margin-left: -25px;
+    margin-right: -40px;
+  }
+
+  .loanbrokers_padding_fix_button{
+    margin-left: -28px;
+    margin-right: -8px;
+  }
+
+  .loanbrokers_table_fix{
+    display: none;
+  }
+
+  #table_id_loanbrokers th{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #table_id_loanbrokers td{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .smsloaninterface{
+    padding-bottom: 20px !important;
+  }
+
+  .smsloaninterface-options-fix{
+    display: none;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -876,8 +998,9 @@ Media queries
   }
 
   .switch_smsloan_example1_button {
-    margin-top: -60px;
-    margin-left: 48%;
+    margin-top: -53px;
+  /* margin-left: 55%;*/
+    margin-left: 75%;
   }
 
   .float-right-not797 {
@@ -904,8 +1027,13 @@ Media queries
     width: 50%;
   }
 
-.pagetitle {
-  margin-top: 52px;
+  .pagetitle {
+    margin-top: 52px;
+  }
+
+  .pagetitle-gratislan{
+    margin-top: 70px;
+    font-size: 36px;
   }
 
   .scrollToTop{
@@ -941,6 +1069,28 @@ Media queries
   .smsloan_extrainfo_box{
     margin-top: 85px;
   }
+
+  .nr_of_loans{
+    margin-top: -19px;
+  }
+
+  .returntolanding{
+    margin-top: 35px;
+    margin-bottom: -51px;
+  }
+
+  .mobile_landingpage{
+    display: none;
+  }
+
+  .desktop_tablet_landingpage{
+
+  }
+
+  .row-padding-fix2{
+    padding-left: 15px;
+  }
+
 }
 
 
@@ -967,6 +1117,11 @@ Media queries
   .pagetitle {
     margin-top: 120px;
     /* margin-top: 60px; */
+  }
+
+  .pagetitle-gratislan{
+    margin-top: 120px;
+    font-size: 36px;
   }
 
   .g-follow{
@@ -1218,7 +1373,7 @@ Media queries
     position:fixed;
     top: 0px;
     display:none;
-    margin-top: 38px;
+    margin-top: 64px;
     cursor:pointer;
   }
   .scrollToTop:hover{
@@ -1267,6 +1422,28 @@ Media queries
   }
   .smsloan_extrainfo_box{
     margin-top: 85px;
+  }
+
+  .nr_of_loans{
+    margin-top: -12px;
+  }
+
+  .returntolanding{
+    margin-top: 102px;
+    margin-bottom: -115px;
+  }
+
+  .mobile_landingpage{
+
+  }
+
+  .desktop_tablet_landingpage{
+    display: none;
+  }
+
+  .pagetitle-gratislan{
+    font-size: 24px;
+    margin-top: 120px;
   }
 
 }
@@ -1403,6 +1580,13 @@ table th {
   font-family: 'Open Sans', sans-serif;
   color: rgba(53, 53, 53, 0.87);
 }
+
+.pagetitle-gratislan{
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(53, 53, 53, 0.87);
+}
+
 
 .fonts {
   font-family: 'Open Sans', sans-serif;
@@ -1689,8 +1873,8 @@ table.ex1 tr:empty {
 
 .circle{
   border-radius: 50%;
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   background-color: red;
   text-align: center;
 }
@@ -1699,11 +1883,13 @@ table.ex1 tr:empty {
   color: white;
   font-weight: bold;
   padding-top: 27px;
+  font-size: 11px;
 }
 
 .circle-text2{
   color: white;
   font-weight: bold;
+  font-size: 11px;
 }
 
 #list_block{
@@ -1731,6 +1917,10 @@ table.ex1 tr:empty {
   font-size: 11px;
 }
 
+.smsloan_extrainfo_bold{
+  font-weight: bold;
+}
+
 .correction{
   margin-top: 50px;
 }
@@ -1747,11 +1937,11 @@ table.ex1 tr:empty {
 .barshowtime{
   width:100%;
   margin-left: -5px;
-  height: 40px;
+  height: inherit;
   text-align:center; 
-  background: #fff;
+  background: #90C255 none repeat scroll 0% 0%;
   font-weight: bold;
-  color: #777;
+  color: #fff;
   text-decoration: none;
   position:fixed;
   top: 0px;
@@ -1854,6 +2044,96 @@ ul#horizontal-list-groupbar li{
 .barshowgroup_correction {
   margin-top: -5px;
 }
+
+.bold-text2 {
+  font-weight: bold;
+}
+
+.unseen_section {
+  background-color: rgba(144, 194, 85, 0.87);
+  margin-top: 5px;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: none;
+}
+
+ul#horizontal-list-neutral{
+
+  margin-bottom: -8px;
+  padding-bottom: 10px;
+}
+
+ul#horizontal-list-neutral li{
+  display:inline;
+}
+
+
+ul#horizontal-list-grey{
+  margin-left: 0px;
+  margin-bottom: -8px;
+  padding-bottom: 10px;
+}
+
+
+ul#horizontal-list-grey li{
+  display:inline;
+  color: rgba(86, 86, 86, 0.87);
+}
+
+
+.fonts-11{
+  font-size: 11px;
+}
+
+.bar-button-fix{
+  padding-top: -2px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+}
+
+.glyphicon-fix{
+  position: inherit !important;
+}
+
+.payment-speed-fix{
+  font-size: 11px;
+}
+
+.nr_of_loans{
+  color: #558EA8;
+  font-size: 12px;
+  font-family: "Open Sans",sans-serif;
+  padding-bottom: 5px;
+
+}
+
+.top-zero{
+  margin-top: 0px;
+}
+
+.highlight{
+  background-color: yellow
+}
+
+
+#tryagain1{
+  padding-top: 25px;
+}
+
+.clickme{
+  border-radius: 5px;
+  background-color: #90C255;
+  color: #fff;
+  border-style: solid;
+  border-color: #81A754;
+  border-width: 1px;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left:2px;
+  padding-right:2px;
+}
+
 
 /* 
 .do_a_search{

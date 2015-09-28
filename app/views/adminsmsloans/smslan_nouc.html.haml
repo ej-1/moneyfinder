@@ -2,20 +2,42 @@
 - content_for :title, "Moneylabs.se - Jämför och hitta billigast smslån och snabblån"
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
 //.page-padding
+
 .row
   .scrollToTop Scrolla till toppen
+
 .row.row-padding-fix
   .span1
-  .span10
-    %h1.pagetitle Jämför SMSlån
-    %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 30 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
-    %p.fonts
-      Om du vill endast jämföra de olika
-      %b gratislånen
-      som erbjuds av långivarna kan du
-      %a.linkclass{:href => "gratislan"}
-        %span.linkclass klicka här.
-    //%p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det billigaste lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
+  .mobile_landingpage
+    .span10
+      %h1.pagetitle Jämför SMSlån
+      %p.fonts Vi jämför 34 långivare för SMSlån, även kallat snabblån.
+      %p.fonts
+        %b
+          %a.linkclass.clickme{:href => "gratislan"}
+            Gratis SMSlån
+        , lån utan kostnader om du betalar inom avtalad löptid.
+        %a.linkclass{:href => "gratislan"}
+          %span.linkclass Jämför gratis SMSlån
+      %p.fonts
+        %b
+          %a.linkclass.clickme{:href => "laneformedlare"} Större belopp (20 000 kr och över)
+        , kan vara bra att använda låneförmedlare till.
+
+        %a.linkclass{:href => "laneformedlare"} Jämför låneförmedlare!
+      %p.fonts Använd låneöversikten nedan eller välj lånebelopp och sök efter billigaste SMSlånet som passar dig.
+  .desktop_tablet_landingpage
+    .span10
+      %h1.pagetitle Jämför SMSlån
+      %p.fonts SMSlån, vilket också kallas snabblån, är ett sätt att täcka oförutsedda utgifter när du har ont om pengar på kontot eller då du behöver ett förskott. Du kan låna mindre summor åt gången ändå upp till 30 000 kr. Till skillnad från traditionella lån är återbetalningstiden kortare och lånekostnaden generellt högre, men som tur är erbjuder flera långivare kostnadsfria lån till nya kunder.
+      %p.fonts
+        Om du vill endast jämföra de olika
+        %b gratis smslånen
+        som erbjuds av långivarna kan du
+        %a.linkclass{:href => "gratislan"}
+          %span.linkclass klicka här.
+      //%p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det billigaste lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
+
 
     .span1
 .row.row-padding-fix 
@@ -27,10 +49,10 @@
           Avancerad filtrering
           %span.glyphicon.glyphicon-chevron-down
     .row.advanced-search-options
-      .span1.hide767-979
+      .smsloaninterface-options-fix.span1
       .span3.float-left.hide767-979.row-padding-fix
         %label.smscheckboxes
-          %input.smslanchkbx{:name => "smslanchkbx", :checked => "checked", :type => "checkbox", :value => "hasuc"}/
+          %input.smslanchkbx{:name => "smslanchkbx",:checked => "checked", :type => "checkbox", :value => "hasuc"}/
           %span.lbl.padding-8.fonts Smslån utan UC
         %label.smscheckboxes
           %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "noskefmember"}/
@@ -41,7 +63,7 @@
         %label.smscheckboxes
           %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
           %span.lbl.padding-8.fonts 18 årsgräns
-
+  
       .span3.float-left.hide767-979.row-padding-fix
         %label.smscheckboxes
           %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nomobilefriendlysite"}/
@@ -75,11 +97,11 @@
 
           .row
             .span2
-              %p.fonts.white2 Hur lång löptid ska lånet ha?
+              %p.hidden-smsdropdown.fonts.white2 Hur lång löptid ska lånet ha?
             .span2
-              %p#W1.fonts.white
+              %p#W1.fonts.white.hidden-smsdropdown
           = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
-            = range_field :search, params[:search], :value =>'3', :in => 1..7, :step => '1', :id => 'slider1', :onchange => "$(this).parent('form').submit();"
+            .hidden-smsdropdown= range_field :search, params[:search], :value =>'3', :in => 1..7, :step => '1', :id => 'slider1', :onchange => "$(this).parent('form').submit();"
             .row
               .span2
                 %p.fonts.white2 Hur mycket vill du låna?
@@ -120,9 +142,8 @@
                 %a.circle-text2{:href => "laneformedlare"} Klicka här   
               %span.glyphicon.glyphicon-hand-up.white
             .circle2
-              %a.circle-text{:href => "laneformedlare"} Klicka här om du vill du låna stora belopp?
+              //%a.circle-text{:href => "laneformedlare"} Klicka här om du vill du låna stora belopp?
         .span1
-
 
 
 
@@ -140,13 +161,45 @@
           //  = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();"
           //  = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
   .span1
+//%button#sPrice.btnSort Sort By Price
+//%br/
+//%button#sStyle.btnSort Sort By Style
+//%br/
 
 #div_id
   .row
-    .button_showmeless_than_90d
-      .barshowtime Visa bindningstider: 30, 60 dagar
-    .button_showmemore_than_90d
-      .barshowtime Visa bindningstider: 90 dagar, 1 år 
+    .barshowtime
+      .span3
+      .span4.bar-button-fix
+        %button.btn.btn-info.btn-xs.show_paymentspeed
+          %i.icon-resize-full
+          Visa Utbetalningsinfo / Krav
+      .span3.bar-button-fix
+        .button_showmeless_than_90d
+          %button.btn.btn-info.btn-xs
+            %i.icon-white.icon-time
+            Visa bindningstider: 30, 60 dagar
+        .button_showmemore_than_90d
+          %button.btn.btn-info.btn-xs
+            %i.icon-white.icon-time
+            Visa bindningstider: 90 dagar, 1 år
+
+  .row
+    .span12
+      .center_element2
+        .bold-text.nr_of_loans.top-zero
+  .row
+    .span12
+      .showme_buttons.center_element2
+        .button_showmeless_than_90d
+          %button.btn.btn-info.btn-sm
+            %i.icon-white.icon-time
+            Visa bindningstider: 30, 60 dagar
+        .button_showmemore_than_90d
+          %button.btn.btn-info.btn-sm
+            %i.icon-white.icon-time
+            Visa bindningstider: 90 dagar, 1 år
+
 
   //This is for Bank Norwegian
   .row.row-padding-fix.search_results.smsloanoverview
@@ -156,8 +209,8 @@
         .span1
         .span2
           .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
-          .smsloan_extrainfo.smsloan_extrainfo_desk.correction.fonts Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
-          .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Omedelbart preliminärt besked.
+          .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.correction.fonts Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
+          .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.fonts Omedelbart preliminärt besked.
           .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Personlig från ränta 4,99% till 20,24 %.
           .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 399 kr
           .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Månadsavgift 19 kr
@@ -166,8 +219,8 @@
         .smslogo-size.smsloan_extrainfo_tabmob= smsloan.bank.to_s.html_safe
         .smsloan_extrainfo_box
 
-          .smsloan_extrainfo_tabmob.smsloan_extrainfo Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
-          .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Omedelbart preliminärt besked.
+          .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Bank Norwegian erbjuder störst lån utan säkerhet. Upp till 400 000 kr. 
+          .smsloan_extrainfo_tabmob.smsloan_extrainfo2.bold-text2 Omedelbart preliminärt besked.
           .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Personlig från ränta 4,99% till 20,24 %.
           .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Uppläggningsavgift 399 kr
           .smsloan_extrainfo_tabmob.smsloan_extrainfo2 Månadsavgift 19 kr
@@ -819,16 +872,16 @@
           .smslogo-size.smsloan_extrainfo_tabmob.fonts= smsloan.bank.to_s.html_safe
           .smsloan_extrainfo_box
             .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
-            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts 60 dagar räntefritt.
-            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts.bold-text2 60 dagar räntefritt.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts.bold-text2 Lånet kan när som helst slutbetalas utan avgift.
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts L'easy minilån erbjuder personlig ränta 9,9% - 21,6%.
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 495 kr
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift: 0:- vid autogiro (39:-/mån annars)
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-3 år
 
           .smsloan_extrainfo_box
-            .smsloan_extrainfo_tabmob.smsloan_extrainfo 60 dagar räntefritt.
-            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo.bold-text2 60 dagar räntefritt.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo.bold-text2 Lånet kan när som helst slutbetalas utan avgift.
             .smsloan_extrainfo_tabmob.smsloan_extrainfo L'easy erbjuder personlig ränta från 9,9%  till 21,6% på lån upp till 25 000 kr.
             .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgift 495 kr
             .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift: 0:- vid autogiro (39:-/mån annars).
@@ -1042,16 +1095,16 @@
           .smslogo-size.smsloan_extrainfo_tabmob.fonts= smsloan.bank.to_s.html_safe
           .smsloan_extrainfo_box
             .smslogo-size.smsloan_extrainfo_desk.fonts= smsloan.bank.to_s.html_safe
-            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts 60 dagar räntefritt.
-            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts.bold-text2 60 dagar räntefritt.
+            .smsloan_extrainfo.smsloan_extrainfo_desk.fonts.bold-text2 Lånet kan när som helst slutbetalas utan avgift.
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts L'easy minilån erbjuder personlig ränta 9,9% - 21,6%.
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Uppläggningsavgift 495 kr
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Aviavgift: 0:- vid autogiro (39:-/mån annars)
             .smsloan_extrainfo.smsloan_extrainfo_desk.fonts Lånetid 1-3 år
 
           .smsloan_extrainfo_box
-            .smsloan_extrainfo_tabmob.smsloan_extrainfo 60 dagar räntefritt.
-            .smsloan_extrainfo_tabmob.smsloan_extrainfo Lånet kan när som helst slutbetalas utan avgift.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo.bold-text2 60 dagar räntefritt.
+            .smsloan_extrainfo_tabmob.smsloan_extrainfo.bold-text2 Lånet kan när som helst slutbetalas utan avgift.
             .smsloan_extrainfo_tabmob.smsloan_extrainfo L'easy erbjuder personlig ränta från 9,9%  till 21,6% på lån upp till 25 000 kr.
             .smsloan_extrainfo_tabmob.smsloan_extrainfo Uppläggningsavgift 495 kr
             .smsloan_extrainfo_tabmob.smsloan_extrainfo Aviavgift: 0:- vid autogiro (39:-/mån annars).
@@ -1257,13 +1310,23 @@
                     .hidden-smslan= smsloan.application_fee
         .span1
 
+
+
+
+
   .row.row-padding-fix.search_results.smsloanoverview
     .span12.table_overview_fix
     - @smslan.each do |smsloan|
       .row.row-padding-fix.content-top.odd_searchresults_color
         .span1
         .span2
+          // This block is for onea
           .smslogo-size= smsloan.bank.to_s.html_safe
+          - if smsloan.bank == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+            .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.correction.fonts Onea erbjuder möjligheten att förlänga lånet.
+          - else
+          / end of block
+
         .span4
           %table#smsloanexampletable.table_overview_fix.table_mobile_and_table_format
             %thead
@@ -1968,6 +2031,11 @@
                 //= Smsloan.second.low_credit_score
                 = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
 
+              .div
+                %ul#horizontal-list-grey
+                  %li.glyphicon.glyphicon-dashboard.glyphicon-fix
+                  %li Pengar direkt eller upp till nästa bankdag
+
               %p
                 //http://stackoverflow.com/questions/13192578/fetching-the-substring-contained-between-two-specific-words
                 = smsloan.no_uc[/"(.*?)"/, 1]
@@ -1975,14 +2043,37 @@
             .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
               %ul
                 %li= smsloan.weblink.to_s.html_safe
+
                 %li
                   .typeofloan
                     .hidden-smslan= smsloan.application_fee
         .span1
-
-
-
-
+      // This block is for onea
+      - if smsloan.bank == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+        .row.row-padding-fix
+          .span1
+          .span10
+            .row.unseen_section
+              .span5.fonts.white2
+                %ul
+                  %li.bold-text Krav för lån:
+                  %li Svensk medborgare
+                  %li Fyllt 20 år.
+                  %li Svensk mobiltelefonnummer samt svenskt bankkonto.
+                  %li Genomgår sedvanlig kreditprövning.
+              .span5.fonts.white2
+                %ul#horizontal-list-neutral
+                  %li.bold-text Behandlingstid för ansökan: 
+                  %li Några minuter
+                %ul#horizontal-list-neutral
+                  %li.glyphicon.glyphicon-dashboard
+                  %li.bold-text Utbetalning: 
+                  %li Pengar direkt eller upp till nästa bankdag
+                %ul#horizontal-list-neutral
+                  %li.fonts-11.top-buffer-small (Om konto hos Nordea får du pengarna direkt under Oneas öppettider (mån-fre 08-21, lör-sön 10-18)
+                  %li.fonts-11 Längre tid om konto hos annan bank; vissa fall upp till nästkommande bankdag.)
+      - else
+      // end of block
 
 
 
@@ -2042,4 +2133,8 @@
         %span.linkclass här.
     %h2.h2-hulk.top-buffer2 Kan jag låna trots betalningsanmärkelse?
     %p.fonts.content-top2.bottom-buffer Ja. Flera långivare erbjuder kunder att låna utan betalningsanmärkelse. Du kan söka efter dessa långivare genom att klicka i "Låna trots betalningsanmärkelse" i söktjänstens reglage.
+
+
+
+
 

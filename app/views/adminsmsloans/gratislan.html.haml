@@ -2,89 +2,88 @@
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta kostnadsfria / räntefria smslån och snabblån", :name => "description= Jämför gratis SMSlån [site:moneylabs.se/gratislan]"}/
 
 
-
-
-
-
-
-
 .row.row-padding-fix
-  .span12
-    .row
-      .span1
-      .span10
-        %h1.pagetitle Jämför gratis SMSlån
-        %p.fonts Att ta SMSlån för första gången kan vara ovant, men flera långivare erbjuder kostnadsfria lån till nya kunder. Kostnadsfria SMSlån erbjuds även för återvändande kunder av vissa långivare.
-        %p.fonts Nedan listas SMSlån du kan ta gratis. Det betyder oftast att du inte behöver betala något till långivaren förutom de pengar du har lånat. Observera dock att detta oftast gäller så länge du betalar tillbaka lånet inom den avtalade lånetiden. Om du betalar tillbaka efter den avtalade lånetiden kan extraavgifter tillkomma. 
+  .span1
+  .span10
+    .returntolanding
+      %a.btn.btn-primary.btn-large{:href => "/smslan"}
+        %i.icon-white.icon-circle-arrow-left
+        Tillbaka till SMSlån
+    %h1.pagetitle-gratislan Jämför gratis SMSlån
+    %p.fonts Att ta SMSlån för första gången kan vara ovant, men flera långivare erbjuder kostnadsfria lån till nya kunder. Kostnadsfria SMSlån erbjuds även för återvändande kunder av vissa långivare.
+    %p.fonts Nedan listas SMSlån du kan ta gratis. Det betyder oftast att du inte behöver betala något till långivaren förutom de pengar du har lånat. 
+    %p.fonts Observera dock att detta brukar gälla så länge du betalar tillbaka lånet inom den avtalade löptiden. Om du betalar tillbaka efter den avtalade löptiden kan extraavgifter tillkomma. 
 
-      .span1
-    .row.loanbrokers_desktop
-      .span1
-      .span10.top-buffer
-        %table#table_id_loanbrokers
-          %thead
-            %tr
-              %th.table_id_gratislan_textleft.th-title.gratis_lan_padding_left Långivare
-              %th.table_id_gratislan_textleft.th-title Lånebelopp
-              %th.table_id_gratislan_textleft.th-title Löptid
-              %th.table_id_gratislan_textleft.gratislan_comment_th.th-title Info
-              //%th.th-title Info
-              %th.th-title Ansök här
-              //%th{:colspan => "3"}
-          %tbody
-            - @gratis_smsloan.each do |gratis_smsloan|
-              %tr
-                - @gratis_smsloan_time = gratis_smsloan.loan_time.to_s + " dagar"
-                - @sms_gratislan_minamount = gratis_smsloan.min_loan_amount
-                - @sms_gratislan_maxamount = gratis_smsloan.max_loan_amount
+  .span1
+.row.loanbrokers_desktop
+  .span1
+  .span10.top-buffer
+    %table#table_id_loanbrokers
+      %thead
+        %tr
+          %th.table_id_gratislan_textleft.th-title.gratis_lan_padding_left Långivare
+          %th.table_id_gratislan_textleft.th-title Lånebelopp
+          %th.table_id_gratislan_textleft.th-title Löptid
+          %th.table_id_gratislan_textleft.gratislan_comment_th.th-title Info
+          //%th.th-title Info
+          %th.th-title Ansök här
+          //%th{:colspan => "3"}
+      %tbody
+        - @gratis_smsloan.each do |gratis_smsloan|
+          %tr
+            - @gratis_smsloan_time = gratis_smsloan.loan_time.to_s + " dagar"
+            - @sms_gratislan_minamount = gratis_smsloan.min_loan_amount
+            - @sms_gratislan_maxamount = gratis_smsloan.max_loan_amount
 
-                - if gratis_smsloan.bank.to_s == "Ferratum"
-                  - @bank_convert_to_link = '<a href ="http://www.ferratum.se/" target="_blank">Ferratum</a>'
-                - else
-                  - @bank_convert_to_link = gratis_smsloan.bank
+            - if gratis_smsloan.bank.to_s == "Ferratum"
+              - @bank_convert_to_link = '<a href ="http://www.ferratum.se/" target="_blank">Ferratum</a>'
+            - else
+              - @bank_convert_to_link = gratis_smsloan.bank
 
-                - if gratis_smsloan.max_loan_amount.nil?
-                  - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.to_s + " kr"
-                - else
-                  - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.floor.to_s + " - " + @sms_gratislan_maxamount.floor.to_s + " kr"
+            - if gratis_smsloan.max_loan_amount.nil?
+              - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.to_s + " kr"
+            - else
+              - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.floor.to_s + " - " + @sms_gratislan_maxamount.floor.to_s + " kr"
 
-                %td.table_id_gratislan_textleft= @bank_convert_to_link.html_safe
-                %td.table_id_gratislan_textleft.gratis_lan_padding_left= @smsloangratis_minandmaxamount
-                %td.table_id_gratislan_textleft= @gratis_smsloan_time
-                %td.table_id_gratislan_textleft.gratislan_comment= gratis_smsloan.comment
-                //%td= gratis_smsloan.comment2
-                %td= gratis_smsloan.link_button.to_s.html_safe
-      .span1
+            %td.table_id_gratislan_textleft= @bank_convert_to_link.html_safe
+            %td.table_id_gratislan_textleft.gratis_lan_padding_left= @smsloangratis_minandmaxamount
+            %td.table_id_gratislan_textleft= @gratis_smsloan_time
+            %td.table_id_gratislan_textleft.gratislan_comment= gratis_smsloan.comment
+            //%td= gratis_smsloan.comment2
+            %td= gratis_smsloan.link_button.to_s.html_safe
+  .span1
 
-.row.row-padding-fix.loanbrokers_mobile
-  - @gratis_smsloan.each do |gratis_smsloan|
-    - @gratis_smsloan_time = gratis_smsloan.loan_time.to_s + " dagar"
-    - @sms_gratislan_minamount = gratis_smsloan.min_loan_amount
-    - @sms_gratislan_maxamount = gratis_smsloan.max_loan_amount
+.loanbrokers_mobile.row-padding-fix2
+  .span1
+  .span10
+    - @gratis_smsloan.each do |gratis_smsloan|
+      - @gratis_smsloan_time = gratis_smsloan.loan_time.to_s + " dagar"
+      - @sms_gratislan_minamount = gratis_smsloan.min_loan_amount
+      - @sms_gratislan_maxamount = gratis_smsloan.max_loan_amount
 
-    - if gratis_smsloan.bank.to_s == "Ferratum"
-      - @bank_convert_to_link = '<a href ="http://www.ferratum.se/" target="_blank">Ferratum</a>'
-    - else
-      - @bank_convert_to_link = gratis_smsloan.bank
+      - if gratis_smsloan.bank.to_s == "Ferratum"
+        - @bank_convert_to_link = '<a href ="http://www.ferratum.se/" target="_blank">Ferratum</a>'
+      - else
+        - @bank_convert_to_link = gratis_smsloan.bank
 
-    - if gratis_smsloan.max_loan_amount.nil?
-      - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.to_s + " kr"
-    - else
-      - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.floor.to_s + " - " + @sms_gratislan_maxamount.floor.to_s + " kr"
-    .span12.loanbrokerbox
-      .row
-        .span2
-          .mobile_logos= gratis_smsloan.bank.to_s.html_safe
-        .span4
-          %ul#list_block
-            %li Lånebelopp
-            %li Löptid
+      - if gratis_smsloan.max_loan_amount.nil?
+        - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.to_s + " kr"
+      - else
+        - @smsloangratis_minandmaxamount = @sms_gratislan_minamount.floor.to_s + " - " + @sms_gratislan_maxamount.floor.to_s + " kr"
+      .span12.loanbrokerbox
+        .row
+          .span2
+            .mobile_logos= gratis_smsloan.bank.to_s.html_safe
+          .span4
+            %ul#list_block
+              %li Lånebelopp
+              %li Löptid
 
 
-          %ul#list_block
-            %li= @smsloangratis_minandmaxamount
-            %li= @gratis_smsloan_time
+            %ul#list_block
+              %li= @smsloangratis_minandmaxamount
+              %li= @gratis_smsloan_time
 
-          .span6
-            .mobile_button_fix= gratis_smsloan.comment
-            %p#list_block.mobile_button_fix= gratis_smsloan.link_button.to_s.html_safe
+            .span6
+              .mobile_button_fix= gratis_smsloan.comment
+              %p#list_block.mobile_button_fix= gratis_smsloan.link_button.to_s.html_safe

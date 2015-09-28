@@ -36,3 +36,8 @@ $( ".button_showmeless_than_90d" ).click(function() {
 $('input:checked').each(function() {
   $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
 });
+
+// Shows sections with Krav / utbetalningsinfo
+$('.show_paymentspeed').click(function(){
+  $('.unseen_section').slideToggle();
+});

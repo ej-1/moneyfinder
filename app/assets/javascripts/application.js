@@ -40,6 +40,17 @@
 $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
+        // Hides advanced options in mobile format
+        if ($(window).width() < 481) {
+          $( ".advanced-search-options" ).hide();
+        }
+
+        // Shows sections with Krav / utbetalningsinfo
+        $('.show_paymentspeed').click(function(){
+          $('.unseen_section').slideToggle();
+        });
+      
+        $('#test').find('.child:first:visible').css('background','blue');
 
         //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
@@ -80,14 +91,7 @@ $(document).ready(function() {
             }
           });
 
-          //This is for bar that scrolls to the loantime group
-          $(window).scroll(function(){
-            if ($(this).scrollTop() > 50 || $('#horizontal-list-groupbar').length) {
-              $('.barshowgroup').fadeIn();
-            } else {
-              $('.barshowgroup').fadeOut();
-            }
-          });
+          //This is for the bar that scrolls to the loantime group
 
 
 
@@ -105,9 +109,10 @@ $(document).ready(function() {
       //   $(".navbar-collapse").collapse('toggle');
       // });
 
-
-
-
+      //Flashes red circle
+      if ($(window).width() > 768) {
+        $(".circle").fadeIn(350).fadeOut(350).fadeIn(350).fadeOut(350).fadeIn(350).fadeOut(350).fadeIn(350);
+      }
 
       // Makes nice colorful bubbles that tells what kind of smsloan it is.
       $(".typeofloan:contains('1')").replaceWith("<div class='typeofloan typeofloan-sms'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>SMSlån</div></div></div>");
@@ -131,6 +136,9 @@ $(document).ready(function() {
         $( ".button_showmemore_than_90d" ).show()
         $( ".button_showmeless_than_90d" ).hide()
       });
+
+
+
 
 
       // Code for the "Advancerad filtrering" link
@@ -238,22 +246,8 @@ $(document).ready(function() {
       $("button.btnSort").click(function() {
          sortUsingNestedText($('#sortThis'), "div", $(this).data("sortKey"));
          var ist = $('.sms_costnew_searchresult:first-child').html();
-         alert(ist);
+         //alert(ist);
       });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -261,6 +255,10 @@ $(document).ready(function() {
       $('input:checked').each(function() {
         $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
       });
+
+      // Counts number of loans shown and informs user when moneylabs.se loads.
+      rowCount = $('.odd_searchresults_color:visible').size();
+      $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
       // INPUT FROM CHECKBOX TRIGGERS showHideProducts.
       $('input:checkbox').change(showHideProducts);
@@ -279,8 +277,6 @@ $(document).ready(function() {
 
 
               //.parentsUntil("#table_id2")
-              
-
 
               //Duplicated below to show the hulk-box after unclicking a checkbox.
               var t14dclicked = ($('#table14d tr:visible').size());
@@ -325,7 +321,15 @@ $(document).ready(function() {
                 $('.group_1y').show();
               }
 
+              // Counts number of loans shown and informs user after they have UNCHECKED a checkbox.
+              rowCount = $('.anti_border_spacing tr:visible').size();
+              $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
+              // Same as above,but for overview.
+              if ($('.odd_searchresults_color').length > 0) {
+                rowCount = $('.odd_searchresults_color:visible').size();
+                $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+              } else {}
 
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           //if ( $('#smsbutton').data('clicked', true)) {
@@ -415,6 +419,17 @@ $(document).ready(function() {
                     $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
                     $('.barshowgroup').hide();
                   }
+                  // Counts number of loans shown and informs user after they have clicked a checkbox.
+                  rowCount = $('.anti_border_spacing tr:visible').size();
+                  $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+
+
+
+                  // Same as above,but for overview.
+                  if ($('.odd_searchresults_color').length > 0) {
+                    rowCount = $('.odd_searchresults_color:visible').size();
+                    $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+                  } else {}
               }            
           );
       }

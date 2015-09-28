@@ -5,12 +5,13 @@
 
 //= require jquery
 //= require jquery_ujs
-
-
 //= require jquery-ui
 
-$('#div_id').html("<%= escape_javascript(render :partial => 'smslan2') %>");
+//MOCKUP DESIGN
+//https://wireframe.cc/50sd16
 
+$('#div_id').html("<%= escape_javascript(render :partial => 'smslan2') %>");
+$('#sortThis').find('.first-top:visible').css('margin-top','-70px');
 
 // REMOVED THIS CODE, BECAUSE AFTER TRYING TO APPLY .ex1 css only to serch results table rather than overview table
 // the search results was hiding rows that waas not empty.
@@ -97,16 +98,13 @@ if (t1y === 0){
 
 // Shows this message if there are no results that match the search.
 if (t14d === 0 && t21d === 0 && t30d === 0 && t60d === 0 && t90d === 0 && t1y === 0){
-  $("#tryagain1").replaceWith('<p class="try-again content-top3">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
+  $("#tryagain1").replaceWith('<p class="try-again content-top3" id="tryagain1">Tyvärr fanns ingen långivare som erbjuder det lån du sökte efter!</p>');
   $("#tryagain2").replaceWith('<p class=try-again>Pröva att ändra lånebelopp eller löptid.</p>');
   $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
   $('.barshowgroup').hide();
 }
 
-// Keeps hidden the things that should be hidden by the checked checkboxes
-$('input:checked').each(function() {
-  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
-});
+
 
 
 // Use the navbar after doing a search, to scroll down to the corresponding loantime group.
@@ -146,18 +144,23 @@ $(".group_1y").click(function() {
             'slow');
     });
 
+//Shows bar when page loads after a search, so you don't have to scroll to see it.
+$('.barshowgroup').fadeIn();
 
 
-if ($(this).scrollTop() > 50 || $('#horizontal-list-groupbar').length) {
-  $('.barshowgroup').show();
-} else {
-  $('.barshowgroup').fadeOut();
-}
+$(window).scroll(function(){
+  if ($(this).scrollTop() > 50 && $('#horizontal-list-groupbar').length) {
+    $('.barshowgroup').show();
+  } else {
+    $('.barshowgroup').fadeOut();
+  }
+});
 
 //Brings back the titles of the loantime groups in a search results if after de-selecting a checkbox
 // and and a loantime group is revealed again.
 $('.smslanchkbx').onchange(function(){
 
 });
+
 
 

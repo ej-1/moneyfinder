@@ -1,3 +1,16 @@
+:javascript
+  if ($('.barshowgroup').length > 0) {
+      $('.scrollToTop').css("margin-top", "58px"); 
+  } else {}
+
+  // Keeps hidden the things that should be hidden by the checked checkboxes
+  // had to move this code snippet from smslan.erb.js otherwise rows are counted and then hidden, so al rows are hidden and not ignore those that will be hidde. This code snippet has to be executed before the one below, that is why I moved it here.
+  $('input:checked').each(function() {
+    $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+  });
+  // Counts number of loans shown and informs user after they have changed the dropdown in the smsloaninterface. Didn't work so good to put in application.js or smslan.js.erb
+  rowCount = $('.anti_border_spacing tr:visible').size();
+  $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
 .row
   .barshowgroup
@@ -13,8 +26,6 @@
           = select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj löptid på lånet"
           = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "barshowgroup_dropdown smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Belopp"
 
-
-
 .row.row-padding-fix
   .span1
   .span10
@@ -23,18 +34,21 @@
         %li Sökresultat för:
         %li.bold-text= @smsamount_visible_info_for_user2
         %li.bold-text= @smsamount_visible_info_for_user
-        %li med löptid på 
-        %li.bold-text= @smstime_visible_info_for_user2
-        %li.bold-text= @smstime_visible_info_for_user
-        %li
-          = form_tag smslan3_path, :method => "get", id: "search-form", remote: true do
-            = button_tag(type: 'submit', class: "btn btn-info btn-info") do
-              %i.icon-white.icon-list
-              Visa lånöversikt igen
+        //%li med löptid på 
+        //%li.bold-text= @smstime_visible_info_for_user2
+        //%li.bold-text= @smstime_visible_info_for_user
+    .center_element2
+      .bold-text.nr_of_loans
+
+    .center_element2
+      = form_tag smslan3_path, :method => "get", id: "search-form", remote: true do
+        = button_tag(type: 'submit', class: "btn btn-info btn-info") do
+          %i.icon-white.icon-list
+          Visa lånöversikt igen
 
     #sortThis
-      #1
-        %h2#table_id2.h2-hulk-bold.table14d 14 dagar
+      #1.table14d.first-top
+        %h2.table14d.hulk-box#table_id2 14 dagar
         %table#table_id2#table14d.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -104,7 +118,7 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #2
+      #2.table21d.first-top
         .table21d.hulk-box#table_id2 21 dagar
         %table#table_id2#table21d.ex1.anti_border_spacing
           %tbody.smsloanoverview
@@ -175,7 +189,7 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #3
+      #3.table30d.first-top
         .table30d.hulk-box#table_id2 30 dagar
         %table#table_id2#table30d.ex1.anti_border_spacing
           %tbody.smsloanoverview
@@ -246,7 +260,7 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #4
+      #4.table60d.first-top
         .table60d.hulk-box#table_id2 60 dagar
         %table#table_id2#table60d.ex1.anti_border_spacing
           %tbody.smsloanoverview
@@ -317,7 +331,7 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #5
+      #5.table90d.first-top
         .table90d.hulk-box#table_id2 90 dagar
         %table#table_id2#table90d.ex1.anti_border_spacing
           %tbody.smsloanoverview
@@ -388,7 +402,7 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #6
+      #6.table1y.first-top
         .table1y.hulk-box#table_id2 1 year
         %table#table_id2#table1y.ex1.anti_border_spacing
           %tbody.smsloanoverview

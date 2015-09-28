@@ -1,3 +1,33 @@
+if (t14d === 0){
+  $('.table14d').hide();
+  $('.group_14d').hide();
+}
+
+if (t21d === 0){
+  $('.table21d').hide();
+  $('.group_21d').hide();
+}
+
+if (t30d === 0){
+  $('.table30d').hide();
+  $('.group_30d').hide();
+}
+
+if (t60d === 0){
+  $('.table60d').hide();
+  $('.group_60d').hide();
+}
+
+if (t90d === 0){
+  $('.table90d').hide();
+  $('.group_90d').hide();
+}
+
+if (t1y === 0){
+  $('.table1y').hide();
+  $('.group_1y').hide();
+}
+
   //TEMPLATE
   .row.row-padding-fix.search_results.smsloanoverview
     .span12.table_overview_fix
