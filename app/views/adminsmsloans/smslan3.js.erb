@@ -11,6 +11,15 @@
 
 $('#div_id').html("<%= escape_javascript(render :partial => 'smslan3') %>");
 
+// Counts number of loans shown and informs user when clicking backsmsloanoverview.
+if ($('.odd_searchresults_color').length > 0) { //if on loanoverview
+  rowCount = $('.odd_searchresults_color:visible').size();
+  $('.bold-text.nr_of_loans').text(rowCount + " st långivare visas");
+} else { // else, meaning on searchresults
+  rowCount = $('.anti_border_spacing tr:visible').size();
+  $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+}
+
 // Creates nice, colorful bubbles that indicate what type of loan it is.
 $(".typeofloan:contains('1')").replaceWith("<div class='typeofloan typeofloan-sms'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>SMSlån</div></div></div>");
 $(".typeofloan:contains('2')").replaceWith("<div class='typeofloan typeofloan-blancolan'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>Blancolån</div></div></div>");

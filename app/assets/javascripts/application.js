@@ -49,9 +49,7 @@ $(document).ready(function() {
         $('.show_paymentspeed').click(function(){
           $('.unseen_section').slideToggle();
         });
-      
-        $('#test').find('.child:first:visible').css('background','blue');
-
+        
         //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
         $('a#affiliatelink').click(function(e) {
@@ -256,9 +254,15 @@ $(document).ready(function() {
         $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
       });
 
-      // Counts number of loans shown and informs user when moneylabs.se loads.
-      rowCount = $('.odd_searchresults_color:visible').size();
-      $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+      // Counts number of loans shown when moneylabs.se loads.
+      if ($('.odd_searchresults_color').length > 0) { //if on loanoverview
+        rowCount = $('.odd_searchresults_color:visible').size();
+        $('.bold-text.nr_of_loans').text(rowCount + " st långivare visas");
+      } else { // else, meaning on searchresults
+        rowCount = $('.anti_border_spacing tr:visible').size();
+        $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
+      }
+
 
       // INPUT FROM CHECKBOX TRIGGERS showHideProducts.
       $('input:checkbox').change(showHideProducts);
@@ -321,15 +325,15 @@ $(document).ready(function() {
                 $('.group_1y').show();
               }
 
-              // Counts number of loans shown and informs user after they have UNCHECKED a checkbox.
-              rowCount = $('.anti_border_spacing tr:visible').size();
-              $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
-
-              // Same as above,but for overview.
-              if ($('.odd_searchresults_color').length > 0) {
+              // Counts number of loans shown and informs user after they have unchecked a checkbox.
+              if ($('.odd_searchresults_color').length > 0) { //if on loanoverview
                 rowCount = $('.odd_searchresults_color:visible').size();
+                $('.bold-text.nr_of_loans').text(rowCount + " st långivare visas");
+              } else { // else, meaning on searchresults
+                rowCount = $('.anti_border_spacing tr:visible').size();
                 $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
-              } else {}
+              }
+
 
           //http://stackoverflow.com/questions/6081608/jquery-check-if-it-is-clicked-or-not
           //if ( $('#smsbutton').data('clicked', true)) {
@@ -420,16 +424,14 @@ $(document).ready(function() {
                     $('.barshowgroup').hide();
                   }
                   // Counts number of loans shown and informs user after they have clicked a checkbox.
-                  rowCount = $('.anti_border_spacing tr:visible').size();
-                  $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
-
-
-
-                  // Same as above,but for overview.
-                  if ($('.odd_searchresults_color').length > 0) {
+                  if ($('.odd_searchresults_color').length > 0) { //if on loanoverview
                     rowCount = $('.odd_searchresults_color:visible').size();
+                    $('.bold-text.nr_of_loans').text(rowCount + " st långivare visas");
+                  } else { // else, meaning on searchresults
+                    rowCount = $('.anti_border_spacing tr:visible').size();
                     $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
-                  } else {}
+                  }
+
               }            
           );
       }
