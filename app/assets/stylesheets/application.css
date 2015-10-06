@@ -1678,6 +1678,20 @@ table th {
   font-family: 'Open Sans', sans-serif;
 }
 
+.disclaimer-costs {
+  font-style: italic;
+  font-size: 11px;
+  padding-top: 15px;
+  margin-bottom: -15px;
+}
+
+.disclaimer-costs-mob {
+  font-style: italic;
+  font-size: 10px;
+  padding-top: 15px;
+  margin-bottom: -15px;
+}
+
 .white {
   color: #FFF;
   font-weight: bold;

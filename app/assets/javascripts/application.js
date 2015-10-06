@@ -45,8 +45,7 @@ $(document).ready(function() {
           $( ".advanced-search-options" ).hide();
         }
 
-
-
+        $(".hide_speedinfo").hide();
         // Shows sections with Krav / utbetalningsinfo
         $('.show_paymentspeed').click(function(){
           //identify first .smsloanoverview visible in viewport and store it.
@@ -86,24 +85,28 @@ $(document).ready(function() {
               //http://stackoverflow.com/questions/13048722/jquery-finding-the-total-height-of-all-divs-children
           var totalHeight = 0;
           $(".unseen_section").each(function(){
-              totalHeight += $(this).height();
+              totalHeight += $(this).outerHeight();
           });
 
               //Height of all unseen_actions that was above viewport
           var totalHeight2 = 0;
           $(".above").each(function(){
-              totalHeight2 += $(this).height();
+              totalHeight2 += $(this).outerHeight();
           });
 
           if (unseenVisibility == 0) {
             //calculate how much to scroll when toggling on
             var scrollamount = postion + totalHeight - totalHeight2
+            $(".hide_speedinfo").show();
+            $(".show_speedinfo").hide();            
             //alert(unseenVisibility);
             //alert(totalHeight);
             //alert(totalHeight2);
             //alert("on");
           } else {
             //calculate how much to scroll when toggling off
+            $(".hide_speedinfo").hide();
+            $(".show_speedinfo").show();
             var scrollamount = postion - totalHeight2
             //alert("off");
             //alert(unseenVisibility);

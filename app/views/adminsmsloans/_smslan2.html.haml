@@ -1,10 +1,10 @@
 :javascript
-  if ($('.barshowgroup').length > 0) {
-      $('.scrollToTop').css("margin-top", "58px"); 
-  } else {}
+
+
+
 
   // Keeps hidden the things that should be hidden by the checked checkboxes
-  // had to move this code snippet from smslan.erb.js otherwise rows are counted and then hidden, so al rows are hidden and not ignore those that will be hidde. This code snippet has to be executed before the one below, that is why I moved it here.
+  // had to move this code snippet from smslan.erb.js otherwise rows are counted and then hidden, so all rows are hidden and not ignore those that will be hidden. This code snippet has to be executed before the one below, that is why I moved it here.
   $('input:checked').each(function() {
     $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
   });
@@ -12,6 +12,11 @@
   rowCount = $('.anti_border_spacing tr:visible').size();
   $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
+
+
+
+.row
+  .scrollToTop Scrolla till toppen
 .row
   .barshowgroup
     %ul#horizontal-list-groupbar

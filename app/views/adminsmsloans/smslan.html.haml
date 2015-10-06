@@ -3,8 +3,7 @@
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
 //.page-padding
 
-.row
-  .scrollToTop Scrolla till toppen
+
 
 .row.row-padding-fix
   .span1
@@ -26,6 +25,8 @@
 
         %a.linkclass{:href => "laneformedlare"} Jämför låneförmedlare!
       %p.fonts Använd låneöversikten nedan eller välj lånebelopp och sök efter billigaste SMSlånet som passar dig.
+      %p.fonts.disclaimer-costs-mob Lånekostnader för olika belopp inkluderar inte lånebeloppet som ska återbetalas, utan endast kostnaderna för lånet (t.ex. ränta)
+
   .desktop_tablet_landingpage
     .span10
       %h1.pagetitle Jämför SMSlån
@@ -36,6 +37,7 @@
         som erbjuds av långivarna kan du
         %a.linkclass{:href => "gratislan"}
           %span.linkclass klicka här.
+      %p.fonts.disclaimer-costs Lånekostnader för olika belopp inkluderar inte lånebeloppet som ska återbetalas, utan endast kostnaderna för lånet (t.ex. ränta)
       //%p.fonts Nedan kan du jämföra olika smslån från en mängd olika långivare. Använd reglaget nedan för att hitta det billigaste lån som passar just dig. Klicka på rubrikerna i tabellen för att sortera.
 
 
@@ -167,13 +169,21 @@
 //%br/
 
 #div_id
+  .row
+    .scrollToTop Scrolla till toppen
+
   .row.desktop_tablet_landingpage
     .barshowtime
       .span3
-      .span4.bar-button-fix
+      .span4.bar-button-fix.show_speedinfo
         %button.btn.btn-info.btn-xs.show_paymentspeed
           %i.icon-resize-full
           Visa Utbetalningsinfo / Krav
+      .span4.bar-button-fix.hide_speedinfo
+        %button.btn.btn-info.btn-xs.show_paymentspeed
+          %i.icon-resize-full
+          Göm Utbetalningsinfo / Krav
+
       .span3.bar-button-fix
         .button_showmeless_than_90d
           %button.btn.btn-info.btn-xs
@@ -183,11 +193,15 @@
           %button.btn.btn-info.btn-xs
             %i.icon-white.icon-time
             Visa löptider: 90 dagar, 1 år
+
   .row.mobile_landingpage
     .barshowtime-mobile.height
       %ul#horizontal-list
-        %li.red.show_paymentspeed
+        %li.red.show_paymentspeed.show_speedinfo
           Visa Utbetalningsinfo / Krav
+        %li.red.show_paymentspeed.hide_speedinfo
+          Göm Utbetalningsinfo / Krav
+
         %li.blue.button_showmeless_than_90d
           Visa löptider: 30, 60 dagar
         %li.blue.button_showmemore_than_90d
