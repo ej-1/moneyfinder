@@ -45,11 +45,86 @@ $(document).ready(function() {
           $( ".advanced-search-options" ).hide();
         }
 
+
+
         // Shows sections with Krav / utbetalningsinfo
         $('.show_paymentspeed').click(function(){
-          $('.unseen_section').slideToggle();
+          //identify first .smsloanoverview visible in viewport and store it.
+          //http://www.appelsiini.net/projects/viewport
+          //Tried to used appelsiini to get the first .unseen_action in the viewport, tag it with a class .selected
+          // and then find and scroll to it after the toggle action was executed, but the :in-viewport function did
+          // not work. Instead it addded the class to all .unseen_actions.
+          //var firstselected = $('.unseen_section:in-viewport').addClass("selected");
+          //var scrolltothis = $("html").scrollTop(".selected");
+
+          // THIS IS WHAT IS ACTUALLLY SORT OF WORKING BELOW
+          //Also tried to get .outerHeight of each unseen action combined and add it to the position of the 
+          // viewport before toggle was executed. The sum of pixels, I thought, would be where I should scroll to.
+          // It works only if you have the lowest of the loangivers (.unseen_action) in sight. If you have any else then
+          // to get it to work properly you have to get the postion where the viewport was before the toggl action was executed
+          // and detract the heights of all unseen actions that would happen above the viewport. THis last part I did not get to work.
+          
+          //screen position when clicked
+          postion = $(window).scrollTop();
+
+          //Target anything above a certain coordinate
+          //http://stackoverflow.com/questions/4195620/jquery-get-elements-above-a-given-y-position
+          $.expr[':'].above = function(obj, index, meta, stack) { 
+              return $(obj).offset().top < meta[3];
+          }
+
+            //Checks if unseen_actions are visible or not
+          var unseenVisibility = $('.unseen_section:visible').size();
+
+              //Toggles on and off
+          $('.unseen_section').toggle();
+
+              //Adds class to all above.
+          $('.unseen_section:above('+postion+')').addClass('above');
+
+              //Height of all unseen_actions
+              //http://stackoverflow.com/questions/13048722/jquery-finding-the-total-height-of-all-divs-children
+          var totalHeight = 0;
+          $(".unseen_section").each(function(){
+              totalHeight += $(this).height();
+          });
+
+              //Height of all unseen_actions that was above viewport
+          var totalHeight2 = 0;
+          $(".above").each(function(){
+              totalHeight2 += $(this).height();
+          });
+
+          if (unseenVisibility == 0) {
+            //calculate how much to scroll when toggling on
+            var scrollamount = postion + totalHeight - totalHeight2
+            //alert(unseenVisibility);
+            //alert(totalHeight);
+            //alert(totalHeight2);
+            //alert("on");
+          } else {
+            //calculate how much to scroll when toggling off
+            var scrollamount = postion - totalHeight2
+            //alert("off");
+            //alert(unseenVisibility);
+          }
+
+          // Scroll to variable
+          // http://stackoverflow.com/questions/4555724/jquery-store-scroll-position
+          $("html, body").animate({ scrollTop: scrollamount }, 600);
+
+
         });
         
+
+
+
+
+
+
+
+
+
         //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
         $('a#affiliatelink').click(function(e) {
@@ -89,6 +164,16 @@ $(document).ready(function() {
             }
           });
 
+          $(window).scroll(function(){
+            if ($(this).scrollTop() > 700) {
+              $('.barshowtime-mobile').fadeIn();
+            } else {
+              $('.barshowtime-mobile').fadeOut();
+            }
+          });
+
+
+
           //This is for the bar that scrolls to the loantime group
 
 
@@ -117,6 +202,8 @@ $(document).ready(function() {
       $(".typeofloan:contains('2')").replaceWith("<div class='typeofloan typeofloan-blancolan'><div class='hidden-smslan'></div><div class='glyphicon glyphicon-ok float-left typeofloancheckmark'></div><div class='typeofloaninfo'>Blancolån</div></div></div>");
 
 
+
+      $( ".button_showmeless_than_90d" ).hide()
       // Helps user to filter overview with loantime, because showing all loantimes at once is to much
       // and using side-scrollable tables is mostly messy..
       $( ".button_showmemore_than_90d" ).click(function() {
@@ -126,6 +213,13 @@ $(document).ready(function() {
         // Show the right button
         $( ".button_showmeless_than_90d" ).show()
         $( ".button_showmemore_than_90d" ).hide()
+          //var portpositionpost = $(window).scrollTop();
+          //alert(portpositionpost);
+
+                  $('html, body').animate({
+                      scrollTop: $(scrollamount).offset().top
+                  }, scrollamount);
+
       });
 
       $( ".button_showmeless_than_90d" ).click(function() {
@@ -133,6 +227,14 @@ $(document).ready(function() {
         $( ".more_than_90d" ).hide()
         $( ".button_showmemore_than_90d" ).show()
         $( ".button_showmeless_than_90d" ).hide()
+          //var portpositionpost = $(window).scrollTop();
+          //alert(portpositionpost);
+
+
+                  $('html, body').animate({
+                      scrollTop: $(scrollamount).offset().top
+                  }, scrollamount);
+
       });
 
 
@@ -250,8 +352,9 @@ $(document).ready(function() {
 
 
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
+      // siblings() is to hide the buttons in mobile.
       $('input:checked').each(function() {
-        $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+        $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").siblings().hide();
       });
 
       // Counts number of loans shown when moneylabs.se loads.
@@ -268,8 +371,18 @@ $(document).ready(function() {
       $('input:checkbox').change(showHideProducts);
       function showHideProducts()
       {
-          $('td').parentsUntil(".smsloanoverview").show();
-          $(".smsloaninfo").show();
+          //Re-wrote this block to accomodate that there are two sets of .smsloaninfo for each loangiver.
+          if ($(window).width() > 768) {
+            $('.smsloan_extrainfo_desk td').parentsUntil(".smsloanoverview").siblings().show();
+            $(".smsloaninfo.smsloan_extrainfo_desk").show();
+            $(".bastards").hide();            
+          } else {
+            $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").siblings().show();
+            $(".smsloaninfo.smsloan_extrainfo_tabmob").show();
+            $(".bastards").show();
+          }
+
+
 
               //finds the cheapest loan of each loantimegroup.s
               //cheapest_child30d = $('.sms_costnew_searchresult30d:first-child').html().replace(' kr', '');
@@ -357,7 +470,8 @@ $(document).ready(function() {
               function()
               {
                   // had to put this code in from smsloanbutton to make it work together
-                  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+                  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").siblings().hide();
+
                   //$('tr').filter(function() {
                   //    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
                   //      return ! $.trim($(this).text());  
