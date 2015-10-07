@@ -342,7 +342,7 @@ $(document).ready(function() {
       //If one checks checkboxes and then refreshes the site then the checkboxes are still in effect.
       // siblings() is to hide the buttons in mobile.
       $('input:checked').each(function() {
-        $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").siblings().hide();
+        $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
       });
 
       // Counts number of loans shown when moneylabs.se loads.
@@ -365,7 +365,7 @@ $(document).ready(function() {
             $(".smsloaninfo.smsloan_extrainfo_desk").show();
             $(".bastards").hide();            
           } else {
-            $('.smsloan_extrainfo_tabmob td').parents(".smsloanoverview").show();
+            $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_tabmob").show();
             $(".bastards").show();
           }
@@ -461,7 +461,8 @@ $(document).ready(function() {
                   if ($(window).width() > 768) {
                     $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
                   } else {
-                    $('td:contains("' + $(this).val() + '")').parents(".smsloanoverview").hide();
+                    $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+
                   }
 
                   // had to put this code in from smsloanbutton to make it work together
