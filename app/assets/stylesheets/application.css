@@ -11,6 +11,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 40px;
+  max-width: 98%;
 }
 
 /* Custom container */
@@ -429,9 +430,11 @@ Media queries
   }
 
   .smsloanoverview_buttons{
-    /* margin-right: -50px; */
+    /* margin-right: -50px;*/
+    /* right: 15%; */
     position: absolute;
-    right: 15%;
+
+    margin-left: 300px;
   }
 
   ul#smsloan_options_chosen{
@@ -457,7 +460,8 @@ Media queries
   }
 
   .navbar-fix{
-    margin-top: -20px; 
+    margin-top: -20px;
+    width: 102%;
   }
 
   .logo { /* Overriding bootstrap */
@@ -491,7 +495,7 @@ Media queries
 
   .circle{
     margin-left: 700px;
-    margin-top: -86px;
+    margin-top: -70px;
   }
 
   .circle2{
@@ -616,6 +620,7 @@ Media queries
 
   .navbar-fix{
     margin-top: -20px; 
+    width: 102%;
   }
 
   .logo { /* Overriding bootstrap */
@@ -776,7 +781,8 @@ Media queries
   }
 
   .smsloanoverview_buttons{
-    margin-right: -117px;
+    position: absolute;
+    right: 7%;
   }
 
   ul#smsloan_options_chosen{
@@ -802,6 +808,7 @@ Media queries
 
   .navbar-fix{
     margin-top: -0px; 
+    width: 102%;
   }
 
   .sms_info_list p{
@@ -1041,6 +1048,7 @@ Media queries
   .navbar-fix{
     margin-left: -20px;
     margin-right: -20px;    
+    width: 110%;
   }
   /* END - Search results for each loangiver for this format*/
 
@@ -1387,7 +1395,8 @@ Media queries
 /* RESPONSIVE TABLE END */
   .navbar-fix{
     margin-left: -20px;
-    margin-right: -20px;    
+    margin-right: -20px;
+    width: 115%;    
   }
 
   .content {
@@ -2043,7 +2052,7 @@ table.ex1 tr:empty {
 }
 
 .barshowtime{
-  width:100%;
+  width:102%;
   margin-left: -5px;
   height: inherit;
   text-align:center; 
@@ -2059,6 +2068,7 @@ table.ex1 tr:empty {
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 1;
 }
 
 .barshowtime:hover{
