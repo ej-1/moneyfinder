@@ -216,13 +216,6 @@ $(document).ready(function() {
         // Show the right button
         $( ".button_showmeless_than_90d" ).show()
         $( ".button_showmemore_than_90d" ).hide()
-          //var portpositionpost = $(window).scrollTop();
-          //alert(portpositionpost);
-
-                  $('html, body').animate({
-                      scrollTop: $(scrollamount).offset().top
-                  }, scrollamount);
-
       });
 
       $( ".button_showmeless_than_90d" ).click(function() {
@@ -230,14 +223,6 @@ $(document).ready(function() {
         $( ".more_than_90d" ).hide()
         $( ".button_showmemore_than_90d" ).show()
         $( ".button_showmeless_than_90d" ).hide()
-          //var portpositionpost = $(window).scrollTop();
-          //alert(portpositionpost);
-
-
-                  $('html, body').animate({
-                      scrollTop: $(scrollamount).offset().top
-                  }, scrollamount);
-
       });
 
 
@@ -376,11 +361,11 @@ $(document).ready(function() {
       {
           //Re-wrote this block to accomodate that there are two sets of .smsloaninfo for each loangiver.
           if ($(window).width() > 768) {
-            $('.smsloan_extrainfo_desk td').parentsUntil(".smsloanoverview").siblings().show();
+            $('.smsloan_extrainfo_desk td').parentsUntil(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_desk").show();
             $(".bastards").hide();            
           } else {
-            $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").siblings().show();
+            $('.smsloan_extrainfo_tabmob td').parents(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_tabmob").show();
             $(".bastards").show();
           }
@@ -472,8 +457,15 @@ $(document).ready(function() {
           (
               function()
               {
+
+                  if ($(window).width() > 768) {
+                    $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+                  } else {
+                    $('td:contains("' + $(this).val() + '")').parents(".smsloanoverview").hide();
+                  }
+
                   // had to put this code in from smsloanbutton to make it work together
-                  $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").siblings().hide();
+                  
 
                   //$('tr').filter(function() {
                   //    return $(this).find('td:visible:not(".smsloangiver")').filter(function() {
