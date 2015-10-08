@@ -292,7 +292,7 @@ class AdminsmsloansController < ApplicationController
     @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
 
 
-    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'])
+    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">']).order(:invoice_fee)
     respond_to do |format|               
       format.html # smslan.html.erb
       format.js   # smslan.js.erb
@@ -344,7 +344,7 @@ class AdminsmsloansController < ApplicationController
     @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
 
     # The querying for SMSloans, but skipped querying the hardcoded ones from the database.
-    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'])
+    @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">']).order(:invoice_fee)
 
     # can use pluck to get specific columns. Though i need to know how to pass a js variable as a ruby variable
     # or use the sliders in form to produce the variable which is the columnname. Th columnname will replace :id, ;name.

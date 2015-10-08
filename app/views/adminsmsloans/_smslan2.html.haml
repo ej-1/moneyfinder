@@ -1,7 +1,11 @@
 :javascript
 
 
-
+  //scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
 
   // Keeps hidden the things that should be hidden by the checked checkboxes
   // had to move this code snippet from smslan.erb.js otherwise rows are counted and then hidden, so all rows are hidden and not ignore those that will be hidden. This code snippet has to be executed before the one below, that is why I moved it here.
