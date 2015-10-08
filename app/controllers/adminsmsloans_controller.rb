@@ -111,7 +111,7 @@ class AdminsmsloansController < ApplicationController
       @drop30d = 'debtor_loantime_30d'
       @drop60d = 'debtor_loantime_60d'
       @drop90d = 'debtor_loantime_90d'
-      @drop1y = 'debtor_loantime_90d'
+      @drop1y = 'newdebtor_loantime_1year'
 
       @combiner14d =[@drop14d, @replace2].join("")
       @combiner21d =[@drop21d, @replace2].join("")
@@ -201,7 +201,7 @@ class AdminsmsloansController < ApplicationController
       @drop30d = 'debtor_loantime_30d'
       @drop60d = 'debtor_loantime_60d'
       @drop90d = 'debtor_loantime_90d'
-      @drop1y = 'debtor_loantime_90d'
+      @drop1y = 'newdebtor_loantime_1year'
 
       @combiner14d =[@drop14d, @drop2].join("")
       @combiner21d =[@drop21d, @drop2].join("")
