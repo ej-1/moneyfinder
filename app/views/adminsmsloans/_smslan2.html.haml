@@ -16,9 +16,55 @@
   rowCount = $('.anti_border_spacing tr:visible').size();
   $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
+  //http://stackoverflow.com/questions/7831712/jquery-sort-divs-by-innerhtml-of-children
+  //Change order of loantimegroup based on first loan in group. Only applies ot 1 year loantime group.
+  //$("button.btnSort").click(function() {
 
 
+  firstborn1 = $("#1").find(".sms_costnew_searchresult:first").text();
+  firstborn2 = $("#2").find(".sms_costnew_searchresult:first").text();     
+  firstborn3 = $("#3").find(".sms_costnew_searchresult:first").text();
+  firstborn4 = $("#4").find(".sms_costnew_searchresult:first").text();
+  firstborn5 = $("#5").find(".sms_costnew_searchresult:first").text();
+  firstborn6 = $("#6").find(".sms_costnew_searchresult:first").text();
+  var iNum1 = parseInt(firstborn1);
+  var iNum2 = parseInt(firstborn2);
+  var iNum3 = parseInt(firstborn3);
+  var iNum4 = parseInt(firstborn4);
+  var iNum5 = parseInt(firstborn5);
+  var iNum6 = parseInt(firstborn6);
 
+  if (iNum4 < iNum1) {
+    $("#1").appendTo("#4");
+  }
+  if (iNum4 < iNum2) {
+    $("#2").appendTo("#4");
+  }
+  if (iNum4 < iNum3) {
+    $("#3").appendTo("#4");
+  }
+  if (iNum4 < iNum4) {
+    $("#4").appendTo("#4");
+  }
+  if (iNum4 < iNum5) {
+    $("#5").appendTo("#4");
+  }
+  if (iNum4 < iNum6) {
+    $("#6").appendTo("#4");
+  }
+
+  // adds " kr"
+  //$('.sms_costnew_searchresult').append(" kr");
+
+  //});
+
+
+.row
+  %button#sPrice.btnSort Sort By Price
+  %br/
+  %button#sStyle.btnSort Sort By Style
+  %br/
+.hey hello
 .row
   .scrollToTop Scrolla till toppen
 .row
@@ -63,7 +109,7 @@
             - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
@@ -105,7 +151,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted
@@ -134,7 +180,7 @@
             - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
@@ -176,7 +222,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted
@@ -205,14 +251,15 @@
             - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+              - @cost_newdebtor4 = @cost_newdebtor.to_s
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
                 - if plucker.nil?
                   - @cost_debtor_texted = "-"
                 - if plucker2.nil?
-                  - @cost_newdebtor = "-"
+                  - @cost_newdebtor4 = "-"
                 %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
 
                 %td.sms_info_list_mobileformat.td_fix_mobileformat
@@ -247,7 +294,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor 
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted
@@ -276,7 +323,7 @@
             - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
@@ -318,7 +365,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted
@@ -347,7 +394,7 @@
             - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
@@ -389,7 +436,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted
@@ -418,7 +465,7 @@
             - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = plucker2
+              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
               - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
               - if plucker.nil? && plucker2.nil?
               - else
@@ -460,7 +507,7 @@
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
                   %ul
                     %li
-                      .sms_costnew_searchresult= number_to_currency(@cost_newdebtor, strip_insignificant_zeros: true, locale: :fr)
+                      .sms_costnew_searchresult= @cost_newdebtor
                   %ul#horizontal-list
                     %li
                       .sms_costold_searchresult= @cost_debtor_texted

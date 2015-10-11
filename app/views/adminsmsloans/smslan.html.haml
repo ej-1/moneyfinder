@@ -163,10 +163,7 @@
           //  = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();"
           //  = submit_tag "Jämför lån", :name => nil, :class => "blo btn btn-large btn-success sms-button", :id => "smsbutton"
   .span1
-//%button#sPrice.btnSort Sort By Price
-//%br/
-//%button#sStyle.btnSort Sort By Style
-//%br/
+
 
 #div_id
   .row
@@ -329,125 +326,125 @@
                     %td 3000 kr
                     %td.less_than_90d
                       // (amount * lowest yearly intrest * years) + uppläggningsavgift
-                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee*2 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee*3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee*12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                   %tr
                     %td 4000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee*2 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee*3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (4000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee * 12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                   %tr
                     %td 5000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (3000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.less_than_90d
-                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee * 2  + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee * 3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (5000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee * 12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 7000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee*2 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee*3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (7000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee*12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 10 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee*2 + @banknorwegian_smallest_invoice_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee*3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (10000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee*12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 15 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1/12) + @banknorwegian_smallest_invoice_fee*1 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 2/12) + @banknorwegian_smallest_invoice_fee*2 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 3/12) + @banknorwegian_smallest_invoice_fee*3 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee + @banknorwegian_arrangement_fee
+                      - @smsloanoverview1 = (15000 * @banknorwegian_lowestinterest * 1) + @banknorwegian_smallest_invoice_fee*12 + @banknorwegian_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
               .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @banknorwegian_table_comment
@@ -677,15 +674,15 @@
                     %td 3000 kr
                     %td.less_than_90d
                       // (amount * lowest yearly intrest * years) + uppläggningsavgift
-                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
@@ -699,17 +696,17 @@
                   %tr
                     %td 4000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
@@ -720,86 +717,86 @@
                   %tr
                     %td 5000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 7000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 10 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 15 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 2/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 3/12) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @thorn_lowestinterest * 1) + @thorn_arrangement_fee + @thorn_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
               .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @thorn_table_comment
@@ -1016,126 +1013,126 @@
                     %td 3000 kr
                     %td.less_than_90d
                       // (amount * lowest yearly intrest * years) + uppläggningsavgift
-                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                   %tr
                     %td 4000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
 
                   %tr
                     %td 5000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                   %tr
                     %td 7000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= "-"
                   %tr
                     %td 10 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 15 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1/12) + @frogtail_smallest_invoice_fee*1 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 2/12) + @frogtail_smallest_invoice_fee*2 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 3/12) + @frogtail_smallest_invoice_fee*3 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee + @frogtail_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @frogtail_lowestinterest * 1) + @frogtail_smallest_invoice_fee*12 + @frogtail_arrangement_fee
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
               .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @frogtail_table_comment
@@ -1363,127 +1360,127 @@
                     %td 3000 kr
                     %td.less_than_90d
                       // (amount * lowest yearly intrest * years) + uppläggningsavgift
-                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                   %tr
                     %td 4000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                   %tr
                     %td 5000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 7000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 10 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 15 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 2/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 3/12) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_minilan_lowestinterest * 1) + @leasy_minilan_arrangement_fee + @leasy_minilan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
               .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @leasy_minilan_table_comment
@@ -1707,127 +1704,127 @@
                     %td 3000 kr
                     %td.less_than_90d
                       // (amount * lowest yearly intrest * years) + uppläggningsavgift
-                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
                     %td.more_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                   %tr
                     %td 4000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (4000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
 
                   %tr
                     %td 5000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (3000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (5000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 7000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (7000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 10 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (10000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
                   %tr
                     %td 15 000 kr
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*1
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.less_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 2/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*2
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 3/12) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*3
                       %ul#horizontal-list
                         %li= "-"
 
                     %td.more_than_90d
-                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee
+                      - @smsloanoverview1 = (15000 * @leasy_lan_lowestinterest * 1) + @leasy_lan_arrangement_fee + @leasy_lan_smallest_invoice_fee*12
                       %ul#horizontal-list
                         %li= number_to_currency(@smsloanoverview1, locale: :fr, strip_insignificant_zeros: true)
               .smsloan_extrainfo_tabmob.smsloan_extrainfo2.table_comment= @leasy_lan_table_comment

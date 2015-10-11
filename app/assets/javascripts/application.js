@@ -126,8 +126,6 @@ $(document).ready(function() {
 
 
 
-
-
         //Opens the "Transfer" page tht contains Google Adwords Conversion Tracking Pixel,
         // when clicking an afffiliate link.
         $('a#affiliatelink').click(function(e) {
@@ -311,31 +309,6 @@ $(document).ready(function() {
       //http://jsfiddle.net/WssNb/
 
 
-      //Filters parents based on first child
-      //http://stackoverflow.com/questions/7831712/jquery-sort-divs-by-innerhtml-of-children
-      function sortUsingNestedText(parent, childSelector, keySelector) {
-          var items = parent.children(childSelector).sort(function(a, b) {
-              var vA = $(keySelector, a).text();
-              var vB = $(keySelector, b).text();
-              return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;
-          });
-          parent.append(items);
-      }
-
-      
-      
-
-      /* setup sort attributes */
-      $('#sPrice').data("sortKey", ".sms_costnew_searchresult:first-child");
-      $('#sStyle').data("sortKey", "span.style");
-
-
-      /* sort on button click */
-      $("button.btnSort").click(function() {
-         sortUsingNestedText($('#sortThis'), "div", $(this).data("sortKey"));
-         var ist = $('.sms_costnew_searchresult:first-child').html();
-         //alert(ist);
-      });
 
 
 
