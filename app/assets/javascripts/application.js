@@ -334,14 +334,19 @@ $(document).ready(function() {
       {
           //Re-wrote this block to accomodate that there are two sets of .smsloaninfo for each loangiver.
           if ($(window).width() > 768) {
+            //these ones is for search results.
             $('.smsloan_extrainfo_desk td').parentsUntil(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_desk").show();
+            $(".bastards").hide();      
+            //this one is for search results.
             $('td').parentsUntil("#table_id2").show();
-            $(".bastards").hide();            
           } else {
+            //these ones is for search results.
             $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_tabmob").show();
             $(".bastards").show();
+            //this one is for search results.
+            $('td').parentsUntil("#table_id2").show();
           }
 
 
