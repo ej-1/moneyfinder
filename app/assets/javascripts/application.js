@@ -336,6 +336,7 @@ $(document).ready(function() {
           if ($(window).width() > 768) {
             $('.smsloan_extrainfo_desk td').parentsUntil(".smsloanoverview").show();
             $(".smsloaninfo.smsloan_extrainfo_desk").show();
+            $('td').parentsUntil("#table_id2").show();
             $(".bastards").hide();            
           } else {
             $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").show();
@@ -452,6 +453,7 @@ $(document).ready(function() {
                   var t60dclicked = ($('#table60d tr:visible').size());
                   var t90dclicked = ($('#table90d tr:visible').size());
                   var t1yclicked = ($('#table1y tr:visible').size());
+
                   if (t14dclicked === 0){
                     $('.table14d').hide();
                     $('.group_14d').hide();
@@ -483,7 +485,7 @@ $(document).ready(function() {
                     $('.table60d').show();
                     $('.group_60d').show();
                   }
-
+ 
                   if (t90dclicked === 0){
                     $('.table90d').hide();
                     $('.group_90d').hide();
@@ -506,6 +508,7 @@ $(document).ready(function() {
                     $("#tryagain3").replaceWith('<p class=try-again>Klicka ur några kryssrutor kan också hjälpa.</p>');
                     $('.barshowgroup').hide();
                   }
+
                   // Counts number of loans shown and informs user after they have clicked a checkbox.
                   if ($('.odd_searchresults_color').length > 0) { //if on loanoverview
                     rowCount = $('.odd_searchresults_color:visible').size();
