@@ -31,8 +31,9 @@ Ratesfinder::Application.routes.draw do
   get "laneformedlare" => 'adminsmsloans#laneformedlare'
   #get "smslan" => 'adminsmsloans#smslanfilter'
   get "transfer" => "layouts#transfer"
-
   get "gratislan" => 'adminsmsloans#gratislan'
+
+  get "norwegian" => 'adminsmsloans#norwegian'
 
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'

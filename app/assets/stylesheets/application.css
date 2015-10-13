@@ -55,6 +55,7 @@ body {
   margin-left: 20px;
   margin-top: 4px;
 }
+
 /*
 .dropdown:hover .dropdown-menu {  Overriding bootstrap - menu appears on hover instead of onclick
     display: block;
@@ -161,6 +162,11 @@ tbody th {
 .bottom-buffer2{
   padding-bottom: 400px;
 }
+
+.bottom-buffer3{
+  padding-bottom: 200px;
+}
+
 
 .black-text{
   color: #333;
@@ -1362,9 +1368,10 @@ Media queries
   }
 
   .sms_ansokbutton_mobileformat {
-    margin-left: 40%;
+    /*margin-left: 40%;*/
+    margin-left: -9%;
     margin-top: 62px;
-    width: 40px;
+    /*width: 40px;*/
 
   }
 
@@ -2183,6 +2190,16 @@ ul#horizontal-list-groupbar li{
   border: 1px solid #81C581;
 }
 
+.seen_section_loangiverpage {
+  color: #fff !important;
+  background-color: #90C255;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #91C056;
+}
+
 ul#horizontal-list-neutral{
 
   margin-bottom: -8px;
@@ -2304,6 +2321,19 @@ ul#horizontal-list-grey li{
   color: #fff !important;
   font-weight: normal;
   padding: 2px;
+}
+
+.margin-left-zero {
+  margin-left: 0px;
+}
+
+.textcolor-grey {
+  color: rgba(86, 86, 86, 0.87);
+}
+
+.loangiverpage-logo{
+  padding-top: 20px;
+  padding-bottom: 66px;
 }
 
 

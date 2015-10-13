@@ -450,6 +450,19 @@ class AdminsmsloansController < ApplicationController
     @gratis_smsloan = @gratis.order(:max_loan_amount, :loan_time)
   end
 
+
+  def norwegian
+    @plucker = Smsloan.where({ bank: '<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>'})
+  end
+
+
+
+
+
+
+
+
+
   # GET /smsloans/1
   # GET /smsloans/1.json
   def show

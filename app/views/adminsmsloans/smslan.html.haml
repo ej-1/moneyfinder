@@ -507,7 +507,6 @@
                 .smsloanoverview_buttons.switch_smsloan_example1_button.float-right-not797
                   %ul
                     %li= smsloan.weblink.to_s.html_safe
-
                     %li
                       .typeofloan
                         .hidden-smslan= smsloan.application_fee
@@ -566,9 +565,8 @@
               - @weblink = 0
             - else
               - @weblink = smsloan.weblink.to_s.gsub! "Ansök", "Ansök om lån hos Bank Norwegian"
-            .center-element2.smsloan_extrainfo_tabmob.top-buffer-small.bottom-buffer
+            .center-element2.smsloan_extrainfo_tabmob.top-buffer-small
               = @weblink.to_s.html_safe
-
 
 
   //This is for Thorn
