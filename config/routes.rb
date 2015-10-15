@@ -33,7 +33,47 @@ Ratesfinder::Application.routes.draw do
   get "transfer" => "layouts#transfer"
   get "gratislan" => 'adminsmsloans#gratislan'
 
+
+
   get "norwegian" => 'adminsmsloans#norwegian'
+  get "leasylan" => 'adminsmsloans#leasylan'
+  get "leasyminilan" => 'adminsmsloans#leasyminilan'
+
+  get "thorn" => 'adminsmsloans#thorn'
+  get "frogtail" => 'adminsmsloans#frogtail'
+  get "klicklan" => 'adminsmsloans#klicklan'
+  get "onea" => 'adminsmsloans#onea'
+  get "monetti" => 'adminsmsloans#monetti'
+  get "vivus" => 'adminsmsloans#vivus'
+  get "ferratum" => 'adminsmsloans#ferratum'
+  get "meddelandelan" => 'adminsmsloans#meddelandelan'
+  get "snabbfinans" => 'adminsmsloans#snabbfinans'
+  get "natlan" => 'adminsmsloans#natlan'
+  get "expresskredit" => 'adminsmsloans#expresskredit'
+  get "cash2you" => 'adminsmsloans#cash2you'
+  get "kundfinans" => 'adminsmsloans#kundfinans'
+  get "savelend" => 'adminsmsloans#savelend'
+  get "daypay" => 'adminsmsloans#daypay'
+  get "moneygo" => 'adminsmsloans#moneygo'
+  get "strandiafinans" => 'adminsmsloans#strandiafinans'
+  get "kredit365" => 'adminsmsloans#kredit365'
+  get "nanokredit" => 'adminsmsloans#nanokredit'
+  get "everydayplus" => 'adminsmsloans#everydayplus'
+  get "easycredit" => 'adminsmsloans#easycredit'
+  get "nanoflex" => 'adminsmsloans#nanoflex'
+  get "kortlan" => 'adminsmsloans#kortlan'
+  get "smspengar" => 'adminsmsloans#smspengar'
+  get "euroloan" => 'adminsmsloans#euroloan'
+  get "extrakredit" => 'adminsmsloans#extrakredit'
+  get "pengos" => 'adminsmsloans#pengos'
+  get "kreditkontot" => 'adminsmsloans#kreditkontot'
+  get "trustbuddy" => 'adminsmsloans#trustbuddy'
+  get "cashbuddy" => 'adminsmsloans#cashbuddy'
+  get "risicum" => 'adminsmsloans#risicum'  
+  get "lanbutiken" => 'adminsmsloans#lanbutiken'  
+  get "sakerfinans" => 'adminsmsloans#sakerfinans'  
+
+
 
   get "sparguide" => 'public#sparguide'
   get "landets_rantor" => 'public#landets_rantor'

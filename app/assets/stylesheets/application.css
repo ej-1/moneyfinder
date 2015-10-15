@@ -154,6 +154,9 @@ tbody th {
   padding-top: 10px;
 }
 
+.top-buffer-small2{
+  padding-top: 5px;
+}
 
 .bottom-buffer{
   padding-bottom: 30px;

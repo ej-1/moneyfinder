@@ -1,0 +1,84 @@
+- content_for :title, "Jämför gratis SMSlån - Jämför och hitta kostnadsfria SMSlån och snabblån"
+%meta{:content => "Moneylabs.se hjälper dig jämföra och hitta kostnadsfria / räntefria smslån och snabblån", :name => "description= Jämför gratis SMSlån [site:moneylabs.se/gratislan]"}/
+
+.row
+- @plucker.each do |smsloan|
+  .row.row-padding-fix
+    .span1
+    .span9
+      .loangiverpage-logo.pagetitle-gratislan
+        = smsloan.bank.to_s.html_safe
+      %p.fonts
+    .span2
+  .row.row-padding-fix
+    .span1
+    .span9.seen_section_loangiverpage
+      .span5
+        %ul.margin-left-zero
+          %li Du kan förlänga lånet med 7, 14 eller 30 dagar genom att betala en förlängningsavgift. Förlängning innebär att du flyttar fram lånets förfallodag och undviker att ärendet lämnas över till inkasso. 
+          %li
+          %li
+      .span4
+    .span2
+    
+  .row.row-padding-fix.top-buffer
+    .span1
+    .span9.white2.seen_section_loangiverpage
+      .span3.fonts
+        %ul.margin-left-zero
+          %li.bold-text= @krav_title_viaconto
+          %li= @krav_1_viaconto
+          %li= @krav_2_viaconto
+          %li= @krav_3_viaconto
+          %li.top-buffer-small= @krav_4_viaconto.html_safe
+      .span5.fonts.white2
+        %ul#horizontal-list-neutral.margin-left-zero
+          %li.bold-text= @behandling_title_viaconto
+          %li= @behandling_1_viaconto
+        %ul#horizontal-list-neutral.top-buffer-small.margin-left-zero
+          %li.glyphicon.glyphicon-dashboard
+          %li.bold-text= @payment_title_viaconto
+          %li= @payment1_viaconto
+        %ul#horizontal-list-neutral.margin-left-zero
+          %li.fonts-11.top-buffer-small
+          %li.fonts-11= @payment2_viaconto
+  .row.row-padding-fix
+    .span1
+    .span9.seen_section_loangiverpage
+
+      %td.sms_info_list_mobileformat.td_fix_mobileformat
+        %ul
+          %li
+            %p.white2
+              %strong> Lånebelopp
+              \: 
+              - @smsloan_minamount = smsloan.min_loanamount
+              - @smsloan_maxamount = smsloan.max_loanamount
+              - if @smsloan_minamount.nil? || @smsloan_maxamount.nil?
+              - else
+                = @smsloanminandmaxamount = @smsloan_minamount.floor.to_s + " - " + @smsloan_maxamount.floor.to_s + "kr"
+          %li
+            %p.white2
+              %strong> Åldersgräns
+              \: 
+              = excerpt(smsloan.min_age, 'år', radius: 3, omission: '')
+          %li
+            %p.white2
+              %strong> SKEF-medlem
+              \:
+              = excerpt(smsloan.skef_member, 'Ja', radius: 0, omission: '')
+              = excerpt(smsloan.skef_member, 'Nej', radius: 0, omission: '')
+          %li
+            %p.white2
+              %strong> Lån trots betalningsanm.
+              \:
+              //= Smsloan.second.low_credit_score
+              - if smsloan.low_credit_score.nil?
+              - else
+                = smsloan.low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+          %li
+            %p.white2
+              - if smsloan.low_credit_score.nil?
+              - else
+                = smsloan.no_uc[/"(.*?)"/, 1]
+.bottom-buffer3

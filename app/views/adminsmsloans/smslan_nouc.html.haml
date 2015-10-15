@@ -518,26 +518,23 @@
           .row.unseen_section
             .span4.fonts.white2
               %ul
-                %li.bold-text Krav för lån hos Norwegian
-                %li Fyllt 18 år.
-                %li Har inga betalningsanmärkningar
-                %li Folkbokförd i Sverige de senaste 36 månaderna
-                %li
-                  Om 
-                  %a{:href => "https://www.banknorwegian.se/Kundservice/laan/nytt-laan#vad-foumlr-slags-dokument-behoumlver-jag-skicka-in"} dokument
-                  ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senaste inkomstdeklaration.
+                %li.bold-text= @krav_title_norwegian
+                %li= @krav_1_norwegian
+                %li= @krav_2_norwegian
+                %li= @krav_3_norwegian
+                %li= @krav_4_norwegian
 
             .span5.fonts.white2
               %ul#horizontal-list-neutral
-                %li.bold-text Behandlingstid för ansökan: 
-                %li 0-2 bankdagar (Omedelbart preliminärt besked)
+                %li.bold-text= @behandling_title_norwegian
+                %li= @behandling_1_norwegian
               %ul#horizontal-list-neutral.top-buffer-small
                 %li.glyphicon.glyphicon-dashboard
-                %li.bold-text Utbetalning: 
-                %li -
+                %li.bold-text= @payment_title_norwegian
+                %li= @payment1_norwegian
               %ul#horizontal-list-neutral
                 %li.fonts-11.top-buffer-small
-                %li.fonts-11 -
+                %li.fonts-11= @payment2_norwegian
 
 
 

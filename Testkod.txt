@@ -1,3 +1,30 @@
+        - else
+          .span10
+            .row.unseen_section
+              .span4.fonts.white2
+                %ul
+                  %li.bold-text Krav för lån:
+                  %li Fyllt ................
+                  %li .................................
+                  %li Folkbokförd ........................
+                  %li ..........................
+
+              .span5.fonts.white2
+                %ul#horizontal-list-neutral
+                  %li.bold-text Behandlingstid för ansökan: 
+                  %li ............................
+                %ul#horizontal-list-neutral.top-buffer-small
+                  %li.glyphicon.glyphicon-dashboard
+                  %li.bold-text Utbetalning: 
+                  %li -
+                %ul#horizontal-list-neutral
+                  %li.fonts-11.top-buffer-small -
+                  %li.fonts-11 -
+
+
+
+
+
 if (t14d === 0){
   $('.table14d').hide();
   $('.group_14d').hide();
