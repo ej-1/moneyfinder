@@ -520,7 +520,7 @@
                 %li= @krav_1_norwegian
                 %li= @krav_2_norwegian
                 %li= @krav_3_norwegian
-                %li= @krav_4_norwegian
+                %li= @krav_4_norwegian.html_safe
 
             .span5.fonts.white2
               %ul#horizontal-list-neutral
@@ -1952,10 +1952,10 @@
                   Möjlighet att teckna låneskydd för extra trygghet.
                 - if smsloan.bank == '<img src="moneygo_image.png" alt="Moneygo" style="height:22px">'
                   .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.correction.fonts Moneygo erbjuder individuell ränta 9,9 % - 19,8 %
-                  .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.fonts Möjlighet att teckna låneskydd för extra trygghet som betalar din månadskostnad för lånet i upp till 12 månader om du blir sjukskriven eller arbetslös.
+                  .smsloan_extrainfo.smsloan_extrainfo_desk.fonts - Möjlighet att teckna låneskydd för extra trygghet som betalar din månadskostnad för lånet i upp till 12 månader om du blir sjukskriven eller arbetslös.
                 - if smsloan.bank == '<img src="meddelandelan_image.png" alt="Meddelandelån" style="height:45px">'
                   .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.correction.fonts Meddelandelån har Sveriges nöjdaste SMSlån-kunder enligt 
-                  %a{:href => "https://www.meddelandelan.se/trustpilot", :target => "_blank"} Trustpilot.
+                  %a.smsloan_extrainfo_desk{:href => "https://www.meddelandelan.se/trustpilot", :target => "_blank"} Trustpilot.
                 -else
                   .smsloan_extrainfo.bold-text2.smsloan_extrainfo_desk.correction.fonts
 
@@ -1967,13 +1967,13 @@
                   - if smsloan.bank == '<img src="onea_image.png" alt="Onea" style="height:30px">'
                     .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Onea erbjuder möjligheten att förlänga lånet.
                   - if smsloan.bank == '<img src="moneygo_image.png" alt="Moneygo" style="height:22px">'
-                    .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo erbjuder individuell ränta 9,9 % - 19,8 %
-                    .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Möjlighet att teckna låneskydd för extra trygghet som betalar din månadskostnad för lånet i upp till 12 månader om du blir sjukskriven eller arbetslös.
-                - if smsloan.bank == '<img src="meddelandelan_image.png" alt="Meddelandelån" style="height:45px">'
-                  .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Meddelandelån har Sveriges nöjdaste SMSlån-kunder enligt
-                  %a{:href => "https://www.meddelandelan.se/trustpilot", :target => "_blank"} Trustpilot.
-                - else
-                  .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo         
+                    .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Erbjuder individuell ränta 9,9 % - 19,8 %
+                    .smsloan_extrainfo_tabmob.smsloan_extrainfo - Möjlighet att teckna låneskydd för extra trygghet som betalar din månadskostnad för lånet i upp till 12 månader om du blir sjukskriven eller arbetslös.
+                  - if smsloan.bank == '<img src="meddelandelan_image.png" alt="Meddelandelån" style="height:45px">'
+                    .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo Meddelandelån har Sveriges nöjdaste SMSlån-kunder enligt
+                    %a.smsloan_extrainfo_tabmob{:href => "https://www.meddelandelan.se/trustpilot", :target => "_blank"} Trustpilot.
+                  - else
+                    .smsloan_extrainfo_tabmob.bold-text2.smsloan_extrainfo         
 
 
             .span4.smsloaninfo.smsloan_extrainfo_tabmob.bastards
@@ -3195,58 +3195,6 @@
                   %li.fonts-11.top-buffer-small= @payment2_kredit365
                   %li.fonts-11= @payment3_kredit365
 
-        - if smsloan.bank == '<img src="strandiafinans_image.png" alt="Strandia Finans" style="height:40px">'
-          .span10
-            .row.unseen_section
-              .span4.fonts.white2
-                %ul
-                  %li.bold-text= @krav_title_strandiafinans
-                  %li= @krav_1_strandiafinans
-                  %li= @krav_2_strandiafinans
-                  %li= @krav_3_strandiafinans
-                  %li= @krav_4_strandiafinans
-              .span5.fonts.white2
-                %ul#horizontal-list-neutral
-                  %li.bold-text= @behandling_title_strandiafinans
-                  %li= @behandling_1_strandiafinans
-                  %li= @behandling_2_strandiafinans
-                  %li= @behandling_3_strandiafinans
-                  %li= @behandling_4_strandiafinans
-                  %li= @behandling_5_strandiafinans
-                %ul#horizontal-list-neutral.top-buffer-small
-                  %li.glyphicon.glyphicon-dashboard
-                  %li.bold-text= @payment_title_strandiafinans
-                  %li= @payment1_strandiafinans
-                %ul#horizontal-list-neutral
-                  %li.fonts-11.top-buffer-small= @payment2_strandiafinans
-                  %li.fonts-11= @payment3_strandiafinans
-
-        - if smsloan.bank == '<img src="kredit365_image.png" alt="365kredit" style="height:30px">'
-          .span10
-            .row.unseen_section
-              .span4.fonts.white2
-                %ul
-                  %li.bold-text= @krav_title_kredit365
-                  %li= @krav_1_kredit365
-                  %li= @krav_2_kredit365
-                  %li= @krav_3_kredit365
-                  %li= @krav_4_kredit365
-              .span5.fonts.white2
-                %ul#horizontal-list-neutral
-                  %li.bold-text= @behandling_title_kredit365
-                  %li= @behandling_1_kredit365
-                  %li= @behandling_2_kredit365
-                  %li= @behandling_3_kredit365
-                  %li= @behandling_4_kredit365
-                  %li= @behandling_5_kredit365
-                %ul#horizontal-list-neutral.top-buffer-small
-                  %li.glyphicon.glyphicon-dashboard
-                  %li.bold-text= @payment_title_kredit365
-                  %li= @payment1_kredit365
-                %ul#horizontal-list-neutral
-                  %li.fonts-11.top-buffer-small= @payment2_kredit365
-                  %li.fonts-11= @payment3_kredit365
-
         - if smsloan.bank == '<img src="nanokredit_image.png" style="height:35px">'
           .span10
             .row.unseen_section
@@ -3507,83 +3455,31 @@
                   %li.fonts-11.top-buffer-small= @payment2_kreditkontot
                   %li.fonts-11= @payment3_kreditkontot
 
-        - if smsloan.bank == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-          .span10
-            .row.unseen_section
-              .span4.fonts.white2
-                %ul
-                  %li.bold-text= @krav_title_extrakredit
-                  %li= @krav_1_extrakredit
-                  %li= @krav_2_extrakredit
-                  %li= @krav_3_extrakredit
-                  %li= @krav_4_extrakredit
-              .span5.fonts.white2
-                %ul#horizontal-list-neutral
-                  %li.bold-text= @behandling_title_extrakredit
-                  %li= @behandling_1_extrakredit
-                  %li= @behandling_2_extrakredit
-                  %li= @behandling_3_extrakredit
-                  %li= @behandling_4_extrakredit
-                  %li= @behandling_5_extrakredit
-                %ul#horizontal-list-neutral.top-buffer-small
-                  %li.glyphicon.glyphicon-dashboard
-                  %li.bold-text= @payment_title_extrakredit
-                  %li= @payment1_extrakredit
-                %ul#horizontal-list-neutral
-                  %li.fonts-11.top-buffer-small= @payment2_extrakredit
-                  %li.fonts-11= @payment3_extrakredit
-
         - if smsloan.bank == '<img src="pengos_image.png" alt="Pengos" style="height:30px">'
           .span10
             .row.unseen_section
               .span4.fonts.white2
                 %ul
-                  %li.bold-text= @krav_title_extrakredit
-                  %li= @krav_1_extrakredit
-                  %li= @krav_2_extrakredit
-                  %li= @krav_3_extrakredit
-                  %li= @krav_4_extrakredit
+                  %li.bold-text= @krav_title_pengos
+                  %li= @krav_1_pengos
+                  %li= @krav_2_pengos
+                  %li= @krav_3_pengos
+                  %li= @krav_4_pengos
               .span5.fonts.white2
                 %ul#horizontal-list-neutral
-                  %li.bold-text= @behandling_title_extrakredit
-                  %li= @behandling_1_extrakredit
-                  %li= @behandling_2_extrakredit
-                  %li= @behandling_3_extrakredit
-                  %li= @behandling_4_extrakredit
-                  %li= @behandling_5_extrakredit
+                  %li.bold-text= @behandling_title_pengos
+                  %li= @behandling_1_pengos
+                  %li= @behandling_2_pengos
+                  %li= @behandling_3_pengos
+                  %li= @behandling_4_pengos
+                  %li= @behandling_5_pengos
                 %ul#horizontal-list-neutral.top-buffer-small
                   %li.glyphicon.glyphicon-dashboard
-                  %li.bold-text= @payment_title_extrakredit
-                  %li= @payment1_extrakredit
+                  %li.bold-text= @payment_title_pengos
+                  %li= @payment1_pengos
                 %ul#horizontal-list-neutral
-                  %li.fonts-11.top-buffer-small= @payment2_extrakredit
-                  %li.fonts-11= @payment3_extrakredit
-
-        - if smsloan.bank == '<img src="kreditkontot_image.png" alt="Kreditkontot" style="height:30px">'
-          .span10
-            .row.unseen_section
-              .span4.fonts.white2
-                %ul
-                  %li.bold-text= @krav_title_kreditkontot
-                  %li= @krav_1_kreditkontot
-                  %li= @krav_2_kreditkontot
-                  %li= @krav_3_kreditkontot
-                  %li= @krav_4_kreditkontot
-              .span5.fonts.white2
-                %ul#horizontal-list-neutral
-                  %li.bold-text= @behandling_title_kreditkontot
-                  %li= @behandling_1_kreditkontot
-                  %li= @behandling_2_kreditkontot
-                  %li= @behandling_3_kreditkontot
-                  %li= @behandling_4_kreditkontot
-                  %li= @behandling_5_kreditkontot
-                %ul#horizontal-list-neutral.top-buffer-small
-                  %li.glyphicon.glyphicon-dashboard
-                  %li.bold-text= @payment_title_kreditkontot
-                  %li= @payment1_kreditkontot
-                %ul#horizontal-list-neutral
-                  %li.fonts-11.top-buffer-small= @payment2_kreditkontot
-                  %li.fonts-11= @payment3_kreditkontot
+                  %li.fonts-11.top-buffer-small= @payment2_pengos
+                  %li.fonts-11= @payment3_pengos
 
         - if smsloan.bank == '<img src="trustbuddy_image.png" alt="Trustbuddy" style="height:40px">'
           .span10

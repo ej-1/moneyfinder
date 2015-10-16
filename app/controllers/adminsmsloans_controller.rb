@@ -823,8 +823,8 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     
     #3 Vivus
     @krav_title_vivus = "Krav för lån hos Vivus"
-    @krav_1_vivus = "- Att du är minst 18 år gammal"
-    @krav_2_vivus = "- Att du är svensk medborgare"
+    @krav_1_vivus = "- Minst 18 år gammal"
+    @krav_2_vivus = "- Svensk medborgare"
     @krav_3_vivus = "- Svenskt mobilnummer samt svenskt kontonummer"
     @krav_4_vivus = ""
   
@@ -887,8 +887,8 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     @krav_4_natlan = ""
     
     @behandling_title_natlan = "Behandlingstid för ansökan:"
-    @behandling_1_natlan = "Okänd behandlingstid."
-    @behandling_2_natlan = "Lånehandlingar skickas samtidigt till den adress du är folkbokförd på. När du får dessa skriver du under dem och skickar tillbaka dem till Nätlån. Du kan faxa tillbaka dem eller ‘scanna’ in handlingarna och mejla dem till Nätlån. Så fort vi fått dessa i retur betalar de ut lånet till dig"
+    @behandling_1_natlan = "Lånehandlingar skickas samtidigt till den adress du är folkbokförd på. När du får dessa skriver du under dem och skickar tillbaka dem till Nätlån. Du kan faxa tillbaka dem eller ‘scanna’ in handlingarna och mejla dem till Nätlån. Så fort vi fått dessa i retur betalar de ut lånet till dig"
+    @behandling_2_natlan = ""
     @behandling_3_natlan = ""
     @behandling_4_natlan = ""
     @behandling_5_natlan = ""
@@ -905,7 +905,7 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     @krav_2_snabbfinans = "- Folkbokförd i Sverige i tre år."
     @krav_3_snabbfinans = "- Inga betalningsanmärkningar"
     @krav_4_snabbfinans = "- Taxerad inkomst på 150 000 kr före skatt."
-    @krav_5_snabbfinans = "Inte ha några pågående lån hos Snabbfinans" #finns inte med
+    @krav_5_snabbfinans = "- Inte ha några pågående lån hos Snabbfinans"
 
     @behandling_title_snabbfinans = "Behandlingstid för ansökan:"
     @behandling_1_snabbfinans = "Under vardagar mellan 08-18 får du besked via SMS eller mail inom högst en timme. Ansöker du under helgen får du besked under nästkommande vardag inom en timme."
@@ -922,14 +922,14 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
 
     #3 Expresskredit
     @krav_title_expresskredit = "Krav för lån hos Expresskredit"
-    @krav_1_expresskredit = ""
+    @krav_1_expresskredit = "- Minst 18 år"
     @krav_2_expresskredit = ""
     @krav_3_expresskredit = ""
     @krav_4_expresskredit = ""
     
     @behandling_title_expresskredit = "Behandlingstid för ansökan:"
-    @behandling_1_expresskredit = "Okänd behandlingstid."
-    @behandling_2_expresskredit = "Om du passerar kraven blir du tillfälligt beviljad av deras system. Efter det granskar deras handläggare din ansökan och återkommer sedan med det slutgiltiga beslutet. "
+    @behandling_1_expresskredit = "Om du passerar kraven blir du tillfälligt beviljad av deras system. Efter det granskar deras handläggare din ansökan och återkommer sedan med det slutgiltiga beslutet."
+    @behandling_2_expresskredit = ""
     @behandling_3_expresskredit = ""
     @behandling_4_expresskredit = ""
     @behandling_5_expresskredit = ""
@@ -968,8 +968,8 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     @krav_4_kundfinans = "- Inga betalningsanmärkningar, inget skuldsaldo, inte skyddad identitet"
     
     @behandling_title_kundfinans = "Behandlingstid för ansökan:"
-    @behandling_1_kundfinans = "Okänd behandlingstid"
-    @behandling_2_kundfinans = "Preliminärt besked lämnas direkt. sedan granskas din ansökan manuellt och Kundfinans återkommer sedan med slutbeslutet. "
+    @behandling_1_kundfinans =  "Preliminärt besked lämnas direkt. Sedan granskas din ansökan manuellt och Kundfinans återkommer sedan med slutbeslutet. "
+    @behandling_2_kundfinans = ""
     @behandling_3_kundfinans = ""
     @behandling_4_kundfinans = ""
     @behandling_5_kundfinans = ""
@@ -981,9 +981,9 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
 
     #3 Savelend
     @krav_title_savelend = "Krav för lån hos Savelend"
-    @krav_1_savelend = "Ha en inkomst på 150 000 kr per år och ett underskott av kapital som inte är för stort i relation till din inkomst"
-    @krav_2_savelend = "Du bör inte ha för många betalningsförelägganden, eller stora sådana hos Kronofogden."
-    @krav_3_savelend = "Betalningsanmärkningar går bra, men de bör inte vara allt för färska."
+    @krav_1_savelend = "- Ha en inkomst på 150 000 kr per år och ett underskott av kapital som inte är för stort i relation till din inkomst"
+    @krav_2_savelend = "- Du bör inte ha för många betalningsförelägganden, eller stora sådana hos Kronofogden."
+    @krav_3_savelend = "- Betalningsanmärkningar går bra, men de bör inte vara allt för färska."
     @krav_4_savelend = ""
     
     @behandling_title_savelend = "Behandlingstid för ansökan:"
@@ -1052,7 +1052,7 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
 
     @payment_title_strandiafinans = "Utbetalning:"
     @payment1_strandiafinans = "De betalar ut direkt efter beviljandet under deras öppettider. Om du har Nordea eller handelsbanken kommer pengarna direkt in på kontot, för övriga banker tar det max en bankdag. "
-    @payment2_strandiafinans = "-"
+    @payment2_strandiafinans = ""
 
 
     #3 Kredit365
@@ -1071,11 +1071,11 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     
     @payment_title_kredit365 = "Utbetalning:"
     @payment1_kredit365 = "Utbetalning sker bara under Kredit365s öppettider."
-    @payment2_kredit365 = "-"
+    @payment2_kredit365 = ""
 
 
     #3 Nanokredit
-    @krav_title_nanokredit = "Krav för lån hos Nanokredit (1000 - 10 000kr)"
+    @krav_title_nanokredit = "Krav för lån hos Nanokredit (1000 kr - 10 000 kr)"
     @krav_1_nanokredit = "- Svensk medborgare mellan 20 år – 70 år"
     @krav_2_nanokredit = "- En årsinkomst på minst 50 000 kr före skatt"
     @krav_3_nanokredit = "- Inga betalningsanmärkningar"
@@ -1176,9 +1176,9 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     #3 Smspengar
     @krav_title_smspengar = "Krav för lån hos Smspengar"
     @krav_1_smspengar = "- Ej något skuldsaldo eller ett aktivt betalningsföreläggande hos kronofogden. Svenskt bankkonto tillhörande dig, en giltig e-postadress, bokförd i Sverige i minst två år och ej skyddad identitet eller adress."
-    @krav_2_smspengar = "För att låna 500 eller 1 000 kr krävs det minst 20 000 kr i deklarerad inkomst. "
-    @krav_3_smspengar = "För att låna 2 000 kr krävs det minst 50 000 kr i deklarerad inkomst."
-    @krav_4_smspengar = "För belopp mellan 3 000 till 6 000 kr är kravet minst 90 000 kr. För att låna 7 000 kr till 20 000 kr är kravet minst 120 000 kr."
+    @krav_2_smspengar = "- För att låna 500 eller 1 000 kr krävs det minst 20 000 kr i deklarerad inkomst. "
+    @krav_3_smspengar = "- För att låna 2 000 kr krävs det minst 50 000 kr i deklarerad inkomst."
+    @krav_4_smspengar = "- För belopp mellan 3 000 till 6 000 kr är kravet minst 90 000 kr. För att låna 7 000 kr till 20 000 kr är kravet minst 120 000 kr."
      
 
     @behandling_title_smspengar = "Behandlingstid för ansökan:"
@@ -1305,7 +1305,7 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     
     @payment_title_cashbuddy = "Utbetalning:"
     @payment1_cashbuddy = "Du får dina pengar utbetalda så snart ditt konto blivit godkänt för autogiro hos Bankgirocentralen. Det tar normalt högst två bankdagar. "
-    @payment2_cashbuddy = "-"
+    @payment2_cashbuddy = ""
 
 
     #3 Risicum
@@ -1354,14 +1354,14 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     @krav_4_sakerfinans = "- Har ett mobilabonnemang"
     
     @behandling_title_sakerfinans = "Behandlingstid för ansökan:"
-    @behandling_1_sakerfinans = "- Besked direkt"
+    @behandling_1_sakerfinans = "Besked direkt"
     @behandling_2_sakerfinans = ""
     @behandling_3_sakerfinans = ""
     @behandling_4_sakerfinans = ""
     @behandling_5_sakerfinans = ""
     
     @payment_title_sakerfinans = "Utbetalning:"
-    @payment1_sakerfinans = "-"
+    @payment1_sakerfinans = ""
     @payment2_sakerfinans = ""
 
     @krav_title_viaconto = "Krav för lån hos Säkerfinans"
