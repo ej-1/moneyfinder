@@ -629,7 +629,7 @@ class AdminsmsloansController < ApplicationController
 
   def lanbutiken
     loangiver_variables
-    @plucker = Smsloan.where({ bank: '<img src="lanbutiken_image.png" alt="Lånbutiken" style="height:45px">   '})
+    @plucker = Smsloan.where({ bank: '<img src="lanbutiken_image.png" alt="Lånbutiken" style="height:45px">'})
   end
 
   def sakerfinans
