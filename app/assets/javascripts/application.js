@@ -340,6 +340,7 @@ $(document).ready(function() {
             $(".bastards").hide();      
             //this one is for search results.
             $('td').parentsUntil("#table_id2").show();
+
           } else {
             //these ones is for search results.
             $('.smsloan_extrainfo_tabmob td').parentsUntil(".smsloanoverview").show();
@@ -347,6 +348,7 @@ $(document).ready(function() {
             $(".bastards").show();
             //this one is for search results.
             $('td').parentsUntil("#table_id2").show();
+
           }
 
 
@@ -439,6 +441,7 @@ $(document).ready(function() {
 
                   if ($(window).width() > 768) {
                     $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
+
                   } else {
                     $('td:contains("' + $(this).val() + '")').parentsUntil(".smsloanoverview").hide();
 

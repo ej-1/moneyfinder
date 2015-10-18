@@ -13,51 +13,43 @@
     %p.fonts Nedan kan du välja en låneförmedlare som passar dig och skicka in en låneansökan så skickar de tillbaka det bästa erbjudandet från en samling lånegivare. Det är för det mesta kostnadsfritt att lämna en låneansökan.
     .span1
 
-.row.row-padding-fix 
-  .span1
-  .span10.smsloaninterface
-    .row.row-padding-fix 
-      .span10
-        %p.glyph.white
-          Filtrering
-          %span.glyphicon
-    .row.advanced-search-options
-      .smsloaninterface-options-fix.span1
-      .span3.float-left.hide767-979.row-padding-fix
-        %label.smscheckboxes
-          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nolowcreditscore"}/
-          %span.lbl.padding-8.fonts Låna trots betalningsanmärkning
 
-      .span3.float-left.hide767-979.row-padding-fix
-        %label.smscheckboxes
-          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "startfee"}/
-          %span.lbl.padding-8.fonts Ingen uppläggningsvgift
-
-      .span2.float-right.row-padding-fix.bottom-buffer
-        %label.smscheckboxes
-          %input.smslanchkbx{:name => "smslanchkbx", :type => "checkbox", :value => "nominage18"}/
-          %span.lbl.padding-8.fonts 18 årsgräns
 
 .row.loanbrokers_desktop
   .span1.loanbrokers_table_fix
   .span10.top-buffer
-    %table#table_id_loanbrokers.smsloanoverview
+    %table#table_id_loanbrokers
       %thead
         %tr
           %th Låneförmedlare
           %th Lånebelopp
           //%th Effektiv ränta
-          %th Startavgift
-          %th Fakturaavgift
+          %th 
+            Start-
+            %br>/
+            avgift
+          %th 
+            Faktura-
+            %br>/
+            avgift
           %th FI reg
-          %th Lån trots betalnsanm.
+          %th 
+            Lån trots
+            %br>/
+            betalnsanm.
           %th Bindningstid
-          %th Min. ålder
-          %th Årlig inkomst
+          %th 
+            Min. 
+            %br>/
+            ålder
+          %th 
+            Årlig
+            %br>/
+            inkomst
           %th Ansök
           %th{:colspan => "3"}
-      %tbody
-        - @loanbrokers.each do |loanbroker|
+      - @loanbrokers.each do |loanbroker|
+        %tbody.smsloanoverview
           %tr
             %td
               .loanbrokers_logo.loanbrokers_padding_fix_logo= loanbroker.broker_logo.to_s.html_safe
@@ -73,9 +65,8 @@
             - @loanbroker_maxloantime = loanbroker.maxloan_time
             %td= @loanbrokerminandmaxloantime = @loanbroker_minloantime.floor.to_s + " - " + @loanbroker_maxloantime.floor.to_s + " år"
             %td= loanbroker.min_age
-            %td= loanbroker.yearly_income
+            %td= number_to_currency(loanbroker.yearly_income, locale: :fr, strip_insignificant_zeros: true)
             %td.hidden-smslan= loanbroker.comments
-            %td= loanbroker.yearly_income
             %td
               .loanbrokers_padding_fix_button= loanbroker.web_link.to_s.html_safe
   .span1
@@ -97,15 +88,18 @@
             %li Återbetalningstid:
             %li Min. ålder:
             %li Årlig inkomst:
-          %ul#list_block
+          %ul#list_block.smsloanoverview
             - @loanbroker_minamount = loanbroker.min_amount
             - @loanbroker_maxamount = loanbroker.max_amount
-            %li= @loanbrokerminandmaxamount = @loanbroker_minamount.floor.to_s + " - " + @loanbroker_maxamount.floor.to_s + "kr"
+            %li
+              %td= @loanbrokerminandmaxamount = @loanbroker_minamount.floor.to_s + " - " + @loanbroker_maxamount.floor.to_s + "kr"
             //%li= loanbroker.effective_interest
-            %li= number_to_currency(loanbroker.start_fee, locale: :fr, strip_insignificant_zeros: true)
+            %li
+              %td= number_to_currency(loanbroker.start_fee, locale: :fr, strip_insignificant_zeros: true)
             %li= number_to_currency(loanbroker.invoice_fee, locale: :fr, strip_insignificant_zeros: true)
             %li= loanbroker.FI_reg
-            %li= loanbroker.payment_note
+            %li
+              %td= loanbroker.payment_note
             - @loanbroker_minloantime = loanbroker.minloan_time
             - @loanbroker_maxloantime = loanbroker.maxloan_time
             %li= @loanbrokerminandmaxloantime = @loanbroker_minloantime.floor.to_s + " - " + @loanbroker_maxloantime.floor.to_s + " år"
