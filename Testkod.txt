@@ -1,3 +1,709 @@
+ Bank: <img src="trustbuddy_image.png" alt="Trustbuddy" style="height:40px">
+
+Min loanamount: 2500.0
+
+Max loanamount: 10000.0
+
+Max amount new borrower: 10000.0
+
+New borrower 5k: newborrower5k
+
+New borrower 10k: newborrower10k
+
+Cost free loan: freeloan
+
+Cost free loan amount: 10000.0
+
+Invoice fee:
+
+Application fee:
+
+Effective interest rate:
+
+Mobile friendly site: mobilefriendlysite
+
+Low credit score: nolowcreditscore Nej
+
+Min age: nominage18 20 år
+
+No uc: nouc "Ingen UC (Creditsafe)"
+
+Skef member: noskefmember Nej
+
+Bankid: <img src="trustbuddy_image.png" alt="trustbuddy" style="height:30px">
+
+Open on saturdays: noopenonsaturdays
+
+Open on sundays: noopenonsundays
+
+Weblink: <a class="btn btn-success btn-large" id="affiliatelink" href="http://www.trustbuddy.se/?affiliateID=trustbuddy&subid={adgroup}:{keyword}:{device}" target="_blank">Ansök</a>
+
+Debtor loantime 14d 5h:
+
+Debtor loantime 14d 1k:
+
+Debtor loantime 14d 2k:
+
+Debtor loantime 14d 3k: 0.0
+
+Debtor loantime 14d 4k: 0.0
+
+Debtor loantime 14d 5k: 0.0
+
+Debtor loantime 14d 6k: 0.0
+
+Debtor loantime 14d 7k: 0.0
+
+Debtor loantime 14d 8k: 0.0
+
+Debtor loantime 14d 9k: 0.0
+
+Debtor loantime 14d 10k: 0.0
+
+Debtor loantime 14d 15k:
+
+Debtor loantime 14d 20k:
+
+Debtor loantime 14d 25k:
+
+Debtor loantime 14d 30k:
+
+Debtor loantime 21d 5h: 195.0
+
+Debtor loantime 21d 1k: 375.0
+
+Debtor loantime 21d 2k: 545.0
+
+Debtor loantime 21d 3k: 740.0
+
+Debtor loantime 21d 4k: 815.0
+
+Debtor loantime 21d 5k: 970.0
+
+Debtor loantime 21d 6k:
+
+Debtor loantime 21d 7k:
+
+Debtor loantime 21d 8k:
+
+Debtor loantime 21d 9k:
+
+Debtor loantime 21d 10k:
+
+Debtor loantime 21d 15k:
+
+Debtor loantime 21d 20k:
+
+Debtor loantime 21d 25k:
+
+Debtor loantime 21d 30k:
+
+Debtor loantime 30d 5h: 195.0
+
+Debtor loantime 30d 1k: 375.0
+
+Debtor loantime 30d 2k: 545.0
+
+Debtor loantime 30d 3k: 740.0
+
+Debtor loantime 30d 4k: 815.0
+
+Debtor loantime 30d 5k: 970.0
+
+Debtor loantime 30d 6k:
+
+Debtor loantime 30d 7k:
+
+Debtor loantime 30d 8k:
+
+Debtor loantime 30d 9k:
+
+Debtor loantime 30d 10k:
+
+Debtor loantime 30d 15k:
+
+Debtor loantime 30d 20k:
+
+Debtor loantime 30d 25k:
+
+Debtor loantime 30d 30k:
+
+Debtor loantime 45d 5h:
+
+Debtor loantime 45d 1k:
+
+Debtor loantime 45d 2k:
+
+Debtor loantime 45d 3k:
+
+Debtor loantime 45d 4k:
+
+Debtor loantime 45d 5k:
+
+Debtor loantime 45d 6k:
+
+Debtor loantime 45d 7k:
+
+Debtor loantime 45d 8k:
+
+Debtor loantime 45d 9k:
+
+Debtor loantime 45d 10k:
+
+Debtor loantime 45d 15k:
+
+Debtor loantime 45d 20k:
+
+Debtor loantime 45d 25k:
+
+Debtor loantime 45d 30k:
+
+Debtor loantime 60d 5h:
+
+Debtor loantime 60d 1k:
+
+Debtor loantime 60d 2k:
+
+Debtor loantime 60d 3k:
+
+Debtor loantime 60d 4k:
+
+Debtor loantime 60d 5k:
+
+Debtor loantime 60d 6k:
+
+Debtor loantime 60d 7k:
+
+Debtor loantime 60d 8k:
+
+Debtor loantime 60d 9k:
+
+Debtor loantime 60d 10k:
+
+Debtor loantime 60d 15k:
+
+Debtor loantime 60d 20k:
+
+Debtor loantime 60d 25k:
+
+Debtor loantime 60d 30k:
+
+Debtor loantime 90d 5h:
+
+Debtor loantime 90d 1k:
+
+Debtor loantime 90d 2k:
+
+Debtor loantime 90d 3k:
+
+Debtor loantime 90d 4k:
+
+Debtor loantime 90d 5k:
+
+Debtor loantime 90d 6k:
+
+Debtor loantime 90d 7k:
+
+Debtor loantime 90d 8k:
+
+Debtor loantime 90d 9k:
+
+Debtor loantime 90d 10k:
+
+Debtor loantime 90d 15k:
+
+Debtor loantime 90d 20k:
+
+Debtor loantime 90d 25k:
+
+Debtor loantime 90d 30k:
+
+Debtor loantime 1year 5h:
+
+Debtor loantime 1year 1k:
+
+Debtor loantime 1year 2k:
+
+Debtor loantime 1year 3k: 7190.0
+
+Debtor loantime 1year 4k: 9050.0
+
+Debtor loantime 1year 5k: 11140.0
+
+Debtor loantime 1year 6k: 12915.0
+
+Debtor loantime 1year 7k: 14710.0
+
+Debtor loantime 1year 8k: 16465.0
+
+Debtor loantime 1year 9k: 18225.0
+
+Debtor loantime 1year 10k: 20045.0
+
+Debtor loantime 1year 15k:
+
+Debtor loantime 1year 20k:
+
+Debtor loantime 1year 25k:
+
+Debtor loantime 1year 30k:
+
+Debtor loantime 2year 5h:
+
+Debtor loantime 2year 1k:
+
+Debtor loantime 2year 2k:
+
+Debtor loantime 2year 3k:
+
+Debtor loantime 2year 4k:
+
+Debtor loantime 2year 5k:
+
+Debtor loantime 2year 6k:
+
+Debtor loantime 2year 7k:
+
+Debtor loantime 2year 8k:
+
+Debtor loantime 2year 9k:
+
+Debtor loantime 2year 10k:
+
+Debtor loantime 2year 15k:
+
+Debtor loantime 2year 20k:
+
+Debtor loantime 2year 25k:
+
+Debtor loantime 2year 30k:
+
+Debtor loantime 3year 5h:
+
+Debtor loantime 3year 1k:
+
+Debtor loantime 3year 2k:
+
+Debtor loantime 3year 3k:
+
+Debtor loantime 3year 4k:
+
+Debtor loantime 3year 5k:
+
+Debtor loantime 3year 6k:
+
+Debtor loantime 3year 7k:
+
+Debtor loantime 3year 8k:
+
+Debtor loantime 3year 9k:
+
+Debtor loantime 3year 10k:
+
+Debtor loantime 3year 15k:
+
+Debtor loantime 3year 20k:
+
+Debtor loantime 3year 25k:
+
+Debtor loantime 3year 30k:
+
+Debtor loantime 4year 5h:
+
+Debtor loantime 4year 1k:
+
+Debtor loantime 4year 2k:
+
+Debtor loantime 4year 3k:
+
+Debtor loantime 4year 4k:
+
+Debtor loantime 4year 5k:
+
+Debtor loantime 4year 6k:
+
+Debtor loantime 4year 7k:
+
+Debtor loantime 4year 8k:
+
+Debtor loantime 4year 9k:
+
+Debtor loantime 4year 10k:
+
+Debtor loantime 4year 15k:
+
+Debtor loantime 4year 20k:
+
+Debtor loantime 4year 25k:
+
+Debtor loantime 4year 30k:
+
+Debtor loantime 5year 5h:
+
+Debtor loantime 5year 1k:
+
+Debtor loantime 5year 2k:
+
+Debtor loantime 5year 3k:
+
+Debtor loantime 5year 4k:
+
+Debtor loantime 5year 5k:
+
+Debtor loantime 5year 6k:
+
+Debtor loantime 5year 7k:
+
+Debtor loantime 5year 8k:
+
+Debtor loantime 5year 9k:
+
+Debtor loantime 5year 10k:
+
+Debtor loantime 5year 15k:
+
+Debtor loantime 5year 20k:
+
+Debtor loantime 5year 25k:
+
+Debtor loantime 5year 30k:
+
+Newdebtor loantime 14d 5h:
+
+Newdebtor loantime 14d 1k:
+
+Newdebtor loantime 14d 2k:
+
+Newdebtor loantime 14d 3k: 0.0
+
+Newdebtor loantime 14d 4k: 0.0
+
+Newdebtor loantime 14d 5k: 0.0
+
+Newdebtor loantime 14d 6k: 0.0
+
+Newdebtor loantime 14d 7k: 0.0
+
+Newdebtor loantime 14d 8k: 0.0
+
+Newdebtor loantime 14d 9k: 0.0
+
+Newdebtor loantime 14d 10k: 0.0
+
+Newdebtor loantime 14d 15k:
+
+Newdebtor loantime 14d 20k:
+
+Newdebtor loantime 14d 25k:
+
+Newdebtor loantime 14d 30k:
+
+Newdebtor loantime 21d 5h: 195.0
+
+Newdebtor loantime 21d 1k: 375.0
+
+Newdebtor loantime 21d 2k: 545.0
+
+Newdebtor loantime 21d 3k: 740.0
+
+Newdebtor loantime 21d 4k: 815.0
+
+Newdebtor loantime 21d 5k: 970.0
+
+Newdebtor loantime 21d 6k:
+
+Newdebtor loantime 21d 7k:
+
+Newdebtor loantime 21d 8k:
+
+Newdebtor loantime 21d 9k:
+
+Newdebtor loantime 21d 10k:
+
+Newdebtor loantime 21d 15k:
+
+Newdebtor loantime 21d 20k:
+
+Newdebtor loantime 21d 25k:
+
+Newdebtor loantime 21d 30k:
+
+Newdebtor loantime 30d 5h: 195.0
+
+Newdebtor loantime 30d 1k: 375.0
+
+Newdebtor loantime 30d 2k: 545.0
+
+Newdebtor loantime 30d 3k: 740.0
+
+Newdebtor loantime 30d 4k: 815.0
+
+Newdebtor loantime 30d 5k: 970.0
+
+Newdebtor loantime 30d 6k:
+
+Newdebtor loantime 30d 7k:
+
+Newdebtor loantime 30d 8k:
+
+Newdebtor loantime 30d 9k:
+
+Newdebtor loantime 30d 10k:
+
+Newdebtor loantime 30d 15k:
+
+Newdebtor loantime 30d 20k:
+
+Newdebtor loantime 30d 25k:
+
+Newdebtor loantime 30d 30k:
+
+Newdebtor loantime 45d 5h:
+
+Newdebtor loantime 45d 1k:
+
+Newdebtor loantime 45d 2k:
+
+Newdebtor loantime 45d 3k:
+
+Newdebtor loantime 45d 4k:
+
+Newdebtor loantime 45d 5k:
+
+Newdebtor loantime 45d 6k:
+
+Newdebtor loantime 45d 7k:
+
+Newdebtor loantime 45d 8k:
+
+Newdebtor loantime 45d 9k:
+
+Newdebtor loantime 45d 10k:
+
+Newdebtor loantime 45d 15k:
+
+Newdebtor loantime 45d 20k:
+
+Newdebtor loantime 45d 25k:
+
+Newdebtor loantime 45d 30k:
+
+Newdebtor loantime 60d 5h:
+
+Newdebtor loantime 60d 1k:
+
+Newdebtor loantime 60d 2k:
+
+Newdebtor loantime 60d 3k:
+
+Newdebtor loantime 60d 4k:
+
+Newdebtor loantime 60d 5k:
+
+Newdebtor loantime 60d 6k:
+
+Newdebtor loantime 60d 7k:
+
+Newdebtor loantime 60d 8k:
+
+Newdebtor loantime 60d 9k:
+
+Newdebtor loantime 60d 10k:
+
+Newdebtor loantime 60d 15k:
+
+Newdebtor loantime 60d 20k:
+
+Newdebtor loantime 60d 25k:
+
+Newdebtor loantime 60d 30k:
+
+Newdebtor loantime 90d 5h:
+
+Newdebtor loantime 90d 1k:
+
+Newdebtor loantime 90d 2k:
+
+Newdebtor loantime 90d 3k:
+
+Newdebtor loantime 90d 4k:
+
+Newdebtor loantime 90d 5k:
+
+Newdebtor loantime 90d 6k:
+
+Newdebtor loantime 90d 7k:
+
+Newdebtor loantime 90d 8k:
+
+Newdebtor loantime 90d 9k:
+
+Newdebtor loantime 90d 10k:
+
+Newdebtor loantime 90d 15k:
+
+Newdebtor loantime 90d 20k:
+
+Newdebtor loantime 90d 25k:
+
+Newdebtor loantime 90d 30k:
+
+Newdebtor loantime 1year 5h:
+
+Newdebtor loantime 1year 1k:
+
+Newdebtor loantime 1year 2k:
+
+Newdebtor loantime 1year 3k: 7190.0
+
+Newdebtor loantime 1year 4k: 9050.0
+
+Newdebtor loantime 1year 5k: 11140.0
+
+Newdebtor loantime 1year 6k: 12915.0
+
+Newdebtor loantime 1year 7k: 14710.0
+
+Newdebtor loantime 1year 8k: 16465.0
+
+Newdebtor loantime 1year 9k: 18225.0
+
+Newdebtor loantime 1year 10k: 20045.0
+
+Newdebtor loantime 1year 15k:
+
+Newdebtor loantime 1year 20k:
+
+Newdebtor loantime 1year 25k:
+
+Newdebtor loantime 1year 30k:
+
+Newdebtor loantime 2year 5h:
+
+Newdebtor loantime 2year 1k:
+
+Newdebtor loantime 2year 2k:
+
+Newdebtor loantime 2year 3k:
+
+Newdebtor loantime 2year 4k:
+
+Newdebtor loantime 2year 5k:
+
+Newdebtor loantime 2year 6k:
+
+Newdebtor loantime 2year 7k:
+
+Newdebtor loantime 2year 8k:
+
+Newdebtor loantime 2year 9k:
+
+Newdebtor loantime 2year 10k:
+
+Newdebtor loantime 2year 15k:
+
+Newdebtor loantime 2year 20k:
+
+Newdebtor loantime 2year 25k:
+
+Newdebtor loantime 2year 30k:
+
+Newdebtor loantime 3year 5h:
+
+Newdebtor loantime 3year 1k:
+
+Newdebtor loantime 3year 2k:
+
+Newdebtor loantime 3year 3k:
+
+Newdebtor loantime 3year 4k:
+
+Newdebtor loantime 3year 5k:
+
+Newdebtor loantime 3year 6k:
+
+Newdebtor loantime 3year 7k:
+
+Newdebtor loantime 3year 8k:
+
+Newdebtor loantime 3year 9k:
+
+Newdebtor loantime 3year 10k:
+
+Newdebtor loantime 3year 15k:
+
+Newdebtor loantime 3year 20k:
+
+Newdebtor loantime 3year 25k:
+
+Newdebtor loantime 3year 30k:
+
+Newdebtor loantime 4year 5h:
+
+Newdebtor loantime 4year 1k:
+
+Newdebtor loantime 4year 2k:
+
+Newdebtor loantime 4year 3k:
+
+Newdebtor loantime 4year 4k:
+
+Newdebtor loantime 4year 5k:
+
+Newdebtor loantime 4year 6k:
+
+Newdebtor loantime 4year 7k:
+
+Newdebtor loantime 4year 8k:
+
+Newdebtor loantime 4year 9k:
+
+Newdebtor loantime 4year 10k:
+
+Newdebtor loantime 4year 15k:
+
+Newdebtor loantime 4year 20k:
+
+Newdebtor loantime 4year 25k:
+
+Newdebtor loantime 4year 30k:
+
+Newdebtor loantime 5year 5h:
+
+Newdebtor loantime 5year 1k:
+
+Newdebtor loantime 5year 2k:
+
+Newdebtor loantime 5year 3k:
+
+Newdebtor loantime 5year 4k:
+
+Newdebtor loantime 5year 5k:
+
+Newdebtor loantime 5year 6k:
+
+Newdebtor loantime 5year 7k:
+
+Newdebtor loantime 5year 8k:
+
+Newdebtor loantime 5year 9k:
+
+Newdebtor loantime 5year 10k:
+
+Newdebtor loantime 5year 15k:
+
+Newdebtor loantime 5year 20k:
+
+Newdebtor loantime 5year 25k:
+
+Newdebtor loantime 5year 30k: 
+
+
+
+
+
+
+
         - else
           .span10
             .row.unseen_section

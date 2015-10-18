@@ -12,6 +12,12 @@
     .span2
   .row.row-padding-fix
     .span1
+    .span9
+      - @weblink = smsloan.weblink.to_s.gsub! "Ansök", "Ansök hos L'easy minilån"
+      = @weblink.html_safe
+    .span1
+  .row.row-padding-fix.top-buffer
+    .span1
     .span9.seen_section_loangiverpage
       .span5
         %ul.margin-left-zero

@@ -24,7 +24,7 @@ class AdminsmsloansController < ApplicationController
   # end
 
   def laneformedlare
-    @loanbrokers = Loanbroker.all
+    @loanbrokers = Loanbroker.all.order(:comments2)
   end
 
   def smslan
@@ -42,35 +42,35 @@ class AdminsmsloansController < ApplicationController
     @banknorwegian_lowestinterest = 0.0499
     @banknorwegian_smallest_invoice_fee = 19
     @banknorwegian_arrangement_fee = 399
-    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr.)"
+    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr per månad.)"
 
     # THORN
     @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
     @thorn_lowestinterest = 0.099
     @thorn_smallest_invoice_fee = 0
     @thorn_arrangement_fee = 495
-    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # FROGTAIL
     @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
     @frogtail_lowestinterest = 0.099
     @frogtail_smallest_invoice_fee = 15
     @frogtail_arrangement_fee = 350
-    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr.)"
+    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr per månad.)"
 
     # LEASY MINILÅN
     @leasy_minilan = Smsloan.where({ bank: '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'})
     @leasy_minilan_lowestinterest = 0.099
     @leasy_minilan_smallest_invoice_fee = 0
     @leasy_minilan_arrangement_fee = 495
-    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # LEASY
     @leasy_lan = Smsloan.where({ bank: '<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'})
     @leasy_lan_lowestinterest = 0.099
     @leasy_lan_smallest_invoice_fee = 0
     @leasy_lan_arrangement_fee = 495
-    @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # The querying for SMSloans, but skipped querying the hardcoded ones from the database.
     @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">']).order(:invoice_fee)
@@ -263,28 +263,28 @@ class AdminsmsloansController < ApplicationController
     @banknorwegian_lowestinterest = 0.0499
     @banknorwegian_smallest_invoice_fee = 19
     @banknorwegian_arrangement_fee = 399
-    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr.)"
+    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr per månad.)"
 
     # THORN
     @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
     @thorn_lowestinterest = 0.099
     @thorn_smallest_invoice_fee = 0
     @thorn_arrangement_fee = 495
-    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # FROGTAIL
     @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
     @frogtail_lowestinterest = 0.099
     @frogtail_smallest_invoice_fee = 15
     @frogtail_arrangement_fee = 350
-    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr.)"
+    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr per månad.)"
 
     # LEASY MINILÅN
     @leasy_minilan = Smsloan.where({ bank: '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'})
     @leasy_minilan_lowestinterest = 0.099
     @leasy_minilan_smallest_invoice_fee = 0
     @leasy_minilan_arrangement_fee = 495
-    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # LEASY
     @leasy_lan = Smsloan.where({ bank: '<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'})
@@ -315,35 +315,35 @@ class AdminsmsloansController < ApplicationController
     @banknorwegian_lowestinterest = 0.0499
     @banknorwegian_smallest_invoice_fee = 19
     @banknorwegian_arrangement_fee = 399
-    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr.)"
+    @banknorwegian_table_comment = "(Tabellen är baserat på 4,99% ränta och inkluderar uppläggningsavgiften + aviavgift 19 kr per månad.)"
 
     # THORN
     @thorn = Smsloan.where({ bank: '<img src="thorn_image.png" alt="Thorn" style="height:40px">'})
     @thorn_lowestinterest = 0.099
     @thorn_smallest_invoice_fee = 0
     @thorn_arrangement_fee = 495
-    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @thorn_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # FROGTAIL
     @frogtail = Smsloan.where({ bank: '<img src="frogtail_image.png" alt="Frogtail" style="height:40px">'})
     @frogtail_lowestinterest = 0.099
     @frogtail_smallest_invoice_fee = 15
     @frogtail_arrangement_fee = 350
-    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr.)"
+    @frogtail_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 15 kr per månad.)"
 
     # LEASY MINILÅN
     @leasy_minilan = Smsloan.where({ bank: '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'})
     @leasy_minilan_lowestinterest = 0.099
     @leasy_minilan_smallest_invoice_fee = 0
     @leasy_minilan_arrangement_fee = 495
-    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @leasy_minilan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # LEASY
     @leasy_lan = Smsloan.where({ bank: '<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">'})
     @leasy_lan_lowestinterest = 0.099
     @leasy_lan_smallest_invoice_fee = 0
     @leasy_lan_arrangement_fee = 495
-    @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr.)"
+    @leasy_lan_table_comment = "(Tabellen är baserat på 9,9% ränta och inkluderar uppläggningsavgiften + aviavgift 0 kr per månad.)"
 
     # The querying for SMSloans, but skipped querying the hardcoded ones from the database.
     @smslan = Smsloan.all.where.not(bank: ['<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>','<img src="thorn_image.png" alt="Thorn" style="height:40px">','<img src="frogtail_image.png" alt="Frogtail" style="height:40px">','<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">','<img src="leasylan_image.png" alt="Leasy lån" style="height:35px">']).order(:invoice_fee)
@@ -649,10 +649,11 @@ class AdminsmsloansController < ApplicationController
     @krav_1_norwegian = "- Fyllt 18 år."
     @krav_2_norwegian = "- Har inga betalningsanmärkningar"
     @krav_3_norwegian = "- Folkbokförd i Sverige de senaste 36 månaderna"
-    @krav_4_norwegian = 'Om 
-<a href="https://www.banknorwegian.se/Kundservice/laan/nytt-laan#vad-foumlr-slags-dokument-behoumlver-jag-skicka-in">dokument</a>
-ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senaste inkomstdeklaration.'
-    
+    @krav_4_norwegian = "Om dokument ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senaste inkomstdeklaration."
+        # 'Om 
+    #<a href="https://www.banknorwegian.se/Kundservice/laan/nytt-laan#vad-foumlr-slags-dokument-behoumlver-jag-skicka-in">dokument</a>
+    #ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senaste inkomstdeklaration.'
+        
     @behandling_title_norwegian = "Behandlingstid för ansökan:"
     @behandling_1_norwegian = "0-2 bankdagar (Omedelbart preliminärt besked)"
     @behandling_2_norwegian = ""
@@ -662,7 +663,7 @@ ombeds: Inkomstdokument om lönespecifikation och eventuellt kopia på din senas
     
     @payment_title_norwegian = "Utbetalning:"
     @payment1_norwegian = "-"
-    @payment2_norwegian = "-"
+    @payment2_norwegian = ""
 
 
 
