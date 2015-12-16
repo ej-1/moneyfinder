@@ -2176,7 +2176,7 @@
                             - if(@smsloanoverview2.nil?)
                               - @smsloanoverview2 = "(-)"
                             - else
-                              - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
+                              - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_4k, locale: :fr, strip_insignificant_zeros: true)
                               - @changethis2 = @changethis.chomp(" kr")
                               - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                       %ul#horizontal-list
