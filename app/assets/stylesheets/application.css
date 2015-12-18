@@ -397,6 +397,21 @@ Media queries
 
 @media (min-width: 1200px) {
 
+  table.ex1 tr{
+    margin-bottom: 30px !important;
+    margin-left: 16% !important;
+    height: 70px !important;
+    background-color: blue !important;
+  }
+
+  .desktop {
+  }
+
+  .mobile {
+    display: none;
+  }
+
+
   #smsloan_sliders {
   }
 
@@ -579,6 +594,15 @@ Media queries
 }
 
 @media (min-width: 980px) and (max-width: 1200px) {
+
+  .desktop {
+  }
+
+  .mobile {
+    display: none;
+  }
+
+
   #smsloan_sliders {
     display: none;
   }
@@ -736,6 +760,14 @@ Media queries
 
 
 @media (min-width: 768px) and (max-width: 979px) {
+
+  .desktop {
+  }
+
+  .mobile {
+    display: none;
+  }
+
   .smslogo-fix-for-some {
     margin-top: 10px !important;
   }
@@ -991,6 +1023,13 @@ Media queries
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+  }
+
   .content-top4 {
     margin-top: 30px;
   }
@@ -1167,6 +1206,13 @@ Media queries
 
 
 @media (max-width: 480px) {
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+  }
 
   .sms_info_list ul, ol{
     margin: 0px 0px 10px 15px !important;
@@ -1658,6 +1704,13 @@ table th {
   text-align: center;
 }
 
+.center-element3 {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 15%;
+  display: block;
+}
+
 .sms-button {
   margin-top: 10px;
   /* margin-top: -75px;
@@ -1880,7 +1933,8 @@ table th {
 }
 
 .thebiggreyarea{
-  background-color: rgba(121, 128, 127, 0.2);
+  
+  /* background-color: rgba(121, 128, 127, 0.2);*/
 }
 
 ul#horizontal-list{
@@ -2184,8 +2238,8 @@ ul#horizontal-list-groupbar li{
   text-align: center;
   border: 1px solid #91C056;
   border-radius: 3px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 15px;
   padding-right: 15px;
   margin-top: 80px;
@@ -2362,6 +2416,64 @@ ul#horizontal-list-grey li{
 .loangiverpage-logo{
   padding-top: 20px;
   padding-bottom: 66px;
+}
+
+/* 
+SIMPLIFIED
+*/
+
+.best-title{
+  background-color: #3dc033;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.best{
+  background-color: rgb(117, 244, 75);;
+  border-radius: 5px;
+  padding: 60px;
+
+}
+
+.top-list-item-odd {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+
+.top-list-item-even {
+
+}
+
+#table14d tr {
+  height: 100px !important;
+}
+
+#table21d tr {
+  height: 100px !important;
+}
+
+#table30d tr {
+  height: 100px !important;
+}
+
+#table60d tr {
+  height: 100px !important;
+}
+
+#table90d tr {
+  height: 100px !important;
+}
+
+#table1y tr {
+  height: 100px !important;
+}
+
+.left-buffer {
+  margin-left: 20px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 

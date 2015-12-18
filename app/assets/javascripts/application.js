@@ -41,9 +41,9 @@ $(document).ready(function() {
   zebraRows('tbody tr:odd td', 'odd');
 
         // Hides advanced options in mobile format
-        if ($(window).width() < 481) {
+        //if ($(window).width() < 481) {
           $( ".advanced-search-options" ).hide();
-        }
+        //}
 
         $(".hide_speedinfo").hide();
         // Shows sections with Krav / utbetalningsinfo
