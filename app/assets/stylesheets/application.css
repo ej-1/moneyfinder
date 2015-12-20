@@ -2472,8 +2472,12 @@ SIMPLIFIED
   margin-left: 20px;
 }
 
-.hidden {
-  visibility: hidden;
+.hidden1 {
+  display: none;
+}
+
+.hidden2 {
+  display: none;
 }
 
 

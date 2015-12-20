@@ -16,7 +16,61 @@
   rowCount = $('.anti_border_spacing tr:visible').size();
   $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
+  //When cliking button to show more loans, loangroups with no loans are kept hidden.
+  $( ".showmoreloans_button1" ).click(function() {
+      $( ".hidden1" ).show();
+      $( ".showmoreloans_button1" ).hide();
+      $( ".showmoreloans_button2" ).show();
+  });
 
+
+  $( ".showmoreloans_button2" ).click(function() {
+      $( ".hidden2" ).show();
+
+      var t14d = ($('#table14d tr:visible').size());
+      var t21d = ($('#table21d tr:visible').size());
+      var t30d = ($('#table30d tr:visible').size());
+      var t60d = ($('#table60d tr:visible').size());
+      var t90d = ($('#table90d tr:visible').size());
+      var t1y = ($('#table1y tr:visible').size());
+
+      $('.hidden2').each(function() {
+
+          if (t14d === 0) {
+            $('.table14d').hide();
+          }
+
+          if (t21d === 0) {
+            $('.table21d').hide();
+          }
+
+          if (t14d === 0) {
+            $('.table14d').hide();
+          }
+
+          if (t30d === 0) {
+            $('.table30d').hide();
+          }
+
+          if (t60d === 0) {
+            $('.table60d').hide();
+          }
+
+          if (t14d === 0) {
+            $('.table14d').hide();
+          }
+
+          if (t90d === 0) {
+            $('.table90d').hide();
+          }
+
+          if (t1y === 0) {
+            $('.table1y').hide();
+          }
+
+          $( ".showmoreloans_button2" ).hide();
+      });
+  });
 
 
 
@@ -57,7 +111,7 @@
         .table30d.hulk-box#table_id2 30 dagar
         %table#table_id2#table30d.ex1.anti_border_spacing
           %tbody.smsloanoverview
-            - @plucker30.take(3).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
               %tr.tr_height
               - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
               - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
@@ -378,8 +432,8 @@
                 %td.hidden-smslan= open_on_sundays
         .center-element2
  
-      #4.table60d.first-top.top-buffer2
-        .table60d.hulk-box#table_id2 60 dagar
+      #4.table60d.first-top.top-buffer2.hidden1
+        .table60d.hulk-box#table_id2.hidden1 60 dagar
         %table#table_id2#table60d.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -701,8 +755,8 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #5.table90d.first-top.top-buffer2.hidden
-        .table90d.hulk-box#table_id2 90 dagar
+      #5.table90d.first-top.top-buffer2.hidden2
+        .table90d.hulk-box#table_id2.hidden2 90 dagar
         %table#table_id2#table90d.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -1023,8 +1077,8 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #6.table1y.first-top.top-buffer2.hidden
-        .table1y.hulk-box#table_id2 1 year
+      #6.table1y.first-top.top-buffer2.hidden2
+        .table1y.hulk-box#table_id2.hidden2 1 year
         %table#table_id2#table1y.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -1345,8 +1399,8 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #1.table14d.first-top.top-buffer2.hidden
-        %h2.table14d.hulk-box#table_id2 14 dagar
+      #1.table14d.first-top.top-buffer2.hidden2
+        %h2.table14d.hulk-box#table_id2.hidden2 14 dagar
         %table#table_id2#table14d.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -1667,8 +1721,8 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      #2.table21d.first-top.top-buffer2.hidden
-        .table21d.hulk-box#table_id2 21 dagar
+      #2.table21d.first-top.top-buffer2.hidden2
+        .table21d.hulk-box#table_id2.hidden2 21 dagar
         %table#table_id2#table21d.ex1.anti_border_spacing
           %tbody.smsloanoverview
             - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
@@ -1989,8 +2043,11 @@
                 %td.hidden-smslan= bankid
                 %td.hidden-smslan= open_on_saturdays
                 %td.hidden-smslan= open_on_sundays
-      .center-element2 
-        %a.btn.btn-default.btn-large Visa mer lån >>
+      .center-element2
+        %a.btn.btn-default.btn-large.showmoreloans_button1 Visa mer lån >>
+      .center-element2.hidden1
+        %a.btn.btn-default.btn-large.showmoreloans_button2 Visa mer lån >>
+
       #7
       #tryagain1
       #tryagain2
