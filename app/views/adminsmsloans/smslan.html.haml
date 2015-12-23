@@ -5,11 +5,22 @@
 
 
 //mobile
+.row-fluid.mobile.top-buffer2
+  .span1
+  .span10
+    .row-fluid
+      .span6
+        .span3.best-title
+          %h2.fonts.center-element2 Bästa SMSlånet
+        .span3.best
+          .center-element3
+            %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+  .span1
 .row-fluid.mobile
   .span1
   .span10
     .row-fluid
-      .span6.bottom-buffer
+      .span6
         .span3.best-title
           %h2.fonts.center-element2 Bästa SMSlånet
         .span3.best
@@ -88,7 +99,6 @@
               %p.fonts.white.hidden-smslan Välj lånebelopp
               %p#W2.smsloandropdown-fix.hidden-smslan
               = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj belopp"
-        .span1
 
 
 
@@ -112,82 +122,75 @@
   .row
     .scrollToTop Scrolla till toppen
 
-  .row.desktop_tablet_landingpage
-    .barshowtime
-      .span3
-      .span4.bar-button-fix.show_speedinfo
-        %button.btn.btn-info.btn-xs.show_paymentspeed
-          %i.icon-resize-full
-          Visa Utbetalningsinfo / Krav
-      .span4.bar-button-fix.hide_speedinfo
-        %button.btn.btn-info.btn-xs.show_paymentspeed
-          %i.icon-resize-full
-          Göm Utbetalningsinfo / Krav
 
 
-  .row-fluid.smsloanoverview
+  .row-fluid
     .span2
     .span8.top-list-item-odd
-      .row.top-buffer
+      .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "Vivus", :src => "vivus_image.png"}
-        .span2
+          %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
+        .span2.top-buffer-small
           %p 50 - 16000 kr
         .span3
           %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
         .span2
           %p 18 år
         .span1
-          %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
-  .row-fluid.smsloanoverview
+  .row-fluid
     .span2
-    .span8.top-list-even
-      .row.top-buffer
+    .span8.top-list-item-even
+      .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
           %img{:alt => "W3Schools", :src => "ferratum_image.png"}
-        .span2
-          %p 5000 - 15000 kr
+        .span2.top-buffer-small
+          %p 50 - 16000 kr
         .span3
           %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
         .span2
-          %p 20 år
+          %p 18 år
         .span1
-          %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
-  .row-fluid.smsloanoverview
+  .row-fluid
     .span2
     .span8.top-list-item-odd
-      .row.top-buffer
+      .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "W3Schools", :src => "ferratum_image.png"}
-        .span2
-          %p 5000 - 15000 kr
+          %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
+        .span2.top-buffer-small
+          %p 50 - 16000 kr
         .span3
           %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
         .span2
-          %p 20 år
+          %p 18 år
         .span1
-          %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
-  .row-fluid.smsloanoverview
+  .row-fluid
     .span2
-    .span8.top-list-even
-      .row.top-buffer
+    .span8.top-list-item-even
+      .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "W3Schools", :src => "ferratum_image.png"}
-        .span2
-          %p 5000 - 15000 kr
+          %img{:alt => "W3Schools", :src => "ferratum_image.png", :style => "height:30px"}
+        .span2.top-buffer-small
+          %p 50 - 16000 kr
         .span3
           %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
         .span2
-          %p 20 år
+          %p 18 år
         .span1
-          %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
     .span2
 

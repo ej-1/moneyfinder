@@ -53,7 +53,7 @@ body {
 
 .logo { /* Overriding bootstrap */
   margin-left: 20px;
-  margin-top: 4px;
+  margin-top: 15px;
 }
 
 /*
@@ -71,7 +71,7 @@ table {
 }
 
 tbody td {
-  background-color: white;
+
   padding-top: 4px;
   padding-bottom: 4px;
 }
@@ -156,6 +156,10 @@ tbody th {
 
 .top-buffer-small2{
   padding-top: 5px;
+}
+
+.bottom-buffer-small{
+  padding-bottom: 15px;
 }
 
 .bottom-buffer{
@@ -397,18 +401,13 @@ Media queries
 
 @media (min-width: 1200px) {
 
-  table.ex1 tr{
-    margin-bottom: 30px !important;
-    margin-left: 16% !important;
-    height: 70px !important;
-    background-color: blue !important;
-  }
+
 
   .desktop {
   }
 
   .mobile {
-    display: none;
+    display: none !important;
   }
 
 
@@ -494,6 +493,7 @@ Media queries
 
   .sms_info_list p{
     line-height: 1px;
+
   }
 
   .pagetitle{
@@ -599,7 +599,7 @@ Media queries
   }
 
   .mobile {
-    display: none;
+    display: none !important;
   }
 
 
@@ -765,7 +765,7 @@ Media queries
   }
 
   .mobile {
-    display: none;
+    display: none !important;
   }
 
   .smslogo-fix-for-some {
@@ -1023,6 +1023,13 @@ Media queries
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+  .center-element3 {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 15%;
+    display: block;
+  }
+
   .desktop {
     display: none;
   }
@@ -1105,7 +1112,7 @@ Media queries
   }
 
   .sms_info_list p{
-    line-height: 10px;
+    line-height: 12px;
   }
 
   .table_mobile_and_table_format {
@@ -1206,6 +1213,14 @@ Media queries
 
 
 @media (max-width: 480px) {
+  .center-element3 {
+    background-color: #fff;
+    border-style: 1px solid green;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20%;
+    display: block;
+  }
 
   .desktop {
     display: none;
@@ -1220,7 +1235,7 @@ Media queries
 
   .sms_info_list p{
     text-align: left;
-    font-size: 10px;
+    font-size: 12px;
     padding-top: 7px;
   }
 
@@ -1232,10 +1247,6 @@ Media queries
     margin-top: 120px !important;
   }
 
-  table.ex1 tr{
-    margin-bottom: 30px !important;
-    margin-left: 16% !important;
-  }
 
   .content-top4 {
     margin-top: 10px;
@@ -1390,34 +1401,17 @@ Media queries
   /* RESPONSIVE TABLE */
 /* https://css-tricks.com/responsive-data-tables */
   /* Force table to not be like tables anymore */
-  table.ex1, .ex1 thead, .ex1 tbody, .ex1 th, .ex1 tr { 
-    display: block; 
-  }
+
 
   .td_fix_mobileformat {
     /* Specialskapad för td */
     display: block; 
   }
 
-  table.ex1 tr { 
-    height: 185px;
-    margin-top: 10px;
-  }
 
   /* Hide table headers (but not display: none;, for accessibility) */
-  .ex1 thead tr { 
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  .ex1 td { 
-    /* Behave  like a "row" */
-    border: none;
-    /* border-bottom: 1px solid #eee; */
-    /*commented away so that bars in mobile don't go beneath. position: relative; */
 
-  }
+
 
 
   .ex1 td:before { 
@@ -1449,10 +1443,6 @@ Media queries
 
   }
 
-  table tr:empty {
-    height: 0px;
-
-  }
 
   .smsloangiver_searchresult {
     padding-left: 2px;
@@ -1704,12 +1694,7 @@ table th {
   text-align: center;
 }
 
-.center-element3 {
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-bottom: 15%;
-  display: block;
-}
+
 
 .sms-button {
   margin-top: 10px;
@@ -1832,9 +1817,7 @@ h1 {
   display: none;
 }
 
- tr {
-  height: 10px;
-}
+
 
 .text-center {
   text-align: center;
@@ -1975,17 +1958,12 @@ table.ex1 {
   }
 table.ex1 td, 
 table.ex1 th { 
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* border-radius: 15px 50px;*/
   }
-table.ex1 tr { 
-  outline: rgba(124, 141, 135, 0.4) solid thin;
-  }
 
-table.ex1 tr:empty {
-  display: none;
-}
+
 
 .center_element2 {
   text-align: center;
@@ -2044,6 +2022,7 @@ table.ex1 tr:empty {
 .navbar-brand {
   font-size: 15px;
   margin-left: -19px;
+  margin-top: 11px;
 }
 
 .NO_UC_class {
@@ -2435,14 +2414,7 @@ SIMPLIFIED
 
 }
 
-.top-list-item-odd {
-  background-color: #E0E0E0;
-  border-radius: 5px;
-}
 
-.top-list-item-even {
-
-}
 
 #table14d tr {
   height: 100px !important;
@@ -2453,6 +2425,8 @@ SIMPLIFIED
 }
 
 #table30d tr {
+  padding-top: 10px;
+  padding-bottom: 10px;
   height: 100px !important;
 }
 
@@ -2478,6 +2452,70 @@ SIMPLIFIED
 
 .hidden2 {
   display: none;
+}
+
+.logo-border {
+  border: 1px solid rgba(144, 194, 85, 1);
+}
+
+.logo{
+
+}
+
+
+table tr:nth-child(odd) {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+
+table tr:nth-child(even) {
+  border-radius: 5px;
+}
+
+
+.mobile_tr:nth-child(odd) {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.mobile_tr:nth-child(even) {
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.top-list-item-odd {
+  background-color: #E0E0E0;
+  border-radius: 5px;
+}
+
+.top-list-item-even {
+
+}
+
+.lock {
+  width: 25%;
+  text-align: left;
+}
+
+.lock2 {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.lock1 {
+  margin-left: 20%;
+  margin-right: -20%
+}
+
+.lock4 {
+  margin-right: 5%
+}
+
+.navbar .btn {
+  background-color: #D2D2D2;
 }
 
 

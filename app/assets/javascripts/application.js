@@ -38,7 +38,7 @@
 
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
-  zebraRows('tbody tr:odd td', 'odd');
+
 
 
         

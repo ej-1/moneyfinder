@@ -75,21 +75,10 @@
 
 
 
+
 .row
   .scrollToTop Scrolla till toppen
-.row
-  .barshowgroup
-    %ul#horizontal-list-groupbar
-      %li.fonts.group_bar_options.group_14d 14 dagar
-      %li.fonts.group_bar_options.group_21d 21 dagar
-      %li.fonts.group_bar_options.group_30d 30 dagar
-      %li.fonts.group_bar_options.group_60d 60 dagar
-      %li.fonts.group_bar_options.group_90d 90 dagar
-      %li.fonts.group_bar_options.group_1y 1 år
-      %li.barshowgroup_correction
-        = form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do
-          = select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Välj löptid på lånet"
-          = select_tag :search2, options_for_select([["500 kr", "1"], ["1000 kr", "2"], ["2000 kr", "3"], ["3000 kr", "4"], ["4000 kr", "5"], ["5000 kr", "6"], ["6000 kr", "7"], ["7000 kr", "8"], ["8000 kr", "9"], ["9000 kr", "10"], ["10000 kr", "11"], ["15000 kr", "12"], ["20000 kr", "13"], ["25000 kr", "14"], ["30000 kr", "15"]], params[:search2]), :class => "barshowgroup_dropdown smsdropdown", :onchange => "$(this).parent('form').submit();", :prompt => "Belopp"
+
 
 .row-fluid.row-padding-fix
   .span2
@@ -103,1955 +92,695 @@
         //%li.bold-text= @smstime_visible_info_for_user
 
 
+.row-fluid
+  .span2
+  .span8
 
 
-    #sortThis
 
-      #3.table30d.first-top.top-buffer2
-        .table30d.hulk-box#table_id2 30 dagar
-        %table#table_id2#table30d.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr.tr_height
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor4 = @cost_newdebtor.to_s
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor4 = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+    %table#table_id2#table30d.ex1.desktop
+      %tbody.smsloanoverview
+        - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr.desktop
 
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong>
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+            %td.desktop
+              .lock1= bank.to_s.html_safe
+
+            - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+              %td
+                %p Erbjuder personlig ränta
+            - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+              %td
+                %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+            - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+              %td
+                %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+            - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+              %td
+                %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+            - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+              %td
+                %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+            - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+              %td
+                %p 
+            - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+              %td.lock
+                %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+            - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+              %td
+                %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+            - else
+              %td
+                %p
+
+            %td.desktop
+              %p.lock2= excerpt(min_age, 'år', radius: 3, omission: '')
+              %p.lock2= no_uc[/"(.*?)"/, 1]
+              - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+              - @credit_score2 = @credit_score.to_s
+              - if @credit_score2 == "NEJ"
+                %p.lock2= "Inga betalningsanmärkningar"
+              - elsif @credit_score2 == "JA"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Ja"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Nej"
+                %p.lock2= "Inga betalningsanmärkningar"
+
+            %td.desktop
+              %a.btn.btn-success.btn-large.lock4{:href => "#"} Ansök här
+
+
+    %table#table_id2#table30d.ex1.mobile
+      %tbody.smsloanoverview
+        - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+            .row-fluid.mobile.mobile_tr
+              .span2
+                .center-element2
+                  .div= bank.to_s.html_safe
+
+              .span2.top-buffer
+                - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+
+                  %p Erbjuder personlig ränta
+                - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+                - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+                - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+                - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+                - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+
+                  %p 
+                - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+                - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+                - else
+
+                  %p
+              .span2
+
+                %ul
+                  %li
+                    %p.bold-text Krav
+                  %li
+                    %p= excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p= no_uc[/"(.*?)"/, 1]
+                  - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                  - @credit_score2 = @credit_score.to_s
+                  - if @credit_score2 == "NEJ"
+                    = "Inga betalningsanmärkningar"
+                  - elsif @credit_score2 == "JA"
+                    = ""
+                  - elsif @credit_score2 == "Ja"
+                    = ""
+                  - elsif @credit_score2 == "Nej"
+                    = "Inga betalningsanmärkningar"
+              .span2
+                .center-element2
+                  %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+
+
+    #3.table30d.first-top.top-buffer2
+      .table30d.hulk-box#table_id2 30 dagar
+      %table#table_id2#table30d.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr.tr_height
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor4 = @cost_newdebtor.to_s
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor4 = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      %strong>
+                      \
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga anmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga anmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor 
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
-
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
-        .center-element2
- 
-      #4.table60d.first-top.top-buffer2.hidden1
-        .table60d.hulk-box#table_id2.hidden1 60 dagar
-        %table#table_id2#table60d.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong>
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
-      #5.table90d.first-top.top-buffer2.hidden2
-        .table90d.hulk-box#table_id2.hidden2 90 dagar
-        %table#table_id2#table90d.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong>
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
-
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
-      #6.table1y.first-top.top-buffer2.hidden2
-        .table1y.hulk-box#table_id2.hidden2 1 year
-        %table#table_id2#table1y.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong>
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
-
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
-      #1.table14d.first-top.top-buffer2.hidden2
-        %h2.table14d.hulk-box#table_id2.hidden2 14 dagar
-        %table#table_id2#table14d.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong> 
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
-
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
-      #2.table21d.first-top.top-buffer2.hidden2
-        .table21d.hulk-box#table_id2.hidden2 21 dagar
-        %table#table_id2#table21d.ex1.anti_border_spacing
-          %tbody.smsloanoverview
-            - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-              %tr
-              - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-              - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-              - if plucker.nil? && plucker2.nil?
-              - else
-                - if plucker.nil?
-                  - @cost_debtor_texted = "-"
-                - if plucker2.nil?
-                  - @cost_newdebtor = "-"
-                %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-                %td.sms_info_list_mobileformat.td_fix_mobileformat
-                  %ul.sms_info_list
-                    %li
-                      %p
-                        %strong>
-                        \
-                        = excerpt(min_age, 'år', radius: 3, omission: '')
-                    %li
-                      %p
-                        %strong> Lån trots betalningsanm.
-                        \:
-                        //= Smsloan.second.low_credit_score
-                        = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                    %li
-                      %p
-                        = no_uc[/"(.*?)"/, 1]
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
                 %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
                   %ul
-                    %li
-                      .sms_costnew_searchresult= @cost_newdebtor
-                  %ul#horizontal-list
-                    %li
-                      .sms_costold_searchresult= @cost_debtor_texted
+                    %li= weblink.to_s.html_safe
 
-
-                - if bank.include? "http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/norwegian"} Mer info
-
-                - if bank.include? "frogtail"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/frogtail"} Mer info
-
-                - if bank.include? "leasyminilan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasyminilan"} Mer info
-
-
-                - if bank.include? "thorn"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/thorn"} Mer info
-
-                - if bank.include? "leasylan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/leasylan"} Mer info
-
-                - if bank.include? "klicklan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/klicklan"} Mer info
-
-                - if bank.include? "onea"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/onea"} Mer info
-
-                - if bank.include? "monetti"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/monetti"} Mer info
-
-                - if bank.include? "vivus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/vivus"} Mer info
-
-                - if bank.include? "ferratum"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/ferratum"} Mer info
-
-                - if bank.include? "meddelandelan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/meddelandelan"} Mer info
-
-                - if bank.include? "viaconto"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/viaconto"} Mer info
-
-                - if bank.include? "snabbfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/snabbfinans"} Mer info
-
-                - if bank.include? "natlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/natlan"} Mer info
-
-                - if bank.include? "expresskredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/expresskredit"} Mer info
-
-                - if bank.include? "cash2you"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cash2you"} Mer info
-
-                - if bank.include? "kundfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kundfinans"} Mer info
-
-                - if bank.include? "savelend"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/savelend"} Mer info
-
-                - if bank.include? "daypay"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/daypay"} Mer info
-
-                - if bank.include? "moneygo"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/moneygo"} Mer info
-
-                - if bank.include? "strandiafinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/strandiafinans"} Mer info
-
-                - if bank.include? "kredit365"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kredit365"} Mer info
-
-                - if bank.include? "nanokredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanokredit"} Mer info
-
-                - if bank.include? "everydayplus"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/everydayplus"} Mer info
-
-                - if bank.include? "easycredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/easycredit"} Mer info
-
-                - if bank.include? "nanoflex"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/nanoflex"} Mer info
-
-                - if bank.include? "kortlan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kortlan"} Mer info
-
-                - if bank.include? "smspengar"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/smspengar"} Mer info
-
-                - if bank.include? "euroloan"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/euroloan"} Mer info
-
-                - if bank.include? "extrakredit"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/extrakredit"} Mer info
-
-                - if bank.include? "pengos"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/pengos"} Mer info
-
-                - if bank.include? "kreditkontot"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/kreditkontot"} Mer info
-
-                - if bank.include? "trustbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/trustbuddy"} Mer info
-
-                - if bank.include? "cashbuddy"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/cashbuddy"} Mer info
-
-                - if bank.include? "riscium"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/riscium"} Mer info
-
-                - if bank.include? "lanbutiken"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/lanbutiken"} Mer info
-
-                - if bank.include? "sakerfinans"
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-                      %li
-                        %a{:href => "/sakerfinans"} Mer info
-                //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-                - if bank.nil?
-                  %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                    %ul
-                      %li= weblink.to_s.html_safe
-
-                %td.hidden-smslan= max_amount_new_borrower
-                %td.hidden-smslan= invoice_fee
-                %td.hidden-smslan= application_fee
-                %td.hidden-smslan= mobile_friendly_site
-                %td.hidden-smslan= min_age
-                %td.hidden-smslan= low_credit_score
-                %td.hidden-smslan= cost_free_loan
-                %td.hidden-smslan= cost_free_loan_amount
-                %td.hidden-smslan= new_borrower_5K
-                %td.hidden-smslan= new_borrower_10K
-                %td.hidden-smslan= no_uc
-                %td.hidden-smslan= skef_member
-                %td.hidden-smslan= bankid
-                %td.hidden-smslan= open_on_saturdays
-                %td.hidden-smslan= open_on_sundays
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
       .center-element2
-        %a.btn.btn-default.btn-large.showmoreloans_button1 Visa mer lån >>
-      .center-element2.hidden1
-        %a.btn.btn-default.btn-large.showmoreloans_button2 Visa mer lån >>
+
+    #4.table60d.first-top.top-buffer2.hidden1
+      .table60d.hulk-box#table_id2.hidden1 60 dagar
+      %table#table_id2#table60d.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga betalningsanmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga betalningsanmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
+                  %ul
+                    %li= weblink.to_s.html_safe
+
+
+
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
+    #5.table90d.first-top.top-buffer2.hidden2
+      .table90d.hulk-box#table_id2.hidden2 90 dagar
+      %table#table_id2#table90d.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      %strong>
+                      \
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga betalningsanmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga betalningsanmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
+                  %ul
+                    %li= weblink.to_s.html_safe
+
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
+    #6.table1y.first-top.top-buffer2.hidden2
+      .table1y.hulk-box#table_id2.hidden2 1 year
+      %table#table_id2#table1y.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      %strong>
+                      \
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga betalningsanmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga betalningsanmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
+                  %ul
+                    %li= weblink.to_s.html_safe
+
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
+    #1.table14d.first-top.top-buffer2.hidden2
+      %h2.table14d.hulk-box#table_id2.hidden2 14 dagar
+      %table#table_id2#table14d.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      %strong>
+                      \
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga betalningsanmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga betalningsanmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
+                  %ul
+                    %li= weblink.to_s.html_safe
+
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
+    #2.table21d.first-top.top-buffer2.hidden2
+      .table21d.hulk-box#table_id2.hidden2 21 dagar
+      %table#table_id2#table21d.ex1.anti_border_spacing
+        %tbody.smsloanoverview
+          - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+            %tr
+            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
+            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
+            - if plucker.nil? && plucker2.nil?
+            - else
+              - if plucker.nil?
+                - @cost_debtor_texted = "-"
+              - if plucker2.nil?
+                - @cost_newdebtor = "-"
+              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+
+              %td.sms_info_list_mobileformat.td_fix_mobileformat
+                %ul.sms_info_list
+                  %li
+                    %p
+                      %strong>
+                      \
+                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p
+                      = no_uc[/"(.*?)"/, 1]
+                  %li
+                    %p
+                      %strong>
+                      \
+                      //= Smsloan.second.low_credit_score
+                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                      - @credit_score2 = @credit_score.to_s
+                      - if @credit_score2 == "NEJ"
+                        = "Inga betalningsanmärkningar"
+                      - elsif @credit_score2 == "JA"
+                        = ""
+                      - elsif @credit_score2 == "Ja"
+                        = ""
+                      - elsif @credit_score2 == "Nej"
+                        = "Inga betalningsanmärkningar"
+
+              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Erbjuder personlig ränta
+              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p 
+              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+              - else
+                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
+                  %p
+
+
+              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
+              - if bank.nil?
+                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
+                  %ul
+                    %li= weblink.to_s.html_safe
+
+              %td.hidden-smslan= max_amount_new_borrower
+              %td.hidden-smslan= invoice_fee
+              %td.hidden-smslan= application_fee
+              %td.hidden-smslan= mobile_friendly_site
+              %td.hidden-smslan= min_age
+              %td.hidden-smslan= low_credit_score
+              %td.hidden-smslan= cost_free_loan
+              %td.hidden-smslan= cost_free_loan_amount
+              %td.hidden-smslan= new_borrower_5K
+              %td.hidden-smslan= new_borrower_10K
+              %td.hidden-smslan= no_uc
+              %td.hidden-smslan= skef_member
+              %td.hidden-smslan= bankid
+              %td.hidden-smslan= open_on_saturdays
+              %td.hidden-smslan= open_on_sundays
+    .center-element2
+      %a.btn.btn-default.btn-large.showmoreloans_button1 Visa mer lån >>
+    .center-element2.hidden1
+      %a.btn.btn-default.btn-large.showmoreloans_button2 Visa mer lån >>
 
       #7
       #tryagain1
       #tryagain2
       #tryagain3
 
-    //mockup design
-    //https://wireframe.cc/50sd16
+      //mockup design
+      //https://wireframe.cc/50sd16
