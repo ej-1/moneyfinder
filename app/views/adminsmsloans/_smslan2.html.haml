@@ -17,61 +17,127 @@
   $('.bold-text.nr_of_loans').text(rowCount + " st lån visas");
 
   //When cliking button to show more loans, loangroups with no loans are kept hidden.
-  $( ".showmoreloans_button1" ).click(function() {
-      $( ".hidden1" ).show();
-      $( ".showmoreloans_button1" ).hide();
-      $( ".showmoreloans_button2" ).show();
-  });
 
 
-  $( ".showmoreloans_button2" ).click(function() {
-      $( ".hidden2" ).show();
 
-      var t14d = ($('#table14d tr:visible').size());
-      var t21d = ($('#table21d tr:visible').size());
-      var t30d = ($('#table30d tr:visible').size());
-      var t60d = ($('#table60d tr:visible').size());
-      var t90d = ($('#table90d tr:visible').size());
-      var t1y = ($('#table1y tr:visible').size());
+  if ($(window).width() < 768) {
+    //MOBILE
 
-      $('.hidden2').each(function() {
+    $( ".showmoreloans_button1" ).click(function() {
+        $( ".mobile.hidden1" ).show();
+        $( ".hidden-button1" ).hide();
+        $( ".hidden-button2" ).show();
+    });
 
-          if (t14d === 0) {
-            $('.table14d').hide();
-          }
 
-          if (t21d === 0) {
-            $('.table21d').hide();
-          }
+    $( ".showmoreloans_button2" ).click(function() {
+        $( ".mobile.hidden2" ).show();
 
-          if (t14d === 0) {
-            $('.table14d').hide();
-          }
+        var t14d = ($('#table14d tr:visible').size());
+        var t21d = ($('#table21d tr:visible').size());
+        var t30d = ($('#table30d tr:visible').size());
+        var t60d = ($('#table60d tr:visible').size());
+        var t90d = ($('#table90d tr:visible').size());
+        var t1y = ($('#table1y tr:visible').size());
 
-          if (t30d === 0) {
-            $('.table30d').hide();
-          }
+        $('.mobile.hidden2').each(function() {
 
-          if (t60d === 0) {
-            $('.table60d').hide();
-          }
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
 
-          if (t14d === 0) {
-            $('.table14d').hide();
-          }
+            if (t21d === 0) {
+              $('.table21d').hide();
+            }
 
-          if (t90d === 0) {
-            $('.table90d').hide();
-          }
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
 
-          if (t1y === 0) {
-            $('.table1y').hide();
-          }
+            if (t30d === 0) {
+              $('.table30d').hide();
+            }
 
-          $( ".showmoreloans_button2" ).hide();
-      });
-  });
+            if (t60d === 0) {
+              $('.table60d').hide();
+            }
 
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
+
+            if (t90d === 0) {
+              $('.table90d').hide();
+            }
+
+            if (t1y === 0) {
+              $('.table1y').hide();
+            }
+
+            $( ".hidden-button2" ).hide();
+        });
+    });
+
+
+
+  } else {
+    //DESKTOP
+    $( ".showmoreloans_button1" ).click(function() {
+        $( ".desktop.hidden1" ).show();
+        $( ".hidden-button1" ).hide();
+        $( ".hidden-button2" ).show();
+    });
+
+
+    $( ".showmoreloans_button2" ).click(function() {
+        $( ".desktop.hidden2" ).show();
+
+        var t14d = ($('#table14d tr:visible').size());
+        var t21d = ($('#table21d tr:visible').size());
+        var t30d = ($('#table30d tr:visible').size());
+        var t60d = ($('#table60d tr:visible').size());
+        var t90d = ($('#table90d tr:visible').size());
+        var t1y = ($('#table1y tr:visible').size());
+
+        $('.desktop.hidden2').each(function() {
+
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
+
+            if (t21d === 0) {
+              $('.table21d').hide();
+            }
+
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
+
+            if (t30d === 0) {
+              $('.table30d').hide();
+            }
+
+            if (t60d === 0) {
+              $('.table60d').hide();
+            }
+
+            if (t14d === 0) {
+              $('.table14d').hide();
+            }
+
+            if (t90d === 0) {
+              $('.table90d').hide();
+            }
+
+            if (t1y === 0) {
+              $('.table1y').hide();
+            }
+
+            $( ".hidden-button2" ).hide();
+        });
+    });
+
+  }
 
 
 
@@ -83,8 +149,8 @@
 .row-fluid.row-padding-fix
   .span2
   .span8
-    .center_element2
-      %ul#smsloan_options_chosen
+    .center_element2.desktop
+      %ul#smsloan_options_chosen.desktop
 
 
         //%li med löptid på 
@@ -99,8 +165,9 @@
 
 
     %table#table_id2#table30d.ex1.desktop
+      .hulk-box#table_id2.desktop.negative-topbuffer-desktop 30 dagar
       %tbody.smsloanoverview
-        - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+        - @plucker30.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr.desktop
 
             %td.desktop
@@ -153,42 +220,168 @@
 
 
     %table#table_id2#table30d.ex1.mobile
+      .hulk-box#table_id2.mobile.negative-topbuffer-mobile 30 dagar
       %tbody.smsloanoverview
-        - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+        - @plucker30.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
           %tr
             .row-fluid.mobile.mobile_tr
+              .span2
+                .center-element2
+                  %ul
+                    %li
+                      .div= bank.to_s.html_safe
+
+              .span2.top-buffer
+                %ul
+                  %li
+                    - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+
+                      %p Erbjuder personlig ränta
+                    - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+
+                      %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+                    - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+
+                      %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+                    - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+
+                      %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+                    - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+
+                      %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+                    - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+
+                      %p 
+                    - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+
+                      %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+                    - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+
+                      %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+                    - else
+
+                      %p
+
+              .span2
+
+                %ul
+                  %li
+                    %p.bold-text Krav
+                  %li
+                    %p.mobile_demands_top= excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p.mobile_demands_top= no_uc[/"(.*?)"/, 1]
+                  - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                  - @credit_score2 = @credit_score.to_s
+                  - if @credit_score2 == "NEJ"
+                    = "Inga betalningsanmärkningar"
+                  - elsif @credit_score2 == "JA"
+                    = ""
+                  - elsif @credit_score2 == "Ja"
+                    = ""
+                  - elsif @credit_score2 == "Nej"
+                    = "Inga betalningsanmärkningar"
+              .span2
+                .center-element2
+                  %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+
+
+
+    %table#table_id2#table60d.ex1.desktop.hidden1
+      .hulk-box#table_id2.desktop.hidden1 60 dagar
+      %tbody.smsloanoverview
+        - @plucker60.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr.desktop
+
+            %td.desktop
+              .lock1= bank.to_s.html_safe
+
+            - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+              %td
+                %p Erbjuder personlig ränta
+            - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+              %td
+                %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+            - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+              %td
+                %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+            - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+              %td
+                %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+            - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+              %td
+                %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+            - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+              %td
+                %p 
+            - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+              %td.lock
+                %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+            - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+              %td
+                %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+            - else
+              %td
+                %p
+
+            %td.desktop
+              %p.lock2= excerpt(min_age, 'år', radius: 3, omission: '')
+              %p.lock2= no_uc[/"(.*?)"/, 1]
+              - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+              - @credit_score2 = @credit_score.to_s
+              - if @credit_score2 == "NEJ"
+                %p.lock2= "Inga betalningsanmärkningar"
+              - elsif @credit_score2 == "JA"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Ja"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Nej"
+                %p.lock2= "Inga betalningsanmärkningar"
+
+            %td.desktop
+              %a.btn.btn-success.btn-large.lock4{:href => "#"} Ansök här
+
+
+    %table#table_id2#table60d.ex1.mobile.hidden1
+      .hulk-box#table_id2.mobile.hidden1 60 dagar
+      %tbody.smsloanoverview
+        - @plucker60.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+            .row-fluid.mobile.mobile_tr.hidden1
               .span2
                 .center-element2
                   .div= bank.to_s.html_safe
 
               .span2.top-buffer
-                - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+                %ul
+                  %li
+                    - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
 
-                  %p Erbjuder personlig ränta
-                - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+                      %p Erbjuder personlig ränta
+                    - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
 
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-                - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+                      %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+                    - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
 
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-                - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+                      %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+                    - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
 
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-                - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+                      %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+                    - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
 
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-                - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+                      %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+                    - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
 
-                  %p 
-                - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+                      %p 
+                    - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
 
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-                - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+                      %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+                    - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
 
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-                - else
+                      %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+                    - else
 
-                  %p
+                      %p
               .span2
 
                 %ul
@@ -209,572 +402,260 @@
                   - elsif @credit_score2 == "Nej"
                     = "Inga betalningsanmärkningar"
               .span2
+                %ul
+                  %li
+                    .center-element2
+                      %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+
+
+
+    %table#table_id2#table90d.ex1.desktop.hidden2
+      .hulk-box#table_id2.desktop.hidden2 90 dagar
+      %tbody.smsloanoverview
+        - @plucker90.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr.desktop
+
+            %td.desktop
+              .lock1= bank.to_s.html_safe
+
+            - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+              %td
+                %p Erbjuder personlig ränta
+            - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+              %td
+                %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+            - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+              %td
+                %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+            - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+              %td
+                %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+            - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+              %td
+                %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+            - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+              %td
+                %p 
+            - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+              %td.lock
+                %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+            - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+              %td
+                %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+            - else
+              %td
+                %p
+
+            %td.desktop
+              %p.lock2= excerpt(min_age, 'år', radius: 3, omission: '')
+              %p.lock2= no_uc[/"(.*?)"/, 1]
+              - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+              - @credit_score2 = @credit_score.to_s
+              - if @credit_score2 == "NEJ"
+                %p.lock2= "Inga betalningsanmärkningar"
+              - elsif @credit_score2 == "JA"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Ja"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Nej"
+                %p.lock2= "Inga betalningsanmärkningar"
+
+            %td.desktop
+              %a.btn.btn-success.btn-large.lock4{:href => "#"} Ansök här
+
+
+    %table#table_id2#table90d.ex1.mobile.hidden2
+      .hulk-box#table_id2.mobile.hidden2 90 dagar
+      %tbody.smsloanoverview
+        - @plucker90.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+            .row-fluid.mobile.mobile_tr.hidden2
+              .span2
                 .center-element2
-                  %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+                  .div= bank.to_s.html_safe
+
+              .span2.top-buffer
+                %ul
+                  %li
+                    - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+
+                      %p Erbjuder personlig ränta
+                    - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+
+                      %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+                    - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+
+                      %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+                    - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+
+                      %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+                    - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+
+                      %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+                    - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+
+                      %p 
+                    - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+
+                      %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+                    - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+
+                      %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+                    - else
+
+                      %p
+              .span2
+
+                %ul
+                  %li
+                    %p.bold-text Krav
+                  %li
+                    %p= excerpt(min_age, 'år', radius: 3, omission: '')
+                  %li
+                    %p= no_uc[/"(.*?)"/, 1]
+                  - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                  - @credit_score2 = @credit_score.to_s
+                  - if @credit_score2 == "NEJ"
+                    = "Inga betalningsanmärkningar"
+                  - elsif @credit_score2 == "JA"
+                    = ""
+                  - elsif @credit_score2 == "Ja"
+                    = ""
+                  - elsif @credit_score2 == "Nej"
+                    = "Inga betalningsanmärkningar"
+              .span2
+                %ul
+                  %li
+                    .center-element2
+                      %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
 
-    #3.table30d.first-top.top-buffer2
-      .table30d.hulk-box#table_id2 30 dagar
-      %table#table_id2#table30d.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker30.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr.tr_height
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor4 = @cost_newdebtor.to_s
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
+
+    %table#table_id2#table1y.ex1.desktop.hidden2
+      .hulk-box#table_id2.desktop.hidden2 1 år
+      %tbody.smsloanoverview
+        - @plucker1.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr.desktop
+
+            %td.desktop
+              .lock1= bank.to_s.html_safe
+
+            - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+              %td
+                %p Erbjuder personlig ränta
+            - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+              %td
+                %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+            - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+              %td
+                %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+            - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+              %td
+                %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+            - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+              %td
+                %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+            - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+              %td
+                %p 
+            - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+              %td.lock
+                %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+            - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+              %td
+                %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
             - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor4 = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
+              %td
+                %p
 
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
+            %td.desktop
+              %p.lock2= excerpt(min_age, 'år', radius: 3, omission: '')
+              %p.lock2= no_uc[/"(.*?)"/, 1]
+              - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+              - @credit_score2 = @credit_score.to_s
+              - if @credit_score2 == "NEJ"
+                %p.lock2= "Inga betalningsanmärkningar"
+              - elsif @credit_score2 == "JA"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Ja"
+                %p.lock2= ""
+              - elsif @credit_score2 == "Nej"
+                %p.lock2= "Inga betalningsanmärkningar"
+
+            %td.desktop
+              %a.btn.btn-success.btn-large.lock4{:href => "#"} Ansök här
+
+
+    %table#table_id2#table1y.ex1.mobile.hidden2
+      .hulk-box#table_id2.mobile.hidden2 1 år
+      %tbody.smsloanoverview
+        - @plucker1.take(4).each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
+          %tr
+            .row-fluid.mobile.mobile_tr.hidden2
+              .span2
+                .center-element2
+                  .div= bank.to_s.html_safe
+
+              .span2.top-buffer
+                %ul
                   %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                    - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
+
+                      %p Erbjuder personlig ränta
+                    - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
+
+                      %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+                    - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
+
+                      %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
+                    - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
+
+                      %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
+                    - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
+
+                      %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+                    - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
+
+                      %p 
+                    - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
+
+                      %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+                    - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
+
+                      %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
+                    - else
+
+                      %p
+              .span2
+
+                %ul
                   %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
+                    %p.bold-text Krav
                   %li
-                    %p
-                      %strong>
-                      \
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga anmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga anmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
-
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-      .center-element2
-
-    #4.table60d.first-top.top-buffer2.hidden1
-      .table60d.hulk-box#table_id2.hidden1 60 dagar
-      %table#table_id2#table60d.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker60.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
-            - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
+                    %p= excerpt(min_age, 'år', radius: 3, omission: '')
                   %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
+                    %p= no_uc[/"(.*?)"/, 1]
+                  - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
+                  - @credit_score2 = @credit_score.to_s
+                  - if @credit_score2 == "NEJ"
+                    = "Inga betalningsanmärkningar"
+                  - elsif @credit_score2 == "JA"
+                    = ""
+                  - elsif @credit_score2 == "Ja"
+                    = ""
+                  - elsif @credit_score2 == "Nej"
+                    = "Inga betalningsanmärkningar"
+              .span2
+                %ul
                   %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
-                  %li
-                    %p
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga betalningsanmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga betalningsanmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
+                    .center-element2
+                      %a.btn.btn-success.btn-large{:href => "#"} Ansök här
 
 
 
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-    #5.table90d.first-top.top-buffer2.hidden2
-      .table90d.hulk-box#table_id2.hidden2 90 dagar
-      %table#table_id2#table90d.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker90.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
-            - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
-                  %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
-                  %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
-                  %li
-                    %p
-                      %strong>
-                      \
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga betalningsanmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga betalningsanmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
-
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-    #6.table1y.first-top.top-buffer2.hidden2
-      .table1y.hulk-box#table_id2.hidden2 1 year
-      %table#table_id2#table1y.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker1.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
-            - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
-                  %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
-                  %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
-                  %li
-                    %p
-                      %strong>
-                      \
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga betalningsanmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga betalningsanmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
-
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-    #1.table14d.first-top.top-buffer2.hidden2
-      %h2.table14d.hulk-box#table_id2.hidden2 14 dagar
-      %table#table_id2#table14d.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker14.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
-            - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
-                  %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
-                  %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
-                  %li
-                    %p
-                      %strong>
-                      \
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga betalningsanmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga betalningsanmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
-
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-    #2.table21d.first-top.top-buffer2.hidden2
-      .table21d.hulk-box#table_id2.hidden2 21 dagar
-      %table#table_id2#table21d.ex1.anti_border_spacing
-        %tbody.smsloanoverview
-          - @plucker21.each do |bank, min_loanamount, max_loanamount, plucker, plucker2, max_amount_new_borrower, invoice_fee, application_fee, mobile_friendly_site, min_age, low_credit_score, cost_free_loan, cost_free_loan_amount, new_borrower_5K, new_borrower_10K, no_uc, skef_member, bankid, open_on_saturdays, open_on_sundays, weblink|
-            %tr
-            - @cost_debtor = number_to_currency(plucker, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_newdebtor = number_to_currency(plucker2, strip_insignificant_zeros: true, locale: :fr)
-            - @cost_debtor_texted = "Redan kund " + @cost_debtor.to_s
-            - if plucker.nil? && plucker2.nil?
-            - else
-              - if plucker.nil?
-                - @cost_debtor_texted = "-"
-              - if plucker2.nil?
-                - @cost_newdebtor = "-"
-              %td.smsloangiver_searchresult.td_fix_mobileformat= bank.to_s.html_safe
-
-              %td.sms_info_list_mobileformat.td_fix_mobileformat
-                %ul.sms_info_list
-                  %li
-                    %p
-                      %strong>
-                      \
-                      = excerpt(min_age, 'år', radius: 3, omission: '')
-                  %li
-                    %p
-                      = no_uc[/"(.*?)"/, 1]
-                  %li
-                    %p
-                      %strong>
-                      \
-                      //= Smsloan.second.low_credit_score
-                      - @credit_score = low_credit_score.slice!(/(?:Ja|JA|Nej|NEJ)/)
-                      - @credit_score2 = @credit_score.to_s
-                      - if @credit_score2 == "NEJ"
-                        = "Inga betalningsanmärkningar"
-                      - elsif @credit_score2 == "JA"
-                        = ""
-                      - elsif @credit_score2 == "Ja"
-                        = ""
-                      - elsif @credit_score2 == "Nej"
-                        = "Inga betalningsanmärkningar"
-
-              - if bank.to_s == '<img src="leasyminilan_image.png" alt="Leasy minilån" style="height:35px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Erbjuder personlig ränta
-              - elsif bank.to_s == '<img src="ferratum_image.png" alt="Ferratum" style="height:40px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-              - elsif bank.to_s == '<img src="everydayplus_image.png" alt="Everyday+" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Om du inte kan betala tillbaka på förfallodagen kan du betala 1/5 av fakturasumman, minst 200 kr om fakturasumman är 1000 kr eller mindre.
-              - elsif bank.to_s == '<img src="riscium_image.png" alt="Riscium" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Nya kunder kan låna upp till 4000 kr genom att endast betala uppläggningsavgift.
-              - elsif bank.to_s == '<img src="vivus_image.png" alt="Vivus" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
-              - elsif bank.to_s == '<img src="extrakredit_image.png" alt="Extrakredit" style="height:34px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p 
-              - elsif bank.to_s == '<img src="onea_image.png" alt="Onea" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Du kan flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
-              - elsif bank.to_s == '<img src="smspengar_image.png" alt="Smspengar" style="height:30px">'
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p Upp till 64% rabatt och du kan förlänga lånen mot en ränteavgift.
-              - else
-                %td.check_if_empty.sms_costs_mobileformat.td_fix_mobileformat
-                  %p
-
-
-              //does not catch all. Only if there is no logo. However, if logo exist, but does not match any of above then there will be no button for that one.
-              - if bank.nil?
-                %td.sms_ansokbutton_mobileformat.td_fix_mobileformat
-                  %ul
-                    %li= weblink.to_s.html_safe
-
-              %td.hidden-smslan= max_amount_new_borrower
-              %td.hidden-smslan= invoice_fee
-              %td.hidden-smslan= application_fee
-              %td.hidden-smslan= mobile_friendly_site
-              %td.hidden-smslan= min_age
-              %td.hidden-smslan= low_credit_score
-              %td.hidden-smslan= cost_free_loan
-              %td.hidden-smslan= cost_free_loan_amount
-              %td.hidden-smslan= new_borrower_5K
-              %td.hidden-smslan= new_borrower_10K
-              %td.hidden-smslan= no_uc
-              %td.hidden-smslan= skef_member
-              %td.hidden-smslan= bankid
-              %td.hidden-smslan= open_on_saturdays
-              %td.hidden-smslan= open_on_sundays
-    .center-element2
+    .center-element2.hidden-button1.top-buffer
       %a.btn.btn-default.btn-large.showmoreloans_button1 Visa mer lån >>
-    .center-element2.hidden1
+    .center-element2.hidden-button2.top-buffer
       %a.btn.btn-default.btn-large.showmoreloans_button2 Visa mer lån >>
 
       #7

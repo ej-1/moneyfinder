@@ -1527,7 +1527,7 @@ Media queries
     position:fixed;
     top: 0px;
     display:none;
-    margin-top: 45px;
+    /* margin-top: 45px; */
     cursor:pointer;
   }
   .scrollToTop:hover{
@@ -2454,6 +2454,11 @@ SIMPLIFIED
   display: none;
 }
 
+.hidden-button2 {
+  display: none;
+}
+
+
 .logo-border {
   border: 1px solid rgba(144, 194, 85, 1);
 }
@@ -2503,6 +2508,7 @@ table tr:nth-child(even) {
 .lock2 {
   text-align: left;
   margin-left: 10%;
+  line-height: 8px;
 }
 
 .lock1 {
@@ -2516,6 +2522,26 @@ table tr:nth-child(even) {
 
 .navbar .btn {
   background-color: #D2D2D2;
+}
+
+.mobile_demands_top {
+  margin-top: -10px;
+}
+
+.negative-topbuffer-desktop {
+  margin-top: -30px !important;
+}
+
+.negative-topbuffer-mobile {
+  margin-top: -60px !important;
+}
+
+.negative-topbuffer-best {
+  margin-top: -12px !important;
+}
+
+.negative-topbuffer-general {
+  margin-top: -15px !important;
 }
 
 
