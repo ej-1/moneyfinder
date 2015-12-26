@@ -14,17 +14,18 @@
           %h2.fonts.center-element2 Bästa SMSlånet
         .span3.best.negative-topbuffer-best
           .center-element3
-            %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+            %img{:alt => "Ferratum", :src => "ferratum_image.png"}
 
 .row-fluid.mobile
   .span10
     .row-fluid
       .span6
         .span3.best-title
-          %h2.fonts.center-element2 Bästa SMSlånet
+          %h2.fonts.center-element2 Nyhet: Personlig ränta
         .span3.best.negative-topbuffer-best
           .center-element3
-            %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+            %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:60px"}
+
 
 
 // Desktop/tables
@@ -36,7 +37,7 @@
       .span4.best-title
         %h2.center-element2 Bästa SMSlånet
       .span4.best-title
-        %h2.center-element2 Bästa SMSlånet
+        %h2.center-element2 Nyhet: Personlig ränta
       .span1
   .span1
 .row-fluid.desktop.bottom-buffer
@@ -45,15 +46,18 @@
     .row-fluid
       .span2
       .span4.best
-        %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+        %a{:href => "http://www.ferratum.se", :target => "_blank"}
+          %img{:alt => "Ferratum", :src => "ferratum_image.png"}
       .span4.best
-        %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+        %a{:href => "http://www.frogtail.se", :target => "_blank"}
+          %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:60px; margin-left:15px;"}
       .span1
   .span1
 
 
-
-
+.row-fluid
+  .center-element2
+    %h2 Topplistan
 
 .row-fluid
   .span2
@@ -121,6 +125,26 @@
     .scrollToTop Scrolla till toppen
 
 
+  .row-fluid
+
+    .span2
+    .span8.top-list-item-even
+
+      .row-fluid.top-buffer.row-padding-fix
+        .span1
+        .span2
+          %p.bold-text Långivare
+        .span2
+          %p.bold-text Lånebelopp
+        .span3
+          %p.bold-text Övrig info
+        .span2
+          %p.bold-text Krav
+        .span1
+
+
+
+
 
   .row-fluid
     .span2
@@ -128,16 +152,19 @@
       .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
+          %img{:alt => "Ferratum", :src => "ferratum_image.png"}
         .span2.top-buffer-small
-          %p 50 - 16000 kr
+          %p 500 - 15000 kr
         .span3
-          %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
+          %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
         .span2
-          %p 18 år
+          %p.lock2 21 år
+          %p.lock2 Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+
+
 
   .row-fluid
     .span2
@@ -145,16 +172,19 @@
       .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "W3Schools", :src => "ferratum_image.png"}
+          %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
         .span2.top-buffer-small
           %p 50 - 16000 kr
         .span3
-          %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
+          %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
         .span2
-          %p 18 år
+          %p.lock2 18 år
+          %p.lock2 Ingen UC
+          %p.lock2 Inga anmärkningar
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "www.vivus.se"} Ansök här
+
 
   .row-fluid
     .span2
@@ -162,16 +192,18 @@
       .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
+          %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:30px"}/
         .span2.top-buffer-small
-          %p 50 - 16000 kr
+          %p 3000 - 20 000 kr
         .span3
-          %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
+          %p Erbjuder personlig ränta
         .span2
-          %p 18 år
+          %p.lock2 18 år
+          %p.lock2 Inga anmärkningar
+          %p.lock2 Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "www.kreditkontot.se"} Ansök här
 
   .row-fluid
     .span2
@@ -179,16 +211,80 @@
       .row-fluid.top-buffer.row-padding-fix
         .span1
         .span2
-          %img{:alt => "W3Schools", :src => "ferratum_image.png", :style => "height:30px"}
+          %img{:alt => "Säker Finans", :src => "sakerfinans_image.png", :style => "height:50px"}/
         .span2.top-buffer-small
-          %p 50 - 16000 kr
+          %p 1000 kr - 20 000 kr
         .span3
-          %p Bestäm själv hur mycket du vill betala varje månad, beroende på avtalslängd och belopp.
+          %p Låna upp till 13 000 kr som ny kund eller 20 000 kr som återvändande kund.
         .span2
-          %p 18 år
+          %p.lock2 20 år
+          %p.lock2 Inga anmärkningar
+          %p.lock2 Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "www.sakerfinans.se"} Ansök här
+
+
+  .row-fluid
+    .span2
+    .span8.top-list-item-odd
+      .row-fluid.top-buffer.row-padding-fix
+        .span1
+        .span2
+          %img{:alt => "Onea", :src => "onea_image.png", :style => "height:30px"}/
+        .span2.top-buffer-small
+          %p 500 - 30 000 kr
+        .span3
+          %p Flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+        .span2
+          %p.lock2 20 år
+          %p.lock2 Inga anmärkningar
+          %p.lock2 Ingen UC
+        .span1
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "www.onea.se"} Ansök här
+
+
+  .row-fluid
+    .span2
+    .span8.top-list-item-even
+      .row-fluid.top-buffer.row-padding-fix
+        .span1
+        .span2
+          %img{:alt => "Everyday+", :src => "everydayplus_image.png", :style => "height:30px"}/
+        .span2.top-buffer-small
+          %p 3000 kr - 15 000 kr
+        .span3
+          %p 
+        .span2
+          %p.lock2 20 år
+          %p.lock2 Inga anmärkningar
+          %p.lock2 Ingen UC
+        .span1
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "www.everydayplus.se"} Ansök här
+
+  .row-fluid
+    .span2
+    .span8.top-list-item-odd
+      .row-fluid.top-buffer.row-padding-fix
+        .span1
+        .span2
+          %img{:alt => "Kreditkontot", :src => "kreditkontot_image.png", :style => "height:30px"}/
+        .span2.top-buffer-small
+          %p 3000 - 20 000 kr
+        .span3
+          %p 
+        .span2
+          %p.lock2 18 år
+          %p.lock2 Inga anmärkningar
+          %p.lock2 Ingen UC
+        .span1
+          .center-element2.bottom-buffer
+            %a.btn.btn-success.btn-large{:href => "www.kreditkontot.se"} Ansök här
+
+
+
 
     .span2
 

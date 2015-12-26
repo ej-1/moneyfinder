@@ -2508,7 +2508,7 @@ table tr:nth-child(even) {
 .lock2 {
   text-align: left;
   margin-left: 10%;
-  line-height: 8px;
+  margin-top: -10px;
 }
 
 .lock1 {
