@@ -24,7 +24,7 @@
           %h2.fonts.center-element2 Personlig ränta
         .span3.best.negative-topbuffer-best
           .center-element3
-            %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:70px"}
+            %img{:alt => "Frogtail", :src => "frogtail_image.png"}
 
 
 
@@ -50,14 +50,11 @@
           %img{:alt => "Ferratum", :src => "ferratum_image.png"}
       .span4.best
         %a{:href => "http://www.frogtail.se", :target => "_blank"}
-          %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:60px; margin-left:15px;"}
+          %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:70px"}
       .span1
   .span1
 
 
-.row-fluid
-  .center-element2
-    %h2 Topplistan
 
 .row-fluid
   .span2
@@ -126,11 +123,14 @@
 
 
   .row-fluid
+    .center-element2
+      %h2 Topplistan
 
-    .span2
-    .span8.top-list-item-even
 
-      .row-fluid.top-buffer.row-padding-fix
+  .row-fluid
+    .span2.negative-buffer-mobile
+    .span8
+      .row-fluid.top-buffer.row-padding-fix.desktop
         .span1
         .span2
           %p.bold-text Långivare
@@ -147,40 +147,42 @@
 
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-odd
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Ferratum", :src => "ferratum_image.png"}
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 500 - 15000 kr
         .span3
           %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
         .span2
-          %p.lock2 21 år
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 21 år
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "#"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "www.ferratum.se"} Ansök här
 
 
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-even
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 50 - 16000 kr
         .span3
           %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
         .span2
-          %p.lock2 18 år
-          %p.lock2 Ingen UC
-          %p.lock2 Inga anmärkningar
+          %p.demands-mobile Krav
+          %p.lock2-toplist 18 år
+          %p.lock2-toplist Ingen UC
+          %p.lock2-toplist Inga anmärkningar
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.vivus.se"} Ansök här
@@ -191,94 +193,99 @@
     .span8.top-list-item-odd
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:30px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 3000 - 20 000 kr
         .span3
           %p Erbjuder personlig ränta
         .span2
-          %p.lock2 18 år
-          %p.lock2 Inga anmärkningar
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 18 år
+          %p.lock2-toplist Inga anmärkningar
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.kreditkontot.se"} Ansök här
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-even
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Säker Finans", :src => "sakerfinans_image.png", :style => "height:50px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 1000 kr - 20 000 kr
         .span3
           %p Låna upp till 13 000 kr som ny kund eller 20 000 kr som återvändande kund.
         .span2
-          %p.lock2 20 år
-          %p.lock2 Inga anmärkningar
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 20 år
+          %p.lock2-toplist Inga anmärkningar
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.sakerfinans.se"} Ansök här
 
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-odd
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Onea", :src => "onea_image.png", :style => "height:30px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 500 - 30 000 kr
         .span3
           %p Flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
         .span2
-          %p.lock2 20 år
-          %p.lock2 Inga anmärkningar
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 20 år
+          %p.lock2-toplist Inga anmärkningar
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.onea.se"} Ansök här
 
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-even
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Everyday+", :src => "everydayplus_image.png", :style => "height:30px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 3000 kr - 15 000 kr
         .span3
           %p 
         .span2
-          %p.lock2 20 år
-          %p.lock2 Inga anmärkningar
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 20 år
+          %p.lock2-toplist Inga anmärkningar
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.everydayplus.se"} Ansök här
 
   .row-fluid
-    .span2
+    .span2.negative-buffer-mobile
     .span8.top-list-item-odd
       .row-fluid.top-buffer.row-padding-fix
         .span1
-        .span2
+        .span2.negative-buffer-mobile
           %img{:alt => "Kreditkontot", :src => "kreditkontot_image.png", :style => "height:30px"}/
-        .span2.top-buffer-small
+        .span2.top-buffer-mobile
           %p 3000 - 20 000 kr
         .span3
           %p 
         .span2
-          %p.lock2 18 år
-          %p.lock2 Inga anmärkningar
-          %p.lock2 Ingen UC
+          %p.demands-mobile Krav
+          %p.lock2-toplist 18 år
+          %p.lock2-toplist Inga anmärkningar
+          %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             %a.btn.btn-success.btn-large{:href => "www.kreditkontot.se"} Ansök här
@@ -286,7 +293,7 @@
 
 
 
-    .span2
+    .span2.negative-buffer-mobile
 
 
 
@@ -295,9 +302,9 @@
     %hr/
 .row-fluid.thebiggreyarea.row-padding-fix
   .span4
-  .span4
+  .span4.negative-buffer-mobile-4
     %h1.top-buffer.bottom-buffer.pagetitle.text-center Vanliga frågor
-  .span4
+  .span4.negative-buffer-mobile-4
 .row-fluid.thebiggreyarea
   .span1
   .span5.bottom-buffer.padhack
