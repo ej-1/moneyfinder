@@ -3,6 +3,14 @@ class AdminsmsloansController < ApplicationController
   caches_page :smslan
   caches_action :smslan
   respond_to :html, :js
+  before_filter :save_url
+  def save_url
+    @referrer_url = request.env["HTTP_REFERER"] || 'none'
+    @epi = @referrer_url.sub!("http://localhost:3000/", "")
+  end
+
+
+
   # before_action :authenticate_admin!
   # GET /smsloans
   # GET /smsloans.json
@@ -36,6 +44,8 @@ class AdminsmsloansController < ApplicationController
   #   end
 
   #  @signupers = Signup.all
+
+
 
     # NORWEGIAN
     @banknorwegian = Smsloan.where({ bank: '<a href="https://online.adservicemedia.dk/cgi-bin/click.pl?bid=498336&media_id=15141" target="_blank"><img src="http://impr.adservicemedia.dk/show2.php?bid=498336&media_id=15141"/></a>'})
