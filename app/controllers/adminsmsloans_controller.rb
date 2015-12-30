@@ -5,8 +5,8 @@ class AdminsmsloansController < ApplicationController
   respond_to :html, :js
   before_filter :save_url
   def save_url
-    @referrer_url = request.env["HTTP_REFERER"] || 'none'
-    @epi = @referrer_url.sub!("http://localhost:3000/", "")
+    @epi = request.env["HTTP_REFERER"] || 'none'
+
   end
 
 
