@@ -39,7 +39,7 @@
 //the ready()function with code for hovering and column sorting
 $(document).ready(function() {
 
-
+        //makes sure that bootstrap menu collapses on mobile when clicking an option
         $(".minimize").click(function(event) {
             // check if window is small enough so dropdown is created
             $(".toggle").is(":visible")
@@ -47,9 +47,8 @@ $(document).ready(function() {
 
         });
 
-        
-
-
+        var referrer = document.referrer;
+        alert(referrer);
 
 
         // Hides advanced options in mobile format
