@@ -125,8 +125,8 @@
   .row-fluid
     .center-element2
       %h2 Topplistan
-
-
+      = @epi
+      .btn.btn-success.btn-large= link_to @epi
   .row-fluid
     .span2.negative-buffer-mobile
     .span8
@@ -163,7 +163,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se", :target => "_blank"} Ansök här
 
 
 
@@ -185,7 +185,10 @@
           %p.lock2-toplist Inga anmärkningar
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.vivus.se"} Ansök här
+            - @epi
+            - epi2 = "http://www.google.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
+
 
 
   .row-fluid
@@ -206,7 +209,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se", :target => "_blank"} Ansök här
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -226,7 +229,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.sakerfinans.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.sakerfinans.se", :target => "_blank"} Ansök här
 
 
   .row-fluid
@@ -247,7 +250,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.onea.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.onea.se", :target => "_blank"} Ansök här
 
 
   .row-fluid
@@ -268,7 +271,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.everydayplus.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.everydayplus.se", :target => "_blank"} Ansök här
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -288,7 +291,7 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se"} Ansök här
+            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se", :target => "_blank"} Ansök här
 
 
 

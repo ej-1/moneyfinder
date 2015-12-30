@@ -21,6 +21,8 @@ Ratesfinder::Application.routes.draw do
 # get "url" => 'controller and the name of the catalogue#file in the view catalogue'
 # get "url" => 'controller and the name of the catalogue#file in the view catalogue and the name of action in controller'
 
+  # Redirects all unknown urls to root url
+
 
   # THE NEW THING
   get "sparrantor" => 'adminsavingrates#sparrantor'
@@ -90,6 +92,7 @@ Ratesfinder::Application.routes.draw do
 
   # THE MAIN LANDING PAGE - CODE NEEDS TO BE AFTER ALL OTHER ROUTES
   root :to => 'adminsmsloans#smslan'
+  match '*path' => redirect('/'), via: :get
 end
 
 #  root :to => 'public#mainlanding'
