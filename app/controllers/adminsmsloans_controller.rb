@@ -3,11 +3,7 @@ class AdminsmsloansController < ApplicationController
   caches_page :smslan
   caches_action :smslan
   respond_to :html, :js
-  before_filter :save_url
-  def save_url
-    @epi = request.env["HTTP_REFERER"] || 'none'
 
-  end
 
 
 
@@ -21,7 +17,7 @@ class AdminsmsloansController < ApplicationController
   #def signup
   #  @signup = Signup.new(params[:email])
   #  @signupers = Signup.all
-  #end
+  #endz
 
   # def register
   #   @signup = Signup.new(params[:email])
@@ -36,6 +32,7 @@ class AdminsmsloansController < ApplicationController
   end
 
   def smslan
+    
     loangiver_variables
   # @signup = Signup.new(params[:signup])
   #   if(request.post? and @signup.save)

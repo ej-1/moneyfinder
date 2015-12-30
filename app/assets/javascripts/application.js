@@ -47,9 +47,6 @@ $(document).ready(function() {
 
         });
 
-        var referrer = document.referrer;
-        alert(referrer);
-
 
         // Hides advanced options in mobile format
         //if ($(window).width() < 481) {
