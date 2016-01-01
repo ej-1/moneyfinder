@@ -36,6 +36,68 @@ Ratesfinder::Application.routes.draw do
   get "gratislan" => 'adminsmsloans#gratislan'
 
 
+  get "smslan_kampanj:smslan,adgroup:jamfor" => 'adminsmsloans#smslan'
+  get "smslan_kampanj:smslan,adgroup:alder" => 'adminsmsloans#smslan'
+  get "smslan-campaign:1.SMSLAN-adgroup:2.kredit" => 'adminsmsloans#smslan'
+  get "smslan-campaign:1.SMSLAN-adgroup:3.anmarkning" => 'adminsmsloans#smslan'
+  get "smslan-campaign:1.SMSLAN-adgroup:3.billiga" => 'adminsmsloans#smslan'
+  get "smslan-campaign:1.SMSLAN-adgroup:3.SKEF" => 'adminsmsloans#smslan'
+  get "smslan-campaign:1.SMSLAN-adgroup:3.sok" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:2.SNABBLAN-adgroup:0.jamfor" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:2.SNABBLAN-adgroup:0.jamfor" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:1.alder" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:1.belopp" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:1.dagar" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:2.bankid" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:2.SNABBLAN-adgroup:2.kredit" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:3.anmarkning" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:2.billiga" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:3.kronofogden" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:3.SKEF" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:3.sok" => 'adminsmsloans#smslan'
+  get "smslan-campaign:2.SNABBLAN-adgroup:4.gratis" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:2.SNABBLAN-adgroup:4.gratis" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:3.MIKROLAN-adgroup:0.jamfor" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:1.alder" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:1.belopp" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:1.dagar" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:1.helg" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:2.bankid" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:2.direkt" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:2.kredit" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:3.anmarkning" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:3.basta" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:3.billiga" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:3.kronofogden" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:3.SKEF" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.MIKROLAN-adgroup:4.gratis" => 'adminsmsloans#smslan'
+
+  get "smslan-campaign:3.LAN-adgroup:0.jamfor" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:1.alder" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:1.belopp" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:1.dagar" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:1.helg" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:2.bankid" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:2.direkt" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:2.kredit" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.anmarkning" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.basta" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.billiga" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.kronofogden" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.SKEF" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:3.sok" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:4.gratis" => 'adminsmsloans#smslan'
+  get "smslan-campaign:3.LAN-adgroup:5.generic" => 'adminsmsloans#smslan'
+
+
+
+
+
 
   get "norwegian" => 'adminsmsloans#norwegian'
   get "leasylan" => 'adminsmsloans#leasylan'
