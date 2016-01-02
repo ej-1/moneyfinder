@@ -37,6 +37,9 @@
 
 
 //the ready()function with code for hovering and column sorting
+
+
+
 $(document).ready(function() {
 
         //makes sure that bootstrap menu collapses on mobile when clicking an option
@@ -46,6 +49,11 @@ $(document).ready(function() {
                 $(".navbar-collapse").toggle();
 
         });
+
+
+
+
+
 
 
         // Hides advanced options in mobile format

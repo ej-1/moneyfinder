@@ -3,7 +3,6 @@
 %meta{:content => "Moneylabs.se hjälper dig jämföra och hitta de billigaste smslånen och snabblånen", :name => "description= Jämför SMSlån [site:moneylabs.se/]"}/
 //.page-padding
 
-
 //mobile
 .row-fluid.mobile.top-buffer2
   .span1
@@ -46,10 +45,14 @@
     .row-fluid
       .span2
       .span4.best
-        %a{:href => "http://www.ferratum.se", :target => "_blank"}
+        - epi2 = "http://www.ferratum.se/epi=" + @epi.to_s
+        %a{:href => epi2, :target => "_blank"}
           %img{:alt => "Ferratum", :src => "ferratum_image.png"}
+
+
       .span4.best
-        %a{:href => "http://www.frogtail.se", :target => "_blank"}
+        - epi2 = "http://www.frogtail.se/epi=" + @epi.to_s
+        %a{:href => epi2, :target => "_blank"}
           %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:70px"}
       .span1
   .span1
@@ -76,6 +79,7 @@
             .span2
               %p#W1.fonts.white.hidden-smsdropdown
           = form_tag(smslan_path, :method => "get", id: "search-form", remote: true) do
+
             .hidden-smsdropdown= range_field :search, params[:search], :value =>'3', :in => 1..7, :step => '1', :id => 'slider1', :onchange => "$(this).parent('form').submit();"
             .row
               .span3
@@ -121,12 +125,10 @@
   .row
     .scrollToTop Scrolla till toppen
 
-  - @epi = request.headers["HTTP_REFERER"]
+
   .row-fluid
     .center-element2
       %h2 Topplistan
-      = @epi
-      .btn.btn-success.btn-large= link_to @epi
   .row-fluid
     .span2.negative-buffer-mobile
     .span8
@@ -141,6 +143,7 @@
         .span2
           %p.bold-text Krav
         .span1
+
 
 
 
@@ -163,7 +166,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.ferratum.se", :target => "_blank"} Ansök här
+            - epi2 = "http://www.ferratum.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
 
 
@@ -185,8 +189,7 @@
           %p.lock2-toplist Inga anmärkningar
         .span1
           .center-element2.bottom-buffer
-            - @epi
-            - epi2 = "http://www.google.se/epi=" + @epi.to_s
+            - epi2 = "http://www.vivus.se/epi=" + @epi.to_s
             .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
 
@@ -209,7 +212,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se", :target => "_blank"} Ansök här
+            - epi2 = "http://www.frogtail.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -229,8 +233,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.sakerfinans.se", :target => "_blank"} Ansök här
-
+            - epi2 = "http://www.sakerfinans.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -250,8 +254,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.onea.se", :target => "_blank"} Ansök här
-
+            - epi2 = "http://www.onea.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -271,7 +275,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.everydayplus.se", :target => "_blank"} Ansök här
+            - epi2 = "http://www.everydayplus.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -291,8 +296,8 @@
           %p.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
-            %a.btn.btn-success.btn-large{:href => "http://www.kreditkontot.se", :target => "_blank"} Ansök här
-
+            - epi2 = "http://www.kreditkontot.se/epi=" + @epi.to_s
+            .btn.btn-success.btn-large= link_to "Ansök här", epi2
 
 
 

@@ -41,7 +41,7 @@ class AdminsmsloansController < ApplicationController
   #   end
 
   #  @signupers = Signup.all
-
+    @epi = request.original_url
 
 
     # NORWEGIAN

@@ -2591,6 +2591,15 @@ table tr:nth-child(even) {
 }
 
 
+.btn-large a{
+  color: #fff;
+}
+
+.btn-large a:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
 /* 
 .do_a_search{
   margin-top: 40px;

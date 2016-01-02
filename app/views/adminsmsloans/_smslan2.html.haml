@@ -139,7 +139,27 @@
 
   }
 
+  $(document).ready(function() {
+    // for every link
+    $('a').each(function () {
+        
+        var pathname = "/epi=" + window.location.pathname; // Returns path only
+        var that = this;
 
+        if ($(that).attr('href').indexOf("????") >= 0) {
+            //If link does not contain '????' replace it with url path
+            var url = $(this).attr('href').replace('????', pathname)
+            url2 = url.replace('????', pathname)
+            
+            $(that).attr('href', url2) 
+            //How to carry this through two nested statements http://stackoverflow.com/questions/1043556/how-can-i-keep-the-context-of-this-in-jquery
+
+        } else {
+            //If link does not contain '????' do nothing
+
+        }
+    });
+  });
 
 
 .row
@@ -161,9 +181,6 @@
 .row-fluid
   .span2
   .span8
-
-    %a.btn.btn-success.btn-large{:href => "http://localhost:3000/epi={KeyWord:Jämför}", :target => "_blank"} Ansök här
-
     %table#table_id2#table30d.ex1.desktop
       .hulk-box#table_id2.desktop.negative-topbuffer-desktop 30 dagar
       %tbody.smsloanoverview
@@ -215,8 +232,10 @@
               - elsif @credit_score2 == "Nej"
                 %p.lock2= "Inga betalningsanmärkningar"
 
+
             %td.desktop
-              = weblink.to_s.html_safe
+              .special-links= weblink.to_s.html_safe
+
 
 
     %table#table_id2#table30d.ex1.mobile
@@ -283,7 +302,7 @@
                     = "Inga betalningsanmärkningar"
               .span2
                 .center-element2
-                  = weblink.to_s.html_safe
+                  .special-links= weblink.to_s.html_safe
 
 
 
@@ -339,7 +358,7 @@
                 %p.lock2= "Inga betalningsanmärkningar"
 
             %td.desktop
-              = weblink.to_s.html_safe
+              .special-links= weblink.to_s.html_safe
 
 
     %table#table_id2#table60d.ex1.mobile.hidden1
@@ -405,7 +424,7 @@
                 %ul
                   %li
                     .center-element2
-                      = weblink.to_s.html_safe
+                      .special-links= weblink.to_s.html_safe
 
 
 
@@ -461,7 +480,7 @@
                 %p.lock2= "Inga betalningsanmärkningar"
 
             %td.desktop
-              = weblink.to_s.html_safe
+              .special-links= weblink.to_s.html_safe
 
 
     %table#table_id2#table90d.ex1.mobile.hidden2
@@ -527,7 +546,7 @@
                 %ul
                   %li
                     .center-element2
-                      = weblink.to_s.html_safe
+                      .special-links= weblink.to_s.html_safe
 
 
 
@@ -583,7 +602,7 @@
                 %p.lock2= "Inga betalningsanmärkningar"
 
             %td.desktop
-              = weblink.to_s.html_safe
+              .special-links= weblink.to_s.html_safe
 
 
     %table#table_id2#table1y.ex1.mobile.hidden2
@@ -649,7 +668,7 @@
                 %ul
                   %li
                     .center-element2
-                      = weblink.to_s.html_safe
+                      .special-links= weblink.to_s.html_safe
 
 
 
