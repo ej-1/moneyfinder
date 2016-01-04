@@ -169,23 +169,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 
-<!-- begin SnapEngage code -->
-<script type="text/javascript">
-  (function() {
-    var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
-    se.src = '//storage.googleapis.com/code.snapengage.com/js/b10a8c38-e90e-4dc1-9cc6-333e3210eed1.js';
-    var done = false;
-    se.onload = se.onreadystatechange = function() {
-      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
-        done = true;
-        /* Place your SnapEngage JS API code below */
-        /* SnapEngage.allowChatSound(true); Example JS API: Enable sounds for Visitors. */
-      }
-    };
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
-  })();
-</script>
-<!-- end SnapEngage code -->
 
      <!-- Google Code for Click Conversion Page -->
     <script type="text/javascript">
