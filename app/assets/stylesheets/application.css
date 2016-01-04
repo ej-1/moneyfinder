@@ -597,6 +597,12 @@ Media queries
 
 @media (min-width: 980px) and (max-width: 1200px) {
 
+  .mobile-fix33 {
+    width:22% !important;
+    position: absolute !important;
+    margin-left: -33px;
+  }
+
   .demands-mobile{
     display: none;
   }
@@ -766,6 +772,12 @@ Media queries
 
 
 @media (min-width: 768px) and (max-width: 979px) {
+
+  .mobile-fix33 {
+    width:25% !important;
+    position: absolute !important;
+    margin-left: -51px;
+  }
 
   .desktop {
   }
@@ -1029,6 +1041,11 @@ Media queries
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+  .mobile-fix-best-logos {
+    padding-left: 14%;
+    padding-right: 14%;
+  }
+
   .demands-mobile{
     font-weight: bold;
     margin-top: 5px;
@@ -1049,6 +1066,13 @@ Media queries
   .center-element3 {
     margin-left: 30%;
     margin-right: 30%;
+    margin-bottom: 15%;
+    display: block;
+  }
+
+  .center-element4 {
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 15%;
     display: block;
   }
@@ -1236,6 +1260,17 @@ Media queries
 
 
 @media (max-width: 480px) {
+
+  .minimize {
+    margin-top: -10px;
+  }
+
+  .mobile-fix-best-logos {
+    margin-top: -5px;
+    margin-left: -45px;
+    position: absolute;
+    width: 80%;
+  }
 
   .demands-mobile{
     font-weight: bold;

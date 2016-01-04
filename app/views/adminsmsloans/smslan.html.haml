@@ -12,8 +12,9 @@
         .span3.best-title
           %h2.fonts.center-element2 Bästa SMSlånet
         .span3.best.negative-topbuffer-best
-          .center-element2
-            %img{:alt => "Ferratum", :src => "ferratum_image2.png"}
+          - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+          %a{:href => epi2, :target => "_blank"}
+            %img.mobile-fix-best-logos{:alt => "Ferratum", :src => "ferratum_image2.png"}
 
 .row-fluid.mobile
   .span10
@@ -22,8 +23,9 @@
         .span3.best-title
           %h2.fonts.center-element2 Personlig ränta
         .span3.best.negative-topbuffer-best
-          .center-element3
-            %img{:alt => "Frogtail", :src => "frogtail_image.png"}
+          - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1????&epi=" + @epi.to_s
+          %a{:href => epi2, :target => "_blank"}
+            %img.mobile-fix-best-logos{:alt => "Frogtail", :src => "frogtail_image.png"}
 
 
 // Desktop/tables
@@ -46,13 +48,13 @@
       .span4.best
         - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
         %a{:href => epi2, :target => "_blank"}
-          %img{:alt => "Ferratum", :src => "ferratum_image2.png"}
+          %img.mobile-fix33{:alt => "Ferratum", :src => "ferratum_image2.png"}
 
 
       .span4.best
         - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1????&epi=" + @epi.to_s
         %a{:href => epi2, :target => "_blank"}
-          %img{:alt => "Frogtail", :src => "frogtail_image2.png"}
+          %img.mobile-fix33{:alt => "Frogtail", :src => "frogtail_image2.png"}
       .span1
   .span1
 
