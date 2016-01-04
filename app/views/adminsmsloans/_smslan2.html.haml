@@ -139,28 +139,7 @@
 
   }
 
-  // Adds EPI. Had to use Jquery because erb could not get the url from browser.
-  $(document).ready(function() {
-    // for every link
-    $('a').each(function () {
-        
-        var pathname = "&epi=" + window.location.pathname; // Returns path only
-        var that = this;
 
-        if ($(that).attr('href').indexOf("????") >= 0) {
-            //If link does not contain '????' replace it with url path
-            var url = $(this).attr('href').replace('????', pathname)
-            url2 = url.replace('????', pathname)
-            
-            $(that).attr('href', url2) 
-            //How to carry this through two nested statements http://stackoverflow.com/questions/1043556/how-can-i-keep-the-context-of-this-in-jquery
-
-        } else {
-            //If link does not contain '????' do nothing
-
-        }
-    });
-  });
 
 
 .row
