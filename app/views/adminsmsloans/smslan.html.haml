@@ -9,24 +9,46 @@
   .span10
     .row-fluid
       .span6
-        .span3.best-title
+        .span6.best-title
           %h2.fonts.center-element2 Bästa SMSlånet
-        .span3.best.negative-topbuffer-best
+    .row-fluid.best
+      .span4
+        - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+        %a{:href => epi2, :target => "_blank"}
+          %img{:alt => "Ferratum", :src => "ferratum_image2.png"}
+          // %img.mobile-fix-best-logos{:alt => "Ferratum", :src => "ferratum_image2.png"}
+      .span3
+        %p.white2.fonts.top-buffer-fix Ferratum erbjuder billigaste lånen i vår jämförelse.
+        %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+        %p.white2.fonts
+      .span3
+        .center-element2
           - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-          %a{:href => epi2, :target => "_blank"}
-            %img.mobile-fix-best-logos{:alt => "Ferratum", :src => "ferratum_image2.png"}
+          .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+
+
 
 .row-fluid.mobile
+  .span1
   .span10
     .row-fluid
       .span6
-        .span3.best-title
-          %h2.fonts.center-element2 Personlig ränta
-        .span3.best.negative-topbuffer-best
+        .span6.best-title
+          %h2.fonts.center-element2 Bästa SMSlånet
+    .row-fluid.best
+      .span4
+        - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+        %a{:href => epi2, :target => "_blank"}
+          //%img.mobile-fix-best-logos{:alt => "Frogtail", :src => "frogtail_image.png"}
+          %img{:alt => "Frogtail", :src => "frogtail_image.png"}
+      .span3
+        %p.white2.fonts.top-buffer-fix Ferratum erbjuder billigaste lånen i vår jämförelse.
+        %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+        %p.white2.fonts
+      .span3
+        .center-element2
           - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-          %a{:href => epi2, :target => "_blank"}
-            %img.mobile-fix-best-logos{:alt => "Frogtail", :src => "frogtail_image.png"}
-
+          .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
 // Desktop/tables
 .row-fluid.desktop.top-buffer
@@ -34,10 +56,10 @@
   .span10
     .row-fluid
       .span2
-      .span4.best-title
+      .span4.fonts.best-title.best-title-left
         %h2.center-element2 Bästa SMSlånet
       .span4.best-title
-        %h2.center-element2 Personlig ränta
+        %h2.fonts.center-element2 Personlig ränta
       .span1
   .span1
 .row-fluid.desktop.bottom-buffer
@@ -45,21 +67,33 @@
   .span10
     .row-fluid
       .span2
-      .span4.best
+      .span4.best.best-left
         - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
         %a{:href => epi2, :target => "_blank"}
           %img.mobile-fix33{:alt => "Ferratum", :src => "ferratum_image2.png"}
-
+        %p.white2.fonts.mobile-fix34 Ferratum erbjuder billigaste lånen i vår jämförelse.
+        %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+        %p.white2.fonts
+        .center-element2
+          - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+          .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
       .span4.best
         - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
         %a{:href => epi2, :target => "_blank"}
           %img.mobile-fix33{:alt => "Frogtail", :src => "frogtail_image2.png"}
+        %p.white2.fonts.mobile-fix34 Personlig ränta bestäms och kostnaden syns medan ansökan behandlas.
+        %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+        .center-element2
+          - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+          .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
       .span1
   .span1
 
 
-
+.row-fluid
+  .center-element2
+    %h2.fonts.bold-text.topplistan.top-buffer2 Topplistan
 .row-fluid
   .span2
   .span8.smsloaninterface
@@ -126,23 +160,19 @@
   .row
     .scrollToTop Scrolla till toppen
 
-
-  .row-fluid
-    .center-element2
-      %h2 Topplistan
   .row-fluid
     .span2.negative-buffer-mobile
     .span8
       .row-fluid.top-buffer.row-padding-fix.desktop
         .span1
         .span2
-          %p.bold-text Långivare
+          %p.bold-text.fonts Långivare
         .span2
-          %p.bold-text Lånebelopp
+          %p.bold-text.fonts Lånebelopp
         .span3
-          %p.bold-text Övrig info
+          %p.bold-text.fonts Övrig info
         .span2
-          %p.bold-text Krav
+          %p.bold-text.fonts Krav
         .span1
 
 
@@ -158,17 +188,17 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Ferratum", :src => "ferratum_image.png"}
         .span2.top-buffer-mobile
-          %p 500 - 15000 kr
+          %p.fonts 500 - 15000 kr
         .span3
-          %p Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+          %p.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 21 år
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 21 år
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
 
 
@@ -180,18 +210,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p 50 - 16000 kr
+          %p.fonts 50 kr - 16000 kr
         .span3
-          %p Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+          %p.fonts Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 18 år
-          %p.lock2-toplist Ingen UC
-          %p.lock2-toplist Inga anmärkningar
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 18 år
+          %p.fonts.lock2-toplist Ingen UC
+          %p.fonts.lock2-toplist Inga anmärkningar
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=195006628&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
 
 
@@ -203,18 +233,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p 3000 - 20 000 kr
+          %p.fonts 3000 kr - 20 000 kr
         .span3
-          %p Erbjuder personlig ränta
+          %p.fonts Erbjuder personlig ränta
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 18 år
-          %p.lock2-toplist Inga anmärkningar
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 18 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=1080912921&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -224,18 +254,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Säker Finans", :src => "sakerfinans_image.png", :style => "height:50px"}/
         .span2.top-buffer-mobile
-          %p 1000 kr - 20 000 kr
+          %p.fonts 1000 kr - 20 000 kr
         .span3
-          %p Låna upp till 13 000 kr som ny kund eller 20 000 kr som återvändande kund.
+          %p.fonts Låna upp till 13 000 kr som ny kund eller 20 000 kr som återvändande kund.
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 20 år
-          %p.lock2-toplist Inga anmärkningar
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 20 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=1072000706&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -245,18 +275,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Onea", :src => "onea_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p 500 - 30 000 kr
+          %p.fonts 500 kr - 30 000 kr
         .span3
-          %p Flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
+          %p.fonts Flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 20 år
-          %p.lock2-toplist Inga anmärkningar
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 20 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=811717810&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -266,18 +296,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Everyday+", :src => "everydayplus_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p 3000 kr - 15 000 kr
+          %p.fonts 3000 kr - 15 000 kr
         .span3
-          %p 
+          %p.fonts 
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 20 år
-          %p.lock2-toplist Inga anmärkningar
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 20 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=1061452258&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
   .row-fluid
     .span2.negative-buffer-mobile
@@ -287,18 +317,18 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Kreditkontot", :src => "kreditkontot_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p 3000 - 20 000 kr
+          %p.fonts 3000 kr - 20 000 kr
         .span3
-          %p 
+          %p.fonts 
         .span2
-          %p.demands-mobile Krav
-          %p.lock2-toplist 18 år
-          %p.lock2-toplist Inga anmärkningar
-          %p.lock2-toplist Ingen UC
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 18 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
         .span1
           .center-element2.bottom-buffer
             - epi2 = "https://track.adtraction.com/t/t?a=1063067901&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
-            .btn.btn-success.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
 
 

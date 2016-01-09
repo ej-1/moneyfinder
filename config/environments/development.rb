@@ -1,7 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.assets.precompile << 'application.js'
-  config.assets.precompile << 'application.css'
+  # config.assets.precompile << 'application.js'
+  # config.assets.precompile << 'application.css'
+  config.assets.enabled = false
+  
   config.action_controller.perform_caching = true
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

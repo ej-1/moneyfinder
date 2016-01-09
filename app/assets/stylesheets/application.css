@@ -46,6 +46,16 @@ body {
 }
 
 
+.navbar-default { /* Overriding bootstrap */
+  background-color: #409624 !important;
+  border-color: #409624 !important;
+}
+
+.navbar .btn { /* Overriding bootstrap */
+  background-color: #5BBE3A !important;
+}
+
+
 
 .navbar-default .navbar-toggle { /* Overriding bootstrap */
   margin-right: 31px;
@@ -148,6 +158,11 @@ tbody th {
 
 .top-buffer2{
   padding-top: 50px;
+}
+
+
+.top-buffer2{
+  padding-top: 80px;
 }
 
 .top-buffer-small{
@@ -401,6 +416,12 @@ Media queries
 
 @media (min-width: 1200px) {
 
+  .mobile-fix33 {
+    margin-top: -40px;
+    padding-bottom: 10px;
+
+  }
+
   .demands-mobile{
     display: none;
   }
@@ -598,10 +619,16 @@ Media queries
 @media (min-width: 980px) and (max-width: 1200px) {
 
   .mobile-fix33 {
+    margin-top: -40px;
     width:22% !important;
     position: absolute !important;
     margin-left: -33px;
   }
+
+  .mobile-fix34 {
+    margin-top: 40px;
+  }
+
 
   .demands-mobile{
     display: none;
@@ -773,10 +800,37 @@ Media queries
 
 @media (min-width: 768px) and (max-width: 979px) {
 
+  .best-title{
+    width: 320px !important;
+
+  }
+
+  .best-title-left{
+    margin-left: -133px !important;
+
+  }
+
+  .best{
+    width: 320px !important;
+
+  }
+
+  .best-left{
+    margin-left: -133px !important;
+
+  }
+
+
   .mobile-fix33 {
-    width:25% !important;
+    margin-top: -40px;
+    width: 230px !important;
     position: absolute !important;
-    margin-left: -51px;
+    margin-left: -15px;
+    /* margin-left: -51px;; */
+  }
+
+  .mobile-fix34 {
+    margin-top: 40px;
   }
 
   .desktop {
@@ -1040,6 +1094,10 @@ Media queries
 
 
 @media (min-width: 481px) and (max-width: 767px) {
+
+  .top-buffer-fix {
+    margin-top: 90px;
+  }
 
   .mobile-fix-best-logos {
     padding-left: 14%;
@@ -2096,6 +2154,7 @@ table.ex1 th {
 }
 
 .navbar-brand {
+  color: #fff !important;
   font-size: 15px;
   margin-left: -19px;
   margin-top: 11px;
@@ -2478,18 +2537,22 @@ SIMPLIFIED
 */
 
 .best-title{
-  background-color: #3dc033;
+  /* background-color: #3dc033;*/
+  background-color: #409624;
   color: #fff;
   border-radius: 5px;
 }
 
 .best{
-  background-color: rgb(117, 244, 75);;
+  background-color: rgb(91, 190, 58);
   border-radius: 5px;
   padding: 60px;
-  height: 200px;
+  height: 300px;
 }
 
+.topplistan{
+  color: #409624;
+}
 
 
 #table14d tr {
@@ -2543,6 +2606,13 @@ SIMPLIFIED
 
 }
 
+.logo-credits{
+  color: #B4B4B4;
+}
+
+.logo-credits a{
+  color: #B4B4B4;
+}
 
 table tr:nth-child(odd) {
   background-color: #E0E0E0;
@@ -2602,7 +2672,7 @@ table tr:nth-child(even) {
 }
 
 .navbar .btn {
-  background-color: #D2D2D2;
+  background-color: #5BCB36;
 }
 
 .mobile_demands_top {
