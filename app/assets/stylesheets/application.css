@@ -48,17 +48,30 @@ body {
 
 .navbar-default { /* Overriding bootstrap */
   background-color: #409624 !important;
-  border-color: #409624 !important;
+  color: #409624 !important;
 }
 
 .navbar .btn { /* Overriding bootstrap */
   background-color: #5BBE3A !important;
 }
 
+.navbar .nav > li {
+  margin-top: -36px;
+}
+
+.navbar .nav {
+  margin-top: 26px !important;
+}
 
 
 .navbar-default .navbar-toggle { /* Overriding bootstrap */
   margin-right: 31px;
+  background-color: #5BBE3A !important;
+  border-color: #409624 !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #409624 !important;
 }
 
 .logo { /* Overriding bootstrap */
@@ -1095,6 +1108,10 @@ Media queries
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+  .best {
+    margin-top: -10px;
+  }
+
   .top-buffer-fix {
     margin-top: 90px;
   }
@@ -1318,6 +1335,10 @@ Media queries
 
 
 @media (max-width: 480px) {
+
+  .best {
+    margin-top: -10px;
+  }
 
   .minimize {
     margin-top: -10px;
