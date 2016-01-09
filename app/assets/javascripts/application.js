@@ -46,7 +46,10 @@ $(document).ready(function() {
         $(".minimize").click(function(event) {
             // check if window is small enough so dropdown is created
             $(".toggle").is(":visible")
-                $(".navbar-collapse").toggle();
+            $(".navbar-collapse").toggle();
+              $('html, body').animate({
+                  scrollTop: $("#div_id").offset().top
+              }, 500);
 
         });
 
