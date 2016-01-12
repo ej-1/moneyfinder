@@ -63,15 +63,15 @@
             <span class="icon-bar"></span>                        
           </button>
           <img class="logo" src="new_logo.png" alt="M" height="50" width="50">
-          <a class="navbar-brand" href="smslan">Moneylabs.se</a>
+          <a class="navbar-brand fonts" href="smslan">Moneylabs.se</a>
         </div>
         <div class="navbar-a-fix">
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="smslan">
-              <%= submit_tag "Topplistan", class: 'btn' %>
+              <%= submit_tag "Topplistan", class: 'btn fonts' %>
             </a></li>
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["1000 kr", "2"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -79,7 +79,7 @@
               <% end %>
             </a></li>
 
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["3000 kr", "4"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -87,7 +87,7 @@
               <% end %>
             </a></li>
 
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["5000 kr", "6"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -95,7 +95,7 @@
               <% end %>
             </a></li>
 
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["10000 kr", "11"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -103,7 +103,7 @@
               <% end %>
             </a></li>
 
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["15000 kr", "12"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -111,7 +111,7 @@
               <% end %>
             </a></li>
 
-            <li class="minimize"><a href="smslan">
+            <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["15000 kr", "13"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
@@ -137,15 +137,15 @@
         <%= yield %>
 
       </div>
-      <hr>
     <div class="application-field">
 
-
+      <div class="row-fluid">
       <div class="footer span12">
-        <p>&copy; Moneylabs.se 2014-2015 All rights reserved</p>
+        <p class="white2">&copy; Moneylabs.se 2014-2015 All rights reserved</p>
 
         <div class="logo-credits">
         Searching,Science graphics by <a href="http://www.freepik.com/">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a>
+        </div>
         </div>
 
       </div>

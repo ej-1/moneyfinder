@@ -11,7 +11,22 @@
 body {
   padding-top: 20px;
   padding-bottom: 40px;
-  max-width: 98%;
+  max-width: 100%;
+
+  background: transparent url("/gossipblur.png");
+  background-size: 128%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.footer{
+  background-color: #409624;
+  height: 100px;
+  margin-bottom: -40px;
+  width: 116% !important;
+  margin-left: -20px !important;
+  padding-left: 30px;
+  padding-right: 50px;
 }
 
 /* Custom container */
@@ -49,6 +64,7 @@ body {
 .navbar-default { /* Overriding bootstrap */
   background-color: #409624 !important;
   color: #409624 !important;
+  border-color: #409624 !important;
 }
 
 .navbar .btn { /* Overriding bootstrap */
@@ -174,7 +190,7 @@ tbody th {
 }
 
 
-.top-buffer2{
+.top-buffer3{
   padding-top: 80px;
 }
 
@@ -820,6 +836,23 @@ Media queries
 
 @media (min-width: 768px) and (max-width: 979px) {
 
+
+
+  .smsloaninterface {
+    width: 95% !important;
+  }
+
+
+  .top-list-item-odd {
+    width: 95% !important;
+    height: 150px !important;
+  }
+
+  .top-list-item-even {
+    width: 95% !important;
+    height: 150px !important;
+  }
+
   .best-title{
     width: 320px !important;
 
@@ -1115,6 +1148,25 @@ Media queries
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+  .questions-expander{
+  width: 117% !important;
+  margin-left: -20px !important;
+  padding-left: 15px;
+  padding-right: 55px;
+  }
+
+  body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    max-width: 98%;
+
+    background: transparent url("/gossipblur.png");
+    background-size: 200% !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: -300px;
+  }
+
   .best {
     margin-top: -10px;
   }
@@ -1139,10 +1191,6 @@ Media queries
 
   .negative-buffer-mobile{
     margin-top: -30px;
-  }
-
-  .negative-buffer-mobile-4{
-    margin-top: -120px;
   }
 
   .center-element3 {
@@ -1342,6 +1390,25 @@ Media queries
 
 
 @media (max-width: 480px) {
+
+  .questions-expander{
+    width: 117% !important;
+    margin-left: -20px !important;
+    padding-left: 15px;
+    padding-right: 55px;
+  }
+
+  body {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    max-width: 98%;
+
+    background: transparent url("/gossipblur.png");
+    background-size: 250% !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: -200px 0px;
+  }
 
   .best {
     margin-top: -10px;
@@ -1824,7 +1891,7 @@ table th {
   /* color: rgba(150, 201, 88, 1); */
   color: rgba(144, 194, 85, 1);
   /* original background-color: #9BCC5F; */
-  background-color: rgb(144, 194, 85);
+  background-color: #5BBE3A;
   padding-top: 15px;
   padding-bottom: 2px;
   padding-left: 15px;
@@ -1957,7 +2024,8 @@ h1 {
 
 .h2-hulk {
   font-family: 'Open Sans', sans-serif;
-  color: #86B64D;
+  /*color: #86B64D;*/
+  color: #38921A;
 }
 
 .h2-hulk-bold {
@@ -2078,7 +2146,12 @@ table th {
 }
 
 .thebiggreyarea{
-  
+  background-color: #fff;
+  /* background-color: rgba(121, 128, 127, 0.2);*/
+}
+
+.glossyblack{
+  background-color: rgba(0, 0, 0, 0.58);
   /* background-color: rgba(121, 128, 127, 0.2);*/
 }
 
@@ -2578,8 +2651,10 @@ SIMPLIFIED
   height: 300px;
 }
 
+
+
 .topplistan{
-  color: #409624;
+  /* color: #409624;*/
 }
 
 
@@ -2636,6 +2711,7 @@ SIMPLIFIED
 
 .logo-credits{
   color: #B4B4B4;
+  font-size: 9px;
 }
 
 .logo-credits a{
@@ -2643,35 +2719,40 @@ SIMPLIFIED
 }
 
 table tr:nth-child(odd) {
-  background-color: #E0E0E0;
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 table tr:nth-child(even) {
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 
 .mobile_tr:nth-child(odd) {
-  background-color: #E0E0E0;
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 3px;
   padding: 10px;
 }
 
 .mobile_tr:nth-child(even) {
+  background-color: #fff;
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 10px;
   margin-bottom: 30px;
 }
 
 .top-list-item-odd {
-  background-color: #E0E0E0;
-  border-radius: 5px;
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 .top-list-item-even {
-
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 3px;  
 }
 
 .lock {
@@ -2723,6 +2804,13 @@ table tr:nth-child(even) {
   margin-top: -15px !important;
 }
 
+.negative-topbuffer-general {
+  margin-top: -15px !important;
+}
+
+.negative-bottombuffer{
+  margin-bottom: -40px;
+}
 
 .btn-large a{
   color: #fff;
