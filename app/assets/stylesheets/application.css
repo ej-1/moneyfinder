@@ -17,6 +17,7 @@ body {
   background-size: 128%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  z-index: -1;
 }
 
 .footer{
@@ -1170,6 +1171,7 @@ Media queries
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: -300px;
+    z-index: -1;
   }
 
   .best {
