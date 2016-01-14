@@ -69,13 +69,13 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="smslan">
-              <%= submit_tag "Topplistan", class: 'btn fonts' %>
+              <%= submit_tag "Topplistan", class: 'btn overwrite-btn fonts' %>
             </a></li>
             <li class="minimize fonts"><a href="smslan">
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["1000 kr", "2"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 1000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 1000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
@@ -83,7 +83,7 @@
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["3000 kr", "4"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 3000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 3000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
@@ -91,7 +91,7 @@
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["5000 kr", "6"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 5000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 5000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
@@ -99,7 +99,7 @@
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["10000 kr", "11"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 10000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 10000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
@@ -107,7 +107,7 @@
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["15000 kr", "12"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 15000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 15000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
@@ -115,7 +115,7 @@
               <%= form_tag smslan_path, :method => "get", id: "search_form_dropdown", remote: true do %>
                 <%= select_tag :search1, options_for_select([["14 dagar", "1",], ["21 dagar", "2"], ["30 dagar", "3"], ["45 dagar", "4"], ["60 dagar", "5"], ["90 dagar", "6"], ["1 år", "7"]], params[:search1]), :class => "smsdropdown hidden-smsdropdown", :prompt => "Välj löptid på lånet" %>
                 <%= select_tag :search2, options_for_select([["15000 kr", "13"]], params[:search2]), :class => "smsdropdown hidden-smsdropdown" %>
-                <%= submit_tag "Låna 20000 kr", class: 'btn' %>
+                <%= submit_tag "Låna 20000 kr", class: 'btn overwrite-btn' %>
               <% end %>
             </a></li>
 
