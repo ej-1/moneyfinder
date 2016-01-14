@@ -20,7 +20,7 @@
       .span3
         %p.white2.fonts.top-buffer-fix Ferratum erbjuder billigaste lånen i vår jämförelse.
         %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-        %p.white2.fonts
+        %p.white2.fonts Direkt utbetalning
       .span3
         .center-element2
           - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
@@ -73,7 +73,7 @@
           %img.mobile-fix33{:alt => "Ferratum", :src => "ferratum_image2.png"}
         %p.white2.fonts.mobile-fix34 Ferratum erbjuder billigaste lånen i vår jämförelse.
         %p.white2.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
-        %p.white2.fonts
+        %p.white2.fonts Direkt utbetalning
         .center-element2
           - epi2 = "https://track.adtraction.com/t/t?a=679911485&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
           .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
@@ -188,9 +188,11 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Ferratum", :src => "ferratum_image.png"}
         .span2.top-buffer-mobile
-          %p.fonts 500 - 15000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 500 - 15000 kr
         .span3
           %p.fonts Nya kunder kan låna upp till 5000 kr i 30 dagar utan ränta.
+          %p.fonts Direkt utbetalning
         .span2
           %p.fonts.demands-mobile Krav
           %p.fonts.lock2-toplist 21 år
@@ -210,9 +212,11 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Vivus", :src => "vivus_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p.fonts 50 kr - 16000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 50 kr - 16000 kr
         .span3
           %p.fonts Första gången kan du låna 50 kr - 6000 kr räntefritt i 30 dagar.
+          %p.fonts Direkt utbetalning
         .span2
           %p.fonts.demands-mobile Krav
           %p.fonts.lock2-toplist 18 år
@@ -233,7 +237,8 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Frogtail", :src => "frogtail_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p.fonts 3000 kr - 20 000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 3000 kr - 20 000 kr
         .span3
           %p.fonts Erbjuder personlig ränta
         .span2
@@ -254,7 +259,8 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Säker Finans", :src => "sakerfinans_image.png", :style => "height:50px"}/
         .span2.top-buffer-mobile
-          %p.fonts 1000 kr - 20 000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 1000 kr - 20 000 kr
         .span3
           %p.fonts Låna upp till 13 000 kr som ny kund eller 20 000 kr som återvändande kund.
         .span2
@@ -275,7 +281,8 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Onea", :src => "onea_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p.fonts 500 kr - 30 000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 500 kr - 30 000 kr
         .span3
           %p.fonts Flytta fram förfallodagen hur många gånger som helst då du betalar förlängningsavgiften.
         .span2
@@ -296,7 +303,8 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Everyday+", :src => "everydayplus_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p.fonts 3000 kr - 15 000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 3000 kr - 15 000 kr
         .span3
           %p.fonts 
         .span2
@@ -317,9 +325,10 @@
         .span2.negative-buffer-mobile
           %img{:alt => "Kreditkontot", :src => "kreditkontot_image.png", :style => "height:30px"}/
         .span2.top-buffer-mobile
-          %p.fonts 3000 kr - 20 000 kr
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 3000 kr - 20 000 kr
         .span3
-          %p.fonts 
+          %p.fonts Bestäm själv din månadskostnad.
         .span2
           %p.fonts.demands-mobile Krav
           %p.fonts.lock2-toplist 18 år
@@ -330,6 +339,28 @@
             - epi2 = "https://track.adtraction.com/t/t?a=1063067901&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
             .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
+  .row-fluid
+    .span2.negative-buffer-mobile
+    .span8.top-list-item-odd
+      .row-fluid.top-buffer.row-padding-fix
+        .span1
+        .span2.negative-buffer-mobile
+          %img{:alt => "Meddelandelån", :src => "meddelandelan_image.png", :style => "height:30px"}/
+        .span2.top-buffer-mobile
+          %p.fonts.demands-mobile Lånebelopp
+          %p.fonts.loanamount-mobile 5000 kr - 10 000 kr
+        .span3
+          %p.fonts Topp-position på Trustpilot. 
+          %p.fonts Utbetalning av lån även på kvällar och helger. Direkt utbetalning till Nordea och Handelsbanken
+        .span2
+          %p.fonts.demands-mobile Krav
+          %p.fonts.lock2-toplist 18 år
+          %p.fonts.lock2-toplist Inga anmärkningar
+          %p.fonts.lock2-toplist Ingen UC
+        .span1
+          .center-element2.bottom-buffer
+            - epi2 = "https://track.adtraction.com/t/t?a=1037149128&as=1090730078&t=2&tk=1&epi=" + @epi.to_s
+            .btn.btn-warning.btn-large= link_to "Ansök här", epi2, :target => "_blank" 
 
 
     .span2.negative-buffer-mobile

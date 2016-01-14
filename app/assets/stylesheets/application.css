@@ -1188,6 +1188,7 @@ Media queries
   }
 
   .demands-mobile{
+    display: none;
     font-weight: bold;
     margin-top: 5px;
   }
@@ -1397,6 +1398,12 @@ Media queries
 
 
 @media (max-width: 480px) {
+
+
+  .loanamount-mobile {
+    margin-top: -10px;
+  }
+
 
   .footer{
     width: 118% !important;
