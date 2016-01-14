@@ -2670,6 +2670,10 @@ SIMPLIFIED
   height: 300px;
 }
 
+.overwrite-btn{
+  color: #F9F9F9 !important;
+  text-shadow: none !important;
+}
 
 
 .topplistan{
