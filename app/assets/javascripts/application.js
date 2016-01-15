@@ -53,8 +53,10 @@ $(document).ready(function() {
 
         });
 
-
-
+        $(".anmarkning").hide();
+        $('.anmarkning_button').click(function(){
+          $(".anmarkning").slideToggle();
+        });
 
 
 
