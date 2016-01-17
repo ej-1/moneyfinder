@@ -34,8 +34,9 @@ Ratesfinder::Application.routes.draw do
   #get "smslan" => 'adminsmsloans#smslanfilter'
   get "transfer" => "layouts#transfer"
   get "gratislan" => 'adminsmsloans#gratislan'
-  get "smslan_anmarkning" => 'adminsmsloans#smslan_anmarkning'
 
+
+  get "smslan_kampanj:smslan,adgroup:anmarkningar" => 'adminsmsloans#smslan_anmarkning'
   get "smslan_kampanj:smslan,adgroup:jamfor" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:alder" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:belopp" => 'adminsmsloans#smslan'
@@ -43,10 +44,7 @@ Ratesfinder::Application.routes.draw do
   get "smslan_kampanj:smslan,adgroup:helg" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:bankid" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:direkt" => 'adminsmsloans#smslan'
-
   get "smslan_kampanj:smslan,adgroup:kredit" => 'adminsmsloans#smslan'
-
-  get "smslan_kampanj:smslan,adgroup:anmarkningar" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan_kampanj:smslan,adgroup:basta" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:billiga" => 'adminsmsloans#smslan'
   get "smslan_kampanj:smslan,adgroup:kronofogden" => 'adminsmsloans#smslan'
@@ -65,7 +63,7 @@ Ratesfinder::Application.routes.draw do
   get "smslan_kampanj:snabblan,adgroup:bankid" => 'adminsmsloans#smslan'
   get "smslan_kampanj:snabblan,adgroup:direkt" => 'adminsmsloans#smslan'
   get "smslan_kampanj:snabblan,adgroup:kredit" => 'adminsmsloans#smslan'
-  get "smslan_kampanj:snabblan,adgroup:anmarkningar" => 'adminsmsloans#smslan'
+  get "smslan_kampanj:snabblan,adgroup:anmarkningar" => 'adminsmsloans#smslan_anmarkning'
   get "smslan_kampanj:snabblan,adgroup:basta" => 'adminsmsloans#smslan'
   get "smslan_kampanj:snabblan,adgroup:billiga" => 'adminsmsloans#smslan'
   get "smslan_kampanj:snabblan,adgroup:kronofogden" => 'adminsmsloans#smslan'
@@ -83,7 +81,7 @@ Ratesfinder::Application.routes.draw do
   get "smslan_kampanj:mikrolan,adgroup:bankid" => 'adminsmsloans#smslan'
   get "smslan_kampanj:mikrolan,adgroup:direkt" => 'adminsmsloans#smslan'
   get "smslan_kampanj:mikrolan,adgroup:kredit" => 'adminsmsloans#smslan'
-  get "smslan_kampanj:mikrolan,adgroup:anmarkningar" => 'adminsmsloans#smslan'
+  get "smslan_kampanj:mikrolan,adgroup:anmarkningar" => 'adminsmsloans#smslan_anmarkning'
   get "smslan_kampanj:mikrolan,adgroup:basta" => 'adminsmsloans#smslan'
   get "smslan_kampanj:mikrolan,adgroup:billiga" => 'adminsmsloans#smslan'
   get "smslan_kampanj:mikrolan,adgroup:kronofogden" => 'adminsmsloans#smslan'
@@ -101,7 +99,7 @@ Ratesfinder::Application.routes.draw do
   get "smslan_kampanj:lan,adgroup:bankid" => 'adminsmsloans#smslan'
   get "smslan_kampanj:lan,adgroup:direkt" => 'adminsmsloans#smslan'
   get "smslan_kampanj:lan,adgroup:kredit" => 'adminsmsloans#smslan'
-  get "smslan_kampanj:lan,adgroup:anmarkningar" => 'adminsmsloans#smslan'
+  get "smslan_kampanj:lan,adgroup:anmarkningar" => 'adminsmsloans#smslan_anmarkning'
   get "smslan_kampanj:lan,adgroup:basta" => 'adminsmsloans#smslan'
   get "smslan_kampanj:lan,adgroup:billiga" => 'adminsmsloans#smslan'
   get "smslan_kampanj:lan,adgroup:kronofogden" => 'adminsmsloans#smslan'
