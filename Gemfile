@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3'
+
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'haml', '4.0'
@@ -21,7 +22,7 @@ gem 'actionpack-action_caching'
 #gem "paperclip", "~> 4.2"
 
 # Jquery UI is necessary for nice slider bars https://github.com/joliss/jquery-ui-rails
-gem 'jquery-ui-rails'
+
 
 #Creates an admin page for active record https://github.com/sferik/rails_admin#configuration
 gem 'rails_admin', '~> 0.6.5'
