@@ -222,7 +222,6 @@ DEPENDENCIES
   jquery-rails
   libv8
   pg
-  rails (= 4.1.4)
   rails_12factor
   rails_admin (~> 0.6.5)
   rake (~> 10.4.2)
