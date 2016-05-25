@@ -36,7 +36,7 @@ gem 'rails', '4.1.4'
 
 # I got this message in the terminal:  WARN  Could not determine content-length of response body. Set content-length of the response or set Response#chunked = true
 # ..so I added this http://stackoverflow.com/questions/9612618/warn-could-not-determine-content-length-of-response-body-set-content-length-of
-gem 'thin'
+#gem 'thin'
 
 # Added these lines because heroku told me to before uploading the app
 
