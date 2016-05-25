@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AdminsmsloansController < ApplicationController
   before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
   caches_page :smslan
