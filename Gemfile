@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+
 
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'haml', '4.0'

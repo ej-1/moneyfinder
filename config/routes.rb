@@ -35,6 +35,7 @@ Ratesfinder::Application.routes.draw do
   get "transfer" => "layouts#transfer"
   get "gratislan" => 'adminsmsloans#gratislan'
 
+  get "smslan" => 'adminsmsloans#smslan'
 
   get "smslan_kampanj:smslan,adgroup:anmarkningar" => 'adminsmsloans#smslan_anmarkning'
   get "smslan_kampanj:smslan,adgroup:jamfor" => 'adminsmsloans#smslan'
