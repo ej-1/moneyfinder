@@ -1,7 +1,7 @@
 class AdminsmsloansController < ApplicationController
-  before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
-  caches_page :smslan
-  caches_action :smslan
+  #before_action :set_smsloan, only: [:show, :edit, :update, :destroy]
+  #caches_page :smslan
+  #caches_action :smslan
   respond_to :html, :js
 
 
