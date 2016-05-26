@@ -1,3 +1,5 @@
+
+# encoding: utf-8
 class AdminmortgageloansController < ApplicationController
   before_action :set_mortgageloan, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_admin!
