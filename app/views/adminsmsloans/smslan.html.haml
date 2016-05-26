@@ -1360,8 +1360,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1386,8 +1387,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1412,8 +1414,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_3k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
                   %ul#horizontal-list
@@ -1440,8 +1443,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_3k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1468,8 +1472,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1494,8 +1499,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1520,8 +1526,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_4k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
                   %ul#horizontal-list
@@ -1548,8 +1555,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_4k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1577,8 +1585,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1603,8 +1612,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1629,9 +1639,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
-
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
                   %ul#horizontal-list
                     %li= @smsloanoverview2
@@ -1657,8 +1667,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1685,8 +1696,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1711,8 +1723,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.debtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1737,8 +1750,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_7k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
                   %ul#horizontal-list
@@ -1765,8 +1779,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_7k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1792,8 +1807,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1818,8 +1834,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1844,8 +1861,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_10k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
                   %ul#horizontal-list
@@ -1872,8 +1890,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_10k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1899,8 +1918,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1925,8 +1945,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_30d_5k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
@@ -1951,8 +1972,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_90d_15k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
 
 
                   %ul#horizontal-list
@@ -1979,8 +2001,9 @@
                           - @smsloanoverview2 = "(-)"
                         - else
                           - @changethis = number_to_currency(smsloan.newdebtor_loantime_1year_15k, locale: :fr, strip_insignificant_zeros: true)
-                          - @changethis2 = @changethis.chomp(" kr")
-                          - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
+                          - if @changethis.present?
+                            - @changethis2 = @changethis.chomp(" kr")
+                            - @smsloanoverview2 = "(" + @changethis2.to_s + ")"
                   %ul#horizontal-list
                     %li= @smsloanoverview2
                     %li= @smsloanoverview1
