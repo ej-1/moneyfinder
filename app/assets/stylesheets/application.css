@@ -2675,6 +2675,11 @@ SIMPLIFIED
   text-shadow: none !important;
 }
 
+.overwrite-btn-advanced{
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: none !important;
+}
 
 .topplistan{
   /* color: #409624;*/
